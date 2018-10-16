@@ -6,8 +6,12 @@ import lejos.hardware.Key;
 import lejos.hardware.Sound;
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.lcd.TextLCD;
+
 import lejos.hardware.motor.UnregulatedMotor;
 import lejos.hardware.port.MotorPort;
+
+import lejos.hardware.port.SensorPort;
+import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.utility.Delay;
 
 public class Marvin {
@@ -31,12 +35,18 @@ public class Marvin {
 	private void run() {
 		TextLCD display = brick.getTextLCD();
 		display.drawString("Welkom", 0, 3);
+
 		display.drawString("Team Charlie!", 0, 4);		
 		ColorSensorTester colorSensorTester = new ColorSensorTester();
 		colorSensorTester.test(this);
 		
 		Sound.buzz();
 		Sound.twoBeeps(); 
+
+		
+		TouchSensorTester touchSensorTester = new TouchSensorTester();
+		touchSensorTester.test(this);
+		
 		waitForKey(Button.ENTER);
 	}
 	
