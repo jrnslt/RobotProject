@@ -16,10 +16,10 @@ public class TouchSensorTester {
 		EV3TouchSensor touch = new EV3TouchSensor(SensorPort.S3);
      
 		TextLCD textLCD = marvin.brick.getTextLCD();
-		 textLCD.setAutoRefresh(false);
-		 textLCD.drawString("Touch mode", 1, 2);
+		textLCD.setAutoRefresh(false);
+		textLCD.drawString("Touch mode", 1, 2);
 
-		 Sound.beep();
+		Sound.beep();
 		 
 		SensorMode sensorMode = touch.getTouchMode();
 		float[] sample = new float[sensorMode.sampleSize()];
@@ -29,14 +29,14 @@ public class TouchSensorTester {
 	        long currentTime = System.currentTimeMillis();
 	        
 	        if (currentTime - lastTime > 1000) {
-		touch.fetchSample(sample, 0);
-	    textLCD.refresh();
-        textLCD.clear();
-		lastTime = currentTime;
-		for (int i= 0; i< sample.length;i++)	{
-			System.out.println(sample[i]);
-		}
-		
+				touch.fetchSample(sample, 0);
+			    textLCD.refresh();
+		        textLCD.clear();
+				lastTime = currentTime;
+				
+				for (int i= 0; i< sample.length;i++)	{
+					System.out.println(sample[i]);
+				}
 	        }
 		}
 	}

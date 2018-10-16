@@ -1,29 +1,21 @@
 package nl.hva.miw.robot.cohort13;
 
+import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.TextLCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
-//import ev3.exercises.library.ColorSensor;
+import lejos.robotics.Color;
 
 public class ColorSensorTester {
 	
-	
-	
-	
-	public void test(Marvin marvin) {
-	    /*
-	    Verschillende modes:
-	    	- RGB mode
-	    	- Red Mode
-	    	- Ambient Mode	
-	    */
-		
+	public void test(Marvin marvin) {		
 		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);	
 		TextLCD textLCD = marvin.brick.getTextLCD();
 		int testMode = 0;
 		long lastTime = 0;
+		int testCount = 0;
 		
 		//Test RGB Mode
 		colorSensor.setFloodlight(false);		
@@ -40,37 +32,91 @@ public class ColorSensorTester {
 	    float[] sampleRed = new float[sensorModeRed.sampleSize()];
 	    float[] sampleAmbient = new float[sensorModeAmbient.sampleSize()];
 	    
-	    while(testMode == 0) {	        
+	    boolean stop = false;
+	    
+	    while (!stop) {
 	        long currentTime = System.currentTimeMillis();
 	        
 	        if (currentTime - lastTime > 1000) {
-		        sensorModeRGB.fetchSample(sampleRGB, 0);
+	        	lastTime = currentTime;
 		        textLCD.refresh();
 		        textLCD.clear();
-	        	
-	        	lastTime = currentTime;
-	        
-		        float r = sampleRGB[0];
-		        float g = sampleRGB[1];
-		        float b = sampleRGB[2];
+		        testCount++;
 		        
-		        String sR = String.format("R: %.2f", r);
-		        String sG = String.format("G: %.2f", g);
-		        String sB = String.format("B: %.2f ", b);
-		        
-		        textLCD.drawString(sR, 1, 1);
-		        textLCD.drawString(sG, 1, 2);
-		        textLCD.drawString(sB, 1, 3);
-		        /*
-		        System.out.println("R: " + r + " G: " + g + " B: " + b);
-		        textLCD.drawString("R: " + sample[0], 1, 1);
-		        textLCD.drawString("G: " + sample[1], 1, 2);
-		        textLCD.drawString("B: " + sample[2], 1, 3);
-		        */
+	        	if (testMode == 0) {
+	        		colorSensor.setFloodlight(Color.WHITE);
+	        		
+			        sensorModeRGB.fetchSample(sampleRGB, 0);
+			    
+			        float r = sampleRGB[0];
+			        float g = sampleRGB[1];
+			        float b = sampleRGB[2];
+			        
+			        String sR = String.format("R: %.2f", r);
+			        String sG = String.format("G: %.2f", g);
+			        String sB = String.format("B: %.2f ", b);
+			        
+				    textLCD.drawString("RGB mode", 1, 1);
+			        textLCD.drawString(sR, 1, 2);
+			        textLCD.drawString(sG, 1, 3);
+			        textLCD.drawString(sB, 1, 4);  
+	        	} else if (testMode == 1) {		//Red Mode
+	        		colorSensor.setFloodlight(Color.RED);
+	        		colorSensor.setCurrentMode(sensorModeRed.getName());		
+	        		
+	        		sensorModeRed.fetchSample(sampleRed, 0);
+	        		
+			        float r = sampleRed[0];
+			        float g = sampleRed[1];
+			        float b = sampleRed[2];
+			        
+			        String sR = String.format("R: %.2f", r);
+			        String sG = String.format("G: %.2f", g);
+			        String sB = String.format("B: %.2f ", b);
+			        
+				    textLCD.drawString("Red mode", 2, 1);
+			        textLCD.drawString(sR, 1, 2);
+			        textLCD.drawString(sG, 1, 3);
+			        textLCD.drawString(sB, 1, 4);  
+	        	} else if (testMode == 2) {	//Ambient Mode
+	        		colorSensor.setFloodlight(false);
+	        		
+	        		
+	        		sensorModeAmbient.fetchSample(sampleAmbient, 0);
+	        		
+			        float r = sampleAmbient[0];
+			        float g = sampleAmbient[1];
+			        float b = sampleAmbient[2];
+			        
+			        String sR = String.format("R: %.2f", r);
+			        String sG = String.format("G: %.2f", g);
+			        String sB = String.format("B: %.2f ", b);
+			        
+				    textLCD.drawString("Ambient mode", 2, 1);
+			        textLCD.drawString(sR, 1, 2);
+			        textLCD.drawString(sG, 1, 3);
+			        textLCD.drawString(sB, 1, 4);  
+	        	}
 	        }
-	    }
-		
-        	
+	        
+	        if (testCount > 20) {
+	        	testCount = 0;
+	        	testMode++;
+	        	Button.LEDPattern(4);    // flash green led and
+	        	Sound.beep();
+	        }
+	        
+	        if (testMode > 2) {
+	        	stop = true;
+	        	colorSensor.close();
+	        }
+	    }  
+	    
+	    Button.LEDPattern(4);    // flash green led and
+	    Sound.buzz();
+	    textLCD.drawString("testing complete", 1, 1);
+	    Sound.beep();
+	    
 		/*
 		ColorSensor    color = new ColorSensor(SensorPort.S3);
 
