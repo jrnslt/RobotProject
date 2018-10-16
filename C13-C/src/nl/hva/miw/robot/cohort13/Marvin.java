@@ -5,6 +5,8 @@ import lejos.hardware.Button;
 import lejos.hardware.Key;
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.lcd.TextLCD;
+import lejos.hardware.port.SensorPort;
+import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.utility.Delay;
 
 public class Marvin {
@@ -29,6 +31,9 @@ public class Marvin {
 		
 		ColorSensorTester colorSensorTester = new ColorSensorTester();
 		colorSensorTester.test(this);
+		
+		TouchSensorTester touchSensorTester = new TouchSensorTester();
+		touchSensorTester.test(this);
 		
 		waitForKey(Button.ENTER);
 	}
