@@ -25,6 +25,10 @@ public class Marvin {
 		TextLCD display = brick.getTextLCD();
 		display.drawString("Welkom", 0, 3);
 		display.drawString("Team Charlie!", 0, 4);
+		
+		ColorSensorTester colorSensorTester = new ColorSensorTester();
+		colorSensorTester.test(this);
+		
 		waitForKey(Button.ENTER);
 	}
 	
