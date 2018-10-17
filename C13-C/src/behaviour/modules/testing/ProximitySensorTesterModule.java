@@ -16,7 +16,7 @@ public class ProximitySensorTesterModule extends TestModule {
 	@Override
 	public boolean execute() {
 		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
-		EV3IRSensor afstandTester = new EV3IRSensor(SensorPort.S1);
+		EV3IRSensor afstandTester = getMarvin().PROXIMITY_SENSOR;
 		final int HALF_SECOND = 500;
 	
 		final SampleProvider sp = afstandTester.getDistanceMode();

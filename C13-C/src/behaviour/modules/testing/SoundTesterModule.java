@@ -20,6 +20,7 @@ public class SoundTesterModule extends TestModule {
 		long lastTime = System.currentTimeMillis();
 		
 		while (lastTime - startTime < 10000) {
+			lastTime = System.currentTimeMillis(); 
 			int frequency = (int)(Math.sin(x) * 100);
 			Sound.playTone(frequency, 1, 50);
 			x += 0.1f;

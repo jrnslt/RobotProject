@@ -16,13 +16,9 @@ public class TouchSensorTesterModule extends TestModule{
 
 	@Override
 	public boolean execute() {  
-		EV3TouchSensor touchSensor = new EV3TouchSensor(SensorPort.S3);
+		EV3TouchSensor touchSensor = getMarvin().TOUCH_SENSOR;
 	 
 		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
-		textLCD.setAutoRefresh(false);
-	    textLCD.refresh();
-        textLCD.clear();
-		textLCD.drawString("Touch mode", 1, 2);
 		 
 		SensorMode sensorMode = touchSensor.getTouchMode();
 		float[] sample = new float[sensorMode.sampleSize()];
@@ -36,9 +32,11 @@ public class TouchSensorTesterModule extends TestModule{
 	        touchSensor.fetchSample(sample, 0);
 			
 			for (int i= 0; i < sample.length;i++)	{
+				textLCD.setAutoRefresh(false);
 			    textLCD.refresh();
 		        textLCD.clear();
-		        textLCD.drawString("" + sample[i], 1, 1);
+		        textLCD.drawString("Touch mode", 1, 1);
+		        textLCD.drawString("" + sample[i], 1, 2);
 			}
 	        
 	        Delay.msDelay(500);
