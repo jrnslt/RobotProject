@@ -46,11 +46,14 @@ public class DriveForwardTester implements HardwareInterface {
 	}
 	
 	
-public void turnLeft(Marvin marvin) {
+	public void turnLeft(Marvin marvin) {
 		
 		marvin.GROTE_MOTOR_LINKS.setSpeed(400);
 		marvin.GROTE_MOTOR_RECHTS.setSpeed(50);
 
+		
+	}
+	
 	public void driveFast(Marvin marvin) {
 
 //		motorB.setPower(100);

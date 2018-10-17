@@ -13,10 +13,11 @@ public class ColorSensorTester implements Calibrate, Runnable {
 	
 	public void test(Marvin marvin) {		
 		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);	
-		TextLCD textLCD = marvin.brick.getTextLCD();
+		TextLCD textLCD = marvin.getBrick().getTextLCD();
 		int testMode = 0;
 		long lastTime = 0;
 		int testCount = 0;
+		
 		
 		
 		//Test RGB Mode
