@@ -9,7 +9,7 @@ public class MultiThreadTesterModule extends TestModule {
 	}
 
 	@Override
-	public void execute() {
+	public boolean execute() {
 		Runnable runAble = (new Runnable() {
 			@Override
 			public void run() {
@@ -19,5 +19,7 @@ public class MultiThreadTesterModule extends TestModule {
 		});
 		
 		Thread t = new Thread();
+		
+		return true;
 	}
 }

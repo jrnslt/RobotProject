@@ -12,7 +12,7 @@ public class SoundTesterModule extends TestModule {
 	}
 
 	@Override
-	public void execute() {
+	public boolean execute() {
 		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		long startTime = System.currentTimeMillis();
 		float x = 0;
@@ -42,5 +42,7 @@ public class SoundTesterModule extends TestModule {
         textLCD.clear();
 	    textLCD.drawString("testing complete", 1, 1);
 	    Sound.beep();
+	    
+	    return true;
 	}
 }

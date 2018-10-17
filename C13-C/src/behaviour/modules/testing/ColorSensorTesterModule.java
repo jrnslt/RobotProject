@@ -16,7 +16,7 @@ public class ColorSensorTesterModule extends TestModule {
 	}
 
 	@Override
-	public void execute() {
+	public boolean execute() {
 		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);	
 		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		int testMode = 0;
@@ -189,5 +189,6 @@ public class ColorSensorTesterModule extends TestModule {
         Button.waitForAnyPress();
 		
 		*/
+	    return true;
 	}
 }

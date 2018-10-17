@@ -14,7 +14,7 @@ public class TouchSensorTesterModule extends TestModule{
 	}
 
 	@Override
-	public void execute() {
+	public boolean execute() {
 		
 		int testMode = 0;
 		long lastTime = 0;
@@ -45,5 +45,7 @@ public class TouchSensorTesterModule extends TestModule{
 				}
 	        }
 		}
+		
+		return true;
 	}
 }

@@ -13,7 +13,7 @@ public class ProximitySensorTesterModule extends TestModule {
 	}
 
 	@Override
-	public void execute() {
+	public boolean execute() {
 		EV3IRSensor afstandTester = new EV3IRSensor(SensorPort.S1);
 		final int HALF_SECOND = 500;
 		final int iteration_threshold = 50;		// 50milliseconde			
@@ -31,6 +31,8 @@ public class ProximitySensorTesterModule extends TestModule {
 			System.out.println("Distance: {}" + distanceValue);
 			Delay.msDelay(HALF_SECOND);	
 		}
+		
+		return true;
 	}
 }
 

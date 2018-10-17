@@ -16,11 +16,13 @@ public class DriveForwardTesterModule extends TestModule {
 	}
 
 	@Override
-	public void execute() {
+	public boolean execute() {
 		testDriveForward();
 		//driveSlow();
 		//driveFast()
 		//stopRobot();
+		
+		return true;
 	}
 	
 	public void testDriveForward() {
