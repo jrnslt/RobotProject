@@ -24,7 +24,7 @@ public class EndTestMessageModule extends BehaviourModule {
         textLCD.refresh();
         textLCD.clear();
 	    textLCD.drawString("test: " + testModuleName, 1, 1);
-	    textLCD.drawString("complete..", 1, 2);
+	    textLCD.drawString("complete...", 1, 2);
 	    Sound.beep();
 	    Delay.msDelay(500);
 		return true;
