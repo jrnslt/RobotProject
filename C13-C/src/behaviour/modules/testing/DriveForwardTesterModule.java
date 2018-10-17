@@ -8,9 +8,6 @@ import nl.hva.miw.robot.cohort13.Marvin;
 
 public class DriveForwardTesterModule extends TestModule {
 
-	private UnregulatedMotor motorB = new UnregulatedMotor(MotorPort.B);
-	private UnregulatedMotor motorC = new UnregulatedMotor(MotorPort.C);
-	
 	public DriveForwardTesterModule(Marvin marvin, String testModuleName) {
 		super(marvin, testModuleName);
 	}
@@ -26,6 +23,9 @@ public class DriveForwardTesterModule extends TestModule {
 	}
 	
 	public void testDriveForward() {
+		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
+		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
+		
 		motorB.setPower(50);
 		motorC.setPower(50);
 		motorB.forward();
@@ -37,7 +37,9 @@ public class DriveForwardTesterModule extends TestModule {
 	}
 
 	public void driveSlow() {
-
+		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
+		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
+		
 		motorB.setPower(20);
 		motorC.setPower(20);
 		motorB.forward();
@@ -49,6 +51,9 @@ public class DriveForwardTesterModule extends TestModule {
 	}
 
 	public void driveFast() {
+		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
+		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
+		
 		motorB.setPower(100);
 		motorC.setPower(100);
 		motorB.forward();
@@ -56,6 +61,9 @@ public class DriveForwardTesterModule extends TestModule {
 	}
 
 	public void stopRobot() {
+		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
+		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
+		
 		motorB.stop();
 		motorC.stop();
 		Sound.beepSequenceUp();

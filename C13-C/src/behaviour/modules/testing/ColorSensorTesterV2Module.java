@@ -31,7 +31,7 @@ public class ColorSensorTesterV2Module extends TestModule implements Calibrate{
 
 	@Override
 	public boolean execute() {
-		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);	
+		EV3ColorSensor colorSensor = getMarvin().COLOR_SENSOR;
 		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		int testMode = 0;
 		long lastTime = 0;
