@@ -34,7 +34,7 @@ public class TouchSensorTester {
 		        textLCD.clear();
 				lastTime = currentTime;
 				
-				for (int i= 0; i< sample.length;i++)	{
+				for (int i= 0; i < sample.length;i++)	{
 					System.out.println(sample[i]);
 				}
 	        }

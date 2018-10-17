@@ -7,6 +7,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.lejos.ev3.ldt.LEJOS_EV3_LIBRARY_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="Marvin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

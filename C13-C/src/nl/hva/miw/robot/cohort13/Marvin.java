@@ -41,6 +41,7 @@ public class Marvin {
 	private void run() {
 		TextLCD display = brick.getTextLCD();
 		display.drawString("Welkom", 0, 3);
+
 		display.drawString("Team Charlie!", 0, 4);		
 		
 		
@@ -74,9 +75,7 @@ public class Marvin {
 	
 		System.out.println("Test complete....");
 		
-		
-		
-		
+				
 		waitForKey(Button.ENTER);
 	}
 	
