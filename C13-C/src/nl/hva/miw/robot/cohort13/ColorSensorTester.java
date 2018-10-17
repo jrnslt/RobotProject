@@ -5,9 +5,9 @@ import lejos.hardware.lcd.TextLCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
-//import ev3.exercises.library.ColorSensor;
+import lejos.robotics.Calibrate;
 
-public class ColorSensorTester {
+public class ColorSensorTester implements Calibrate {
 	
 	
 	
@@ -54,9 +54,13 @@ public class ColorSensorTester {
 		        float g = sampleRGB[1];
 		        float b = sampleRGB[2];
 		        
-		        String sR = String.format("R: %.2f", r);
-		        String sG = String.format("G: %.2f", g);
-		        String sB = String.format("B: %.2f ", b);
+		        float r2 = r*100;
+		        float g2=  g*100;
+		        float b2 = b*100;
+		        
+		        String sR = String.format("R: %.3f", r2);
+		        String sG = String.format("G: %.3f", g2);
+		        String sB = String.format("B: %.3f ", b2);
 		        
 		        textLCD.drawString(sR, 1, 1);
 		        textLCD.drawString(sG, 1, 2);
@@ -142,5 +146,17 @@ public class ColorSensorTester {
         Button.waitForAnyPress();
 		
 		*/
+	}
+
+	@Override
+	public void startCalibration() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void stopCalibration() {
+		// TODO Auto-generated method stub
+		
 	}
 }

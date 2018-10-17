@@ -25,15 +25,19 @@ public class Marvin {
 	
 	private void run() {
 		TextLCD display = brick.getTextLCD();
-		display.drawString("Welkom", 0, 3);
-
-		display.drawString("Team Charlie!", 0, 4);
+//		display.drawString("Welkom", 0, 3);
+//
+//		display.drawString("Team Charlie!", 0, 4);
 		
-		ColorSensorTester colorSensorTester = new ColorSensorTester();
-		colorSensorTester.test(this);
+//		ColorSensorTester colorSensor = new ColorSensorTester();
+//		colorSensor.test(this);
 		
-		TouchSensorTester touchSensorTester = new TouchSensorTester();
-		touchSensorTester.test(this);
+		
+		ZwartEnWit colorSensorTesterV2 = new ZwartEnWit();
+		colorSensorTesterV2.test(this);
+		
+	//	TouchSensorTester touchSensorTester = new TouchSensorTester();
+	//	touchSensorTester.test(this);
 		
 		waitForKey(Button.ENTER);
 	}
