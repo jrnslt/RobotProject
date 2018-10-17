@@ -4,7 +4,7 @@ import behaviour.BehaviourAble;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 public abstract class BehaviourModule implements BehaviourAble {
-	private Marvin marvin;
+	protected Marvin marvin;
 	
 	public BehaviourModule(Marvin marvin) {
 		this.marvin = marvin;

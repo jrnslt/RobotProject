@@ -8,6 +8,7 @@ import lejos.hardware.Key;
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.lcd.TextLCD;
 import lejos.utility.Delay;
+import parcours.ParcoursModule;
 
 
 
@@ -20,7 +21,9 @@ public class Marvin  implements HardwareInterface  {
 		super(); 
 		brick = LocalEV3.get();
 		mainModule = new GroupModule(this);
-		mainModule.addModule(new TestProcedureModule(this));
+//		mainModule.addModule(new TestProcedureModule(this));
+		mainModule.addModule(new ParcoursModule(this));
+		
 	}
 	
 	public Brick getBrick() {
