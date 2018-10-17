@@ -8,6 +8,8 @@ import nl.hva.miw.robot.cohort13.Marvin;
 
 public class DriveForwardTesterModule extends TestModule {
 
+	//Marvin marvin;
+	
 	public DriveForwardTesterModule(Marvin marvin, String testModuleName) {
 		super(marvin, testModuleName);
 	}
@@ -23,13 +25,13 @@ public class DriveForwardTesterModule extends TestModule {
 	}
 	
 	public void testDriveForward() {
-		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
-		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
+		marvin.GROTE_MOTOR_LINKS.setSpeed(100);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(100);
 		
-		motorB.setPower(50);
-		motorC.setPower(50);
-		motorB.forward();
-		motorC.forward();
+	//	UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
+	//	UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
+
+	
 		/*
 		motorB.stop();
 		motorC.stop();
@@ -37,13 +39,17 @@ public class DriveForwardTesterModule extends TestModule {
 	}
 
 	public void driveSlow() {
-		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
-		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
 		
-		motorB.setPower(20);
-		motorC.setPower(20);
-		motorB.forward();
-		motorC.forward();
+		marvin.GROTE_MOTOR_LINKS.setSpeed(30);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(30);
+		
+//		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
+//		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
+//		
+//		motorB.setPower(20);
+//		motorC.setPower(20);
+//		motorB.forward();
+//		motorC.forward();
 		/*
 		motorB.stop();
 		motorC.stop();
@@ -51,23 +57,46 @@ public class DriveForwardTesterModule extends TestModule {
 	}
 
 	public void driveFast() {
-		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
-		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
 		
-		motorB.setPower(100);
-		motorC.setPower(100);
-		motorB.forward();
-		motorC.forward();
+		marvin.GROTE_MOTOR_LINKS.setSpeed(300);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(300);
+
+
+//		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
+//		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
+//		
+//		motorB.setPower(100);
+//		motorC.setPower(100);
+//		motorB.forward();
+//		motorC.forward();
 	}
 
 	public void stopRobot() {
-		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
-		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
 		
-		motorB.stop();
-		motorC.stop();
-		Sound.beepSequenceUp();
+		
+		marvin.GROTE_MOTOR_LINKS.stop();
+		marvin.GROTE_MOTOR_RECHTS.stop();
+//		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
+//		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
+//		
+//		motorB.stop();
+//		motorC.stop();
+//		Sound.beepSequenceUp();
 	}
+
+	
+	public void goLeft() {
+		marvin.GROTE_MOTOR_LINKS.setSpeed(20);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(100);
+	}
+
+
+	public void goRight() {
+		marvin.GROTE_MOTOR_LINKS.setSpeed(100);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(20);
+	}
+}
+	
 
 
 //	public void gaVoort() {
@@ -111,6 +140,6 @@ public class DriveForwardTesterModule extends TestModule {
 	}
 	*/
 	
-}
+
 
 

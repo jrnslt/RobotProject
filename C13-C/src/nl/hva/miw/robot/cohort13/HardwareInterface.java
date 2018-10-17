@@ -20,11 +20,11 @@ public interface HardwareInterface {
 
 	public static final RegulatedMotor GROTE_MOTOR_LINKS = Motor.A;
 	public static final RegulatedMotor GROTE_MOTOR_RECHTS = Motor.B;
-	public static final RegulatedMotor GROTE_MOTOR_3 = Motor.C;
+	public static final RegulatedMotor KLEINE_MOTOR_ARM = Motor.C;
 	public static final RegulatedMotor GROTE_MOTOR_4 = Motor.D;
 	
-	public static final UnregulatedMotor UNREGULATED_MOTOR_B = new UnregulatedMotor(MotorPort.B);
-	public static final UnregulatedMotor UNREGULATED_MOTOR_C = new UnregulatedMotor(MotorPort.C);
+	//public static final UnregulatedMotor UNREGULATED_MOTOR_B = new UnregulatedMotor(MotorPort.B);
+	//public static final UnregulatedMotor UNREGULATED_MOTOR_C = new UnregulatedMotor(MotorPort.C);
 
 	// TODO CHECKEN OF DIT WERKT	
 	public static final EV3ColorSensor COLOR_SENSOR = new EV3ColorSensor(SENSOR_PORT_1); 
