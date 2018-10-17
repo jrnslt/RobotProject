@@ -12,8 +12,9 @@ public class GroupModule extends BehaviourModule {
 		this.modules = new ArrayList<>();
 	}
 	
-	public void addModule(BehaviourModule module) {
+	public GroupModule addModule(BehaviourModule module) {
 		this.modules.add(module);
+		return this;
 	}
 	
 	@Override

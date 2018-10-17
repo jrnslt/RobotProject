@@ -4,8 +4,8 @@ import nl.hva.miw.robot.cohort13.Marvin;
 
 public class MultiThreadTesterModule extends TestModule {
 	
-	public MultiThreadTesterModule(Marvin marvin) {
-		super(marvin);
+	public MultiThreadTesterModule(Marvin marvin, String testModuleName) {
+		super(marvin, testModuleName);
 	}
 
 	@Override

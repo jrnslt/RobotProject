@@ -9,8 +9,8 @@ import nl.hva.miw.robot.cohort13.Marvin;
 
 public class TouchSensorTesterModule extends TestModule{
 	
-	public TouchSensorTesterModule(Marvin marvin) {
-		super(marvin);
+	public TouchSensorTesterModule(Marvin marvin, String testModuleName) {
+		super(marvin, testModuleName);
 	}
 
 	@Override

@@ -8,8 +8,8 @@ import nl.hva.miw.robot.cohort13.Marvin;
 
 public class ProximitySensorTesterModule extends TestModule {
 
-	public ProximitySensorTesterModule(Marvin marvin) {
-		super(marvin);
+	public ProximitySensorTesterModule(Marvin marvin, String testModuleName) {
+		super(marvin, testModuleName);
 	}
 
 	@Override

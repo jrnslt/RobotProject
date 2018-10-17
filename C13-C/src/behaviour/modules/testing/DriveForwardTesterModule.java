@@ -11,8 +11,8 @@ public class DriveForwardTesterModule extends TestModule {
 	private UnregulatedMotor motorB = new UnregulatedMotor(MotorPort.B);
 	private UnregulatedMotor motorC = new UnregulatedMotor(MotorPort.C);
 	
-	public DriveForwardTesterModule(Marvin marvin) {
-		super(marvin);
+	public DriveForwardTesterModule(Marvin marvin, String testModuleName) {
+		super(marvin, testModuleName);
 	}
 
 	@Override

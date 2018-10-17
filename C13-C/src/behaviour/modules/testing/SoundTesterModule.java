@@ -7,8 +7,8 @@ import nl.hva.miw.robot.cohort13.Marvin;
 
 public class SoundTesterModule extends TestModule {
 	
-	public SoundTesterModule(Marvin marvin) {
-		super(marvin);
+	public SoundTesterModule(Marvin marvin, String testModuleName) {
+		super(marvin, testModuleName);
 	}
 
 	@Override
@@ -36,12 +36,6 @@ public class SoundTesterModule extends TestModule {
 		Delay.msDelay(1000);
 		
 		Sound.systemSound(false, 4);
-		
-	    Sound.buzz();
-        textLCD.refresh();
-        textLCD.clear();
-	    textLCD.drawString("testing complete", 1, 1);
-	    Sound.beep();
 	    
 	    return true;
 	}

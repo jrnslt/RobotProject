@@ -12,8 +12,8 @@ import nl.hva.miw.robot.cohort13.Marvin;
 
 public class ColorSensorTesterV2Module extends TestModule implements Calibrate{
 	
-	public ColorSensorTesterV2Module(Marvin marvin) {
-		super(marvin);
+	public ColorSensorTesterV2Module(Marvin marvin, String testModuleName) {
+		super(marvin, testModuleName);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -83,7 +83,7 @@ public class ColorSensorTesterV2Module extends TestModule implements Calibrate{
 	        	        		
 	        		System.out.println("Kleur is wit");
 			        			       
-	        	}else { 
+	        	} else { 
 	        	       	
 	        		System.out.println("Kleur is Zwart");
 	        	} 
