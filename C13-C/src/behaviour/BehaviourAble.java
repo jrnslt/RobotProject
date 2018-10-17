@@ -1,5 +1,5 @@
 package behaviour;
 
 public interface BehaviourAble {
-	public void execute();
+	public boolean execute();
 }
