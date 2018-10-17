@@ -14,10 +14,12 @@ public class SoundTesterModule extends TestModule {
 	@Override
 	public boolean execute() {
 		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
-		long startTime = System.currentTimeMillis();
 		float x = 0;
 		
-		while (System.currentTimeMillis() - startTime < 15000) {
+		long startTime = System.currentTimeMillis();
+		long lastTime = System.currentTimeMillis();
+		
+		while (lastTime - startTime < 10000) {
 			int frequency = (int)(Math.sin(x) * 100);
 			Sound.playTone(frequency, 1, 50);
 			x += 0.1f;

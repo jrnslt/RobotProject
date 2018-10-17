@@ -20,11 +20,14 @@ public class TestProcedureModule extends GroupModule {
 				addModule(new ColorSensorTesterModule(marvin, colorSensorName)).
 				addModule(new EndTestMessageModule(marvin, colorSensorName))
 		);
+		/*
 		addModule(new GroupModule(marvin).
 				addModule(new StartTestMessageModule(marvin, colorRecognitionName)).
 				addModule(new ColorSensorTesterV2Module(marvin, colorRecognitionName)).
 				addModule(new EndTestMessageModule(marvin, colorRecognitionName))
 		);
+		*/
+		
 		addModule(new GroupModule(marvin).
 				addModule(new StartTestMessageModule(marvin, drivingName)).
 				addModule(new DriveForwardTesterModule(marvin, drivingName)).
