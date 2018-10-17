@@ -17,9 +17,11 @@ public class GroupModule extends BehaviourModule {
 	}
 	
 	@Override
-	public void execute() {
+	public boolean execute() {
 		for (BehaviourModule module : modules) {
 			module.execute();
 		}
+		
+		return true;
 	}
 }
