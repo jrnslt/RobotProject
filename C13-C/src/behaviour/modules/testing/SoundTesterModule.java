@@ -25,6 +25,27 @@ public class SoundTesterModule extends TestModule {
 			Sound.playTone(frequency, 1, 50);
 			x += 0.1f;
 		}
+
+		//
+		Sound.beep();
+		Sound.beepSequence();
+		Sound.beepSequenceUp();
+		Sound.buzz();
+		//Sound.playNote(inst, freq, len);
+		//Sound.playSample(file);
+		//Sound.playSample(file, vol)
+		//Sound.playSample(data, offset, len, freq, vol)
+		//Sound.playTone(freq, duration);
+		//Sound.playTone(aFrequency, aDuration, aVolume);\
+		//Sound.twoBeeps();
+		//Sound.ASCENDING
+		//Sound.BEEP
+		//Sound.DESCENDING
+		//Sound.DOUBLE_BEEP
+		//Sound.FLUTE
+		//Sound.PIANO
+		//Sound.VOL_MAX
+		//Sound.XYLOPHONE
 		
 		Sound.systemSound(false, 1);
 		
