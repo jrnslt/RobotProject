@@ -28,11 +28,14 @@ public class TestProcedureModule extends GroupModule {
 		);
 		*/
 		
+		/*
 		addModule(new GroupModule(marvin).
 				addModule(new StartTestMessageModule(marvin, drivingName)).
 				addModule(new DriveForwardTesterModule(marvin, drivingName)).
 				addModule(new EndTestMessageModule(marvin, drivingName))
 		);
+		*/
+		
 		addModule(new GroupModule(marvin).
 				addModule(new StartTestMessageModule(marvin, proximitySensorName)).
 				addModule(new ProximitySensorTesterModule(marvin, proximitySensorName)).
