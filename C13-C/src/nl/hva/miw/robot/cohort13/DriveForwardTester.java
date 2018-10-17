@@ -5,18 +5,20 @@ import lejos.hardware.Sound;
 import lejos.hardware.motor.UnregulatedMotor;
 import lejos.hardware.port.MotorPort;
 
-public class DriveForwardTester {
+public class DriveForwardTester implements HardwareInterface {
 
 	Marvin marvin;
-	UnregulatedMotor motorB = new UnregulatedMotor(MotorPort.B);
-	UnregulatedMotor motorC = new UnregulatedMotor(MotorPort.C);
+
 
 	public void testDriveForward(Marvin marvin) {
-
-		motorB.setPower(50);
-		motorC.setPower(50);
-		motorB.forward();
-		motorC.forward();
+		marvin.GROTE_MOTOR_LINKS.forward();
+		marvin.GROTE_MOTOR_RECHTS.forward();
+		
+		
+//		GROTE_MOTOR_2.forward();
+//		motorC.setPower(50);
+//		motorB.forward();
+//		motorC.forward();
 
 	
 		
@@ -27,31 +29,41 @@ public class DriveForwardTester {
 
 	}
 
-	public void driveSlow(Marvin marvin) {
+	public void turnRight(Marvin marvin) {
+		
+		marvin.GROTE_MOTOR_LINKS.setSpeed(400);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(50);
 
-		motorB.setPower(20);
-		motorC.setPower(20);
-		motorB.forward();
-		motorC.forward();
+//
+//		motorB.setPower(20);
+//		motorC.setPower(20);
+//		motorB.forward();
+//		motorC.forward();
 
 //		motorB.stop();
 //		motorC.stop();
 
 	}
+	
+	
+public void turnLeft(Marvin marvin) {
+		
+		marvin.GROTE_MOTOR_LINKS.setSpeed(400);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(50);
 
 	public void driveFast(Marvin marvin) {
 
-		motorB.setPower(100);
-		motorC.setPower(100);
-		motorB.forward();
-		motorC.forward();
+//		motorB.setPower(100);
+//		motorC.setPower(100);
+//		motorB.forward();
+//		motorC.forward();
 
 	}
 
 	public void stopRobot(Marvin marvin) {
-		motorB.stop();
-		motorC.stop();
-		Sound.beepSequenceUp();
+//		motorB.stop();
+//		motorC.stop();
+//		Sound.beepSequenceUp();
 
 	}
 

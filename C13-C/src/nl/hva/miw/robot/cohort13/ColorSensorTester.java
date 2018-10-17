@@ -6,9 +6,10 @@ import lejos.hardware.lcd.TextLCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
+import lejos.robotics.Calibrate;
 import lejos.robotics.Color;
 
-public class ColorSensorTester {
+public class ColorSensorTester implements Calibrate, Runnable {
 	
 	public void test(Marvin marvin) {		
 		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);	
@@ -16,6 +17,7 @@ public class ColorSensorTester {
 		int testMode = 0;
 		long lastTime = 0;
 		int testCount = 0;
+		
 		
 		//Test RGB Mode
 		colorSensor.setFloodlight(false);		
@@ -67,30 +69,35 @@ public class ColorSensorTester {
 	        		sensorModeRed.fetchSample(sampleRed, 0);
 	        		
 			        float r = sampleRed[0];
+			        float g = sampleRed[1];
+			        float b = sampleRed[2];
 			        
 			        String sR = String.format("R: %.2f", r);
+			        String sG = String.format("G: %.2f", g);
+			        String sB = String.format("B: %.2f ", b);
 			        
 				    textLCD.drawString("Red mode", 2, 1);
 			        textLCD.drawString(sR, 1, 2);
+			        textLCD.drawString(sG, 1, 3);
+			        textLCD.drawString(sB, 1, 4);  
 	        	} else if (testMode == 2) {	//Ambient Mode
 	        		colorSensor.setFloodlight(false);
+	        		
 	        		
 	        		sensorModeAmbient.fetchSample(sampleAmbient, 0);
 	        		
 			        float r = sampleAmbient[0];
-			        //float g = sampleAmbient[1];
-			        //float b = sampleAmbient[2];
+			        float g = sampleAmbient[1];
+			        float b = sampleAmbient[2];
 			        
 			        String sR = String.format("R: %.2f", r);
-			        
-			        //String sG = String.format("G: %.2f", g);
-			        //String sB = String.format("B: %.2f ", b);
+			        String sG = String.format("G: %.2f", g);
+			        String sB = String.format("B: %.2f ", b);
 			        
 				    textLCD.drawString("Ambient mode", 2, 1);
 			        textLCD.drawString(sR, 1, 2);
-			        textLCD.drawString("" + sampleAmbient.length, 1, 3);
-			        //textLCD.drawString(sG, 1, 3);
-			        //textLCD.drawString(sB, 1, 4);  
+			        textLCD.drawString(sG, 1, 3);
+			        textLCD.drawString(sB, 1, 4);  
 	        	}
 	        }
 	        
@@ -183,5 +190,22 @@ public class ColorSensorTester {
         Button.waitForAnyPress();
 		
 		*/
+	}
+
+	@Override
+	public void startCalibration() {
+		
+	}
+
+	@Override
+	public void stopCalibration() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 }

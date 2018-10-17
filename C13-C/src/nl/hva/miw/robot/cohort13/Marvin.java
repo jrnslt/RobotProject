@@ -14,7 +14,7 @@ import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.utility.Delay;
 
-public class Marvin {
+public class Marvin implements HardwareInterface {
 	
 	Brick brick;
 
@@ -41,8 +41,8 @@ public class Marvin {
 	private void run() {
 		TextLCD display = brick.getTextLCD();
 		display.drawString("Welkom", 0, 3);
-
 		display.drawString("Team Charlie!", 0, 4);		
+		display.drawString(brick.getName(), 0, 7);
 		
 		
 		
@@ -62,10 +62,8 @@ public class Marvin {
 		Sound.buzz();
 		Sound.twoBeeps(); 
 
+		driveForwardTester.turnRight(this);
 		
-		driveForwardTester.driveFast(this);
-		Sound.twoBeeps(); 
-		driveForwardTester.stopRobot(this);
 		
 		
 		TouchSensorTester touchSensorTester = new TouchSensorTester();
