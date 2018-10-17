@@ -1,13 +1,19 @@
-package nl.hva.miw.robot.cohort13;
+package behaviour.modules.testing;
 
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.TextLCD;
 import lejos.utility.Delay;
+import nl.hva.miw.robot.cohort13.Marvin;
 
-public class SoundTester {
+public class SoundTesterModule extends TestModule {
 	
-	public void test(Marvin marvin) {
-		TextLCD textLCD = marvin.brick.getTextLCD();
+	public SoundTesterModule(Marvin marvin) {
+		super(marvin);
+	}
+
+	@Override
+	public void execute() {
+		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		long startTime = System.currentTimeMillis();
 		float x = 0;
 		
