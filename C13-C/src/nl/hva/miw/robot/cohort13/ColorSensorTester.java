@@ -103,7 +103,7 @@ public class ColorSensorTester {
 	        
 	        if (testMode > 2) {
 	        	stop = true;
-	        	colorSensor.close();
+	        	//colorSensor.close();
 	        }
 	    }  
 	    
