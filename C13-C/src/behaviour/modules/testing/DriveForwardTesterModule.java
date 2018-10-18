@@ -82,6 +82,18 @@ public class DriveForwardTesterModule extends BehaviourModule implements Hardwar
 		marvin.groteMotorRechts.setSpeed(30);
 		
 	}
+	
+	
+	public void startDrive() {
+		marvin.groteMotorLinks.forward();
+		marvin.groteMotorRechts.forward();
+		marvin.groteMotorLinks.setSpeed(300);
+		marvin.groteMotorRechts.setSpeed(300);
+
+		
+	}
+	
+	
 
 	public void driveFast() {
 		

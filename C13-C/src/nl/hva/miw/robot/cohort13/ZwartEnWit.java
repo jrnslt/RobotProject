@@ -16,7 +16,6 @@ public class ZwartEnWit extends BehaviourModule implements Calibrate {
 
 	public ZwartEnWit(Marvin marvin) {
 		super(marvin);
-		// TODO Auto-generated constructor stub
 	}
 
 	public boolean execute() {

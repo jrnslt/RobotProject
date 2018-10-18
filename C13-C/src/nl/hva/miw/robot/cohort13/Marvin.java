@@ -41,9 +41,11 @@ public class Marvin  implements HardwareInterface  {
 		mainModule = new GroupModule(this);
 
 		mainModule.addModule(new WelcomeModule(this));
-		mainModule.addModule(new ZwartEnWit(this));
-		//mainModule.addModule(new ColorSensorTesterModule(this, "kleuren testen"));
-		//mainModule.addModule(new ParcoursModule(this));
+		mainModule.addModule(new ParcoursModule(this));
+		
+//		mainModule.addModule(new ZwartEnWit(this));
+		mainModule.addModule(new ColorSensorTesterModule(this, "kleuren testen"));
+		
 		
 	//	mainModule.addModule(new TestProcedureModule(this));
 	}
