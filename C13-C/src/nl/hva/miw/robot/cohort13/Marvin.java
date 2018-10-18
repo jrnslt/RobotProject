@@ -17,7 +17,6 @@ import lejos.hardware.sensor.EV3IRSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
-import parcours.ParcoursModule;
 
 public class Marvin {
 	private Brick brick;
