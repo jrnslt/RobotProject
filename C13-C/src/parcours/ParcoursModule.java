@@ -23,8 +23,7 @@ public class ParcoursModule extends BehaviourModule{
 		
 		while (gedrag != 0) {
 			
-			
-			
+					
 			if (gedrag == 3) {
 				testrij.testDriveForward();
 			} else if (gedrag == 2) {
