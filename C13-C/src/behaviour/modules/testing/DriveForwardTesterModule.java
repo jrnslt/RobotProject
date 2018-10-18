@@ -32,11 +32,12 @@ public class DriveForwardTesterModule extends TestModule implements HardwareInte
 	}
 	
 	public void testDriveForward() {
+
 		
-		marvin.GROTE_MOTOR_LINKS.forward();
-		marvin.GROTE_MOTOR_RECHTS.forward();
-		marvin.GROTE_MOTOR_LINKS.setSpeed(300);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(300);
+		marvin.groteMotorLinks.forward();
+		marvin.groteMotorRechts.forward();
+		marvin.groteMotorLinks.setSpeed(300);
+		marvin.groteMotorRechts.setSpeed(300);
 	
 		Delay.msDelay(5000);
 	
@@ -58,6 +59,7 @@ public class DriveForwardTesterModule extends TestModule implements HardwareInte
 
 
 		rotateLeftCentered();
+
 		
 		Delay.msDelay(5000);
 
@@ -74,127 +76,95 @@ public class DriveForwardTesterModule extends TestModule implements HardwareInte
 
 	public void driveSlow() {
 		
-		marvin.GROTE_MOTOR_LINKS.setSpeed(30);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(30);
+		marvin.groteMotorLinks.setSpeed(30);
+		marvin.groteMotorRechts.setSpeed(30);
 		
 	}
 
 	public void driveFast() {
 		
-		marvin.GROTE_MOTOR_LINKS.setSpeed(800);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(800);
+
+		marvin.groteMotorLinks.setSpeed(800);
+		marvin.groteMotorRechts.setSpeed(800);
+
+
 
 	}
 
 	public void stopRobot() {
 		
-		
-		marvin.GROTE_MOTOR_LINKS.stop();
-		marvin.GROTE_MOTOR_RECHTS.stop();
+		marvin.groteMotorLinks.stop();
+		marvin.groteMotorRechts.stop();
+
 
 	}
 
 	
 	public void goLeft() {
-		marvin.GROTE_MOTOR_LINKS.forward();
-		marvin.GROTE_MOTOR_RECHTS.forward();
-		marvin.GROTE_MOTOR_LINKS.setSpeed(200);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(400);
+
+		marvin.groteMotorLinks.forward();
+		marvin.groteMotorRechts.forward();
+		marvin.groteMotorLinks.setSpeed(200);
+		marvin.groteMotorRechts.setSpeed(400);
+
 	}
 
 
 	public void goRight() {
-		marvin.GROTE_MOTOR_LINKS.forward();
-		marvin.GROTE_MOTOR_RECHTS.forward();
-		marvin.GROTE_MOTOR_LINKS.setSpeed(400);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(200);
+
+		marvin.groteMotorLinks.forward();
+		marvin.groteMotorRechts.forward();
+		marvin.groteMotorLinks.setSpeed(400);
+		marvin.groteMotorRechts.setSpeed(200);
 	}
 	
 	
 	public void rotateLeft() {
-		marvin.GROTE_MOTOR_LINKS.forward();
-		marvin.GROTE_MOTOR_RECHTS.forward();
-		marvin.GROTE_MOTOR_LINKS.setSpeed(10);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(300);
+		marvin.groteMotorLinks.forward();
+		marvin.groteMotorRechts.forward();
+		marvin.groteMotorLinks.setSpeed(10);
+		marvin.groteMotorRechts.setSpeed(300);
 		
+
 	}
 	public void rotateRight() {
-		marvin.GROTE_MOTOR_LINKS.forward();
-		marvin.GROTE_MOTOR_RECHTS.forward();
-		marvin.GROTE_MOTOR_LINKS.setSpeed(300);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(10);
+		marvin.groteMotorLinks.forward();
+		marvin.groteMotorRechts.forward();
+		marvin.groteMotorLinks.setSpeed(300);
+		marvin.groteMotorRechts.setSpeed(10);
 	
 	}
 	
 	public void rotateFastLeft() {
-		marvin.GROTE_MOTOR_LINKS.setSpeed(0);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(800);
+		marvin.groteMotorLinks.setSpeed(0);
+		marvin.groteMotorRechts.setSpeed(800);
 }
 	
 	public void rotateFastRight() {
-		marvin.GROTE_MOTOR_LINKS.setSpeed(800);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(0);
+		marvin.groteMotorLinks.setSpeed(800);
+		marvin.groteMotorRechts.setSpeed(0);
 	
 	}
 	
 	public void rotateLeftCentered() {
-		marvin.GROTE_MOTOR_LINKS.backward();
-		marvin.GROTE_MOTOR_LINKS.setSpeed(800);
-		marvin.GROTE_MOTOR_RECHTS.forward();
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(800);
+		marvin.groteMotorLinks.backward();
+		marvin.groteMotorLinks.setSpeed(800);
+		marvin.groteMotorRechts.forward();
+		marvin.groteMotorRechts.setSpeed(800);
 		
 	}
 	
 	
 	public void rotateRightCentered() {
-		marvin.GROTE_MOTOR_RECHTS.backward();
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(800);
-		marvin.GROTE_MOTOR_LINKS.forward();
-		marvin.GROTE_MOTOR_LINKS.setSpeed(800);
+		marvin.groteMotorRechts.backward();
+		marvin.groteMotorRechts.setSpeed(800);
+		marvin.groteMotorLinks.forward();
+		marvin.groteMotorLinks.setSpeed(800);
 		
 	}
 }
 
-//	public void gaVoort() {
-//	
-//	}
-//
-//	public void gaLinks() {
-//		motorA.setPower(50);
-//		motorD.setPower(50);
-//		motorA.forward();
-//		motorD.backward();
-//	}
-//
-//	public void stop() {
-//		motorA.stop();
-//		motorD.stop();
-//	}
-	
-	/*
-	public void startMotor() {
-		
-		UnregulatedMotor motorB = new UnregulatedMotor(MotorPort.B);
-		UnregulatedMotor motorC = new UnregulatedMotor(MotorPort.C);
-        motorB.setPower(100);
-		motorC.setPower(50);
-		
-	    motorC.forward();
-      	motorB.forward();
-		Sound.twoBeeps(); 
-		
-//		
-//        UnregulatedMotor motorA = new UnregulatedMotor(MotorPort.A);
-//        UnregulatedMotor motorD = new UnregulatedMotor(MotorPort.D);
-//        motorA.setPower(100);
-//        motorD.setPower(100);
-//        motorA.forward();
-//        motorD.forward();
-	
-     
 
-	}
-	*/
 	
 
 

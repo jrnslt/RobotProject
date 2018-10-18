@@ -19,11 +19,11 @@ public class ColorSensorTesterModule extends TestModule {
 	@Override
 	public boolean execute() {
 
+
 		EV3ColorSensor colorSensor = marvin.colorSensorA;
 		
-		
-	
-		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
+
+		TextLCD textLCD = marvin.getBrick().getTextLCD();
 		int testMode = 1;
 		int testCount = 0;
 			

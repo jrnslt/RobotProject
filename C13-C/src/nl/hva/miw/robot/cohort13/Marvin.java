@@ -25,10 +25,12 @@ public class Marvin  implements HardwareInterface  {
 	public EV3IRSensor proximitySensor;
 	public EV3TouchSensor touchSensor;
 
-	public RegulatedMotor GROTE_MOTOR_LINKS;
-	public RegulatedMotor GROTE_MOTOR_RECHTS;
-	public RegulatedMotor KLEINE_MOTOR_ARM;
-	public RegulatedMotor GROTE_MOTOR_4;
+	public RegulatedMotor groteMotorLinks;
+	public RegulatedMotor groteMotorRechts;
+	public RegulatedMotor kleineMotorArm;
+	public RegulatedMotor groteMotor4;
+	
+	public SoundProducer soundProducer;
 	
 	public Marvin() {
 		super(); 
@@ -47,15 +49,15 @@ public class Marvin  implements HardwareInterface  {
 	}
 	
 	private void initInputOutput() {
-		colorSensorA = new EV3ColorSensor(SensorPort.S4);
-		colorSensorB = new EV3ColorSensor(SensorPort.S2);
 		proximitySensor = new EV3IRSensor(SensorPort.S1);
+		colorSensorB = new EV3ColorSensor(SensorPort.S2);
 		touchSensor = new EV3TouchSensor(SensorPort.S3);
-		
-		GROTE_MOTOR_LINKS = Motor.A;
-		GROTE_MOTOR_RECHTS = Motor.B;
-		KLEINE_MOTOR_ARM = Motor.C;
-		GROTE_MOTOR_4 = Motor.D;
+		colorSensorA = new EV3ColorSensor(SensorPort.S4);
+
+		groteMotorLinks = Motor.A;
+		groteMotorRechts = Motor.B;
+		kleineMotorArm = Motor.C;
+		groteMotor4 = Motor.D;
 	}
 	
 	public Brick getBrick() {
