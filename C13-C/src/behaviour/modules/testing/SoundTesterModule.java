@@ -1,4 +1,4 @@
-package behaviour.modules.testing.sound;
+package behaviour.modules.testing;
 
 import java.io.File;
 

@@ -18,7 +18,7 @@ public class ProximityAndSoundTesterModule extends BehaviourModule {
 	@Override
 	public boolean execute() {
 		SoundProducer soundProducer = new SoundProducer();
-		ProximitySensor proximitySensor = new ProximitySensor(getMarvin()); 
+		ProximitySensor proximitySensor = getMarvin().proximitySensor;
 		final TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		
 		long startTime = System.currentTimeMillis();
@@ -46,7 +46,7 @@ public class ProximityAndSoundTesterModule extends BehaviourModule {
 						
 						@Override
 						public void execute() {
-							double sigmoid = Utils.sigmoid(distance * 10, 100f);
+							double sigmoid = Utils.sigmoid(distance / 200f, 5f);
 							
 							// TODO Auto-generated method stub
 						    textLCD.refresh();

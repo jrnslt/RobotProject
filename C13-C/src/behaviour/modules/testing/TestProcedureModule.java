@@ -1,14 +1,13 @@
 package behaviour.modules.testing;
 
 import behaviour.modules.GroupModule;
-import behaviour.modules.testing.sound.BeepModule;
-import behaviour.modules.testing.sound.BeepSequenceModule;
-import behaviour.modules.testing.sound.BeepSequenceUpModule;
-import behaviour.modules.testing.sound.BuzzModule;
-import behaviour.modules.testing.sound.PlaySampleModule;
-import behaviour.modules.testing.sound.SinWaveModule;
-import behaviour.modules.testing.sound.SoundTesterModule;
-import behaviour.modules.testing.sound.SystemSoundModule;
+import behaviour.modules.sound.BeepModule;
+import behaviour.modules.sound.BeepSequenceModule;
+import behaviour.modules.sound.BeepSequenceUpModule;
+import behaviour.modules.sound.BuzzModule;
+import behaviour.modules.sound.PlaySampleModule;
+import behaviour.modules.sound.SinWaveModule;
+import behaviour.modules.sound.SystemSoundModule;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 
@@ -44,7 +43,7 @@ public class TestProcedureModule extends GroupModule {
 		//Console Module
 		addModule(new GroupModule(marvin).
 				addModule(new StartTestMessageModule(marvin, consoleName)).
-				addModule(new ConsoleTesterModule(marvin)).
+				addModule(new WaitForKeyModule(marvin)).
 				addModule(new EndTestMessageModule(marvin, consoleName))
 		).
 		
@@ -57,21 +56,19 @@ public class TestProcedureModule extends GroupModule {
 		//Sound
 		addModule(new GroupModule(marvin).
 				addModule(new StartTestMessageModule(marvin, soundName)).
-				addModule(new SoundTesterModule(marvin, soundName))
+				addModule(new SoundTesterModule(marvin, soundName)).
 				//addModule(new PlaySampleModule(marvin))
-				/*
-				addModule(new SinWaveModule(marvin)).
-				addModule(new BeepModule(marvin)).
-				addModule(new BeepSequenceModule(marvin)).
-				addModule(new BeepSequenceUpModule(marvin)).
-				addModule(new BuzzModule(marvin)).
-				addModule(new SystemSoundModule(marvin, 0)).
-				addModule(new SystemSoundModule(marvin, 1)).
-				addModule(new SystemSoundModule(marvin, 2)).
-				addModule(new SystemSoundModule(marvin, 3)).
-				addModule(new SystemSoundModule(marvin, 4)).
+				//addModule(new SinWaveModule(marvin)).
+				//addModule(new BeepModule(marvin)).
+				//addModule(new BeepSequenceModule(marvin)).
+				//addModule(new BeepSequenceUpModule(marvin)).
+				//addModule(new BuzzModule(marvin)).
+				//addModule(new SystemSoundModule(marvin, 0)).
+				//addModule(new SystemSoundModule(marvin, 1)).
+				//addModule(new SystemSoundModule(marvin, 2)).
+				//addModule(new SystemSoundModule(marvin, 3)).
+				//addModule(new SystemSoundModule(marvin, 4)).
 				addModule(new EndTestMessageModule(marvin, soundName))
-				*/
 		);	
 		
 		/*

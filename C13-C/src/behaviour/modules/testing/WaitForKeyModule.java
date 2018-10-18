@@ -5,9 +5,9 @@ import lejos.hardware.Button;
 import lejos.hardware.lcd.TextLCD;
 import nl.hva.miw.robot.cohort13.Marvin;
 
-public class ConsoleTesterModule extends BehaviourModule {
+public class WaitForKeyModule extends BehaviourModule {
 
-	public ConsoleTesterModule(Marvin marvin) {
+	public WaitForKeyModule(Marvin marvin) {
 		super(marvin);
 	}
 

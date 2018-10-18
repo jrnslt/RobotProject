@@ -1,4 +1,4 @@
-package behaviour.modules.testing.sound;
+package behaviour.modules.sound;
 
 import behaviour.modules.BehaviourModule;
 import lejos.hardware.Sound;

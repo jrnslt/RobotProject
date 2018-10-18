@@ -20,8 +20,6 @@ public class ParcoursModule extends BehaviourModule {
 	}
 
 	public boolean execute() {
-
-		
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
 		EV3ColorSensor colorSensor = marvin.colorSensorA;
@@ -49,8 +47,6 @@ public class ParcoursModule extends BehaviourModule {
 
 			}   else if (r < 0.25) {
 		        	goLeft();
-		        
-		        
 			} else if (r < 0.35) {
 				System.out.printf("Kleur is \n zwart - wit %.3f ", r);
 				driveForward();
@@ -59,21 +55,19 @@ public class ParcoursModule extends BehaviourModule {
 			} else if (r < 0.50) {
 				
 				goRight();
-				  Delay.msDelay(100);
+				Delay.msDelay(100);
 
 			} else if (r > 0.50) {
 				System.out.printf("Kleur is \n wit %.3f ", r);
 				goMoreRight();
 		        Delay.msDelay(100);
 
-			} 
-			
-			
-			else if (r > 0.8) {
-				rotateLeftCentered();
+			} else if (r > 0.8) {
+				 rotateLeftCentered();
 				 Delay.msDelay(100);
 			}
 		}
+			
 		waitForKey(Button.ENTER);
 		return true;	
 	}

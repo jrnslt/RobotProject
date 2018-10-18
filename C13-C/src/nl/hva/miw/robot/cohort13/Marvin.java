@@ -2,8 +2,10 @@ package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.GroupModule;
 import behaviour.modules.WelcomeModule;
+import behaviour.modules.sound.BeepModule;
 import behaviour.modules.testing.ColorSensorTesterModule;
 import behaviour.modules.testing.TestProcedureModule;
+import behaviour.modules.testing.WaitForKeyModule;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
 import lejos.hardware.Key;
@@ -22,7 +24,6 @@ public class Marvin {
 	private GroupModule mainModule;
 	public EV3ColorSensor colorSensorA;
 	public EV3ColorSensor colorSensorB;
-	public EV3IRSensor proximitySensor;
 	public EV3TouchSensor touchSensor;
 
 	public RegulatedMotor groteMotorLinks;
@@ -31,6 +32,7 @@ public class Marvin {
 	public RegulatedMotor groteMotor4;
 	
 	public SoundProducer soundProducer;
+	public ProximitySensor proximitySensor;
 	
 	public Marvin() {
 		super(); 
@@ -39,14 +41,22 @@ public class Marvin {
 		
 		mainModule = new GroupModule(this);
 		mainModule.addModule(new WelcomeModule(this));
-		mainModule.addModule(new ParcoursModule(this));	
-//		mainModule.addModule(new ZwartEnWit(this));
-		mainModule.addModule(new ColorSensorTesterModule(this, "kleuren testen"));
+		
+		/*
+		mainModule.addModule(
+				new GroupModule(this).
+					addModule(new ParcoursModule(this)).
+					addModule(new BeepModule(this)).
+					addModule(new WaitForKeyModule(this))
+		);	
+		*/
+		
+		//mainModule.addModule(new ZwartEnWit(this));
 		mainModule.addModule(new TestProcedureModule(this));
 	}
 	
 	private void initInputOutput() {
-		//proximitySensor = new EV3IRSensor(SensorPort.S1);
+		proximitySensor = new ProximitySensor(this); 
 		colorSensorB = new EV3ColorSensor(SensorPort.S2);
 		touchSensor = new EV3TouchSensor(SensorPort.S3);
 		colorSensorA = new EV3ColorSensor(SensorPort.S4);
