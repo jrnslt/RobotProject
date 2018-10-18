@@ -12,6 +12,7 @@ import lejos.robotics.RegulatedMotor;
 
 public interface HardwareInterface {
 
+	/*
 	public static final Port SENSOR_PORT_1 = LocalEV3.get().getPort("S1");
 	public static final Port SENSOR_PORT_2 = LocalEV3.get().getPort("S2");
 	public static final Port SENSOR_PORT_3 = LocalEV3.get().getPort("S3");
@@ -30,4 +31,5 @@ public interface HardwareInterface {
 	public static final EV3IRSensor PROXIMITY_SENSOR = new EV3IRSensor(SENSOR_PORT_2);
 	public static final EV3TouchSensor TOUCH_SENSOR = new EV3TouchSensor(SENSOR_PORT_3);
 	public static final EV3ColorSensor COLOR_SENSOR_2 = new EV3ColorSensor(SENSOR_PORT_4);
+	*/
 }

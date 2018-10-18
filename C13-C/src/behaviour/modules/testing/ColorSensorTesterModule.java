@@ -18,8 +18,7 @@ public class ColorSensorTesterModule extends TestModule {
 
 	@Override
 	public boolean execute() {
-		
-		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S4);
+		EV3ColorSensor colorSensor = marvin.colorSensorA;
 		
 		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		int testMode = 0;
@@ -72,6 +71,7 @@ public class ColorSensorTesterModule extends TestModule {
 		        textLCD.drawString(sR, 1, 2);
         	} else if (testMode == 2) {	//Ambient Mode
         		colorSensor.setFloodlight(false);
+        		colorSensor.setCurrentMode(sensorModeAmbient.getName());
         		
         		sensorModeAmbient.fetchSample(sampleAmbient, 0);
         		

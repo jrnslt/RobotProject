@@ -9,20 +9,11 @@ import nl.hva.miw.robot.cohort13.Marvin;
 
 public class DriveForwardTesterModule extends TestModule {
 
-	public RegulatedMotor GROTE_MOTOR_LINKS;
-	public RegulatedMotor GROTE_MOTOR_RECHTS;
-	public RegulatedMotor KLEINE_MOTOR_ARM;
-	public RegulatedMotor GROTE_MOTOR_4;
 	
 	//Marvin marvin;
 	
 	public DriveForwardTesterModule(Marvin marvin, String testModuleName) {
 		super(marvin, testModuleName);
-		
-		GROTE_MOTOR_LINKS = Motor.A;
-		GROTE_MOTOR_RECHTS = Motor.B;
-		KLEINE_MOTOR_ARM = Motor.C;
-		GROTE_MOTOR_4 = Motor.D;
 	}
 
 	@Override
@@ -36,8 +27,8 @@ public class DriveForwardTesterModule extends TestModule {
 	}
 	
 	public void testDriveForward() {
-		GROTE_MOTOR_LINKS.setSpeed(100);
-		GROTE_MOTOR_RECHTS.setSpeed(100);
+		marvin.GROTE_MOTOR_LINKS.setSpeed(100);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(100);
 		
 	//	UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
 	//	UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
@@ -51,8 +42,8 @@ public class DriveForwardTesterModule extends TestModule {
 
 	public void driveSlow() {
 		
-		GROTE_MOTOR_LINKS.setSpeed(30);
-		GROTE_MOTOR_RECHTS.setSpeed(30);
+		marvin.GROTE_MOTOR_LINKS.setSpeed(30);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(30);
 		
 //		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
 //		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
@@ -69,8 +60,8 @@ public class DriveForwardTesterModule extends TestModule {
 
 	public void driveFast() {
 		
-		GROTE_MOTOR_LINKS.setSpeed(300);
-		GROTE_MOTOR_RECHTS.setSpeed(300);
+		marvin.GROTE_MOTOR_LINKS.setSpeed(300);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(300);
 
 
 //		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
@@ -85,8 +76,8 @@ public class DriveForwardTesterModule extends TestModule {
 	public void stopRobot() {
 		
 		
-		GROTE_MOTOR_LINKS.stop();
-		GROTE_MOTOR_RECHTS.stop();
+		marvin.GROTE_MOTOR_LINKS.stop();
+		marvin.GROTE_MOTOR_RECHTS.stop();
 //		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
 //		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
 //		
@@ -97,14 +88,14 @@ public class DriveForwardTesterModule extends TestModule {
 
 	
 	public void goLeft() {
-		GROTE_MOTOR_LINKS.setSpeed(20);
-		GROTE_MOTOR_RECHTS.setSpeed(100);
+		marvin.GROTE_MOTOR_LINKS.setSpeed(20);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(100);
 	}
 
 
 	public void goRight() {
-		GROTE_MOTOR_LINKS.setSpeed(100);
-		GROTE_MOTOR_RECHTS.setSpeed(20);
+		marvin.GROTE_MOTOR_LINKS.setSpeed(100);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(20);
 	}
 }
 	
