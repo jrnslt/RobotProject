@@ -17,7 +17,7 @@ import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 
-public class Marvin  implements HardwareInterface  {
+public class Marvin {
 	private Brick brick;
 	private GroupModule mainModule;
 	public EV3ColorSensor colorSensorA;
@@ -37,17 +37,12 @@ public class Marvin  implements HardwareInterface  {
 		brick = LocalEV3.get();
 		initInputOutput();
 		
-		
 		mainModule = new GroupModule(this);
-
 		mainModule.addModule(new WelcomeModule(this));
-		mainModule.addModule(new ParcoursModule(this));
-		
+		mainModule.addModule(new ParcoursModule(this));	
 //		mainModule.addModule(new ZwartEnWit(this));
 		mainModule.addModule(new ColorSensorTesterModule(this, "kleuren testen"));
-		
-		
-	//	mainModule.addModule(new TestProcedureModule(this));
+		mainModule.addModule(new TestProcedureModule(this));
 	}
 	
 	private void initInputOutput() {

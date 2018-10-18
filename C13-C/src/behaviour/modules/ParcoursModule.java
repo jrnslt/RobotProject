@@ -34,6 +34,7 @@ public class ParcoursModule extends BehaviourModule {
 
 	public boolean execute() {
 
+
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
 		EV3ColorSensor colorSensor = marvin.colorSensorA;
@@ -88,9 +89,7 @@ public class ParcoursModule extends BehaviourModule {
 
 		stopRobot();
 
-		waitForKey(Button.ENTER);
-		return true;
-
+		return true;	
 	}
 
 	public void startDrive() {
@@ -98,7 +97,6 @@ public class ParcoursModule extends BehaviourModule {
 		marvin.groteMotorRechts.forward();
 		marvin.groteMotorLinks.setSpeed(200);
 		marvin.groteMotorRechts.setSpeed(200);
-
 	}
 
 	public void driveForward() {
