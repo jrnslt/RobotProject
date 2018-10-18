@@ -45,7 +45,7 @@ public class Marvin  implements HardwareInterface  {
 	}
 	
 	private void initInputOutput() {
-		proximitySensor = new EV3IRSensor(SensorPort.S1);
+		//proximitySensor = new EV3IRSensor(SensorPort.S1);
 		colorSensorB = new EV3ColorSensor(SensorPort.S2);
 		touchSensor = new EV3TouchSensor(SensorPort.S3);
 		colorSensorA = new EV3ColorSensor(SensorPort.S4);

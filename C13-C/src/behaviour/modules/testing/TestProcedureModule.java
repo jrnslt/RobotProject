@@ -14,7 +14,22 @@ public class TestProcedureModule extends GroupModule {
 		final String proximitySensorName = "Proximity Sensor";
 		final String soundName = "Sound";
 		final String touchSensorName = "Touch Sensor";
+		final String proximityAndSoundTesterModule = "proximity and sound";
 		
+		/*
+		addModule(new GroupModule(marvin).
+				addModule(new StartTestMessageModule(marvin, proximitySensorName)).
+				addModule(new ProximitySensorTesterModule(marvin, proximitySensorName)).
+				addModule(new EndTestMessageModule(marvin, proximitySensorName))
+		);	
+		*/
+		addModule(new GroupModule(marvin).
+				addModule(new StartTestMessageModule(marvin, proximityAndSoundTesterModule)).
+				addModule(new ProximityAndSoundTesterModule(marvin, proximityAndSoundTesterModule)).
+				addModule(new EndTestMessageModule(marvin, proximityAndSoundTesterModule))
+		);
+		
+		/*
 		addModule(new GroupModule(marvin).
 				addModule(new StartTestMessageModule(marvin, colorSensorName)).
 				addModule(new ColorSensorTesterModule(marvin, colorSensorName)).
@@ -42,5 +57,6 @@ public class TestProcedureModule extends GroupModule {
 				addModule(new TouchSensorTesterModule(marvin, touchSensorName)).
 				addModule(new EndTestMessageModule(marvin, touchSensorName))
 		);	
+		*/
 	}
 }

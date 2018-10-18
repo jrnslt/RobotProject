@@ -2,6 +2,7 @@ package nl.hva.miw.robot.cohort13;
 
 public class SoundProducer {
 	private Executable executable;
+	private Thread thread;
 	
 	public SoundProducer() {
 		super();
@@ -10,14 +11,16 @@ public class SoundProducer {
 
 			@Override
 			public void run() {
-				while (executable != null) {
-					executable.execute();
-					executable = null;
+				while (true) {
+					if (executable != null) {
+						executable.execute();
+						executable = null;
+					}
 				}
 			}
 		});
 		
-		Thread thread = new Thread(runnable);
+		thread = new Thread(runnable);
 		thread.start();
 	}
 	
