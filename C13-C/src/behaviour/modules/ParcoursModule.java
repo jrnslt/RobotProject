@@ -52,9 +52,7 @@ public class ParcoursModule extends BehaviourModule {
 			sensorModeRed.fetchSample(sampleRed, 0);
 			textLCD.refresh();
 			textLCD.clear();
-
 			float r = sampleRed[0]; // rood
-
 			//obv lichtIntensiteit wordt de koers bepaald
 			
 			if (r < fairlyBlack) {
@@ -86,9 +84,7 @@ public class ParcoursModule extends BehaviourModule {
 				Delay.msDelay(100);
 			}
 		}
-
 		stopRobot();
-
 		return true;	
 	}
 
