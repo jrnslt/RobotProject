@@ -13,10 +13,11 @@ public class ParcoursModule extends BehaviourModule{
 
 	@Override
 	public boolean execute() {
-		ZwartEnWit testerZW = new ZwartEnWit();
+		ZwartEnWit testerZW = new ZwartEnWit(getMarvin());
 		DriveForwardTesterModule testrij = new DriveForwardTesterModule(marvin, "Rijen");
 		
-		int gedrag = testerZW.test(marvin);
+		//todo: wat?
+		int gedrag = 1;
 		
 		while (gedrag != 0) {
 			if (gedrag == 3) {
