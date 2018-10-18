@@ -35,7 +35,7 @@ public class TestProcedureModule extends GroupModule {
 				addModule(new EndTestMessageModule(marvin, drivingName))
 		);
 		*/
-		
+		/*
 		addModule(new GroupModule(marvin).
 				addModule(new StartTestMessageModule(marvin, proximitySensorName)).
 				addModule(new ProximitySensorTesterModule(marvin, proximitySensorName)).
@@ -50,6 +50,7 @@ public class TestProcedureModule extends GroupModule {
 				addModule(new StartTestMessageModule(marvin, touchSensorName)).
 				addModule(new TouchSensorTesterModule(marvin, touchSensorName)).
 				addModule(new EndTestMessageModule(marvin, touchSensorName))
-		);		
+		);
+		*/		
 	}
 }

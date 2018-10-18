@@ -1,13 +1,11 @@
 package nl.hva.miw.robot.cohort13;
 
-import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.TextLCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Calibrate;
-import lejos.robotics.Color;
 
 public class ZwartEnWit implements Calibrate {
 
@@ -15,8 +13,10 @@ public class ZwartEnWit implements Calibrate {
 		long lastTime = 0;
 		int testCount = 0;
 
-		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);
+		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S3);
 		SensorMode sensorModeRGB = colorSensor.getRGBMode();
+		colorSensor.setCurrentMode(sensorModeRGB.getName());	
+		
 		float[] sampleRGB = new float[sensorModeRGB.sampleSize()];
 		TextLCD textLCD = marvin.getBrick().getTextLCD();
 		textLCD.setAutoRefresh(false);
@@ -32,11 +32,11 @@ public class ZwartEnWit implements Calibrate {
 				float r = sampleRGB[0]; // rood
 				float r2 = r * 100;
 				if (r2 < 7) {
-					System.out.printf("Kleur is \nzwart%.3f ", r2);
+					System.out.printf("Kleur is \nzwart %.3f ", r2);
 					testCount++;
 					return 1;
 				} else if (r2 >= 7) {
-					System.out.printf("Kleur is \nwit%.3f ", r2);
+					System.out.printf("Kleur is \nwit %.3f ", r2);
 					testCount++;
 					return 2;
 				} else

@@ -26,11 +26,31 @@ public class SoundTesterModule extends TestModule {
 			x += 0.1f;
 		}
 
-		//
+		
 		Sound.beep();
+		Delay.msDelay(1000);
+		
 		Sound.beepSequence();
+		Delay.msDelay(1000);
+		
 		Sound.beepSequenceUp();
+		Delay.msDelay(1000);
+		
 		Sound.buzz();
+		Delay.msDelay(1000);
+		
+		Sound.systemSound(false, 1);
+		Delay.msDelay(1000);
+		
+		Sound.systemSound(false, 2);
+		Delay.msDelay(1000);
+		
+		Sound.systemSound(false, 3);
+		Delay.msDelay(1000);
+		
+		Sound.systemSound(false, 4);
+		Delay.msDelay(1000);
+		
 		//Sound.playNote(inst, freq, len);
 		//Sound.playSample(file);
 		//Sound.playSample(file, vol)
@@ -47,20 +67,7 @@ public class SoundTesterModule extends TestModule {
 		//Sound.VOL_MAX
 		//Sound.XYLOPHONE
 		
-		Sound.systemSound(false, 1);
-		
-		Delay.msDelay(1000);
-		
-		Sound.systemSound(false, 2);
-		
-		Delay.msDelay(1000);
-		
-		Sound.systemSound(false, 3);
-		
-		Delay.msDelay(1000);
-		
-		Sound.systemSound(false, 4);
-	    
+
 	    return true;
 	}
 }
