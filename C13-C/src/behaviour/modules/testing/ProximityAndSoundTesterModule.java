@@ -17,8 +17,8 @@ public class ProximityAndSoundTesterModule extends BehaviourModule {
 
 	@Override
 	public boolean execute() {
-		SoundProducer soundProducer = new SoundProducer();
-		ProximitySensor proximitySensor = getMarvin().proximitySensor;
+		SoundProducer soundProducer = getMarvin().soundProducer;
+		//ProximitySensor proximitySensor = getMarvin().proximitySensor;
 		final TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		
 		long startTime = System.currentTimeMillis();
@@ -28,24 +28,27 @@ public class ProximityAndSoundTesterModule extends BehaviourModule {
 		while(lastTime - startTime < 10000) {	        
 	        lastTime = System.currentTimeMillis();
 	        
-			float[] samples = proximitySensor.getSample();
-			
-			if (samples != null) {
-				
-				final int distance = (int)samples[0];
-				/*
-			    textLCD.refresh();
-		        textLCD.clear();
-		        textLCD.drawString("Distance:", 2, 1);
-		        textLCD.drawString("" + distance, 1, 2);
-		        */
+			//float[] samples = proximitySensor.getSample();
+			//final int distance = (int)samples[0];
+			/*
+		    textLCD.refresh();
+	        textLCD.clear();
+	        textLCD.drawString("Distance:", 2, 1);
+	        textLCD.drawString("" + distance, 1, 2);
+	        */
 
-		        if (count % 16 == 0) {
-					soundProducer.setExecutable(new Executable() {
-						float x = 0;
+	        if (count % 16 == 0) {
+				soundProducer.setExecutable(new Executable() {
+					float x = 0;
+					ProximitySensor proximitySensor = getMarvin().proximitySensor;
+					
+					@Override
+					public void execute() {
+						float[] samples = proximitySensor.getSample();
 						
-						@Override
-						public void execute() {
+						if (samples != null) {
+							
+							final int distance = (int)samples[0];
 							double sigmoid = Utils.sigmoid(distance / 200f, 5f);
 							
 							// TODO Auto-generated method stub
@@ -59,11 +62,11 @@ public class ProximityAndSoundTesterModule extends BehaviourModule {
 					     
 							Sound.playTone(50, 1, (int)(invertedSigmoid * 100));
 						}
-					});
-		        }
-		        
-		        count ++;
-			}
+					}
+				});
+	        }
+	        
+	        count ++;
 		}
 		
 		return true;
