@@ -69,6 +69,18 @@ public class DriveForwardTesterModule extends BehaviourModule {
 		marvin.groteMotorLinks.setSpeed(30);
 		marvin.groteMotorRechts.setSpeed(30);
 	}
+	
+	
+	public void startDrive() {
+		marvin.groteMotorLinks.forward();
+		marvin.groteMotorRechts.forward();
+		marvin.groteMotorLinks.setSpeed(300);
+		marvin.groteMotorRechts.setSpeed(300);
+
+		
+	}
+	
+	
 
 	public void driveFast() {
 		marvin.groteMotorLinks.setSpeed(800);
