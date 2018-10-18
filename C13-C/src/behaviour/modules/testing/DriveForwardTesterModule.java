@@ -4,14 +4,18 @@ import lejos.hardware.Sound;
 import lejos.hardware.motor.Motor;
 import lejos.hardware.motor.UnregulatedMotor;
 import lejos.hardware.port.MotorPort;
+import nl.hva.miw.robot.cohort13.HardwareInterface;
+
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
-public class DriveForwardTesterModule extends TestModule {
+public class DriveForwardTesterModule extends TestModule implements HardwareInterface {
+
 
 	
 	//Marvin marvin;
+
 	
 	public DriveForwardTesterModule(Marvin marvin, String testModuleName) {
 		super(marvin, testModuleName);

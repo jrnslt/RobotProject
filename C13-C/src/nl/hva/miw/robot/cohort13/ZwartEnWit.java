@@ -1,7 +1,9 @@
 package nl.hva.miw.robot.cohort13;
 
 import lejos.hardware.Sound;
+import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.lcd.TextLCD;
+import lejos.hardware.port.Port;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
@@ -14,6 +16,7 @@ public class ZwartEnWit implements Calibrate {
 		int testCount = 0;
 
 		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S3);
+
 		SensorMode sensorModeRGB = colorSensor.getRGBMode();
 		colorSensor.setCurrentMode(sensorModeRGB.getName());	
 		
