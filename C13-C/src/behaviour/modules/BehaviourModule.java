@@ -1,9 +1,8 @@
 package behaviour.modules;
 
-import behaviour.BehaviourAble;
 import nl.hva.miw.robot.cohort13.Marvin;
 
-public abstract class BehaviourModule implements BehaviourAble {
+public abstract class BehaviourModule {
 	protected Marvin marvin;
 	
 	public BehaviourModule(Marvin marvin) {
@@ -13,4 +12,6 @@ public abstract class BehaviourModule implements BehaviourAble {
 	public Marvin getMarvin() {
 		return marvin;
 	}
+	
+	public abstract boolean execute();
 }

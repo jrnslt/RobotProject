@@ -18,11 +18,10 @@ public class Marvin  implements HardwareInterface  {
 		super(); 
 		brick = LocalEV3.get();
 		mainModule = new GroupModule(this);
-//		mainModule.addModule(new TestProcedureModule(this));
-		mainModule.addModule(new ParcoursModule(this));
-		
 
 		mainModule.addModule(new WelcomeModule(this));
+		//mainModule.addModule(new ParcoursModule(this));
+		
 		mainModule.addModule(new TestProcedureModule(this));
 	}
 	

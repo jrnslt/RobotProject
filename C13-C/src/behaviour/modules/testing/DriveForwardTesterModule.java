@@ -1,18 +1,32 @@
 package behaviour.modules.testing;
 
 import lejos.hardware.Sound;
-
+import lejos.hardware.motor.Motor;
 import lejos.hardware.motor.UnregulatedMotor;
 import lejos.hardware.port.MotorPort;
 import nl.hva.miw.robot.cohort13.HardwareInterface;
+
+import lejos.robotics.RegulatedMotor;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 public class DriveForwardTesterModule extends TestModule implements HardwareInterface {
 
-	Marvin marvin;
+
+	public RegulatedMotor GROTE_MOTOR_LINKS;
+	public RegulatedMotor GROTE_MOTOR_RECHTS;
+	public RegulatedMotor KLEINE_MOTOR_ARM;
+	public RegulatedMotor GROTE_MOTOR_4;
+	
+	//Marvin marvin;
+
 	
 	public DriveForwardTesterModule(Marvin marvin, String testModuleName) {
 		super(marvin, testModuleName);
+		
+		GROTE_MOTOR_LINKS = Motor.A;
+		GROTE_MOTOR_RECHTS = Motor.B;
+		KLEINE_MOTOR_ARM = Motor.C;
+		GROTE_MOTOR_4 = Motor.D;
 	}
 
 	@Override
@@ -27,9 +41,9 @@ public class DriveForwardTesterModule extends TestModule implements HardwareInte
 	
 	public void testDriveForward() {
 
-	
-		marvin.GROTE_MOTOR_LINKS.setSpeed(100);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(100);
+		GROTE_MOTOR_LINKS.setSpeed(100);
+		GROTE_MOTOR_RECHTS.setSpeed(100);
+
 		
 	//	UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
 	//	UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
@@ -43,8 +57,8 @@ public class DriveForwardTesterModule extends TestModule implements HardwareInte
 
 	public void driveSlow() {
 		
-		marvin.GROTE_MOTOR_LINKS.setSpeed(30);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(30);
+		GROTE_MOTOR_LINKS.setSpeed(30);
+		GROTE_MOTOR_RECHTS.setSpeed(30);
 		
 //		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
 //		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
@@ -61,8 +75,8 @@ public class DriveForwardTesterModule extends TestModule implements HardwareInte
 
 	public void driveFast() {
 		
-		marvin.GROTE_MOTOR_LINKS.setSpeed(300);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(300);
+		GROTE_MOTOR_LINKS.setSpeed(300);
+		GROTE_MOTOR_RECHTS.setSpeed(300);
 
 
 //		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
@@ -77,8 +91,8 @@ public class DriveForwardTesterModule extends TestModule implements HardwareInte
 	public void stopRobot() {
 		
 		
-		marvin.GROTE_MOTOR_LINKS.stop();
-		marvin.GROTE_MOTOR_RECHTS.stop();
+		GROTE_MOTOR_LINKS.stop();
+		GROTE_MOTOR_RECHTS.stop();
 //		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
 //		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
 //		
@@ -89,14 +103,14 @@ public class DriveForwardTesterModule extends TestModule implements HardwareInte
 
 	
 	public void goLeft() {
-		marvin.GROTE_MOTOR_LINKS.setSpeed(20);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(100);
+		GROTE_MOTOR_LINKS.setSpeed(20);
+		GROTE_MOTOR_RECHTS.setSpeed(100);
 	}
 
 
 	public void goRight() {
-		marvin.GROTE_MOTOR_LINKS.setSpeed(100);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(20);
+		GROTE_MOTOR_LINKS.setSpeed(100);
+		GROTE_MOTOR_RECHTS.setSpeed(20);
 	}
 }
 	

@@ -3,6 +3,7 @@ package behaviour.modules.testing;
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.TextLCD;
+import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
@@ -17,7 +18,9 @@ public class ColorSensorTesterModule extends TestModule {
 
 	@Override
 	public boolean execute() {
-		EV3ColorSensor colorSensor = getMarvin().COLOR_SENSOR;
+		
+		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S4);
+		
 		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		int testMode = 0;
 		int testCount = 0;
@@ -39,6 +42,7 @@ public class ColorSensorTesterModule extends TestModule {
 	        
         	if (testMode == 0) {
         		colorSensor.setFloodlight(Color.WHITE);
+        		colorSensor.setCurrentMode(sensorModeRGB.getName());		
         		
 		        sensorModeRGB.fetchSample(sampleRGB, 0);
 		    
