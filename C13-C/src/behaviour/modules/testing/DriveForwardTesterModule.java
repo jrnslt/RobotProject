@@ -5,6 +5,7 @@ import lejos.hardware.motor.Motor;
 import lejos.hardware.motor.UnregulatedMotor;
 import lejos.hardware.port.MotorPort;
 import lejos.robotics.RegulatedMotor;
+import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 public class DriveForwardTesterModule extends TestModule {
@@ -27,8 +28,8 @@ public class DriveForwardTesterModule extends TestModule {
 	}
 	
 	public void testDriveForward() {
-		marvin.GROTE_MOTOR_LINKS.setSpeed(100);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(100);
+		marvin.groteMotorLinks.setSpeed(100);
+		marvin.groteMotorRechts.setSpeed(100);
 		
 	//	UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
 	//	UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
@@ -42,8 +43,8 @@ public class DriveForwardTesterModule extends TestModule {
 
 	public void driveSlow() {
 		
-		marvin.GROTE_MOTOR_LINKS.setSpeed(30);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(30);
+		marvin.groteMotorLinks.setSpeed(30);
+		marvin.groteMotorRechts.setSpeed(30);
 		
 //		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
 //		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
@@ -60,8 +61,8 @@ public class DriveForwardTesterModule extends TestModule {
 
 	public void driveFast() {
 		
-		marvin.GROTE_MOTOR_LINKS.setSpeed(300);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(300);
+		marvin.groteMotorLinks.setSpeed(300);
+		marvin.groteMotorRechts.setSpeed(300);
 
 
 //		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
@@ -76,8 +77,8 @@ public class DriveForwardTesterModule extends TestModule {
 	public void stopRobot() {
 		
 		
-		marvin.GROTE_MOTOR_LINKS.stop();
-		marvin.GROTE_MOTOR_RECHTS.stop();
+		marvin.groteMotorLinks.stop();
+		marvin.groteMotorRechts.stop();
 //		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
 //		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
 //		
@@ -88,14 +89,14 @@ public class DriveForwardTesterModule extends TestModule {
 
 	
 	public void goLeft() {
-		marvin.GROTE_MOTOR_LINKS.setSpeed(20);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(100);
+		marvin.groteMotorLinks.setSpeed(20);
+		marvin.groteMotorRechts.setSpeed(100);
 	}
 
 
 	public void goRight() {
-		marvin.GROTE_MOTOR_LINKS.setSpeed(100);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(20);
+		marvin.groteMotorLinks.setSpeed(100);
+		marvin.groteMotorRechts.setSpeed(20);
 	}
 }
 	

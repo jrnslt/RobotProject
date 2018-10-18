@@ -11,8 +11,6 @@ public class ParcoursModule extends BehaviourModule{
 		super(marvin);
 	}
 
-	
-	
 	@Override
 	public boolean execute() {
 		ZwartEnWit testerZW = new ZwartEnWit();
@@ -20,11 +18,7 @@ public class ParcoursModule extends BehaviourModule{
 		
 		int gedrag = testerZW.test(marvin);
 		
-		
 		while (gedrag != 0) {
-			
-			
-			
 			if (gedrag == 3) {
 				testrij.testDriveForward();
 			} else if (gedrag == 2) {
@@ -40,13 +34,7 @@ public class ParcoursModule extends BehaviourModule{
 		
 		}
 		
-
-		
-		
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	
-	
 }
