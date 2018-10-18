@@ -2,6 +2,7 @@ package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.GroupModule;
 import behaviour.modules.WelcomeModule;
+import behaviour.modules.testing.ColorSensorTesterModule;
 import behaviour.modules.testing.TestProcedureModule;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
@@ -36,12 +37,15 @@ public class Marvin  implements HardwareInterface  {
 		brick = LocalEV3.get();
 		initInputOutput();
 		
+		
 		mainModule = new GroupModule(this);
 
 		mainModule.addModule(new WelcomeModule(this));
+		mainModule.addModule(new ZwartEnWit(this));
+		//mainModule.addModule(new ColorSensorTesterModule(this, "kleuren testen"));
 		//mainModule.addModule(new ParcoursModule(this));
 		
-		mainModule.addModule(new TestProcedureModule(this));
+	//	mainModule.addModule(new TestProcedureModule(this));
 	}
 	
 	private void initInputOutput() {
@@ -66,8 +70,11 @@ public class Marvin  implements HardwareInterface  {
 	}
 	
 	private void run() {
+		
+		
 		mainModule.execute();		
 		waitForKey(Button.ENTER);
+		
 	}
 	
 	public void waitForKey(Key key) {

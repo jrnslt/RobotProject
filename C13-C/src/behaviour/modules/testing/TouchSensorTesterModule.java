@@ -33,7 +33,7 @@ public class TouchSensorTesterModule extends TestModule{
 			
 			for (int i= 0; i < sample.length;i++)	{
 				textLCD.setAutoRefresh(false);
-			    textLCD.refresh();
+				textLCD.refresh();
 		        textLCD.clear();
 		        textLCD.drawString("Touch mode", 1, 1);
 		        textLCD.drawString("" + sample[i], 1, 2);
