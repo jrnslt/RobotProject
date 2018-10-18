@@ -7,6 +7,7 @@ import lejos.hardware.port.MotorPort;
 import nl.hva.miw.robot.cohort13.HardwareInterface;
 
 import lejos.robotics.RegulatedMotor;
+import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 public class DriveForwardTesterModule extends TestModule implements HardwareInterface {
@@ -31,18 +32,44 @@ public class DriveForwardTesterModule extends TestModule implements HardwareInte
 	}
 	
 	public void testDriveForward() {
-
-		marvin.GROTE_MOTOR_LINKS.setSpeed(100);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(100);
 		
-	//	UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
-	//	UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
+		marvin.GROTE_MOTOR_LINKS.forward();
+		marvin.GROTE_MOTOR_RECHTS.forward();
+		marvin.GROTE_MOTOR_LINKS.setSpeed(300);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(300);
+	
+		Delay.msDelay(5000);
+	
+		stopRobot();
+
+		Delay.msDelay(1000);
+
+		rotateLeft() ;
+		Delay.msDelay(5000);
+		
+		stopRobot();
+		Delay.msDelay(1000);
+
+		rotateRight();
+		Delay.msDelay(5000);
+		stopRobot();
+
+		Delay.msDelay(1000);
+
+
+		rotateLeftCentered();
+		
+		Delay.msDelay(5000);
+
+		rotateRightCentered();
+		
+		Delay.msDelay(5000);
 
 	
-		/*
-		motorB.stop();
-		motorC.stop();
-		*/
+		stopRobot();
+		
+		
+		
 	}
 
 	public void driveSlow() {
@@ -50,32 +77,13 @@ public class DriveForwardTesterModule extends TestModule implements HardwareInte
 		marvin.GROTE_MOTOR_LINKS.setSpeed(30);
 		marvin.GROTE_MOTOR_RECHTS.setSpeed(30);
 		
-//		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
-//		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
-//		
-//		motorB.setPower(20);
-//		motorC.setPower(20);
-//		motorB.forward();
-//		motorC.forward();
-		/*
-		motorB.stop();
-		motorC.stop();
-		*/
 	}
 
 	public void driveFast() {
 		
-		marvin.GROTE_MOTOR_LINKS.setSpeed(300);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(300);
+		marvin.GROTE_MOTOR_LINKS.setSpeed(800);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(800);
 
-
-//		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
-//		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
-//		
-//		motorB.setPower(100);
-//		motorC.setPower(100);
-//		motorB.forward();
-//		motorC.forward();
 	}
 
 	public void stopRobot() {
@@ -83,28 +91,69 @@ public class DriveForwardTesterModule extends TestModule implements HardwareInte
 		
 		marvin.GROTE_MOTOR_LINKS.stop();
 		marvin.GROTE_MOTOR_RECHTS.stop();
-//		UnregulatedMotor motorB = getMarvin().UNREGULATED_MOTOR_B;
-//		UnregulatedMotor motorC = getMarvin().UNREGULATED_MOTOR_C;
-//		
-//		motorB.stop();
-//		motorC.stop();
-//		Sound.beepSequenceUp();
+
 	}
 
 	
 	public void goLeft() {
-		marvin.GROTE_MOTOR_LINKS.setSpeed(20);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(100);
+		marvin.GROTE_MOTOR_LINKS.forward();
+		marvin.GROTE_MOTOR_RECHTS.forward();
+		marvin.GROTE_MOTOR_LINKS.setSpeed(200);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(400);
 	}
 
 
 	public void goRight() {
-		marvin.GROTE_MOTOR_LINKS.setSpeed(100);
-		marvin.GROTE_MOTOR_RECHTS.setSpeed(20);
+		marvin.GROTE_MOTOR_LINKS.forward();
+		marvin.GROTE_MOTOR_RECHTS.forward();
+		marvin.GROTE_MOTOR_LINKS.setSpeed(400);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(200);
 	}
+	
+	
+	public void rotateLeft() {
+		marvin.GROTE_MOTOR_LINKS.forward();
+		marvin.GROTE_MOTOR_RECHTS.forward();
+		marvin.GROTE_MOTOR_LINKS.setSpeed(10);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(300);
+		
+	}
+	public void rotateRight() {
+		marvin.GROTE_MOTOR_LINKS.forward();
+		marvin.GROTE_MOTOR_RECHTS.forward();
+		marvin.GROTE_MOTOR_LINKS.setSpeed(300);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(10);
+	
+	}
+	
+	public void rotateFastLeft() {
+		marvin.GROTE_MOTOR_LINKS.setSpeed(0);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(800);
 }
 	
-
+	public void rotateFastRight() {
+		marvin.GROTE_MOTOR_LINKS.setSpeed(800);
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(0);
+	
+	}
+	
+	public void rotateLeftCentered() {
+		marvin.GROTE_MOTOR_LINKS.backward();
+		marvin.GROTE_MOTOR_LINKS.setSpeed(800);
+		marvin.GROTE_MOTOR_RECHTS.forward();
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(800);
+		
+	}
+	
+	
+	public void rotateRightCentered() {
+		marvin.GROTE_MOTOR_RECHTS.backward();
+		marvin.GROTE_MOTOR_RECHTS.setSpeed(800);
+		marvin.GROTE_MOTOR_LINKS.forward();
+		marvin.GROTE_MOTOR_LINKS.setSpeed(800);
+		
+	}
+}
 
 //	public void gaVoort() {
 //	
