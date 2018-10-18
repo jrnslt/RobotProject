@@ -16,7 +16,7 @@ public class TouchSensorTesterModule extends TestModule{
 
 	@Override
 	public boolean execute() {  
-		EV3TouchSensor touchSensor = getMarvin().TOUCH_SENSOR;
+		EV3TouchSensor touchSensor = getMarvin().touchSensor;
 	 
 		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		 
