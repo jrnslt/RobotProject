@@ -1,5 +1,6 @@
 package behaviour.modules.testing;
 
+import behaviour.modules.BehaviourModule;
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.TextLCD;
@@ -10,10 +11,17 @@ import lejos.robotics.Color;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
-public class ColorSensorTesterModule extends TestModule {
+
+/**
+ * @author daniel
+ * 
+ * voert test procedure aan voor het testen van de color sensor
+ *
+ */
+public class ColorSensorTesterModule extends BehaviourModule {
 	
 	public ColorSensorTesterModule(Marvin marvin, String testModuleName) {
-		super(marvin, testModuleName);
+		super(marvin);
 	}
 
 	@Override

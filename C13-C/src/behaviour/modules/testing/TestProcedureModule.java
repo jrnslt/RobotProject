@@ -3,6 +3,14 @@ package behaviour.modules.testing;
 import behaviour.modules.GroupModule;
 import nl.hva.miw.robot.cohort13.Marvin;
 
+
+/**
+ * @author daniel
+ * 
+ * Is hetzelfde als de group module
+ * Child modules worden toegevoegd in de constructor
+ *
+ */
 public class TestProcedureModule extends GroupModule {
 
 	public TestProcedureModule(Marvin marvin) {

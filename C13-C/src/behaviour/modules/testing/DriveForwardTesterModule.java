@@ -1,5 +1,6 @@
 package behaviour.modules.testing;
 
+import behaviour.modules.BehaviourModule;
 import lejos.hardware.Sound;
 import lejos.hardware.motor.Motor;
 import lejos.hardware.motor.UnregulatedMotor;
@@ -10,15 +11,16 @@ import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
-public class DriveForwardTesterModule extends TestModule implements HardwareInterface {
+/**
+ * @author daniel
+ *
+ * Voert testprocedure aan voor het testen van motoren
+ *
+ */
+public class DriveForwardTesterModule extends BehaviourModule implements HardwareInterface {
 
-
-	
-	//Marvin marvin;
-
-	
 	public DriveForwardTesterModule(Marvin marvin, String testModuleName) {
-		super(marvin, testModuleName);
+		super(marvin);
 	}
 
 	@Override

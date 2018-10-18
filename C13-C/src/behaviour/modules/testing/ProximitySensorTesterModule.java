@@ -1,5 +1,6 @@
 package behaviour.modules.testing;
 
+import behaviour.modules.BehaviourModule;
 import lejos.hardware.lcd.TextLCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3IRSensor;
@@ -7,10 +8,16 @@ import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
-public class ProximitySensorTesterModule extends TestModule {
+/**
+ * @author daniel
+ * 
+ * Test module voor testen van de proximity sensor
+ *
+ */
+public class ProximitySensorTesterModule extends BehaviourModule {
 
 	public ProximitySensorTesterModule(Marvin marvin, String testModuleName) {
-		super(marvin, testModuleName);
+		super(marvin);
 	}
 
 	@Override

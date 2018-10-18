@@ -1,14 +1,21 @@
 package behaviour.modules.testing;
 
+import behaviour.modules.BehaviourModule;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.TextLCD;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
-public class SoundTesterModule extends TestModule {
+/**
+ * @author daniel
+ * 
+ * Test procedure module voor het testen van geluid
+ *
+ */
+public class SoundTesterModule extends BehaviourModule {
 	
 	public SoundTesterModule(Marvin marvin, String testModuleName) {
-		super(marvin, testModuleName);
+		super(marvin);
 	}
 
 	@Override

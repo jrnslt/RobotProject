@@ -1,11 +1,12 @@
 package behaviour.modules.testing;
 
+import behaviour.modules.BehaviourModule;
 import nl.hva.miw.robot.cohort13.Marvin;
 
-public class MultiThreadTesterModule extends TestModule {
+public class MultiThreadTesterModule extends BehaviourModule {
 	
 	public MultiThreadTesterModule(Marvin marvin, String testModuleName) {
-		super(marvin, testModuleName);
+		super(marvin);
 	}
 
 	@Override

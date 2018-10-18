@@ -5,6 +5,12 @@ import lejos.hardware.lcd.TextLCD;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
+/**
+ * @author daniel
+ *
+ * Geef welkoms groet
+ *
+ */
 public class WelcomeModule extends BehaviourModule {
 
 	public WelcomeModule(Marvin marvin) {

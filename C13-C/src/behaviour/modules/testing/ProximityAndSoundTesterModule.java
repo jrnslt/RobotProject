@@ -1,5 +1,6 @@
 package behaviour.modules.testing;
 
+import behaviour.modules.BehaviourModule;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.TextLCD;
 import nl.hva.miw.robot.cohort13.Executable;
@@ -7,10 +8,10 @@ import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.ProximitySensor;
 import nl.hva.miw.robot.cohort13.SoundProducer;
 
-public class ProximityAndSoundTesterModule extends TestModule {
+public class ProximityAndSoundTesterModule extends BehaviourModule {
 
 	public ProximityAndSoundTesterModule(Marvin marvin, String testModuleName) {
-		super(marvin, testModuleName);
+		super(marvin);
 	}
 
 	@Override

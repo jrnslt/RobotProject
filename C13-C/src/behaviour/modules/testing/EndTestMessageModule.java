@@ -7,6 +7,12 @@ import lejos.hardware.lcd.TextLCD;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
+/**
+ * @author daniel
+ *
+ * Geeft een bericht dat testen complete is
+ * 
+ */
 public class EndTestMessageModule extends BehaviourModule {
 	private String testModuleName;
 	

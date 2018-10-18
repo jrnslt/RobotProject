@@ -1,5 +1,6 @@
 package behaviour.modules.testing;
 
+import behaviour.modules.BehaviourModule;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.TextLCD;
 import lejos.hardware.port.SensorPort;
@@ -8,10 +9,16 @@ import lejos.hardware.sensor.SensorMode;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
-public class TouchSensorTesterModule extends TestModule{
+/**
+ * @author daniel
+ * 
+ * Test module die de functionaliteit van de toch sensor test
+ *
+ */
+public class TouchSensorTesterModule extends BehaviourModule {
 	
 	public TouchSensorTesterModule(Marvin marvin, String testModuleName) {
-		super(marvin, testModuleName);
+		super(marvin);
 	}
 
 	@Override
