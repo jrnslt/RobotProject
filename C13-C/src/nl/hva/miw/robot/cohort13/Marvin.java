@@ -2,10 +2,7 @@ package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.GroupModule;
 import behaviour.modules.WelcomeModule;
-import behaviour.modules.sound.BeepModule;
-import behaviour.modules.testing.ColorSensorTesterModule;
 import behaviour.modules.testing.TestProcedureModule;
-import behaviour.modules.testing.WaitForKeyModule;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
 import lejos.hardware.Key;
@@ -13,7 +10,6 @@ import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.hardware.sensor.EV3IRSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
@@ -76,11 +72,8 @@ public class Marvin {
 	}
 	
 	private void run() {
-		
-		
 		mainModule.execute();		
 		waitForKey(Button.ENTER);
-		
 	}
 	
 	public void waitForKey(Key key) {

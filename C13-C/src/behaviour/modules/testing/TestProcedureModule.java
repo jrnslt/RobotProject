@@ -1,5 +1,6 @@
 package behaviour.modules.testing;
 
+import behaviour.modules.DelayModule;
 import behaviour.modules.GroupModule;
 import behaviour.modules.sound.BeepModule;
 import behaviour.modules.sound.BeepSequenceModule;
@@ -50,14 +51,20 @@ public class TestProcedureModule extends GroupModule {
 		//Proximity
 		addModule(new GroupModule(marvin).
 				addModule(new StartTestMessageModule(marvin, proximityAndSoundTesterModule)).
-				addModule(new ProximityAndSoundTesterModule(marvin, proximityAndSoundTesterModule)).
+				//addModule(new ProximityAndSoundTesterModule(marvin, proximityAndSoundTesterModule)).
+				addModule(new PlaySampleModule(marvin, "woopwoop2.wav")).
+				addModule(new DelayModule(marvin, 1000)).
+				addModule(new PlaySampleModule(marvin, "woopwoop3.wav")).
+				addModule(new DelayModule(marvin, 1000)).
+				addModule(new PlaySampleModule(marvin, "We_are_the_robotsSHORT.wav")).
+				
 				addModule(new EndTestMessageModule(marvin, proximityAndSoundTesterModule))
 		).
 		//Sound
 		addModule(new GroupModule(marvin).
 				addModule(new StartTestMessageModule(marvin, soundName)).
-				addModule(new SoundTesterModule(marvin, soundName)).
-				//addModule(new PlaySampleModule(marvin))
+				//addModule(new SoundTesterModule(marvin, soundName)).
+				//addModule(new PlaySampleModule(marvin, "woopwoop.wav"))
 				//addModule(new SinWaveModule(marvin)).
 				//addModule(new BeepModule(marvin)).
 				//addModule(new BeepSequenceModule(marvin)).

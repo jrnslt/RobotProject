@@ -1,4 +1,4 @@
-package nl.hva.miw.robot.cohort13;
+package behaviour.modules.parcour;
 
 import behaviour.modules.BehaviourModule;
 import lejos.hardware.Sound;
@@ -11,6 +11,7 @@ import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Calibrate;
 import lejos.robotics.Color;
 import lejos.utility.Delay;
+import nl.hva.miw.robot.cohort13.Marvin;
 
 public class ZwartEnWit extends BehaviourModule implements Calibrate {
 

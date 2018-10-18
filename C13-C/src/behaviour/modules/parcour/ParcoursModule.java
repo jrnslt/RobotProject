@@ -1,6 +1,7 @@
-package behaviour.modules;
+package behaviour.modules.parcour;
 
 
+import behaviour.modules.BehaviourModule;
 import lejos.hardware.Button;
 import lejos.hardware.Key;
 import lejos.hardware.Sound;
@@ -9,7 +10,11 @@ import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
 import lejos.utility.Delay;
+import nl.hva.miw.robot.cohort13.Executable;
 import nl.hva.miw.robot.cohort13.Marvin;
+import nl.hva.miw.robot.cohort13.ProximitySensor;
+import nl.hva.miw.robot.cohort13.SoundProducer;
+import nl.hva.miw.robot.cohort13.Utils;
 
 
 /**
@@ -32,6 +37,53 @@ public class ParcoursModule extends BehaviourModule {
 	}
 
 	public boolean execute() {
+		
+		/*
+		Runnable runnable = (new Runnable() {
+			int count = 0;
+			SoundProducer soundProducer = getMarvin().soundProducer;
+			ProximitySensor proximitySensor = getMarvin().proximitySensor;
+			
+			@Override
+			public void run() {
+		        if (count % 16 == 0) {
+					soundProducer.setExecutable(new Executable() {
+						float x = 0;
+						
+						@Override
+						public void execute() {
+							float[] samples = proximitySensor.getSample();
+							
+							if (samples != null) {
+								
+								final int distance = (int)samples[0];
+								double sigmoid = Utils.sigmoid(distance / 200f, 5f);
+								
+								// TODO Auto-generated method stub
+							    textLCD.refresh();
+						        textLCD.clear();
+						        textLCD.drawString("distance:", 2, 1);
+						        textLCD.drawString("" + distance, 1, 2);
+						        textLCD.drawString("" + sigmoid, 1, 3);
+		
+						        double invertedSigmoid = 1.0 - sigmoid;
+						     
+								Sound.playTone(50, 1, (int)(invertedSigmoid * 100));
+							}
+						}
+					});
+		        }
+		        
+		        count ++;
+				
+			}
+			
+		});
+		
+		*/
+		
+		
+		
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
 		EV3ColorSensor colorSensor = marvin.colorSensorA;
@@ -58,8 +110,6 @@ public class ParcoursModule extends BehaviourModule {
 				System.out.printf("Kleur is \nzwart %.3f ", r);
 				goMoreLeft();
 				Delay.msDelay(100);
-
-
 			} else if (r < regularBlack) {
 				goLeft();
 
