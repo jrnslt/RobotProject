@@ -1,6 +1,7 @@
 package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.GroupModule;
+import behaviour.modules.ParcoursModule;
 import behaviour.modules.WelcomeModule;
 import behaviour.modules.testing.ColorSensorTesterModule;
 import behaviour.modules.testing.TestProcedureModule;
@@ -15,7 +16,6 @@ import lejos.hardware.sensor.EV3IRSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
-import parcours.ParcoursModule;
 
 public class Marvin  implements HardwareInterface  {
 	private Brick brick;
