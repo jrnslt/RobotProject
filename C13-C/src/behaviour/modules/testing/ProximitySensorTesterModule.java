@@ -7,6 +7,7 @@ import lejos.hardware.sensor.EV3IRSensor;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
+import nl.hva.miw.robot.cohort13.ProximitySensor;
 
 /**
  * @author daniel
@@ -23,7 +24,7 @@ public class ProximitySensorTesterModule extends BehaviourModule {
 	@Override
 	public boolean execute() {
 		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
-		EV3IRSensor afstandTester = getMarvin().proximitySensor;
+		EV3IRSensor afstandTester = getMarvin().proximitySensor.proximitySensor;
 		final int HALF_SECOND = 500;
 	
 		final SampleProvider sp = afstandTester.getDistanceMode();

@@ -7,11 +7,12 @@ import lejos.robotics.SampleProvider;
 public class ProximitySensor {
 	private float [] sample;
 	private Thread thread;
+	public final EV3IRSensor proximitySensor;
 	
 	public ProximitySensor(Marvin marvin) {
 		super();
 		
-		final EV3IRSensor proximitySensor = new EV3IRSensor(SensorPort.S1);
+		proximitySensor = new EV3IRSensor(SensorPort.S1);
 		
 		Runnable runnable = (new Runnable() {
 
@@ -32,10 +33,6 @@ public class ProximitySensor {
 	
 	public float[] getSample() {
 		return sample;
-	}
-	
-	public void stop() {
-		thread.stop();
 	}
 }
 

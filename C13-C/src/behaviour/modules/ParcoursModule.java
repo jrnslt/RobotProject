@@ -19,7 +19,6 @@ import nl.hva.miw.robot.cohort13.Marvin;
  */
 public class ParcoursModule extends BehaviourModule {
 
-
 	private final long runTime = 100000;
 	private final double fairlyBlack = 0.10;
 	private final double regularBlack = 0.25;
@@ -33,8 +32,6 @@ public class ParcoursModule extends BehaviourModule {
 	}
 
 	public boolean execute() {
-
-
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
 		EV3ColorSensor colorSensor = marvin.colorSensorA;
@@ -60,6 +57,7 @@ public class ParcoursModule extends BehaviourModule {
 				goMoreLeft();
 				Delay.msDelay(100);
 
+
 			} else if (r < regularBlack) {
 				goLeft();
 
@@ -77,9 +75,7 @@ public class ParcoursModule extends BehaviourModule {
 				System.out.printf("Kleur is \n wit %.3f ", r);
 				goMoreRight();
 				Delay.msDelay(100);
-			}
-
-			else if (r > extremeWhite) {
+			} else if (r > extremeWhite) {
 				rotateLeftCentered();
 				Delay.msDelay(100);
 			}
