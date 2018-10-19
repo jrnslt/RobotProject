@@ -12,15 +12,15 @@ import nl.hva.miw.robot.cohort13.Marvin;
  * Deze child modules worden 1 voor 1 uitgevoerd in de @method execute();
  *
  */
-public class GroupModule extends BehaviourModule {
+public class SequenceModule extends BehaviourModule {
 	private final ArrayList<BehaviourModule> modules;
 	
-	public GroupModule(Marvin marvin) {
+	public SequenceModule(Marvin marvin) {
 		super(marvin);
 		this.modules = new ArrayList<>();
 	}
 	
-	public GroupModule addModule(BehaviourModule module) {
+	public SequenceModule addModule(BehaviourModule module) {
 		this.modules.add(module);
 		return this;
 	}

@@ -1,9 +1,14 @@
 package nl.hva.miw.robot.cohort13;
 
-import behaviour.modules.GroupModule;
+import behaviour.modules.SequenceModule;
 import behaviour.modules.WelcomeModule;
+import behaviour.modules.parcour.ParcourSoundModule;
 import behaviour.modules.parcour.ParcoursModule;
+import behaviour.modules.parcour.ParcoursModuleRGB;
+import behaviour.modules.sound.BeepModule;
+import behaviour.modules.testing.ColorSensorTesterModule;
 import behaviour.modules.testing.TestProcedureModule;
+import behaviour.modules.testing.WaitForKeyModule;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
 import lejos.hardware.Key;
@@ -17,7 +22,7 @@ import lejos.utility.Delay;
 
 public class Marvin {
 	private Brick brick;
-	private GroupModule mainModule;
+	private SequenceModule mainModule;
 	public EV3ColorSensor colorSensorA;
 	public EV3ColorSensor colorSensorB;
 	public EV3TouchSensor touchSensor;
@@ -26,8 +31,8 @@ public class Marvin {
 	public RegulatedMotor groteMotorRechts;
 	public RegulatedMotor kleineMotorArm;
 	public RegulatedMotor groteMotor4;
-	
-	public SoundProducer soundProducer;
+		
+	//public SoundProducer soundProducer;
 	public ProximitySensor proximitySensor;
 	
 	public Marvin() {
@@ -35,27 +40,29 @@ public class Marvin {
 		brick = LocalEV3.get();
 		initInputOutput();
 		
-		mainModule = new GroupModule(this);
+		mainModule = new SequenceModule(this);
 		mainModule.addModule(new WelcomeModule(this));
-		mainModule.addModule(new ParcoursModule(this));
+	//	mainModule.addModule(new ColorSensorTesterModule(this, "Tester"));
+		mainModule.addModule(new ParcoursModuleRGB(this));
+		//mainModule.addModule(new ParcoursModule(this));
 		
-		/*
-		mainModule.addModule(
-				new GroupModule(this).
-					addModule(new ParcoursModule(this)).
-					addModule(new BeepModule(this)).
-					addModule(new WaitForKeyModule(this))
-		);	
-		*/
+//		mainModule.addModule(
+//				new SequenceModule(this).
+//					addModule(new WaitForKeyModule(this)).
+//					addModule(new ParcourSoundModule(this)).
+//					addModule(new ParcoursModule(this)).
+//					addModule(new BeepModule(this)).
+//					addModule(new WaitForKeyModule(this))
+//		);	 
 		
 		//mainModule.addModule(new ZwartEnWit(this));
-		mainModule.addModule(new TestProcedureModule(this));
+	//	mainModule.addModule(new TestProcedureModule(this));
 	}
 	
 	private void initInputOutput() {
-		proximitySensor = new ProximitySensor(this); 
-		colorSensorB = new EV3ColorSensor(SensorPort.S2);
-		touchSensor = new EV3TouchSensor(SensorPort.S3);
+	//	proximitySensor = new ProximitySensor(this); 
+		colorSensorB = new EV3ColorSensor(SensorPort.S3);
+	//	touchSensor = new EV3TouchSensor(SensorPort.S3);
 		colorSensorA = new EV3ColorSensor(SensorPort.S4);
 
 		groteMotorLinks = Motor.A;

@@ -21,7 +21,7 @@ public class WelcomeModule extends BehaviourModule {
 	public boolean execute() {
 		Brick brick = getMarvin().getBrick();
 		TextLCD display = brick.getTextLCD();
-		display.drawString("Welkom Ingrid", 0, 3);
+		display.drawString("Welkom", 0, 3);
 		display.drawString("Team Charlie!", 0, 4);		
 		display.drawString(brick.getName(), 0, 7);	
 		

@@ -17,6 +17,7 @@ public class ProximityAndSoundTesterModule extends BehaviourModule {
 
 	@Override
 	public boolean execute() {
+		/*
 		SoundProducer soundProducer = getMarvin().soundProducer;
 		//ProximitySensor proximitySensor = getMarvin().proximitySensor;
 		final TextLCD textLCD = getMarvin().getBrick().getTextLCD();
@@ -30,12 +31,12 @@ public class ProximityAndSoundTesterModule extends BehaviourModule {
 	        
 			//float[] samples = proximitySensor.getSample();
 			//final int distance = (int)samples[0];
-			/*
-		    textLCD.refresh();
-	        textLCD.clear();
-	        textLCD.drawString("Distance:", 2, 1);
-	        textLCD.drawString("" + distance, 1, 2);
-	        */
+			
+		    //textLCD.refresh();
+	        //textLCD.clear();
+	        //textLCD.drawString("Distance:", 2, 1);
+	        //textLCD.drawString("" + distance, 1, 2);
+	        
 
 	        if (count % 16 == 0) {
 				soundProducer.setExecutable(new Executable() {
@@ -68,6 +69,7 @@ public class ProximityAndSoundTesterModule extends BehaviourModule {
 	        
 	        count ++;
 		}
+		*/
 		
 		return true;
 	}
