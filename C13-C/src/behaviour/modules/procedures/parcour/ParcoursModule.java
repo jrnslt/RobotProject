@@ -58,9 +58,7 @@ public class ParcoursModule extends BehaviourModule {
 			sensorModeRed.fetchSample(sampleRed, 0);
 			textLCD.refresh();
 			textLCD.clear();
-
 			float r = sampleRed[0]; // rood
-
 			//obv lichtIntensiteit wordt de koers bepaald
 			
 			if (r < fairlyBlack) {
@@ -89,17 +87,7 @@ public class ParcoursModule extends BehaviourModule {
 				Delay.msDelay(100);
 			}
 		}
-
-		/*
-		try {
-			sound.join();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
-		
-		
+	
 		stopRobot();
 		
 		try {
@@ -112,18 +100,79 @@ public class ParcoursModule extends BehaviourModule {
 		return true;	
 	}
 
+//	public void startDrive() {
+//		marvin.groteMotorLinks.forward();
+//		marvin.groteMotorRechts.forward();
+//		marvin.groteMotorLinks.setSpeed(200);
+//		marvin.groteMotorRechts.setSpeed(200);
+//	}
+//
+//	public void driveForward() {
+//		marvin.groteMotorLinks.forward();
+//		marvin.groteMotorRechts.forward();
+//		marvin.groteMotorLinks.setSpeed(200);
+//		marvin.groteMotorRechts.setSpeed(200);
+//	}
+//
+//	public void goLeft() {
+//		marvin.groteMotorLinks.forward();
+//		marvin.groteMotorRechts.forward();
+//		marvin.groteMotorLinks.setSpeed(50);
+//		marvin.groteMotorRechts.setSpeed(200);
+//	}
+//
+//	public void goMoreLeft() {
+//
+//		marvin.groteMotorLinks.backward();
+//		marvin.groteMotorLinks.setSpeed(100);
+//		marvin.groteMotorRechts.forward();
+//		marvin.groteMotorRechts.setSpeed(100);
+//
+//	}
+//
+//	public void goRight() {
+//		marvin.groteMotorLinks.forward();
+//		marvin.groteMotorRechts.backward();
+//		marvin.groteMotorLinks.setSpeed(200);
+//		marvin.groteMotorRechts.setSpeed(50);
+//	}
+//
+//	public void goMoreRight() {
+//
+//		marvin.groteMotorLinks.forward();
+//		marvin.groteMotorLinks.setSpeed(100);
+//		marvin.groteMotorRechts.backward();
+//		marvin.groteMotorRechts.setSpeed(100);
+//	}
+//
+//
+//	public void stopRobot() {
+//		marvin.groteMotorLinks.stop();
+//		marvin.groteMotorRechts.stop();
+//
+//	}
+//
+//	public void rotateLeftCentered() {
+//		marvin.groteMotorLinks.backward();
+//		marvin.groteMotorLinks.setSpeed(800);
+//		marvin.groteMotorRechts.forward();
+//		marvin.groteMotorRechts.setSpeed(800);
+//
+//	}
+	
+	
 	public void startDrive() {
 		marvin.groteMotorLinks.forward();
 		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(200);
-		marvin.groteMotorRechts.setSpeed(200);
+		marvin.groteMotorLinks.setSpeed(300);
+		marvin.groteMotorRechts.setSpeed(300);
 	}
 
 	public void driveForward() {
 		marvin.groteMotorLinks.forward();
 		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(200);
-		marvin.groteMotorRechts.setSpeed(200);
+		marvin.groteMotorLinks.setSpeed(300);
+		marvin.groteMotorRechts.setSpeed(300);
 	}
 
 	public void goLeft() {
@@ -171,7 +220,7 @@ public class ParcoursModule extends BehaviourModule {
 		marvin.groteMotorRechts.setSpeed(800);
 
 	}
-
+	
 	public void waitForKey(Key key) {
 		while (key.isUp()) {
 			Delay.msDelay(100);
@@ -180,5 +229,4 @@ public class ParcoursModule extends BehaviourModule {
 			Delay.msDelay(100);
 		}
 	}
-
 }

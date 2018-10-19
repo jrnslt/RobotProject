@@ -44,45 +44,49 @@ public class ColorSensorTesterModule extends BehaviourModule {
 	    float[] sampleRGB = new float[sensorModeRGB.sampleSize()];
 	    float[] sampleRed = new float[sensorModeRed.sampleSize()];
 	    float[] sampleAmbient = new float[sensorModeAmbient.sampleSize()];
-	  
+		colorSensor.setFloodlight(Color.BLUE);
+
 	    while (testMode == 1) {
 	    	
 //	    	(true) {
-//	        textLCD.setAutoRefresh(false);
-//	        textLCD.refresh();
-//	        textLCD.clear();
-//	        
+	        textLCD.setAutoRefresh(false);
+	        textLCD.refresh();
+	        textLCD.clear();
+	                sensorModeRGB.fetchSample(sampleRGB, 0);
+
 //        	if (testMode == 0) {
-//        		colorSensor.setFloodlight(Color.WHITE);
-//        		
-//		        sensorModeRGB.fetchSample(sampleRGB, 0);
-//		    
-//		        float r = sampleRGB[0];
-//		        float g = sampleRGB[1];
-//		        float b = sampleRGB[2];
-//		        
-//		        String sR = String.format("R: %.2f", r);
-//		        String sG = String.format("G: %.2f", g);
-//		        String sB = String.format("B: %.2f ", b);
-//		        
-//			    textLCD.drawString("RGB mode", 1, 1);
-//		        textLCD.drawString(sR, 1, 2);
-//		        textLCD.drawString(sG, 1, 3);
-//		        textLCD.drawString(sB, 1, 4);  
+        	//	colorSensor.setFloodlight(Color.BLUE);
+        		
+		      //  sensorModeRGB.fetchSample(sampleRGB, 0);
+		    
+		        float r = sampleRGB[0];
+		        float g = sampleRGB[1];
+		        float b = sampleRGB[2];
+		        
+		        String sR = String.format("R: %.2f", r * 10);
+		        String sG = String.format("G: %.2f", g * 10);
+		        String sB = String.format("B: %.2f ", b * 10);
+		        
+			    textLCD.drawString("RGB mode", 1, 1);
+		        textLCD.drawString(sR, 1, 2);
+		        textLCD.drawString(sG, 1, 3);
+		        textLCD.drawString(sB, 1, 4);  
+		        
+		     
 //        	} 
 //	    	else if (testMode == 1) {	
 	    		//Red Mode
-        		colorSensor.setFloodlight(Color.RED);
-        		colorSensor.setCurrentMode(sensorModeRed.getName());		
-        		
-        		sensorModeRed.fetchSample(sampleRed, 0);
-        		
-		        float r = sampleRed[0];
-		        
-		        String sR = String.format("R: %.2f", r);
-		        
-			    textLCD.drawString("Red mode", 2, 1);
-		        textLCD.drawString(sR, 1, 2);
+//        		colorSensor.setFloodlight(Color.RED);
+//        		colorSensor.setCurrentMode(sensorModeRed.getName());		
+//        		
+//        		sensorModeRed.fetchSample(sampleRed, 0);
+//        		
+//		        float r = sampleRed[0];
+//		        
+//		        String sR = String.format("R: %.2f", r);
+//		        
+//			    textLCD.drawString("Red mode", 2, 1);
+//		        textLCD.drawString(sR, 1, 2);
 //        	} else if (testMode == 2) {	//Ambient Mode
 //        		colorSensor.setFloodlight(false);
 //        		colorSensor.setCurrentMode(sensorModeAmbient.getName());
@@ -123,5 +127,5 @@ public class ColorSensorTesterModule extends BehaviourModule {
 
 	    return true;
 	}
-
+	
 }

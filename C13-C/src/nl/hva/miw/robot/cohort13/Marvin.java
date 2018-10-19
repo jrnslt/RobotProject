@@ -1,5 +1,6 @@
 package nl.hva.miw.robot.cohort13;
 
+
 import behaviour.modules.BehaviourModule;
 import behaviour.modules.WaitForKeyModule;
 import behaviour.modules.logic.LoopModule;
@@ -13,6 +14,17 @@ import behaviour.modules.procedures.testing.TestProcedureModule;
 import behaviour.modules.procedures.welcome.WelcomeModule;
 import behaviour.modules.sound.BeepModule;
 import lejos.ev3.tools.EV3Control;
+=======
+import behaviour.modules.SequenceModule;
+import behaviour.modules.WelcomeModule;
+import behaviour.modules.parcour.ParcourSoundModule;
+import behaviour.modules.parcour.ParcoursModule;
+import behaviour.modules.parcour.ParcoursModuleRGB;
+import behaviour.modules.sound.BeepModule;
+import behaviour.modules.testing.ColorSensorTesterModule;
+import behaviour.modules.testing.TestProcedureModule;
+import behaviour.modules.testing.WaitForKeyModule;
+>>>>>>> a46f6ef5220a1bd68e2ea292f61c7ee6ad00333b
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
 import lejos.hardware.Key;

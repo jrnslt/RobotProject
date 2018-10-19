@@ -27,10 +27,8 @@ public class ZwartEnWit extends BehaviourModule implements Calibrate {
 		colorSensor.setFloodlight(Color.RED);
 		colorSensor.setCurrentMode(sensorModeRed.getName());
 
-
 		float[] sampleRed = new float[sensorModeRed.sampleSize()];
 
-		
 		TextLCD textLCD = marvin.getBrick().getTextLCD();
 		textLCD.setAutoRefresh(false);
 		Sound.beep();
@@ -44,13 +42,10 @@ public class ZwartEnWit extends BehaviourModule implements Calibrate {
 			
 			if (r < 0.30) {
 				System.out.printf("Kleur is \nzwart %.3f ", r);
-		
 			} else if (r < 0.50) {
 				System.out.printf("Kleur is \n zwart - wit %.3f ", r);
-
 			} else if (r > 0.50) {
 				System.out.printf("Kleur is \n wit %.3f ", r);
-			
 			}
 		}
         Delay.msDelay(500);

@@ -40,7 +40,7 @@ public class TestProcedureModule extends SequenceModule {
 				addModule(new ProximitySensorTesterModule(marvin, proximitySensorName)).
 				addModule(new EndTestMessageModule(marvin, proximitySensorName))
 		);	
-		*/
+		
 
 		//Console Module
 		addModule(new SequenceModule(marvin).
@@ -79,13 +79,13 @@ public class TestProcedureModule extends SequenceModule {
 				addModule(new EndTestMessageModule(marvin, soundName))
 		);	
 		
-		/*
-		addModule(new GroupModule(marvin).
+	*/
+		addModule(new SequenceModule(marvin).
 				addModule(new StartTestMessageModule(marvin, colorSensorName)).
 				addModule(new ColorSensorTesterModule(marvin, colorSensorName)).
 				addModule(new EndTestMessageModule(marvin, colorSensorName))
 		);
-		
+		/*
 
 		addModule(new GroupModule(marvin).
 				addModule(new StartTestMessageModule(marvin, drivingName)).
