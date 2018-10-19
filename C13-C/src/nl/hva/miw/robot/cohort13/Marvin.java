@@ -1,8 +1,6 @@
 package nl.hva.miw.robot.cohort13;
 
-
 import behaviour.modules.BehaviourModule;
-import behaviour.modules.WaitForKeyModule;
 import behaviour.modules.logic.LoopModule;
 import behaviour.modules.logic.SequenceModule;
 import behaviour.modules.procedures.console.ConsoleModule;
@@ -10,7 +8,6 @@ import behaviour.modules.procedures.exit.GoodbyeModule;
 import behaviour.modules.procedures.parcour.ParcourSoundModule_End;
 import behaviour.modules.procedures.parcour.ParcourSoundModule_Start;
 import behaviour.modules.procedures.parcour.ParcoursModule;
-import behaviour.modules.procedures.testing.TestProcedureModule;
 import behaviour.modules.procedures.welcome.WelcomeModule;
 import behaviour.modules.sound.BeepModule;
 import lejos.ev3.tools.EV3Control;

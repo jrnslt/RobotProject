@@ -9,6 +9,10 @@ public class ClearConsoleModule extends BehaviourModule {
 		super(marvin);
 	}
 
+	/**
+	 * clears the console
+	 * @return true
+	 */
 	@Override
 	public boolean execute() {
 		TextLCD textLCD = marvin.getBrick().getTextLCD();

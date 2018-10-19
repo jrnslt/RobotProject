@@ -3,6 +3,7 @@ package nl.hva.miw.robot.cohort13.factories;
 import behaviour.modules.BehaviourModule;
 import behaviour.modules.ClearConsoleModule;
 import behaviour.modules.DelayModule;
+import behaviour.modules.WaitForEnterKeyModule;
 import behaviour.modules.WaitForKeyModule;
 import behaviour.modules.logic.InverterModule;
 import behaviour.modules.logic.LeafModule;
@@ -69,11 +70,11 @@ public class MainModuleFactory extends ModuleFactory {
 					sequenceModuleD.addModule(succeederModuleA);		
 						succeederModuleA.addModule(sequenceUntilFailModule_A);
 							sequenceUntilFailModule_A.addModule(new StateConditionModule(marvin, MarvinState.TESTING));
-							sequenceUntilFailModule_A.addModule(new WaitForKeyModule(marvin));
+							sequenceUntilFailModule_A.addModule(new WaitForEnterKeyModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
 								//Console Module
 								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.consoleName));
-								sequenceModule_Testing.addModule(new WaitForKeyModule(marvin));
+								sequenceModule_Testing.addModule(new WaitForEnterKeyModule(marvin));
 								sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.consoleName));
 								//Proximity
 								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.proximityAndSoundTesterModule));
@@ -112,14 +113,13 @@ public class MainModuleFactory extends ModuleFactory {
 								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, touchSensorName));
 								//sequenceModule_Testing.addModule(new TouchSensorTesterModule(marvin, touchSensorName));
 								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, touchSensorName));
-							sequenceUntilFailModule_A.addModule(new TestProcedureModule(marvin));
 							sequenceUntilFailModule_A.addModule(new DelayModule(marvin, 500));	
 							sequenceUntilFailModule_A.addModule(new ClearConsoleModule(marvin));
 					//Parcours
 					sequenceModuleD.addModule(succeederModuleB);	
 						succeederModuleB.addModule(sequenceUntilFailModule_B);
 							sequenceUntilFailModule_B.addModule(new StateConditionModule(marvin, MarvinState.PARCOUR));
-							sequenceUntilFailModule_B.addModule(new WaitForKeyModule(marvin));
+							sequenceUntilFailModule_B.addModule(new WaitForEnterKeyModule(marvin));
 							sequenceUntilFailModule_B.addModule(new ParcoursModule(marvin));
 							sequenceUntilFailModule_B.addModule(new BeepModule(marvin));
 							sequenceUntilFailModule_B.addModule(new DelayModule(marvin, 500));
@@ -128,7 +128,7 @@ public class MainModuleFactory extends ModuleFactory {
 					sequenceModuleD.addModule(succeederModuleC);	
 						succeederModuleC.addModule(sequenceUntilFailModule_C);
 							sequenceUntilFailModule_C.addModule(new StateConditionModule(marvin, MarvinState.KEUZE_OPDRACHT));
-							sequenceUntilFailModule_C.addModule(new WaitForKeyModule(marvin));
+							sequenceUntilFailModule_C.addModule(new WaitForEnterKeyModule(marvin));
 							sequenceUntilFailModule_C.addModule(new KeuzeOpdrachtModule(marvin));
 							sequenceUntilFailModule_C.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_C.addModule(new ClearConsoleModule(marvin));
@@ -136,8 +136,8 @@ public class MainModuleFactory extends ModuleFactory {
 					sequenceModuleD.addModule(succeederModuleD);
 						succeederModuleD.addModule(sequenceUntilFailModuleE);
 							sequenceUntilFailModuleE.addModule(new StateConditionModule(marvin, MarvinState.SHOW));
-							sequenceUntilFailModuleE.addModule(new WaitForKeyModule(marvin));	
-							sequenceUntilFailModuleE.addModule(new ShowOpdrachtModule(marvin));
+							sequenceUntilFailModuleE.addModule(new WaitForEnterKeyModule(marvin));	
+							sequenceUntilFailModuleE.addModule(new ShowOpdrachtModule(marvin));				
 							sequenceUntilFailModuleE.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModuleE.addModule(new ClearConsoleModule(marvin));
 					//Exit
