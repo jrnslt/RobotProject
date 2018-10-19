@@ -1,6 +1,6 @@
 package nl.hva.miw.robot.cohort13;
 
-import behaviour.modules.GroupModule;
+import behaviour.modules.SequenceModule;
 import behaviour.modules.WelcomeModule;
 import behaviour.modules.parcour.ParcourSoundModule;
 import behaviour.modules.parcour.ParcoursModule;
@@ -20,7 +20,7 @@ import lejos.utility.Delay;
 
 public class Marvin {
 	private Brick brick;
-	private GroupModule mainModule;
+	private SequenceModule mainModule;
 	public EV3ColorSensor colorSensorA;
 	public EV3ColorSensor colorSensorB;
 	public EV3TouchSensor touchSensor;
@@ -30,7 +30,7 @@ public class Marvin {
 	public RegulatedMotor kleineMotorArm;
 	public RegulatedMotor groteMotor4;
 	
-	public SoundProducer soundProducer;
+	//public SoundProducer soundProducer;
 	public ProximitySensor proximitySensor;
 	
 	public Marvin() {
@@ -38,11 +38,12 @@ public class Marvin {
 		brick = LocalEV3.get();
 		initInputOutput();
 		
-		mainModule = new GroupModule(this);
+		mainModule = new SequenceModule(this);
 		mainModule.addModule(new WelcomeModule(this));
 		
 		mainModule.addModule(
-				new GroupModule(this).
+				new SequenceModule(this).
+					addModule(new WaitForKeyModule(this)).
 					addModule(new ParcourSoundModule(this)).
 					addModule(new ParcoursModule(this)).
 					addModule(new BeepModule(this)).

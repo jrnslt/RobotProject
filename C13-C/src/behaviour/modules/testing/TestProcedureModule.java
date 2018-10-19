@@ -1,7 +1,7 @@
 package behaviour.modules.testing;
 
 import behaviour.modules.DelayModule;
-import behaviour.modules.GroupModule;
+import behaviour.modules.SequenceModule;
 import behaviour.modules.sound.BeepModule;
 import behaviour.modules.sound.BeepSequenceModule;
 import behaviour.modules.sound.BeepSequenceUpModule;
@@ -19,7 +19,7 @@ import nl.hva.miw.robot.cohort13.Marvin;
  * Child modules worden toegevoegd in de constructor
  *
  */
-public class TestProcedureModule extends GroupModule {
+public class TestProcedureModule extends SequenceModule {
 
 	public TestProcedureModule(Marvin marvin) {
 		super(marvin);
@@ -42,14 +42,14 @@ public class TestProcedureModule extends GroupModule {
 		*/
 
 		//Console Module
-		addModule(new GroupModule(marvin).
+		addModule(new SequenceModule(marvin).
 				addModule(new StartTestMessageModule(marvin, consoleName)).
 				addModule(new WaitForKeyModule(marvin)).
 				addModule(new EndTestMessageModule(marvin, consoleName))
 		).
 		
 		//Proximity
-		addModule(new GroupModule(marvin).
+		addModule(new SequenceModule(marvin).
 				addModule(new StartTestMessageModule(marvin, proximityAndSoundTesterModule)).
 				//addModule(new ProximityAndSoundTesterModule(marvin, proximityAndSoundTesterModule)).
 				addModule(new PlaySampleModule(marvin, "woopwoop2.wav")).
@@ -61,7 +61,7 @@ public class TestProcedureModule extends GroupModule {
 				addModule(new EndTestMessageModule(marvin, proximityAndSoundTesterModule))
 		).
 		//Sound
-		addModule(new GroupModule(marvin).
+		addModule(new SequenceModule(marvin).
 				addModule(new StartTestMessageModule(marvin, soundName)).
 				//addModule(new SoundTesterModule(marvin, soundName)).
 				//addModule(new PlaySampleModule(marvin, "woopwoop.wav"))

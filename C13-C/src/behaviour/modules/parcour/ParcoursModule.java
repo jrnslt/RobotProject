@@ -93,7 +93,7 @@ public class ParcoursModule extends BehaviourModule {
 		float[] sampleRed = new float[sensorModeRed.sampleSize()];
 		TextLCD textLCD = marvin.getBrick().getTextLCD();
 		textLCD.setAutoRefresh(false);
-		Sound.beep();
+		//Sound.beep();
 		startDrive();
 
 		while (lastTime - startTime < runTime) {
