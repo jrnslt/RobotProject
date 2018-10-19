@@ -1,12 +1,18 @@
 package nl.hva.miw.robot.cohort13;
 
-import behaviour.modules.SequenceModule;
-import behaviour.modules.WelcomeModule;
-import behaviour.modules.parcour.ParcourSoundModule;
-import behaviour.modules.parcour.ParcoursModule;
+import behaviour.modules.BehaviourModule;
+import behaviour.modules.WaitForKeyModule;
+import behaviour.modules.logic.LoopModule;
+import behaviour.modules.logic.SequenceModule;
+import behaviour.modules.procedures.console.ConsoleModule;
+import behaviour.modules.procedures.exit.GoodbyeModule;
+import behaviour.modules.procedures.parcour.ParcourSoundModule_End;
+import behaviour.modules.procedures.parcour.ParcourSoundModule_Start;
+import behaviour.modules.procedures.parcour.ParcoursModule;
+import behaviour.modules.procedures.testing.TestProcedureModule;
+import behaviour.modules.procedures.welcome.WelcomeModule;
 import behaviour.modules.sound.BeepModule;
-import behaviour.modules.testing.TestProcedureModule;
-import behaviour.modules.testing.WaitForKeyModule;
+import lejos.ev3.tools.EV3Control;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
 import lejos.hardware.Key;
@@ -14,50 +20,48 @@ import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
+import lejos.hardware.sensor.EV3IRSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
+import lejos.remote.ev3.RMIMenu;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
+import nl.hva.miw.robot.cohort13.factories.MainModuleFactory;
 
 public class Marvin {
 	private Brick brick;
-	private SequenceModule mainModule;
+	private BehaviourModule mainModule;
 	public EV3ColorSensor colorSensorA;
 	public EV3ColorSensor colorSensorB;
 	public EV3TouchSensor touchSensor;
+	public EV3Control ev3Control;
+	public EV3IRSensor proximitySensor;
 
 	public RegulatedMotor groteMotorLinks;
 	public RegulatedMotor groteMotorRechts;
 	public RegulatedMotor kleineMotorArm;
 	public RegulatedMotor groteMotor4;
-	
-	//public SoundProducer soundProducer;
-	public ProximitySensor proximitySensor;
+
+	public MarvinState state;
 	
 	public Marvin() {
 		super(); 
+		
 		brick = LocalEV3.get();
 		initInputOutput();
 		
-		mainModule = new SequenceModule(this);
-		mainModule.addModule(new WelcomeModule(this));
-		
-		mainModule.addModule(
-				new SequenceModule(this).
-					addModule(new WaitForKeyModule(this)).
-					addModule(new ParcourSoundModule(this)).
-					addModule(new ParcoursModule(this)).
-					addModule(new BeepModule(this)).
-					addModule(new WaitForKeyModule(this))
-		);	
-		
-		//mainModule.addModule(new ZwartEnWit(this));
-		mainModule.addModule(new TestProcedureModule(this));
+		mainModule = new MainModuleFactory().createModule(this);						
+	}
+	
+	public void incrementState(int amount) {
+		int stateSize = MarvinState.getAmountOfStates();
+		int stateNumber = (state.stateNumber + amount) % stateSize;
+		state = MarvinState.getStateByNumber(stateNumber);
 	}
 	
 	private void initInputOutput() {
-		proximitySensor = new ProximitySensor(this); 
-		colorSensorB = new EV3ColorSensor(SensorPort.S2);
-		touchSensor = new EV3TouchSensor(SensorPort.S3);
+		proximitySensor = new EV3IRSensor(SensorPort.S1);
+		colorSensorB = new EV3ColorSensor(SensorPort.S3);
+		touchSensor = new EV3TouchSensor(SensorPort.S2);
 		colorSensorA = new EV3ColorSensor(SensorPort.S4);
 
 		groteMotorLinks = Motor.A;
@@ -78,6 +82,7 @@ public class Marvin {
 	private void run() {
 		mainModule.execute();		
 		waitForKey(Button.ENTER);
+		
 	}
 	
 	public void waitForKey(Key key) {
