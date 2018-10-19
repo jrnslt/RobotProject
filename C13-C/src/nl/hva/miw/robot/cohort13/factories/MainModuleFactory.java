@@ -4,7 +4,6 @@ import behaviour.modules.BehaviourModule;
 import behaviour.modules.ClearConsoleModule;
 import behaviour.modules.DelayModule;
 import behaviour.modules.WaitForEnterKeyModule;
-import behaviour.modules.WaitForKeyModule;
 import behaviour.modules.logic.InverterModule;
 import behaviour.modules.logic.LeafModule;
 import behaviour.modules.logic.LoopModule;
@@ -22,7 +21,6 @@ import behaviour.modules.procedures.testing.DriveForwardTesterModule;
 import behaviour.modules.procedures.testing.EndTestMessageModule;
 import behaviour.modules.procedures.testing.ProximitySensorTesterModule;
 import behaviour.modules.procedures.testing.StartTestMessageModule;
-import behaviour.modules.procedures.testing.TestProcedureModule;
 import behaviour.modules.procedures.welcome.WelcomeModule;
 import behaviour.modules.sound.BeepModule;
 import behaviour.modules.sound.BeepSequenceModule;
@@ -38,20 +36,20 @@ public class MainModuleFactory extends ModuleFactory {
 	public BehaviourModule createModule(Marvin marvin) {		
 		LeafModule leafModule = new LeafModule(marvin);
 		SequenceModule sequenceModuleA = new SequenceModule(marvin);
-		SequenceModule sequenceModuleD = new SequenceModule(marvin);
-		InverterModule inverterModule = new InverterModule(marvin);
 		LoopModule loopModuleB = new LoopModule(marvin);
+		SequenceModule sequenceModuleB = new SequenceModule(marvin);
 		SucceederModule succeederModuleA = new SucceederModule(marvin);
 		SucceederModule succeederModuleB = new SucceederModule(marvin);
 		SucceederModule succeederModuleC = new SucceederModule(marvin);
 		SucceederModule succeederModuleD = new SucceederModule(marvin);
+		InverterModule inverterModule = new InverterModule(marvin);
 		
 		SequenceUntilFailModule sequenceUntilFailModule_A = new SequenceUntilFailModule(marvin);
 		SequenceUntilFailModule sequenceUntilFailModule_B = new SequenceUntilFailModule(marvin);	
 		SequenceUntilFailModule sequenceUntilFailModule_C = new SequenceUntilFailModule(marvin);
-		SequenceUntilFailModule sequenceUntilFailModuleE = new SequenceUntilFailModule(marvin);
-		GoodbyeModule goodbyeModule = new GoodbyeModule(marvin);
+		SequenceUntilFailModule sequenceUntilFailModule_E = new SequenceUntilFailModule(marvin);
 		
+		GoodbyeModule goodbyeModule = new GoodbyeModule(marvin);
 		SequenceModule sequenceModule_Testing = new SequenceModule(marvin);
 		
 		leafModule.addModule(sequenceModuleA);
@@ -61,13 +59,13 @@ public class MainModuleFactory extends ModuleFactory {
 			//Main Loop
 			sequenceModuleA.addModule(loopModuleB);
 				//Sequence
-				loopModuleB.addModule(sequenceModuleD);
+				loopModuleB.addModule(sequenceModuleB);
 					//Console
-					sequenceModuleD.addModule(new BeepSequenceModule(marvin));
-					sequenceModuleD.addModule(new ConsoleModule(marvin));
+					sequenceModuleB.addModule(new BeepSequenceModule(marvin));
+					sequenceModuleB.addModule(new ConsoleModule(marvin));
 					
 					//Testing
-					sequenceModuleD.addModule(succeederModuleA);		
+					sequenceModuleB.addModule(succeederModuleA);		
 						succeederModuleA.addModule(sequenceUntilFailModule_A);
 							sequenceUntilFailModule_A.addModule(new StateConditionModule(marvin, MarvinState.TESTING));
 							sequenceUntilFailModule_A.addModule(new WaitForEnterKeyModule(marvin));
@@ -116,7 +114,7 @@ public class MainModuleFactory extends ModuleFactory {
 							sequenceUntilFailModule_A.addModule(new DelayModule(marvin, 500));	
 							sequenceUntilFailModule_A.addModule(new ClearConsoleModule(marvin));
 					//Parcours
-					sequenceModuleD.addModule(succeederModuleB);	
+					sequenceModuleB.addModule(succeederModuleB);	
 						succeederModuleB.addModule(sequenceUntilFailModule_B);
 							sequenceUntilFailModule_B.addModule(new StateConditionModule(marvin, MarvinState.PARCOUR));
 							sequenceUntilFailModule_B.addModule(new WaitForEnterKeyModule(marvin));
@@ -125,7 +123,7 @@ public class MainModuleFactory extends ModuleFactory {
 							sequenceUntilFailModule_B.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_B.addModule(new ClearConsoleModule(marvin));
 					//Keuze Opdracht
-					sequenceModuleD.addModule(succeederModuleC);	
+					sequenceModuleB.addModule(succeederModuleC);	
 						succeederModuleC.addModule(sequenceUntilFailModule_C);
 							sequenceUntilFailModule_C.addModule(new StateConditionModule(marvin, MarvinState.KEUZE_OPDRACHT));
 							sequenceUntilFailModule_C.addModule(new WaitForEnterKeyModule(marvin));
@@ -133,15 +131,15 @@ public class MainModuleFactory extends ModuleFactory {
 							sequenceUntilFailModule_C.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_C.addModule(new ClearConsoleModule(marvin));
 					//Show
-					sequenceModuleD.addModule(succeederModuleD);
-						succeederModuleD.addModule(sequenceUntilFailModuleE);
-							sequenceUntilFailModuleE.addModule(new StateConditionModule(marvin, MarvinState.SHOW));
-							sequenceUntilFailModuleE.addModule(new WaitForEnterKeyModule(marvin));	
-							sequenceUntilFailModuleE.addModule(new ShowOpdrachtModule(marvin));				
-							sequenceUntilFailModuleE.addModule(new DelayModule(marvin, 500));
-							sequenceUntilFailModuleE.addModule(new ClearConsoleModule(marvin));
+					sequenceModuleB.addModule(succeederModuleD);
+						succeederModuleD.addModule(sequenceUntilFailModule_E);
+							sequenceUntilFailModule_E.addModule(new StateConditionModule(marvin, MarvinState.SHOW));
+							sequenceUntilFailModule_E.addModule(new WaitForEnterKeyModule(marvin));	
+							sequenceUntilFailModule_E.addModule(new ShowOpdrachtModule(marvin));				
+							sequenceUntilFailModule_E.addModule(new DelayModule(marvin, 500));
+							sequenceUntilFailModule_E.addModule(new ClearConsoleModule(marvin));
 					//Exit
-					sequenceModuleD.addModule(inverterModule);
+					sequenceModuleB.addModule(inverterModule);
 						inverterModule.addModule(new StateConditionModule(marvin, MarvinState.EXIT));	
 			//GoodBye
 			sequenceModuleA.addModule(goodbyeModule);

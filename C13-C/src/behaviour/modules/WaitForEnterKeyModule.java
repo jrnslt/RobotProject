@@ -5,7 +5,6 @@ import lejos.hardware.lcd.TextLCD;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 public class WaitForEnterKeyModule extends BehaviourModule {
-	Key 
 	
 	public WaitForEnterKeyModule(Marvin marvin) {
 		super(marvin);
