@@ -2,6 +2,7 @@ package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.GroupModule;
 import behaviour.modules.WelcomeModule;
+import behaviour.modules.parcour.ParcoursModule;
 import behaviour.modules.testing.TestProcedureModule;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
@@ -36,6 +37,7 @@ public class Marvin {
 		
 		mainModule = new GroupModule(this);
 		mainModule.addModule(new WelcomeModule(this));
+		mainModule.addModule(new ParcoursModule(this));
 		
 		/*
 		mainModule.addModule(
