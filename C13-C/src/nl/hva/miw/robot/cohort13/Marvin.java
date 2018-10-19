@@ -2,7 +2,11 @@ package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.GroupModule;
 import behaviour.modules.WelcomeModule;
+import behaviour.modules.parcour.ParcourSoundModule;
+import behaviour.modules.parcour.ParcoursModule;
+import behaviour.modules.sound.BeepModule;
 import behaviour.modules.testing.TestProcedureModule;
+import behaviour.modules.testing.WaitForKeyModule;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
 import lejos.hardware.Key;
@@ -37,14 +41,13 @@ public class Marvin {
 		mainModule = new GroupModule(this);
 		mainModule.addModule(new WelcomeModule(this));
 		
-		/*
 		mainModule.addModule(
 				new GroupModule(this).
+					addModule(new ParcourSoundModule(this)).
 					addModule(new ParcoursModule(this)).
 					addModule(new BeepModule(this)).
 					addModule(new WaitForKeyModule(this))
 		);	
-		*/
 		
 		//mainModule.addModule(new ZwartEnWit(this));
 		mainModule.addModule(new TestProcedureModule(this));
