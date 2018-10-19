@@ -1,4 +1,4 @@
-package behaviour.modules.parcour;
+package behaviour.modules.procedures.parcour;
 
 import behaviour.modules.BehaviourModule;
 import lejos.hardware.Sound;
