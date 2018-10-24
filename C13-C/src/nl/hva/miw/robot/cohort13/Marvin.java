@@ -5,9 +5,12 @@ import behaviour.modules.logic.LoopModule;
 import behaviour.modules.logic.SequenceModule;
 import behaviour.modules.procedures.console.ConsoleModule;
 import behaviour.modules.procedures.exit.GoodbyeModule;
+import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
 import behaviour.modules.procedures.parcour.ParcourSoundModule_End;
 import behaviour.modules.procedures.parcour.ParcourSoundModule_Start;
 import behaviour.modules.procedures.parcour.ParcoursModule;
+import behaviour.modules.procedures.testing.ColorSensorTesterModule;
+import behaviour.modules.procedures.testing.ProximitySensorTesterModule;
 import behaviour.modules.procedures.welcome.WelcomeModule;
 import behaviour.modules.sound.BeepModule;
 import lejos.ev3.tools.EV3Control;
@@ -27,7 +30,7 @@ import nl.hva.miw.robot.cohort13.factories.MainModuleFactory;
 
 public class Marvin {
 	private Brick brick;
-	private BehaviourModule mainModule;
+	private BehaviourModule mainModule;		
 	public EV3ColorSensor colorSensorA;
 	public EV3ColorSensor colorSensorB;
 	public EV3TouchSensor touchSensor;
@@ -44,19 +47,19 @@ public class Marvin {
 	public Marvin() {
 		super(); 
 		
-		brick = LocalEV3.get();
+		brick = LocalEV3.get(); // welke poort voor wat gebruikt wordt.
 		initInputOutput();
 		
 		mainModule = new MainModuleFactory().createModule(this);						
 	}
 	
 	public void incrementState(int amount) {
-		int stateSize = MarvinState.getAmountOfStates();
-		int stateNumber = (state.stateNumber + amount) % stateSize;
-		state = MarvinState.getStateByNumber(stateNumber);
+		int stateSize = MarvinState.getAmountOfStates();		// Hoeveel programma's er worden gedraaid.
+		int stateNumber = (state.stateNumber + amount) % stateSize;	
+		state = MarvinState.getStateByNumber(stateNumber); 
 	}
 	
-	private void initInputOutput() {
+	private void initInputOutput() {		//Toewijzing van de poorten aan sensors/motors
 		proximitySensor = new EV3IRSensor(SensorPort.S1);
 		colorSensorB = new EV3ColorSensor(SensorPort.S3);
 		touchSensor = new EV3TouchSensor(SensorPort.S2);
@@ -73,13 +76,20 @@ public class Marvin {
 	}
 	
 	public static void main(String[] args) {
-		Marvin marvin = new Marvin();
-		marvin.run();
+		Marvin marvin = new Marvin(); 	//instantieert Marvin
+		marvin.run(); 					//voert de onderstaande void uit
 	}
 	
-	private void run() {
-		mainModule.execute();		
-		waitForKey(Button.ENTER);
+	private void run() {				//Voert module(s) uit middels execute
+//		mainModule.execute();		
+//		waitForKey(Button.ENTER);
+//		ParcoursModule parcoursmodule = new ParcoursModule(this);	
+//		parcoursmodule.execute();
+		KeuzeOpdrachtModule keuzeopdrachtmodule = new KeuzeOpdrachtModule(this);
+		keuzeopdrachtmodule.execute();
+//		ProximitySensorTesterModule test = new ProximitySensorTesterModule(this, "test");
+//		test.execute();
+		
 		
 	}
 	

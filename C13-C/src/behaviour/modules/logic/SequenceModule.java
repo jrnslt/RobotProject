@@ -11,7 +11,7 @@ import nl.hva.miw.robot.cohort13.Marvin;
  * returns true if all child modules have returned true after loop
  * returns false if any child module have returned false after loop
  */
-public class SequenceModule extends BehaviourModule {
+public class SequenceModule extends BehaviourModule { 
 	private final ArrayList<BehaviourModule> modules;
 	
 	public SequenceModule(Marvin marvin) {
@@ -19,13 +19,13 @@ public class SequenceModule extends BehaviourModule {
 		this.modules = new ArrayList<>();
 	}
 	
-	public SequenceModule addModule(BehaviourModule module) {
+	public SequenceModule addModule(BehaviourModule module) { //voegt een module toe aan de sequence arraylist
 		this.modules.add(module);
 		return this;
 	}
 	
 	@Override
-	public boolean execute() {
+	public boolean execute() { // NOOT: Execute is standaard false en geeft true terug wanneer uitgevoerd.
 		boolean result = true;
 		
 		for (BehaviourModule module : modules) {
