@@ -4,17 +4,23 @@ import lejos.hardware.motor.Motor;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 
-
-public class MotorControl {
-
 /*
  * Deze klasse regelt de motoraansturing
  *  	
  */
-	public RegulatedMotor bigMotorLeft = Motor.A;
-	public RegulatedMotor bigMotorRight = Motor.B;
-	public RegulatedMotor SmallMotor = Motor.C;
-		
+
+public class MotorControl {
+
+	RegulatedMotor bigMotorLeft; 
+	RegulatedMotor bigMotorRight;
+	RegulatedMotor SmallMotor;
+	
+	public void initMotors() {
+	bigMotorLeft = Motor.A;
+	bigMotorRight = Motor.B;
+	SmallMotor = Motor.C;
+	}	
+	
 	/*
 	 * The driving motors
 	 */
