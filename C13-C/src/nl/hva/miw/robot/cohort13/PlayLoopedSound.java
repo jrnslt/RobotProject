@@ -9,9 +9,9 @@ public class PlayLoopedSound extends Thread {
 	public PlayLoopedSound(int volume) {
 		this.volume = volume;		
 	}
-	
-	public void run() {
-		int count = 0;
+	 
+	public void run() { // speelt een geluid af, event. gelijktijdig met een andere handeling
+		int count = 0; 
 		
 		while (count < 100) {
 			//Sound.playSample(new File(name), volume);

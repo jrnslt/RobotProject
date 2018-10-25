@@ -20,7 +20,7 @@ public class WaitForEnterKeyModule extends BehaviourModule {
 	    textLCD.refresh();
         textLCD.clear();
         textLCD.drawString("Press Enter key to continue:", 0, 1);
-		getMarvin().waitForKey(Button.ENTER);
+		getMarvin().getKeyInputManager().waitForKey(Button.ENTER);
 		return true;
 	}
 }

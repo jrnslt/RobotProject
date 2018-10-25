@@ -15,8 +15,12 @@ import behaviour.modules.procedures.console.ConsoleModule;
 import behaviour.modules.procedures.exit.GoodbyeModule;
 import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
 import behaviour.modules.procedures.parcour.ParcoursModule;
+import behaviour.modules.procedures.parcour.ParcoursModuleRGB;
+import behaviour.modules.procedures.parcour.ParcoursModuleRGB2;
 import behaviour.modules.procedures.show.ShowOpdrachtModule;
 import behaviour.modules.procedures.testing.ColorSensorTesterModule;
+import behaviour.modules.procedures.testing.CubeRecognizerTestModule;
+import behaviour.modules.procedures.testing.ColorRecognizerTestModule;
 import behaviour.modules.procedures.testing.DriveForwardTesterModule;
 import behaviour.modules.procedures.testing.EndTestMessageModule;
 import behaviour.modules.procedures.testing.ProximitySensorTesterModule;
@@ -55,7 +59,7 @@ public class MainModuleFactory extends ModuleFactory {
 		leafModule.addModule(sequenceModuleA);
 			//Welcome
 			sequenceModuleA.addModule(new WelcomeModule(marvin));
-			
+			sequenceModuleA.addModule(new WaitForEnterKeyModule(marvin));
 			//Main Loop
 			sequenceModuleA.addModule(loopModuleB);
 				//Sequence
@@ -71,17 +75,17 @@ public class MainModuleFactory extends ModuleFactory {
 							sequenceUntilFailModule_A.addModule(new WaitForEnterKeyModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
 								//Console Module
-								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.consoleName));
-								sequenceModule_Testing.addModule(new WaitForEnterKeyModule(marvin));
-								sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.consoleName));
+								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.consoleName));
+								////sequenceModule_Testing.addModule(new WaitForEnterKeyModule(marvin));
+								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.consoleName));
 								//Proximity
-								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.proximityAndSoundTesterModule));
-								sequenceModule_Testing.addModule(new PlaySampleModule(marvin, Sounds.woopwoop));
-								sequenceModule_Testing.addModule(new DelayModule(marvin, 1000));
-								sequenceModule_Testing.addModule(new PlaySampleModule(marvin, Sounds.weAreTheRobots));
-								sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.proximityAndSoundTesterModule));
+								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.proximityAndSoundTesterModule));
+								//sequenceModule_Testing.addModule(new PlaySampleModule(marvin, Sounds.woopwoop));
+								//sequenceModule_Testing.addModule(new DelayModule(marvin, 1000));
+								//sequenceModule_Testing.addModule(new PlaySampleModule(marvin, Sounds.weAreTheRobots));
+								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.proximityAndSoundTesterModule));
 								//Sound
-								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.soundName));
+								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.soundName));
 								//sequenceModule_Testing.addModule(new SoundTesterModule(marvin, soundName));
 								//sequenceModule_Testing.addModule(new PlaySampleModule(marvin, "woopwoop.wav"));
 								//sequenceModule_Testing.addModule(new SinWaveModule(marvin));
@@ -94,19 +98,32 @@ public class MainModuleFactory extends ModuleFactory {
 								//sequenceModule_Testing.addModule(new SystemSoundModule(marvin, 2));
 								//sequenceModule_Testing.addModule(new SystemSoundModule(marvin, 3));
 								//sequenceModule_Testing.addModule(new SystemSoundModule(marvin, 4));
-								sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.soundName));
+								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.soundName));
 								//Color Sensor
 								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
-								sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, TestingProcedureNames.colorSensorName));
+								//sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
+								//		marvin.colorSensorA, TestingProcedureNames.colorSensorName + "_A"));
+								
+								//sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
+								//		marvin.colorSensorB, TestingProcedureNames.colorSensorName + "_B"));
+								
+								//sequenceModule_Testing.addModule(new ColorRecognizerTestModule(marvin, 
+								//		marvin.colorSensorB, TestingProcedureNames.colorSensorName));
+								sequenceModule_Testing.addModule(new CubeRecognizerTestModule(marvin, 
+										marvin.colorSensorB, TestingProcedureNames.colorSensorName));			
+								
+								
+								
 								sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
+								
 								//Drive Forward Test
-								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.drivingName));
-								sequenceModule_Testing.addModule(new DriveForwardTesterModule(marvin, TestingProcedureNames.drivingName));
-								sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.drivingName));
+								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.drivingName));
+								//sequenceModule_Testing.addModule(new DriveForwardTesterModule(marvin, TestingProcedureNames.drivingName));
+								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.drivingName));
 								//Proximity Sensor Tester
-								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.proximitySensorName));
-								sequenceModule_Testing.addModule(new ProximitySensorTesterModule(marvin, TestingProcedureNames.proximitySensorName));
-								sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.proximitySensorName));
+								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.proximitySensorName));
+								//sequenceModule_Testing.addModule(new ProximitySensorTesterModule(marvin, TestingProcedureNames.proximitySensorName));
+								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.proximitySensorName));
 								//Touch Sensor Tester
 								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, touchSensorName));
 								//sequenceModule_Testing.addModule(new TouchSensorTesterModule(marvin, touchSensorName));
@@ -118,7 +135,7 @@ public class MainModuleFactory extends ModuleFactory {
 						succeederModuleB.addModule(sequenceUntilFailModule_B);
 							sequenceUntilFailModule_B.addModule(new StateConditionModule(marvin, MarvinState.PARCOUR));
 							sequenceUntilFailModule_B.addModule(new WaitForEnterKeyModule(marvin));
-							sequenceUntilFailModule_B.addModule(new ParcoursModule(marvin));
+							sequenceUntilFailModule_B.addModule(new ParcoursModuleRGB2(marvin));
 							sequenceUntilFailModule_B.addModule(new BeepModule(marvin));
 							sequenceUntilFailModule_B.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_B.addModule(new ClearConsoleModule(marvin));

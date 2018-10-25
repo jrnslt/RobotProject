@@ -32,8 +32,9 @@ public class ConsoleModule extends BehaviourModule {
 			
 		    textLCD.refresh();
 	        textLCD.clear();
-	        textLCD.drawString("Select Mode: " + getMarvin().state.stateName, 0, 1);
-	        textLCD.drawString("Press Enter to start", 0, 2);
+	        textLCD.drawString("Select Mode: ", 0, 1);
+	        textLCD.drawString(getMarvin().state.stateName, 0, 2);
+	        textLCD.drawString("Press Enter to start", 0, 3);
 			
 			if (Button.ENTER.isDown()) {
 				return true;

@@ -4,6 +4,7 @@ public class TestingProcedureNames {
 	//TODO: uppercase
 	public static final String consoleName = "Console";
 	public static final String colorSensorName = "Color Sensor";
+	public static final String cubeRecognizerTestModule = "Cube Recognizer";
 	public static final String colorRecognitionName = "Color recognition";
 	public static final String drivingName = "Driving";
 	public static final String proximitySensorName = "Proximity Sensor";

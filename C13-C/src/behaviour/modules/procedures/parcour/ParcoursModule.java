@@ -16,6 +16,7 @@ import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.PlayLoopedSound;
 import nl.hva.miw.robot.cohort13.PlaySound;
 import nl.hva.miw.robot.cohort13.Utils;
+import nl.hva.miw.robot.cohort13.functionality.MColor;
 
 
 /**
@@ -41,10 +42,10 @@ public class ParcoursModule extends BehaviourModule {
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
 		EV3ColorSensor colorSensor = marvin.colorSensorA;
-		SensorMode sensorModeRed = colorSensor.getRedMode();
+		SensorMode sensorModeRgb = colorSensor.getRedMode();
 		colorSensor.setFloodlight(Color.RED);
-		colorSensor.setCurrentMode(sensorModeRed.getName());
-		float[] sampleRed = new float[sensorModeRed.sampleSize()];
+		colorSensor.setCurrentMode(sensorModeRgb.getName());
+		float[] sampleRed = new float[sensorModeRgb.sampleSize()];
 		TextLCD textLCD = marvin.getBrick().getTextLCD();
 		textLCD.setAutoRefresh(false);
 		//Sound.beep();
@@ -53,31 +54,32 @@ public class ParcoursModule extends BehaviourModule {
 		PlayLoopedSound p = new PlayLoopedSound(100);
 		p.start();
 		
+
+	
+		
 		while (lastTime - startTime < runTime) {
 			lastTime = System.currentTimeMillis();
-			sensorModeRed.fetchSample(sampleRed, 0);
+			sensorModeRgb.fetchSample(sampleRed, 0);
 			textLCD.refresh();
 			textLCD.clear();
-			float r = sampleRed[0]; // rood
-			//obv lichtIntensiteit wordt de koers bepaald
 			
+			float r = sampleRed[0]; // rood
+			
+			//obv lichtIntensiteit wordt de koers bepaald
+		
 			if (r < fairlyBlack) {
 				System.out.printf("Kleur is \nzwart %.3f ", r);
 				goMoreLeft();
 				Delay.msDelay(100);
 			} else if (r < regularBlack) {
 				goLeft();
-
 			} else if (r < blackWhite) {
 				System.out.printf("Kleur is \n zwart - wit %.3f ", r);
 				driveForward();
 				Delay.msDelay(100);
-
 			} else if (r < regularWhite) {
-
 				goRight();
 				Delay.msDelay(100);
-
 			} else if (r > regularWhite) {
 				System.out.printf("Kleur is \n wit %.3f ", r);
 				goMoreRight();

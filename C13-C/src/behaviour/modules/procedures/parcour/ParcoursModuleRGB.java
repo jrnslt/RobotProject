@@ -25,9 +25,6 @@ public class ParcoursModuleRGB extends BehaviourModule {
 
 	@Override
 	public boolean execute() {
-
-		
-		
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
 		EV3ColorSensor colorSensor = marvin.colorSensorA;
@@ -46,8 +43,9 @@ public class ParcoursModuleRGB extends BehaviourModule {
 			lastTime = System.currentTimeMillis();
 			sensorModeRGB.fetchSample(sampleRGB, 0);
 			
-			textLCD.refresh();
-			textLCD.clear();
+	        textLCD.setAutoRefresh(false);
+	        textLCD.refresh();
+	        textLCD.clear();
 
 			float r = sampleRGB[0]; // rood
 			float r2 = r * 10;
@@ -71,26 +69,28 @@ public class ParcoursModuleRGB extends BehaviourModule {
 	        
 	      
 			if (r2 > 2.50 && g2> 2.80 && b2 > 3.7) {
-				System.out.printf("W %.3f / %.3f", r2, b2);
+				textLCD.drawString(String.format("W %.3f / %.3f", r2, b2), 1, 5);
 				goMoreLeft();
 				Delay.msDelay(100);
 			} else if (r2 > 2.3 && g2> 2.40  && b2 > 3) {
 				goLeft();
-				System.out.printf("WWZ  %.3f / %.3f", r2, b2);
+				textLCD.drawString(String.format("WWZ  %.3f / %.3f", r2, b2), 1, 5);
 
 			} else if (r2 > 1.1 && g2 > 1.20 && b2 > 2) {
-				System.out.printf("ZW  %.3f / %.3f", r2, b2);
+				textLCD.drawString(String.format("ZW  %.3f / %.3f", r2, b2), 1, 5);
+				
 				driveForward();
 				Delay.msDelay(100);
 
 			} else if (r2 > 0.8  && g2 > 0.60 && b2 > 1 ) {
-				System.out.printf("ZZW  %.3f / %.3f", r2, b2);
-
+				textLCD.drawString(String.format("ZZW  %.3f / %.3f", r2, b2), 1, 5);
+				
 				goRight();
 				Delay.msDelay(100);
 
 			} else if (r2 < 0.8  && g2 < 0.60 && b2 <  1.0) {
-				System.out.printf("Z  %.3f / %.3f", r2, b2);
+				textLCD.drawString(String.format("Z  %.3f / %.3f", r2, b2), 1, 5);
+				
 				goMoreRight();
 				Delay.msDelay(100);
 

@@ -5,9 +5,12 @@ import behaviour.modules.logic.LoopModule;
 import behaviour.modules.logic.SequenceModule;
 import behaviour.modules.procedures.console.ConsoleModule;
 import behaviour.modules.procedures.exit.GoodbyeModule;
+import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
 import behaviour.modules.procedures.parcour.ParcourSoundModule_End;
 import behaviour.modules.procedures.parcour.ParcourSoundModule_Start;
 import behaviour.modules.procedures.parcour.ParcoursModule;
+import behaviour.modules.procedures.testing.ColorSensorTesterModule;
+import behaviour.modules.procedures.testing.ProximitySensorTesterModule;
 import behaviour.modules.procedures.welcome.WelcomeModule;
 import behaviour.modules.sound.BeepModule;
 import lejos.ev3.tools.EV3Control;
@@ -24,10 +27,13 @@ import lejos.remote.ev3.RMIMenu;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.factories.MainModuleFactory;
+import nl.hva.miw.robot.cohort13.functionality.ClosestColorFinder;
+import nl.hva.miw.robot.cohort13.functionality.CubeFinder;
+import nl.hva.miw.robot.cohort13.functionality.KeyInputManager;
 
 public class Marvin {
 	private Brick brick;
-	private BehaviourModule mainModule;
+	private BehaviourModule mainModule;		
 	public EV3ColorSensor colorSensorA;
 	public EV3ColorSensor colorSensorB;
 	public EV3TouchSensor touchSensor;
@@ -40,23 +46,14 @@ public class Marvin {
 	public RegulatedMotor groteMotor4;
 
 	public MarvinState state;
+	private ClosestColorFinder closestColorFinder;
+	private CubeFinder cubeFinder;
+	private KeyInputManager keyInputManager;
 	
-	public Marvin() {
-		super(); 
+	public Marvin() {	
+		brick = LocalEV3.get(); 
 		
-		brick = LocalEV3.get();
-		initInputOutput();
-		
-		mainModule = new MainModuleFactory().createModule(this);						
-	}
-	
-	public void incrementState(int amount) {
-		int stateSize = MarvinState.getAmountOfStates();
-		int stateNumber = (state.stateNumber + amount) % stateSize;
-		state = MarvinState.getStateByNumber(stateNumber);
-	}
-	
-	private void initInputOutput() {
+		//Toewijzing van de poorten aan sensors/motors
 		proximitySensor = new EV3IRSensor(SensorPort.S1);
 		colorSensorB = new EV3ColorSensor(SensorPort.S3);
 		touchSensor = new EV3TouchSensor(SensorPort.S2);
@@ -66,29 +63,39 @@ public class Marvin {
 		groteMotorRechts = Motor.B;
 		kleineMotorArm = Motor.C;
 		groteMotor4 = Motor.D;
+		
+		this.mainModule = new MainModuleFactory().createModule(this);	
+		this.closestColorFinder = new ClosestColorFinder();
+		this.cubeFinder = new CubeFinder(this);
+		this.keyInputManager = new KeyInputManager(this);
 	}
 	
 	public Brick getBrick() {
 		return brick;
 	}
 	
-	public static void main(String[] args) {
-		Marvin marvin = new Marvin();
-		marvin.run();
+	public ClosestColorFinder getClosestColorFinder() {
+		return closestColorFinder;
 	}
 	
-	private void run() {
+	public CubeFinder getCubeFinder() {
+		return cubeFinder;
+	}
+	
+	public KeyInputManager getKeyInputManager() {
+		return keyInputManager;
+	}
+	
+	public void incrementState(int amount) {
+		// Hoeveel programma's er worden gedraaid.
+		int stateSize = MarvinState.getAmountOfStates();		
+		int stateNumber = (state.stateNumber + amount) % stateSize;	
+		state = MarvinState.getStateByNumber(stateNumber); 
+	}
+	
+	public void run() {						
+		//Voert module(s) uit middels execute
 		mainModule.execute();		
-		waitForKey(Button.ENTER);
-		
-	}
-	
-	public void waitForKey(Key key) {
-		while(key.isUp()) {
-			Delay.msDelay(100);
-		}
-		while(key.isDown()) {
-			Delay.msDelay(100);
-		}
+		keyInputManager.waitForKey(Button.ENTER);
 	}
 }
