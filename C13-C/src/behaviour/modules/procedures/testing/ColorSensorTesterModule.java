@@ -28,7 +28,7 @@ public class ColorSensorTesterModule extends BehaviourModule {
 
 	@Override
 	public boolean execute() {
-		TextLCD textLCD = marvin.getBrick().getTextLCD();
+		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		int testMode = 0;
 		int testCount = 0;
 			

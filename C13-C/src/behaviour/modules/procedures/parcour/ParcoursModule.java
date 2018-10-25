@@ -1,12 +1,6 @@
 package behaviour.modules.procedures.parcour;
 
-
-import java.util.ArrayList;
-
 import behaviour.modules.BehaviourModule;
-import lejos.hardware.Button;
-import lejos.hardware.Key;
-import lejos.hardware.Sound;
 import lejos.hardware.lcd.TextLCD;
 import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
@@ -14,10 +8,6 @@ import lejos.robotics.Color;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.PlayLoopedSound;
-import nl.hva.miw.robot.cohort13.PlaySound;
-import nl.hva.miw.robot.cohort13.Utils;
-import nl.hva.miw.robot.cohort13.functionality.MColor;
-
 
 /**
  * @author JeroenS Er wordt een parcours aangemaakt die runt voor een bepaalde
@@ -41,21 +31,19 @@ public class ParcoursModule extends BehaviourModule {
 	public boolean execute() {
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
-		EV3ColorSensor colorSensor = marvin.colorSensorA;
+		EV3ColorSensor colorSensor = getMarvin().colorSensorA;
 		SensorMode sensorModeRgb = colorSensor.getRedMode();
 		colorSensor.setFloodlight(Color.RED);
 		colorSensor.setCurrentMode(sensorModeRgb.getName());
 		float[] sampleRed = new float[sensorModeRgb.sampleSize()];
-		TextLCD textLCD = marvin.getBrick().getTextLCD();
+		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		textLCD.setAutoRefresh(false);
 		//Sound.beep();
-		startDrive();
+		
+		getMarvin().getMotorControl().drive(300, 300);	//Start Drive
 
 		PlayLoopedSound p = new PlayLoopedSound(100);
 		p.start();
-		
-
-	
 		
 		while (lastTime - startTime < runTime) {
 			lastTime = System.currentTimeMillis();
@@ -69,28 +57,28 @@ public class ParcoursModule extends BehaviourModule {
 		
 			if (r < fairlyBlack) {
 				System.out.printf("Kleur is \nzwart %.3f ", r);
-				goMoreLeft();
+				getMarvin().getMotorControl().drive(100, -100); //Go More Left
 				Delay.msDelay(100);
 			} else if (r < regularBlack) {
-				goLeft();
+				getMarvin().getMotorControl().drive(50, 200);	//Go Left
 			} else if (r < blackWhite) {
 				System.out.printf("Kleur is \n zwart - wit %.3f ", r);
-				driveForward();
+				getMarvin().getMotorControl().drive(300, 300);	//Drive Forward
 				Delay.msDelay(100);
 			} else if (r < regularWhite) {
-				goRight();
+				getMarvin().getMotorControl().drive(200, 50);	//Go Right
 				Delay.msDelay(100);
 			} else if (r > regularWhite) {
 				System.out.printf("Kleur is \n wit %.3f ", r);
-				goMoreRight();
+				getMarvin().getMotorControl().drive(-100, 100); //Go More Right
 				Delay.msDelay(100);
 			} else if (r > extremeWhite) {
-				rotateLeftCentered();
-				Delay.msDelay(100);
+				//rotateLeftCentered();
+				//Delay.msDelay(100);
 			}
 		}
 	
-		stopRobot();
+		getMarvin().getMotorControl().stop();
 		
 		try {
 			p.join();
@@ -100,135 +88,5 @@ public class ParcoursModule extends BehaviourModule {
 		}
 
 		return true;	
-	}
-
-//	public void startDrive() {
-//		marvin.groteMotorLinks.forward();
-//		marvin.groteMotorRechts.forward();
-//		marvin.groteMotorLinks.setSpeed(200);
-//		marvin.groteMotorRechts.setSpeed(200);
-//	}
-//
-//	public void driveForward() {
-//		marvin.groteMotorLinks.forward();
-//		marvin.groteMotorRechts.forward();
-//		marvin.groteMotorLinks.setSpeed(200);
-//		marvin.groteMotorRechts.setSpeed(200);
-//	}
-//
-//	public void goLeft() {
-//		marvin.groteMotorLinks.forward();
-//		marvin.groteMotorRechts.forward();
-//		marvin.groteMotorLinks.setSpeed(50);
-//		marvin.groteMotorRechts.setSpeed(200);
-//	}
-//
-//	public void goMoreLeft() {
-//
-//		marvin.groteMotorLinks.backward();
-//		marvin.groteMotorLinks.setSpeed(100);
-//		marvin.groteMotorRechts.forward();
-//		marvin.groteMotorRechts.setSpeed(100);
-//
-//	}
-//
-//	public void goRight() {
-//		marvin.groteMotorLinks.forward();
-//		marvin.groteMotorRechts.backward();
-//		marvin.groteMotorLinks.setSpeed(200);
-//		marvin.groteMotorRechts.setSpeed(50);
-//	}
-//
-//	public void goMoreRight() {
-//
-//		marvin.groteMotorLinks.forward();
-//		marvin.groteMotorLinks.setSpeed(100);
-//		marvin.groteMotorRechts.backward();
-//		marvin.groteMotorRechts.setSpeed(100);
-//	}
-//
-//
-//	public void stopRobot() {
-//		marvin.groteMotorLinks.stop();
-//		marvin.groteMotorRechts.stop();
-//
-//	}
-//
-//	public void rotateLeftCentered() {
-//		marvin.groteMotorLinks.backward();
-//		marvin.groteMotorLinks.setSpeed(800);
-//		marvin.groteMotorRechts.forward();
-//		marvin.groteMotorRechts.setSpeed(800);
-//
-//	}
-	
-	
-	public void startDrive() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(300);
-		marvin.groteMotorRechts.setSpeed(300);
-	}
-
-	public void driveForward() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(300);
-		marvin.groteMotorRechts.setSpeed(300);
-	}
-
-	public void goLeft() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(50);
-		marvin.groteMotorRechts.setSpeed(200);
-	}
-
-	public void goMoreLeft() {
-
-		marvin.groteMotorLinks.backward();
-		marvin.groteMotorLinks.setSpeed(100);
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorRechts.setSpeed(100);
-
-	}
-
-	public void goRight() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.backward();
-		marvin.groteMotorLinks.setSpeed(200);
-		marvin.groteMotorRechts.setSpeed(50);
-	}
-
-	public void goMoreRight() {
-
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorLinks.setSpeed(100);
-		marvin.groteMotorRechts.backward();
-		marvin.groteMotorRechts.setSpeed(100);
-	}
-
-
-	public void stopRobot() {
-		marvin.groteMotorLinks.stop();
-		marvin.groteMotorRechts.stop();
-
-	}
-
-	public void rotateLeftCentered() {
-		marvin.groteMotorLinks.backward();
-		marvin.groteMotorLinks.setSpeed(800);
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorRechts.setSpeed(800);
-
-	}
-	
-	public void waitForKey(Key key) {
-		while (key.isUp()) {
-			Delay.msDelay(100);
-		}
-		while (key.isDown()) {
-			Delay.msDelay(100);
-		}
 	}
 }

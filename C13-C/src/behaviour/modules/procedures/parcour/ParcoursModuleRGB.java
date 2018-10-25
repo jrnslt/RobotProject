@@ -27,17 +27,17 @@ public class ParcoursModuleRGB extends BehaviourModule {
 	public boolean execute() {
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
-		EV3ColorSensor colorSensor = marvin.colorSensorA;
+		EV3ColorSensor colorSensor = getMarvin().colorSensorA;
 
 		SensorMode sensorModeRGB = colorSensor.getRGBMode();
 		colorSensor.setFloodlight(Color.WHITE);
 		colorSensor.setCurrentMode(sensorModeRGB.getName());
 
 		float[] sampleRGB = new float[sensorModeRGB.sampleSize()];
-		TextLCD textLCD = marvin.getBrick().getTextLCD();
+		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		textLCD.setAutoRefresh(false);
 		Sound.beep();
-		startDrive();
+		getMarvin().getMotorControl().drive(200, 200);	//Start drive
 
 		while (lastTime - startTime < runTime) {
 			lastTime = System.currentTimeMillis();
@@ -70,100 +70,39 @@ public class ParcoursModuleRGB extends BehaviourModule {
 	      
 			if (r2 > 2.50 && g2> 2.80 && b2 > 3.7) {
 				textLCD.drawString(String.format("W %.3f / %.3f", r2, b2), 1, 5);
-				goMoreLeft();
+				getMarvin().getMotorControl().drive(-120, 120); //Get More Left
 				Delay.msDelay(100);
 			} else if (r2 > 2.3 && g2> 2.40  && b2 > 3) {
-				goLeft();
+				getMarvin().getMotorControl().drive(50, 200);	//Go Left
+				
 				textLCD.drawString(String.format("WWZ  %.3f / %.3f", r2, b2), 1, 5);
 
 			} else if (r2 > 1.1 && g2 > 1.20 && b2 > 2) {
 				textLCD.drawString(String.format("ZW  %.3f / %.3f", r2, b2), 1, 5);
 				
-				driveForward();
+				getMarvin().getMotorControl().drive(200, 200); //Drive forward
 				Delay.msDelay(100);
 
 			} else if (r2 > 0.8  && g2 > 0.60 && b2 > 1 ) {
 				textLCD.drawString(String.format("ZZW  %.3f / %.3f", r2, b2), 1, 5);
 				
-				goRight();
+				getMarvin().getMotorControl().drive(200, 50);	//Go Right	
 				Delay.msDelay(100);
-
 			} else if (r2 < 0.8  && g2 < 0.60 && b2 <  1.0) {
 				textLCD.drawString(String.format("Z  %.3f / %.3f", r2, b2), 1, 5);
 				
-				goMoreRight();
+				getMarvin().getMotorControl().drive(-120, 120); //Get More Right
 				Delay.msDelay(100);
-
 			}
 
 			else if (r2 > 1.10 && g2 > 1.5 && b2 > 1.50) {
-				stopRobot();
+				getMarvin().getMotorControl().stop();
 				System.out.println("BLAUW! ");
 				Delay.msDelay(100);
 			}
-		
 		}
-		stopRobot();
+
+		getMarvin().getMotorControl().stop();
 		return true;
 	}
-
-	public void startDrive() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(200);
-		marvin.groteMotorRechts.setSpeed(200);
-	}
-
-	public void driveForward() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(200);
-		marvin.groteMotorRechts.setSpeed(200);
-	}
-
-	public void goLeft() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(50);
-		marvin.groteMotorRechts.setSpeed(200);
-	}
-
-	public void goMoreLeft() {
-
-		marvin.groteMotorLinks.backward();
-		marvin.groteMotorLinks.setSpeed(120);
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorRechts.setSpeed(100);
-
-	}
-
-	public void goRight() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.backward();
-		marvin.groteMotorLinks.setSpeed(200);
-		marvin.groteMotorRechts.setSpeed(50);
-	}
-
-	public void goMoreRight() {
-
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorLinks.setSpeed(100);
-		marvin.groteMotorRechts.backward();
-		marvin.groteMotorRechts.setSpeed(120);
-	}
-
-	public void stopRobot() {
-		marvin.groteMotorLinks.stop();
-		marvin.groteMotorRechts.stop();
-
-	}
-
-	public void rotateLeftCentered() {
-		marvin.groteMotorLinks.backward();
-		marvin.groteMotorLinks.setSpeed(800);
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorRechts.setSpeed(800);
-
-	}
-
 }

@@ -7,6 +7,10 @@ import nl.hva.miw.robot.cohort13.resources.Colors;
 
 public final class ClosestColorFinder {
 		
+	public MColor getClosestColor(ArrayList<MColor> colors, MColor color) {
+		return getClosestColor(colors, color.getRed(), color.getGreen(), color.getBlue());
+	}
+	
 	public MColor getClosestColor(ArrayList<MColor> colors, float r, float g, float b) {
 		MColor closestColor = null;
 		

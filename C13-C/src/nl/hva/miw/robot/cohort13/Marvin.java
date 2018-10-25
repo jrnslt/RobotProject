@@ -38,40 +38,37 @@ public class Marvin {
 	public EV3ColorSensor colorSensorB;
 	public EV3TouchSensor touchSensor;
 	public EV3Control ev3Control;
-	public EV3IRSensor proximitySensor;
-
-	public RegulatedMotor groteMotorLinks;
-	public RegulatedMotor groteMotorRechts;
-	public RegulatedMotor kleineMotorArm;
-	public RegulatedMotor groteMotor4;
 
 	public MarvinState state;
+	private MotorControl motorControl;
 	private ClosestColorFinder closestColorFinder;
 	private CubeFinder cubeFinder;
 	private KeyInputManager keyInputManager;
+	private ProximityManager proximityManager;
 	
 	public Marvin() {	
 		brick = LocalEV3.get(); 
 		
 		//Toewijzing van de poorten aan sensors/motors
-		proximitySensor = new EV3IRSensor(SensorPort.S1);
 		colorSensorB = new EV3ColorSensor(SensorPort.S3);
 		touchSensor = new EV3TouchSensor(SensorPort.S2);
 		colorSensorA = new EV3ColorSensor(SensorPort.S4);
 
-		groteMotorLinks = Motor.A;
-		groteMotorRechts = Motor.B;
-		kleineMotorArm = Motor.C;
-		groteMotor4 = Motor.D;
-		
-		this.mainModule = new MainModuleFactory().createModule(this);	
+		this.motorControl = new MotorControl();
 		this.closestColorFinder = new ClosestColorFinder();
 		this.cubeFinder = new CubeFinder(this);
 		this.keyInputManager = new KeyInputManager(this);
+		this.proximityManager = new ProximityManager(this);
+		
+		this.mainModule = new MainModuleFactory().createModule(this);	
 	}
 	
 	public Brick getBrick() {
 		return brick;
+	}
+	
+	public MotorControl getMotorControl() {
+		return motorControl;
 	}
 	
 	public ClosestColorFinder getClosestColorFinder() {
@@ -86,6 +83,10 @@ public class Marvin {
 		return keyInputManager;
 	}
 	
+	public ProximityManager getProximityManager() {
+		return proximityManager;
+	}
+	
 	public void incrementState(int amount) {
 		// Hoeveel programma's er worden gedraaid.
 		int stateSize = MarvinState.getAmountOfStates();		
@@ -97,5 +98,10 @@ public class Marvin {
 		//Voert module(s) uit middels execute
 		mainModule.execute();		
 		keyInputManager.waitForKey(Button.ENTER);
+	}
+	
+	public static void main(String[] args) {
+		Marvin marvin = new Marvin(); 	//instantieert Marvin
+		marvin.run(); 					//voert de onderstaande void uit
 	}
 }

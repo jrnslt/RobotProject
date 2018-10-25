@@ -15,7 +15,7 @@ public class ClearConsoleModule extends BehaviourModule {
 	 */
 	@Override
 	public boolean execute() {
-		TextLCD textLCD = marvin.getBrick().getTextLCD();
+		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		textLCD.setAutoRefresh(false);
 		textLCD.clear();
 		textLCD.refresh();

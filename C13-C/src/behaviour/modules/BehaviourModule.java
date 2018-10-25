@@ -9,7 +9,7 @@ import nl.hva.miw.robot.cohort13.Marvin;
  *
  */
 public abstract class BehaviourModule {
-	protected Marvin marvin;
+	private Marvin marvin;
 	
 	public BehaviourModule(Marvin marvin) {
 		this.marvin = marvin;

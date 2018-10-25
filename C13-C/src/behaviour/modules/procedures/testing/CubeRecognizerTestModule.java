@@ -3,10 +3,8 @@ package behaviour.modules.procedures.testing;
 import behaviour.modules.BehaviourModule;
 import lejos.hardware.lcd.TextLCD;
 import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.hardware.sensor.EV3IRSensor;
 import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
-import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.functionality.CubeFinder;
@@ -22,7 +20,7 @@ public class CubeRecognizerTestModule extends BehaviourModule {
 
 	@Override
 	public boolean execute() {
-		TextLCD textLCD = marvin.getBrick().getTextLCD();
+		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		int testCount = 0;
 			
 	    textLCD.setAutoRefresh(false);
@@ -36,11 +34,10 @@ public class CubeRecognizerTestModule extends BehaviourModule {
 	        textLCD.refresh();
 	        textLCD.clear();
 
-	        CubeFinder cubeFinder = marvin.getCubeFinder();
+	        CubeFinder cubeFinder = getMarvin().getCubeFinder();
 	        
 	        MColor color = cubeFinder.getCube(colorSensor);
 	        MColor seenColor = cubeFinder.getSeenColor(colorSensor);
-	        
 	        
 	        String cube = "";
 	        
@@ -50,11 +47,7 @@ public class CubeRecognizerTestModule extends BehaviourModule {
 	        	cube = "nothing";
 	        }
 	  
-			EV3IRSensor afstandTester = getMarvin().proximitySensor;
-			final SampleProvider sp = afstandTester.getDistanceMode();
-			float [] sample = new float[sp.sampleSize()];
-		    sp.fetchSample(sample, 0);	
-		    int distanceValue = (int)sample[0];
+		    int distanceValue = getMarvin().getProximityManager().getDistance();
 
 		    textLCD.drawString("Cube: " + testCount, 1, 1);
 		    textLCD.drawString("" + cube, 1, 2);

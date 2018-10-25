@@ -31,17 +31,17 @@ public class ParcoursModuleRGB2 extends BehaviourModule {
 	public boolean execute() {
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
-		EV3ColorSensor colorSensor = marvin.colorSensorA;
+		EV3ColorSensor colorSensor = getMarvin().colorSensorA;
 
 		SensorMode sensorModeRGB = colorSensor.getRGBMode();
 		colorSensor.setFloodlight(Color.WHITE);
 		colorSensor.setCurrentMode(sensorModeRGB.getName());
 
 		float[] sampleRGB = new float[sensorModeRGB.sampleSize()];
-		TextLCD textLCD = marvin.getBrick().getTextLCD();
+		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		textLCD.setAutoRefresh(false);
 		Sound.beep();
-		startDrive();
+		getMarvin().getMotorControl().drive(200, 200);	//Start Drive
 
 		//set stopwatch to zero
 		Stopwatch stopWatch = null;
@@ -78,33 +78,31 @@ public class ParcoursModuleRGB2 extends BehaviourModule {
 	      
 			if (r2 > (1.0 * f)) {
 				textLCD.drawString(String.format("W %.3f / %.3f", r2, b2), 1, 5);
-				goMoreLeft();
-				
+				getMarvin().getMotorControl().drive(-120, 100);			
 				Delay.msDelay(100);
 			} else if (r2 > (0.8 * f)) {
 				//goLeft();
-				go(-50, 200);
+				getMarvin().getMotorControl().drive(-50, 200);
 				
 				textLCD.drawString(String.format("WWZ  %.3f / %.3f", r2, b2), 1, 5);
 
 			} else if (r2 > (0.4 * f) && r2 <= (0.8 * f)) {
 				textLCD.drawString(String.format("ZW  %.3f / %.3f", r2, b2), 1, 5);
 				
-				driveForward();
+				getMarvin().getMotorControl().drive(200, 200);	//Drive Forward
 				Delay.msDelay(50);
 
 			} else if (r2 > (0.2 * f)) {
 				textLCD.drawString(String.format("ZZW  %.3f / %.3f", r2, b2), 1, 5);
 				
 				//goRight();
-				go(200, -50);
+				getMarvin().getMotorControl().drive(200, -50);
 				
 				Delay.msDelay(100);
 
 			} else if (r2 <= (0.2 * f)) {
 				textLCD.drawString(String.format("Z  %.3f / %.3f", r2, b2), 1, 5);
-				
-				goMoreRight();
+				getMarvin().getMotorControl().drive(100, -120);
 				Delay.msDelay(100);
 			}
 
@@ -122,7 +120,7 @@ public class ParcoursModuleRGB2 extends BehaviourModule {
 				if (stopWatch == null) {
 					stopWatch = new Stopwatch();
 				} else if (stopWatch.elapsed() > 8000) {
-					stopRobot();
+					getMarvin().getMotorControl().stop();	//Stop robot
 					Sound.beep();
 					
 					textLCD.clear();
@@ -135,74 +133,7 @@ public class ParcoursModuleRGB2 extends BehaviourModule {
 			}
 		}
 		
-		stopRobot();
+		getMarvin().getMotorControl().stop();	//Stop robot
 		return true;
 	}
-	
-	public void startDrive() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(200);
-		marvin.groteMotorRechts.setSpeed(200);
-	}
-
-	public void driveForward() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(200);
-		marvin.groteMotorRechts.setSpeed(200);
-	}
-
-	public void go(int left, int right) {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(left);
-		marvin.groteMotorRechts.setSpeed(right);
-	}
-	
-	public void goLeft() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(50);
-		marvin.groteMotorRechts.setSpeed(200);
-	}
-
-	public void goMoreLeft() {
-
-		marvin.groteMotorLinks.backward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(120);
-		marvin.groteMotorRechts.setSpeed(100);
-
-	}
-
-	public void goRight() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.backward();
-		marvin.groteMotorLinks.setSpeed(200);
-		marvin.groteMotorRechts.setSpeed(50);
-	}
-
-	public void goMoreRight() {
-
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.backward();
-		marvin.groteMotorLinks.setSpeed(100);
-		marvin.groteMotorRechts.setSpeed(120);
-	}
-
-	public void stopRobot() {
-		marvin.groteMotorLinks.stop();
-		marvin.groteMotorRechts.stop();
-
-	}
-
-	public void rotateLeftCentered() {
-		marvin.groteMotorLinks.backward();
-		marvin.groteMotorLinks.setSpeed(800);
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorRechts.setSpeed(800);
-
-	}
-
 }

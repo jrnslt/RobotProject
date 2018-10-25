@@ -11,28 +11,32 @@ import nl.hva.miw.robot.cohort13.Marvin;
  * Class for instantiating the Proximity Sensor
  */ 
 
-public class ProximitySensor {
+public class ProximityManager {
+	private EV3IRSensor proximitySensor;
+	private Marvin marvin;
 	
-	protected EV3IRSensor proximitySensor;
-	protected Marvin marvin;
-	protected TextLCD textLCD; 
-	
-	public ProximitySensor(Marvin marvin) {
+	public ProximityManager(Marvin marvin) {
 		proximitySensor = new EV3IRSensor(SensorPort.S1);
 		this.marvin = marvin;
-		textLCD = marvin.getBrick().getTextLCD();
+	}
+	
+	public int getDistance() {
+		final SampleProvider sp = proximitySensor.getDistanceMode();
+		float [] sample = new float[proximitySensor.sampleSize()];
+		sp.fetchSample(sample, 0);
+		int distanceValue = (int)sample[0];
+		
+		return distanceValue;
 	}
 	
 	/*
 	 * Gets the distance and prints it if needed (true / false)
 	 */
-	
 	public void getDistance(boolean showValue) {
-		final SampleProvider sp = proximitySensor.getDistanceMode();
-		float [] sample = new float[proximitySensor.sampleSize()];
-		sp.fetchSample(sample, 0);
-		int distanceValue = (int)sample[0];
+		int distanceValue = getDistance();
+		
 		if (showValue) {
+			TextLCD textLCD = marvin.getBrick().getTextLCD();
 			textLCD.refresh();
 	        textLCD.clear();
 	        textLCD.drawString("Distance:", 2, 1);
@@ -41,6 +45,11 @@ public class ProximitySensor {
 		}
 	}
 	
+	public EV3IRSensor getPrximitySensor() {
+		return proximitySensor;
+	}
 	
-	
+	public Marvin getMarvin() {
+		return marvin;
+	}
 }

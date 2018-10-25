@@ -12,35 +12,13 @@ public class DriveAndPlaySoundTesterModule extends BehaviourModule {
 
 	@Override
 	public boolean execute() {
-		testDriveForward();
-
+		getMarvin().getMotorControl().drive(30, 30);	//Drive Slow
+		Delay.msDelay(4000);
+		getMarvin().getMotorControl().drive(800, 800);	//Drive Fast
+		Delay.msDelay(1000);
+		getMarvin().getMotorControl().stop();	//Stop
+		
 		return true;
-	}
-	
-	public void testDriveForward() {
-		marvin.groteMotorLinks.forward();
-		marvin.groteMotorRechts.forward();
-		marvin.groteMotorLinks.setSpeed(300);
-		marvin.groteMotorRechts.setSpeed(300);
-	
-		Delay.msDelay(5000);
-	
-		stopRobot();
-	}
-
-	public void driveSlow() {
-		marvin.groteMotorLinks.setSpeed(30);
-		marvin.groteMotorRechts.setSpeed(30);	
-	}
-
-	public void driveFast() {
-		marvin.groteMotorLinks.setSpeed(800);
-		marvin.groteMotorRechts.setSpeed(800);
-	}
-
-	public void stopRobot() {	
-		marvin.groteMotorLinks.stop();
-		marvin.groteMotorRechts.stop();
 	}
 }
 

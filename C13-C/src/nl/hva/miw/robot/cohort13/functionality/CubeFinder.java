@@ -27,12 +27,7 @@ public class CubeFinder {
 	 */
 	public MColor getCube(EV3ColorSensor colorSensor) {
 		MColor closestColor = getColor(colorSensor);
-		
-		EV3IRSensor afstandTester = marvin.proximitySensor;
-		final SampleProvider sp = afstandTester.getDistanceMode();
-		float [] sample = new float[sp.sampleSize()];
-	    sp.fetchSample(sample, 0);	
-	    int distanceValue = (int)sample[0];
+	    int distanceValue = marvin.getProximityManager().getDistance();
 	    
 	    if (distanceValue < 10) {
 	    	return closestColor;

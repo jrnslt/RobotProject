@@ -23,7 +23,7 @@ public class ColorRecognizerTestModule extends BehaviourModule {
 
 	@Override
 	public boolean execute() {
-		TextLCD textLCD = marvin.getBrick().getTextLCD();
+		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		int testCount = 0;
 			
 	    textLCD.setAutoRefresh(false);
@@ -52,11 +52,7 @@ public class ColorRecognizerTestModule extends BehaviourModule {
 	        float b = sampleRGB[2];
 	       
 	        MColor color = new MColor("", r, g, b).normalize();
-	        MColor closestColorAdjusted = getMarvin().getClosestColorFinder().getClosestColor(
-	        		colors, 
-	        		color.getRed(), 
-	        		color.getGreen(), 
-	        		color.getBlue());
+	        MColor closestColorAdjusted = getMarvin().getClosestColorFinder().getClosestColor(colors, color);
 	        
 		    textLCD.drawString("Cube Color: " + testCount, 1, 1);
 		    textLCD.drawString("" + closestColorAdjusted.getColorName(), 1, 2);

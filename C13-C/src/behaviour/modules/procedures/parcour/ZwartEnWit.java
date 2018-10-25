@@ -22,14 +22,14 @@ public class ZwartEnWit extends BehaviourModule implements Calibrate {
 	public boolean execute() {
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
-		EV3ColorSensor colorSensor = marvin.colorSensorA;
+		EV3ColorSensor colorSensor = getMarvin().colorSensorA;
 		SensorMode sensorModeRed = colorSensor.getRedMode();
 		colorSensor.setFloodlight(Color.RED);
 		colorSensor.setCurrentMode(sensorModeRed.getName());
 
 		float[] sampleRed = new float[sensorModeRed.sampleSize()];
 
-		TextLCD textLCD = marvin.getBrick().getTextLCD();
+		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		textLCD.setAutoRefresh(false);
 		Sound.beep();
 
