@@ -1,6 +1,4 @@
-package nl.hva.miw.robot.cohort13.functionality;
-
-import nl.hva.miw.robot.cohort13.Utils;
+package nl.hva.miw.robot.cohort13;
 
 public class MColor {
 	private String colorName;

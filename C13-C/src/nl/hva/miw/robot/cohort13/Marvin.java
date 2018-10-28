@@ -1,74 +1,78 @@
 package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.BehaviourModule;
-import behaviour.modules.logic.LoopModule;
-import behaviour.modules.logic.SequenceModule;
-import behaviour.modules.procedures.console.ConsoleModule;
-import behaviour.modules.procedures.exit.GoodbyeModule;
-import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
-import behaviour.modules.procedures.parcour.ParcourSoundModule_End;
-import behaviour.modules.procedures.parcour.ParcourSoundModule_Start;
-import behaviour.modules.procedures.parcour.ParcoursModule;
-import behaviour.modules.procedures.testing.ColorSensorTesterModule;
-import behaviour.modules.procedures.testing.ProximitySensorTesterModule;
-import behaviour.modules.procedures.welcome.WelcomeModule;
-import behaviour.modules.sound.BeepModule;
 import lejos.ev3.tools.EV3Control;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
-import lejos.hardware.Key;
 import lejos.hardware.ev3.LocalEV3;
-import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
-import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.hardware.sensor.EV3IRSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
-import lejos.remote.ev3.RMIMenu;
-import lejos.robotics.RegulatedMotor;
-import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.factories.MainModuleFactory;
 import nl.hva.miw.robot.cohort13.functionality.ClosestColorFinder;
+import nl.hva.miw.robot.cohort13.functionality.ColorSensorControl;
 import nl.hva.miw.robot.cohort13.functionality.CubeFinder;
-import nl.hva.miw.robot.cohort13.functionality.KeyInputManager;
+import nl.hva.miw.robot.cohort13.functionality.KeyInputControl;
+import nl.hva.miw.robot.cohort13.functionality.MotorControl;
+import nl.hva.miw.robot.cohort13.functionality.ProximityControl;
 
 public class Marvin {
 	private Brick brick;
+	private EV3Control ev3Control;
 	private BehaviourModule mainModule;		
-	public EV3ColorSensor colorSensorA;
-	public EV3ColorSensor colorSensorB;
+	
+	private ColorSensorControl colorSensorControlA;
+	private ColorSensorControl colorSensorControlB;
 	public EV3TouchSensor touchSensor;
-	public EV3Control ev3Control;
-
-	public MarvinState state;
 	private MotorControl motorControl;
+	private KeyInputControl keyInputManager;
+	private ProximityControl proximityControl;
+	
 	private ClosestColorFinder closestColorFinder;
 	private CubeFinder cubeFinder;
-	private KeyInputManager keyInputManager;
-	private ProximityManager proximityManager;
+	
+	public MarvinState state;
 	
 	public Marvin() {	
 		brick = LocalEV3.get(); 
 		
-		//Toewijzing van de poorten aan sensors/motors
-		colorSensorB = new EV3ColorSensor(SensorPort.S3);
-		touchSensor = new EV3TouchSensor(SensorPort.S2);
-		colorSensorA = new EV3ColorSensor(SensorPort.S4);
-
-		this.motorControl = new MotorControl();
+		this.colorSensorControlB = new ColorSensorControl(this, SensorPort.S3);
+		this.colorSensorControlA = new ColorSensorControl(this, SensorPort.S4);
+		this.touchSensor = new EV3TouchSensor(SensorPort.S2);
+		this.motorControl = new MotorControl(this);
+		this.keyInputManager = new KeyInputControl(this);
+		this.proximityControl = new ProximityControl(this);
+		this.mainModule = new MainModuleFactory().createModule(this);	
+		
 		this.closestColorFinder = new ClosestColorFinder();
 		this.cubeFinder = new CubeFinder(this);
-		this.keyInputManager = new KeyInputManager(this);
-		this.proximityManager = new ProximityManager(this);
-		
-		this.mainModule = new MainModuleFactory().createModule(this);	
 	}
 	
 	public Brick getBrick() {
 		return brick;
 	}
 	
+	public EV3Control getEV3Control() {
+		return ev3Control;
+	}
+	
+	public ColorSensorControl getColorSensorControlA() {
+		return colorSensorControlA;
+	}
+	
+	public ColorSensorControl getColorSensorControlB() {
+		return colorSensorControlB;
+	}
+	
 	public MotorControl getMotorControl() {
 		return motorControl;
+	}
+	
+	public KeyInputControl getKeyInputManager() {
+		return keyInputManager;
+	}
+	
+	public ProximityControl getProximityManager() {
+		return proximityControl;
 	}
 	
 	public ClosestColorFinder getClosestColorFinder() {
@@ -77,14 +81,6 @@ public class Marvin {
 	
 	public CubeFinder getCubeFinder() {
 		return cubeFinder;
-	}
-	
-	public KeyInputManager getKeyInputManager() {
-		return keyInputManager;
-	}
-	
-	public ProximityManager getProximityManager() {
-		return proximityManager;
 	}
 	
 	public void incrementState(int amount) {

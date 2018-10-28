@@ -8,8 +8,8 @@ import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
 import lejos.utility.Delay;
+import nl.hva.miw.robot.cohort13.MColor;
 import nl.hva.miw.robot.cohort13.Marvin;
-import nl.hva.miw.robot.cohort13.functionality.MColor;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
 public class ColorRecognizerTestModule extends BehaviourModule {

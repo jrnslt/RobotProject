@@ -4,11 +4,10 @@ import lejos.hardware.Key;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
-public class KeyInputManager {
-	private Marvin marvin;
-	
-	public KeyInputManager(Marvin marvin) {
-		this.marvin = marvin;
+public class KeyInputControl extends MarvinComponent {
+
+	public KeyInputControl(Marvin marvin) {
+		super(marvin);
 	}
 	
 	public void waitForKey(Key key) {
@@ -19,5 +18,4 @@ public class KeyInputManager {
 			Delay.msDelay(100);
 		}
 	}
-
 }

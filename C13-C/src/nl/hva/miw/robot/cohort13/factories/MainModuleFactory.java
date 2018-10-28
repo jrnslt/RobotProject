@@ -17,7 +17,6 @@ import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
 import behaviour.modules.procedures.parcour.ParcoursModule;
 import behaviour.modules.procedures.parcour.ParcoursModuleRGB;
 import behaviour.modules.procedures.parcour.ParcoursModuleRGB2;
-import behaviour.modules.procedures.show.ShowOpdrachtModule;
 import behaviour.modules.procedures.testing.ColorSensorTesterModule;
 import behaviour.modules.procedures.testing.CubeRecognizerTestModule;
 import behaviour.modules.procedures.testing.ColorRecognizerTestModule;
@@ -25,6 +24,7 @@ import behaviour.modules.procedures.testing.DriveForwardTesterModule;
 import behaviour.modules.procedures.testing.EndTestMessageModule;
 import behaviour.modules.procedures.testing.ProximitySensorTesterModule;
 import behaviour.modules.procedures.testing.StartTestMessageModule;
+import behaviour.modules.procedures.uitbreiding.UitbreidingOpdrachtModule;
 import behaviour.modules.procedures.welcome.WelcomeModule;
 import behaviour.modules.sound.BeepModule;
 import behaviour.modules.sound.BeepSequenceModule;
@@ -110,7 +110,7 @@ public class MainModuleFactory extends ModuleFactory {
 								//sequenceModule_Testing.addModule(new ColorRecognizerTestModule(marvin, 
 								//		marvin.colorSensorB, TestingProcedureNames.colorSensorName));
 								sequenceModule_Testing.addModule(new CubeRecognizerTestModule(marvin, 
-										marvin.colorSensorB, TestingProcedureNames.colorSensorName));			
+										marvin.getColorSensorControlB(), TestingProcedureNames.colorSensorName));			
 								
 								
 								
@@ -152,7 +152,7 @@ public class MainModuleFactory extends ModuleFactory {
 						succeederModuleD.addModule(sequenceUntilFailModule_E);
 							sequenceUntilFailModule_E.addModule(new StateConditionModule(marvin, MarvinState.SHOW));
 							sequenceUntilFailModule_E.addModule(new WaitForEnterKeyModule(marvin));	
-							sequenceUntilFailModule_E.addModule(new ShowOpdrachtModule(marvin));				
+							sequenceUntilFailModule_E.addModule(new UitbreidingOpdrachtModule(marvin));				
 							sequenceUntilFailModule_E.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_E.addModule(new ClearConsoleModule(marvin));
 					//Exit

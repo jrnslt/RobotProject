@@ -8,10 +8,10 @@ import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
 import lejos.utility.Delay;
+import nl.hva.miw.robot.cohort13.MColor;
 import nl.hva.miw.robot.cohort13.Marvin;
-import nl.hva.miw.robot.cohort13.MotorControl;
 import nl.hva.miw.robot.cohort13.functionality.ClosestColorFinder;
-import nl.hva.miw.robot.cohort13.functionality.MColor;
+import nl.hva.miw.robot.cohort13.functionality.MotorControl;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
 public class KeuzeOpdrachtModule extends BehaviourModule {
@@ -20,7 +20,7 @@ public class KeuzeOpdrachtModule extends BehaviourModule {
 	
 	public KeuzeOpdrachtModule(Marvin marvin) {
 		super(marvin);
-		colorSensor = marvin.colorSensorA;
+		colorSensor = marvin.getColorSensorControlA().getColorSensor();
 	}
 	
 	@Override

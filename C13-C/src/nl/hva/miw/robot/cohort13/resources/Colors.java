@@ -1,6 +1,6 @@
 package nl.hva.miw.robot.cohort13.resources;
 
-import nl.hva.miw.robot.cohort13.functionality.MColor;
+import nl.hva.miw.robot.cohort13.MColor;
 
 public class Colors {
 	public static final MColor PURPLE = new MColor(ColorNames.PURPLE, 1, 0, 1);

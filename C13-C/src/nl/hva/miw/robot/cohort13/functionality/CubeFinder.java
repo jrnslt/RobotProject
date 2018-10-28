@@ -7,10 +7,13 @@ import lejos.hardware.sensor.EV3IRSensor;
 import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
 import lejos.robotics.SampleProvider;
+import nl.hva.miw.robot.cohort13.MColor;
 import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
 public class CubeFinder {
+	
+	/*
 	private Marvin marvin;
 	
 	public CubeFinder(Marvin marvin) {
@@ -21,10 +24,6 @@ public class CubeFinder {
 		this.marvin = marvin;
 	}
 
-	/**
-	 * @return a color if a cube is in front of marvin, otherwise return null
-	 * 
-	 */
 	public MColor getCube(EV3ColorSensor colorSensor) {
 		MColor closestColor = getColor(colorSensor);
 	    int distanceValue = marvin.getProximityManager().getDistance();
@@ -82,8 +81,5 @@ public class CubeFinder {
 		
 		return closestColor;
 	}
-	
-	
-	
-	
+	*/
 }

@@ -1,6 +1,7 @@
 package behaviour.modules;
 
 import nl.hva.miw.robot.cohort13.Marvin;
+import nl.hva.miw.robot.cohort13.functionality.MarvinComponent;
 
 /**
  * 
@@ -8,15 +9,10 @@ import nl.hva.miw.robot.cohort13.Marvin;
  * Deze taken zijn gedefinieerd in @method execute()
  *
  */
-public abstract class BehaviourModule {
-	private Marvin marvin;
+public abstract class BehaviourModule extends MarvinComponent {
 	
 	public BehaviourModule(Marvin marvin) {
-		this.marvin = marvin;
-	}
-	
-	public Marvin getMarvin() {
-		return marvin;
+		super(marvin);
 	}
 	
 	public abstract boolean execute();

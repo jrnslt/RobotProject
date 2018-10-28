@@ -10,8 +10,8 @@ import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
 import lejos.utility.Delay;
 import lejos.utility.Stopwatch;
+import nl.hva.miw.robot.cohort13.MColor;
 import nl.hva.miw.robot.cohort13.Marvin;
-import nl.hva.miw.robot.cohort13.functionality.MColor;
 
 public class ParcoursModuleRGB2 extends BehaviourModule {
 
@@ -31,7 +31,7 @@ public class ParcoursModuleRGB2 extends BehaviourModule {
 	public boolean execute() {
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
-		EV3ColorSensor colorSensor = getMarvin().colorSensorA;
+		EV3ColorSensor colorSensor = getMarvin().getColorSensorControlA().getColorSensor();
 
 		SensorMode sensorModeRGB = colorSensor.getRGBMode();
 		colorSensor.setFloodlight(Color.WHITE);

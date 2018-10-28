@@ -1,15 +1,20 @@
-package nl.hva.miw.robot.cohort13;
+package nl.hva.miw.robot.cohort13.functionality;
 
 import lejos.hardware.motor.Motor;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
+import nl.hva.miw.robot.cohort13.Marvin;
 
-/*
+/**
  * Deze klasse regelt de motoraansturing
- *  	
+ *
  */
+public class MotorControl extends MarvinComponent {
+	
+	public MotorControl(Marvin marvin) {
+		super(marvin);
+	}
 
-public class MotorControl {
 	private RegulatedMotor bigMotorLeft; 
 	private RegulatedMotor bigMotorRight;
 	private RegulatedMotor smallMotor_;
