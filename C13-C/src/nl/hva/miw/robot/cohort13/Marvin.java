@@ -44,38 +44,19 @@ public class Marvin {
 		this.motorControl = new MotorControl(this);
 		this.keyInputManager = new KeyInputControl(this);
 		this.proximityControl = new ProximityControl(this);
-<<<<<<< HEAD
 		this.mainModule = new MainModuleFactory().createModule(this);	
 		//this.ev3Control = new EV3Control();
-=======
->>>>>>> fa67ed9955a49a51bb183df9222ce60bd39b1adc
-		
+
 	
-		
-		this.mainModule = new MainModuleFactory().createModule(this);	
 		this.closestColorFinder = new ClosestColorFinder();
 		//this.ev3Control = new ev3Control();
 		//mainModule.addModule(new ZwartEnWit(this));
 		
 	}
 	
-	
-	
 	public Brick getBrick() {
 		return brick;
 	}
-	
-<<<<<<< HEAD
-	/*
-	public EV3Control getEV3Control() {
-		return ev3Control;
-	}
-	*/
-=======
-//	public EV3Control getEV3Control() {
-//		return ev3Control;
-	//}
->>>>>>> fa67ed9955a49a51bb183df9222ce60bd39b1adc
 	
 	public ColorSensorControl getColorSensorControlA() {
 		return colorSensorControlA;
