@@ -110,7 +110,7 @@ public class MainModuleFactory extends ModuleFactory {
 								//		marvin.colorSensorA, TestingProcedureNames.colorSensorName + "_A"));
 								
 								sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
-										marvin.getColorSensorControlA().getColorSensor(), TestingProcedureNames.colorSensorName + "_B"));
+										marvin.getColorSensorControlDown().getColorSensor(), TestingProcedureNames.colorSensorName + "_B"));
 
 //								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
 

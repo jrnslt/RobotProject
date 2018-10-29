@@ -20,7 +20,7 @@ public class KeuzeOpdrachtModule extends BehaviourModule {
 	
 	public KeuzeOpdrachtModule(Marvin marvin) {
 		super(marvin);
-		colorSensor = marvin.getColorSensorControlA().getColorSensor();
+		colorSensor = marvin.getColorSensorControlFront().getColorSensor();
 	}
 	
 	@Override
@@ -62,17 +62,22 @@ public class KeuzeOpdrachtModule extends BehaviourModule {
 	        textLCD.drawString("" + distanceValue, 1, 2);
 	        Delay.msDelay(500);	
 	       
-	        if (distanceValue < 25 && closestColor == Colors.BLUE) {
+	        if (distanceValue < 15 && closestColor == Colors.BLUE) {
 	        	motorControl.stop();
-	    		getMarvin().getMotorControl().driveBackwards(300, 300);
-	    		Delay.msDelay(1000);
+	    		getMarvin().getMotorControl().driveBackwards(150, 150);
+	    		Delay.msDelay(500);
 	        	motorControl.stop();
 	        	getMarvin().getMotorControl().drive(300, -300);
 	        	Delay.msDelay(3000);
 	        	motorControl.stop();
-	        	motorControl.grabIt();
+	    		getMarvin().getMotorControl().driveBackwards(150, 150);
+	    		Delay.msDelay(500);
+	        	motorControl.grabItForward(150, 800);
+	        	getMarvin().getMotorControl().driveBackwards(150, 150);
+	        	Delay.msDelay(2000);
+	        	motorControl.grabItForward(150, 1200);
 		        motorControl.stop();
-		        motorControl.letLoose();
+		        //motorControl.letLoose();
 	        }
 		}
 		

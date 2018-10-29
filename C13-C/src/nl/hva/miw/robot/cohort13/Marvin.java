@@ -1,7 +1,9 @@
 package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.BehaviourModule;
+import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
 import behaviour.modules.procedures.testing.ColorSensorTesterModule;
+import behaviour.modules.procedures.testing.RodeLijnTester;
 import lejos.ev3.tools.EV3Control;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
@@ -21,8 +23,8 @@ public class Marvin {
 	private Brick brick;
 	private BehaviourModule mainModule;		
 	
-	private ColorSensorControl colorSensorControlA;
-	private ColorSensorControl colorSensorControlB;
+	private ColorSensorControl colorSensorControlDown;
+	private ColorSensorControl colorSensorControlFront;
 	public EV3TouchSensor touchSensor;
 	private MotorControl motorControl;
 	private KeyInputControl keyInputManager;
@@ -32,14 +34,13 @@ public class Marvin {
 	//private CubeFinder cubeFinder;
 	
 	public MarvinState state;
-	
 
 	
 	public Marvin() {	
 		brick = LocalEV3.get(); 
 		
-		this.colorSensorControlB = new ColorSensorControl(this, SensorPort.S3);
-		this.colorSensorControlA = new ColorSensorControl(this, SensorPort.S4);
+		this.colorSensorControlFront = new ColorSensorControl(this, SensorPort.S3);
+		this.colorSensorControlDown = new ColorSensorControl(this, SensorPort.S4);
 		this.touchSensor = new EV3TouchSensor(SensorPort.S2);
 		this.motorControl = new MotorControl(this);
 		this.keyInputManager = new KeyInputControl(this);
@@ -58,12 +59,12 @@ public class Marvin {
 		return brick;
 	}
 	
-	public ColorSensorControl getColorSensorControlA() {
-		return colorSensorControlA;
+	public ColorSensorControl getColorSensorControlDown() {
+		return colorSensorControlDown;
 	}
 	
-	public ColorSensorControl getColorSensorControlB() {
-		return colorSensorControlB;
+	public ColorSensorControl getColorSensorControlFront() {
+		return colorSensorControlFront;
 	}
 	
 	public MotorControl getMotorControl() {
@@ -97,7 +98,16 @@ public class Marvin {
 	
 	public void run() {						
 		//Voert module(s) uit middels execute
-		mainModule.execute();		
+		//mainModule.execute();		
+		
+		//colorSensorControlDown.calibrateSensor();
+		//new RodeLijnTester(this).execute();
+		new KeuzeOpdrachtModule(this).execute();
+		
+		//colorSensorControlDown.ColorTesterTest();
+		
+		
+		
 		keyInputManager.waitForKey(Button.ENTER);
 	}
 	

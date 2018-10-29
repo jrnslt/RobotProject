@@ -29,17 +29,16 @@ public final class ClosestColorFinder {
 		MColor closestColor = null;
 		
 		for (MColor color : colors) {
-			MColor brightenedColor = new MColor(color);
 			
 			if (closestColor == null) {
-				closestColor = brightenedColor;
+				closestColor = color;
 			}
 			
-			double distanceCurrent = Utils.EuclidianDistance(brightenedColor.getRed(), brightenedColor.getGreen(), brightenedColor.getBlue(), r, g, b);
+			double distanceCurrent = Utils.EuclidianDistance(color.getRed(), color.getGreen(), color.getBlue(), r, g, b);
 			double distanceShortest = Utils.EuclidianDistance(closestColor.getRed(), closestColor.getGreen(), closestColor.getBlue(), r, g, b);
 			
 			if (distanceCurrent < distanceShortest) {
-				closestColor = brightenedColor;
+				closestColor = color;
 			}
 		}
 		
