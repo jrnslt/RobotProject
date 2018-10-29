@@ -42,7 +42,7 @@ public class ColorSensorTesterModule extends BehaviourModule {
 	    float[] sampleRed = new float[sensorModeRed.sampleSize()];
 	    float[] sampleAmbient = new float[sensorModeAmbient.sampleSize()];
 
-	    while (true) {
+	    while (testMode == 0) {
 	        textLCD.setAutoRefresh(false);
 	        textLCD.refresh();
 	        textLCD.clear();
@@ -113,6 +113,7 @@ public class ColorSensorTesterModule extends BehaviourModule {
         	
         	Delay.msDelay(250);
 	        
+        	/*
 	        if (testCount > 30) {
 	        	testCount = 0;
 	        	testMode++;
@@ -123,6 +124,7 @@ public class ColorSensorTesterModule extends BehaviourModule {
 	        if (testMode > 2) {
 	        	break;
 	        }
+	        */
 	    }  
 
 	    return true;
