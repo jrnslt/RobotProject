@@ -1,11 +1,13 @@
 package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.BehaviourModule;
+import behaviour.modules.procedures.testing.ColorSensorTesterModule;
 import lejos.ev3.tools.EV3Control;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.port.SensorPort;
+import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
 import nl.hva.miw.robot.cohort13.factories.MainModuleFactory;
 import nl.hva.miw.robot.cohort13.functionality.ClosestColorFinder;
@@ -17,7 +19,6 @@ import nl.hva.miw.robot.cohort13.functionality.ProximityControl;
 
 public class Marvin {
 	private Brick brick;
-	//private EV3Control ev3Control;
 	private BehaviourModule mainModule;		
 	
 	private ColorSensorControl colorSensorControlA;
@@ -32,6 +33,8 @@ public class Marvin {
 	
 	public MarvinState state;
 	
+
+	
 	public Marvin() {	
 		brick = LocalEV3.get(); 
 		
@@ -41,22 +44,38 @@ public class Marvin {
 		this.motorControl = new MotorControl(this);
 		this.keyInputManager = new KeyInputControl(this);
 		this.proximityControl = new ProximityControl(this);
+<<<<<<< HEAD
 		this.mainModule = new MainModuleFactory().createModule(this);	
 		//this.ev3Control = new EV3Control();
+=======
+>>>>>>> fa67ed9955a49a51bb183df9222ce60bd39b1adc
 		
+	
+		
+		this.mainModule = new MainModuleFactory().createModule(this);	
 		this.closestColorFinder = new ClosestColorFinder();
-		//this.cubeFinder = new CubeFinder(this);
+		//this.ev3Control = new ev3Control();
+		//mainModule.addModule(new ZwartEnWit(this));
+		
 	}
+	
+	
 	
 	public Brick getBrick() {
 		return brick;
 	}
 	
+<<<<<<< HEAD
 	/*
 	public EV3Control getEV3Control() {
 		return ev3Control;
 	}
 	*/
+=======
+//	public EV3Control getEV3Control() {
+//		return ev3Control;
+	//}
+>>>>>>> fa67ed9955a49a51bb183df9222ce60bd39b1adc
 	
 	public ColorSensorControl getColorSensorControlA() {
 		return colorSensorControlA;

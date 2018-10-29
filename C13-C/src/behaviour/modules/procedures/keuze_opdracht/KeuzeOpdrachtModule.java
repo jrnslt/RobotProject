@@ -41,6 +41,7 @@ public class KeuzeOpdrachtModule extends BehaviourModule {
 		colors.add(Colors.ORANGE);
 		colors.add(Colors.RED);
 		colors.add(Colors.GREEN);
+		motorControl.driveForward(150, 150);
 		
 		while(currentTime - startTime < 20000) {
 			currentTime = System.currentTimeMillis();
