@@ -48,6 +48,9 @@ public class MainModuleFactory extends ModuleFactory {
 		SucceederModule succeederModuleD = new SucceederModule(marvin);
 		InverterModule inverterModule = new InverterModule(marvin);
 		
+		BehaviourModule opdracht2Module = new Opdracht2ModuleFactory().createModule(marvin);
+		BehaviourModule opdracht3Module = new Opdracht3ModuleFactory().createModule(marvin);
+		
 		SequenceUntilFailModule sequenceUntilFailModule_A = new SequenceUntilFailModule(marvin);
 		SequenceUntilFailModule sequenceUntilFailModule_B = new SequenceUntilFailModule(marvin);	
 		SequenceUntilFailModule sequenceUntilFailModule_C = new SequenceUntilFailModule(marvin);
@@ -101,21 +104,39 @@ public class MainModuleFactory extends ModuleFactory {
 								//sequenceModule_Testing.addModule(new SystemSoundModule(marvin, 4));
 								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.soundName));
 								//Color Sensor
+
 //								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
 //								sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
 //										marvin.getColorSensorControlA().getColorSensor(), TestingProcedureNames.colorSensorName + "_A"));
 								sequenceModule_Testing.addModule(new KeuzeOpdrachtModule(marvin));
+
+
+								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
+								//sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
+								//		marvin.colorSensorA, TestingProcedureNames.colorSensorName + "_A"));
+								
+//								sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
+//										marvin.getColorSensorControlA().getColorSensor(), TestingProcedureNames.colorSensorName + "_B"));
+
+//								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
+
+								
+
 //								sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
 //								marvin.getColorSensorControlB().getColorSensor(), "_B"));
 								//marvin.colorSensorB, TestingProcedureNames.colorSensorName + "_B");
 								//sequenceModule_Testing.addModule(new ColorRecognizerTestModule(marvin, 
 								//		marvin.colorSensorB, TestingProcedureNames.colorSensorName));
+
+								//sequenceModule_Testing.addModule(new CubeRecognizerTestModule(marvin, 
+
 							///	sequenceModule_Testing.addModule(new CubeRecognizerTestModule(marvin, 
+
 										//marvin.getColorSensorControlB(), TestingProcedureNames.colorSensorName));			
 								
 								
 								
-								sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
+								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
 								
 								//Drive Forward Test
 								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.drivingName));
@@ -145,15 +166,16 @@ public class MainModuleFactory extends ModuleFactory {
 						succeederModuleC.addModule(sequenceUntilFailModule_C);
 							sequenceUntilFailModule_C.addModule(new StateConditionModule(marvin, MarvinState.KEUZE_OPDRACHT));
 							sequenceUntilFailModule_C.addModule(new WaitForEnterKeyModule(marvin));
-							sequenceUntilFailModule_C.addModule(new KeuzeOpdrachtModule(marvin));
+							//sequenceUntilFailModule_C.addModule(new KeuzeOpdrachtModule(marvin));
+							sequenceUntilFailModule_C.addModule(opdracht2Module);
 							sequenceUntilFailModule_C.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_C.addModule(new ClearConsoleModule(marvin));
-					//Show
+					//Uitbreiding Keuze opdracht
 					sequenceModuleB.addModule(succeederModuleD);
 						succeederModuleD.addModule(sequenceUntilFailModule_E);
 							sequenceUntilFailModule_E.addModule(new StateConditionModule(marvin, MarvinState.SHOW));
 							sequenceUntilFailModule_E.addModule(new WaitForEnterKeyModule(marvin));	
-							sequenceUntilFailModule_E.addModule(new UitbreidingOpdrachtModule(marvin));				
+							sequenceUntilFailModule_E.addModule(opdracht3Module);				
 							sequenceUntilFailModule_E.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_E.addModule(new ClearConsoleModule(marvin));
 					//Exit

@@ -113,16 +113,18 @@ public class ColorSensorTesterModule extends BehaviourModule {
         	
         	Delay.msDelay(250);
 	        
-//	        if (testCount > 30) {
-//	        	testCount = 0;
-//	        	testMode++;
-//	        	//Button.LEDPattern(4);    // flash green led and
-//	        	Sound.beep();
-//	        }
+        	/*
+	        if (testCount > 30) {
+	        	testCount = 0;
+	        	testMode++;
+	        	//Button.LEDPattern(4);    // flash green led and
+	        	Sound.beep();
+	        }
 	        
 	        if (testMode > 2) {
 	        	break;
 	        }
+	        */
 	    }  
 
 	    return true;

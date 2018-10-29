@@ -19,7 +19,6 @@ import nl.hva.miw.robot.cohort13.functionality.ProximityControl;
 
 public class Marvin {
 	private Brick brick;
-//	private EV3Control ev3Control;
 	private BehaviourModule mainModule;		
 	
 	private ColorSensorControl colorSensorControlA;
@@ -45,25 +44,19 @@ public class Marvin {
 		this.motorControl = new MotorControl(this);
 		this.keyInputManager = new KeyInputControl(this);
 		this.proximityControl = new ProximityControl(this);
-		
-	
-		
 		this.mainModule = new MainModuleFactory().createModule(this);	
+		//this.ev3Control = new EV3Control();
+
+	
 		this.closestColorFinder = new ClosestColorFinder();
 		//this.ev3Control = new ev3Control();
 		//mainModule.addModule(new ZwartEnWit(this));
 		
 	}
 	
-	
-	
 	public Brick getBrick() {
 		return brick;
 	}
-	
-//	public EV3Control getEV3Control() {
-//		return ev3Control;
-	//}
 	
 	public ColorSensorControl getColorSensorControlA() {
 		return colorSensorControlA;
