@@ -28,7 +28,7 @@ public class Marvin {
 	private ProximityControl proximityControl;
 	
 	private ClosestColorFinder closestColorFinder;
-	private CubeFinder cubeFinder;
+	//private CubeFinder cubeFinder;
 	
 	public MarvinState state;
 	
@@ -44,7 +44,7 @@ public class Marvin {
 		this.mainModule = new MainModuleFactory().createModule(this);	
 		
 		this.closestColorFinder = new ClosestColorFinder();
-		this.cubeFinder = new CubeFinder(this);
+		//this.cubeFinder = new CubeFinder(this);
 	}
 	
 	public Brick getBrick() {
@@ -79,9 +79,11 @@ public class Marvin {
 		return closestColorFinder;
 	}
 	
+	/*
 	public CubeFinder getCubeFinder() {
 		return cubeFinder;
 	}
+	*/
 	
 	public void incrementState(int amount) {
 		// Hoeveel programma's er worden gedraaid.
