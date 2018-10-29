@@ -70,26 +70,26 @@ public class ParcoursModuleRGB extends BehaviourModule {
 	        // de robot stopt als hij veel blauw ziet.
 	        
 	      
-			if (r2 > 2.50 && g2> 2.80 && b2 > 3.7) {
+			if (r2 < 0.4 && g2 < 0.3 && b2 < 0.4) {
 				System.out.printf("W %.3f / %.3f", r2, b2);
 				goMoreLeft();
 				Delay.msDelay(100);
-			} else if (r2 > 2.3 && g2> 2.40  && b2 > 3) {
+			} else if (r2 < 0.7 && g2 < 0.8  && b2 < 1) {
 				goLeft();
 				System.out.printf("WWZ  %.3f / %.3f", r2, b2);
 
-			} else if (r2 > 1.1 && g2 > 1.20 && b2 > 2) {
+			} else if (r2 < 1.4 && g2 < 1.80 && b2 < 1.8) {
 				System.out.printf("ZW  %.3f / %.3f", r2, b2);
 				driveForward();
 				Delay.msDelay(100);
 
-			} else if (r2 > 0.8  && g2 > 0.60 && b2 > 1 ) {
+			} else if (r2 < 1.8  && g2 < 2.2 && b2 < 2.4 ) {
 				System.out.printf("ZZW  %.3f / %.3f", r2, b2);
 
 				goRight();
 				Delay.msDelay(100);
 
-			} else if (r2 < 0.8  && g2 < 0.60 && b2 <  1.0) {
+			} else if (r2 > 1.8  && g2 > 2.2  && b2 > 2.4 ) {
 				System.out.printf("Z  %.3f / %.3f", r2, b2);
 				goMoreRight();
 				Delay.msDelay(100);

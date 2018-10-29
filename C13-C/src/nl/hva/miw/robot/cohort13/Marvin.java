@@ -43,7 +43,7 @@ public class Marvin {
 		mainModule = new SequenceModule(this);
 		mainModule.addModule(new WelcomeModule(this));
 	//	mainModule.addModule(new ColorSensorTesterModule(this, "Tester"));
-		mainModule.addModule(new ParcoursModuleRGB(this));
+//		mainModule.addModule(new ParcoursModuleRGB(this));
 		//mainModule.addModule(new ParcoursModule(this));
 		
 //		mainModule.addModule(
@@ -56,7 +56,7 @@ public class Marvin {
 //		);	 
 		
 		//mainModule.addModule(new ZwartEnWit(this));
-	//	mainModule.addModule(new TestProcedureModule(this));
+		mainModule.addModule(new TestProcedureModule(this));
 	}
 	
 	private void initInputOutput() {
