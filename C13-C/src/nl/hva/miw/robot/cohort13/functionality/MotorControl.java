@@ -71,7 +71,7 @@ public class MotorControl extends MarvinComponent {
 	}
 	
 	public void driveBackwards(int speedLeft, int speedRight) {
-		driveBackwards(speedLeft, speedRight);
+		driveBackwards(speedLeft, speedRight, 0);
 	}
 	
 	public void driveBackwards(int speedLeft, int speedRight, int delayMs) {

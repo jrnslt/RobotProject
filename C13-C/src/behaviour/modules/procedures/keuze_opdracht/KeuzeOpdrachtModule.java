@@ -20,7 +20,7 @@ public class KeuzeOpdrachtModule extends BehaviourModule {
 	
 	public KeuzeOpdrachtModule(Marvin marvin) {
 		super(marvin);
-		colorSensor = marvin.getColorSensorControlA().getColorSensor();
+		colorSensor = marvin.getColorSensorControlB().getColorSensor();
 	}
 	
 	@Override
@@ -43,7 +43,7 @@ public class KeuzeOpdrachtModule extends BehaviourModule {
 		colors.add(Colors.GREEN);
 		motorControl.driveForward(150, 150);
 		
-		while(currentTime - startTime < 20000) {
+		while(currentTime - startTime < 30000) {
 			currentTime = System.currentTimeMillis();
 
 		    int distanceValue = getMarvin().getProximityManager().getDistance();
@@ -60,9 +60,10 @@ public class KeuzeOpdrachtModule extends BehaviourModule {
 	        textLCD.clear();
 	        textLCD.drawString("Distance:", 2, 1);
 	        textLCD.drawString("" + distanceValue, 1, 2);
+	        textLCD.drawString("" + closestColor.getColorName(), 2, 3);
 	        Delay.msDelay(500);	
 	       
-	        if (distanceValue < 25 && closestColor == Colors.BLUE) {
+	        if (distanceValue < 25 && closestColor.getColorName().equals(Colors.BLUE.getColorName())) {
 	        	motorControl.stop();
 	    		getMarvin().getMotorControl().driveBackwards(300, 300);
 	    		Delay.msDelay(1000);
