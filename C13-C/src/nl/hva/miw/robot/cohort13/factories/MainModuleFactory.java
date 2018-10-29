@@ -49,7 +49,6 @@ public class MainModuleFactory extends ModuleFactory {
 		InverterModule inverterModule = new InverterModule(marvin);
 		
 		BehaviourModule opdracht2Module = new Opdracht2ModuleFactory().createModule(marvin);
-		BehaviourModule opdracht3Module = new Opdracht3ModuleFactory().createModule(marvin);
 		
 		SequenceUntilFailModule sequenceUntilFailModule_A = new SequenceUntilFailModule(marvin);
 		SequenceUntilFailModule sequenceUntilFailModule_B = new SequenceUntilFailModule(marvin);	
@@ -177,7 +176,7 @@ public class MainModuleFactory extends ModuleFactory {
 						succeederModuleD.addModule(sequenceUntilFailModule_E);
 							sequenceUntilFailModule_E.addModule(new StateConditionModule(marvin, MarvinState.SHOW));
 							sequenceUntilFailModule_E.addModule(new WaitForEnterKeyModule(marvin));	
-							sequenceUntilFailModule_E.addModule(opdracht3Module);				
+							sequenceUntilFailModule_E.addModule(new UitbreidingOpdrachtModule(marvin));				
 							sequenceUntilFailModule_E.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_E.addModule(new ClearConsoleModule(marvin));
 					//Exit
