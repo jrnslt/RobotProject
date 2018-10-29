@@ -14,8 +14,9 @@ import lejos.hardware.sensor.EV3TouchSensor;
 import nl.hva.miw.robot.cohort13.factories.MainModuleFactory;
 import nl.hva.miw.robot.cohort13.functionality.ClosestColorFinder;
 import nl.hva.miw.robot.cohort13.functionality.ColorSensorControl;
-import nl.hva.miw.robot.cohort13.functionality.CubeFinder;
 import nl.hva.miw.robot.cohort13.functionality.KeyInputControl;
+import nl.hva.miw.robot.cohort13.functionality.MemoryOpdracht2;
+import nl.hva.miw.robot.cohort13.functionality.MemoryOpdracht3;
 import nl.hva.miw.robot.cohort13.functionality.MotorControl;
 import nl.hva.miw.robot.cohort13.functionality.ProximityControl;
 
@@ -29,9 +30,10 @@ public class Marvin {
 	private MotorControl motorControl;
 	private KeyInputControl keyInputManager;
 	private ProximityControl proximityControl;
-	
 	private ClosestColorFinder closestColorFinder;
-	//private CubeFinder cubeFinder;
+	
+	private MemoryOpdracht2 memoryOpdracht2;
+	private MemoryOpdracht3 memoryOpdracht3;
 	
 	public MarvinState state;
 
@@ -46,13 +48,10 @@ public class Marvin {
 		this.keyInputManager = new KeyInputControl(this);
 		this.proximityControl = new ProximityControl(this);
 		this.mainModule = new MainModuleFactory().createModule(this);	
-		//this.ev3Control = new EV3Control();
-
-	
 		this.closestColorFinder = new ClosestColorFinder();
-		//this.ev3Control = new ev3Control();
-		//mainModule.addModule(new ZwartEnWit(this));
 		
+		this.memoryOpdracht2 = new MemoryOpdracht2(this);
+		this.memoryOpdracht3 = new MemoryOpdracht3(this);
 	}
 	
 	public Brick getBrick() {
@@ -83,11 +82,13 @@ public class Marvin {
 		return closestColorFinder;
 	}
 	
-	/*
-	public CubeFinder getCubeFinder() {
-		return cubeFinder;
+	public MemoryOpdracht2 getMemoryOpdracht2() {
+		return memoryOpdracht2;
 	}
-	*/
+	
+	public MemoryOpdracht3 getMemoryOpdracht3() {
+		return memoryOpdracht3;
+	}
 	
 	public void incrementState(int amount) {
 		// Hoeveel programma's er worden gedraaid.

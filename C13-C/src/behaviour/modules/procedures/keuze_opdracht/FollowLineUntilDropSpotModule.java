@@ -7,13 +7,18 @@ public class FollowLineUntilDropSpotModule extends BehaviourModule {
 
 	public FollowLineUntilDropSpotModule(Marvin marvin) {
 		super(marvin);
-		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * 
+	 * volg lijn totdat de plek is gevonden om de kubus te droppen
+	 * 
+	 * 
+	 */
 	@Override
 	public boolean execute() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

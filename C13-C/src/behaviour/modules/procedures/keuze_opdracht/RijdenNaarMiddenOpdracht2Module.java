@@ -10,10 +10,17 @@ public class RijdenNaarMiddenOpdracht2Module extends BehaviourModule {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * 
+	 * 
+	 * rij ongeveer naar midden van veld
+	 * 
+	 * 
+	 * 
+	 */
 	@Override
 	public boolean execute() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
-
 }
