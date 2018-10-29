@@ -14,7 +14,6 @@ public class BeepModule extends BehaviourModule {
 	@Override
 	public boolean execute() {
 		Sound.beep();
-		Delay.msDelay(1000);
 		return true;
 	}
 

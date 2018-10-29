@@ -1,96 +1,110 @@
 package nl.hva.miw.robot.cohort13;
 
-import behaviour.modules.SequenceModule;
-import behaviour.modules.WelcomeModule;
-import behaviour.modules.parcour.ParcourSoundModule;
-import behaviour.modules.parcour.ParcoursModule;
-import behaviour.modules.parcour.ParcoursModuleRGB;
-import behaviour.modules.sound.BeepModule;
-import behaviour.modules.testing.ColorSensorTesterModule;
-import behaviour.modules.testing.TestProcedureModule;
-import behaviour.modules.testing.WaitForKeyModule;
+import behaviour.modules.BehaviourModule;
+import lejos.ev3.tools.EV3Control;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
-import lejos.hardware.Key;
 import lejos.hardware.ev3.LocalEV3;
-import lejos.hardware.motor.Motor;
 import lejos.hardware.port.SensorPort;
-import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
-import lejos.robotics.RegulatedMotor;
-import lejos.utility.Delay;
+import nl.hva.miw.robot.cohort13.factories.MainModuleFactory;
+import nl.hva.miw.robot.cohort13.functionality.ClosestColorFinder;
+import nl.hva.miw.robot.cohort13.functionality.ColorSensorControl;
+import nl.hva.miw.robot.cohort13.functionality.CubeFinder;
+import nl.hva.miw.robot.cohort13.functionality.KeyInputControl;
+import nl.hva.miw.robot.cohort13.functionality.MotorControl;
+import nl.hva.miw.robot.cohort13.functionality.ProximityControl;
 
 public class Marvin {
 	private Brick brick;
-	private SequenceModule mainModule;
-	public EV3ColorSensor colorSensorA;
-	public EV3ColorSensor colorSensorB;
+	private EV3Control ev3Control;
+	private BehaviourModule mainModule;		
+	
+	private ColorSensorControl colorSensorControlA;
+	private ColorSensorControl colorSensorControlB;
 	public EV3TouchSensor touchSensor;
-
-	public RegulatedMotor groteMotorLinks;
-	public RegulatedMotor groteMotorRechts;
-	public RegulatedMotor kleineMotorArm;
-	public RegulatedMotor groteMotor4;
-		
-	//public SoundProducer soundProducer;
-	public ProximitySensor proximitySensor;
+	private MotorControl motorControl;
+	private KeyInputControl keyInputManager;
+	private ProximityControl proximityControl;
 	
-	public Marvin() {
-		super(); 
-		brick = LocalEV3.get();
-		initInputOutput();
+	private ClosestColorFinder closestColorFinder;
+	//private CubeFinder cubeFinder;
+	
+	public MarvinState state;
+	
+
+	
+	public Marvin() {	
+		brick = LocalEV3.get(); 
 		
-		mainModule = new SequenceModule(this);
-		mainModule.addModule(new WelcomeModule(this));
-	//	mainModule.addModule(new ColorSensorTesterModule(this, "Tester"));
-//		mainModule.addModule(new ParcoursModuleRGB(this));
-		//mainModule.addModule(new ParcoursModule(this));
-		
-//		mainModule.addModule(
-//				new SequenceModule(this).
-//					addModule(new WaitForKeyModule(this)).
-//					addModule(new ParcourSoundModule(this)).
-//					addModule(new ParcoursModule(this)).
-//					addModule(new BeepModule(this)).
-//					addModule(new WaitForKeyModule(this))
-//		);	 
-		
+		this.colorSensorControlB = new ColorSensorControl(this, SensorPort.S3);
+		this.colorSensorControlA = new ColorSensorControl(this, SensorPort.S4);
+		this.touchSensor = new EV3TouchSensor(SensorPort.S2);
+		this.motorControl = new MotorControl(this);
+		this.keyInputManager = new KeyInputControl(this);
+		this.proximityControl = new ProximityControl(this);
+		this.mainModule = new MainModuleFactory().createModule(this);	
+		this.closestColorFinder = new ClosestColorFinder();
+
 		//mainModule.addModule(new ZwartEnWit(this));
-		mainModule.addModule(new TestProcedureModule(this));
+		
 	}
 	
-	private void initInputOutput() {
-	//	proximitySensor = new ProximitySensor(this); 
-		colorSensorB = new EV3ColorSensor(SensorPort.S3);
-	//	touchSensor = new EV3TouchSensor(SensorPort.S3);
-		colorSensorA = new EV3ColorSensor(SensorPort.S4);
-
-		groteMotorLinks = Motor.A;
-		groteMotorRechts = Motor.B;
-		kleineMotorArm = Motor.C;
-		groteMotor4 = Motor.D;
-	}
+	
 	
 	public Brick getBrick() {
 		return brick;
 	}
 	
-	public static void main(String[] args) {
-		Marvin marvin = new Marvin();
-		marvin.run();
+	public EV3Control getEV3Control() {
+		return ev3Control;
 	}
 	
-	private void run() {
+	public ColorSensorControl getColorSensorControlA() {
+		return colorSensorControlA;
+	}
+	
+	public ColorSensorControl getColorSensorControlB() {
+		return colorSensorControlB;
+	}
+	
+	public MotorControl getMotorControl() {
+		return motorControl;
+	}
+	
+	public KeyInputControl getKeyInputManager() {
+		return keyInputManager;
+	}
+	
+	public ProximityControl getProximityManager() {
+		return proximityControl;
+	}
+	
+	public ClosestColorFinder getClosestColorFinder() {
+		return closestColorFinder;
+	}
+	
+	/*
+	public CubeFinder getCubeFinder() {
+		return cubeFinder;
+	}
+	*/
+	
+	public void incrementState(int amount) {
+		// Hoeveel programma's er worden gedraaid.
+		int stateSize = MarvinState.getAmountOfStates();		
+		int stateNumber = (state.stateNumber + amount) % stateSize;	
+		state = MarvinState.getStateByNumber(stateNumber); 
+	}
+	
+	public void run() {						
+		//Voert module(s) uit middels execute
 		mainModule.execute();		
-		waitForKey(Button.ENTER);
+		keyInputManager.waitForKey(Button.ENTER);
 	}
 	
-	public void waitForKey(Key key) {
-		while(key.isUp()) {
-			Delay.msDelay(100);
-		}
-		while(key.isDown()) {
-			Delay.msDelay(100);
-		}
+	public static void main(String[] args) {
+		Marvin marvin = new Marvin(); 	//instantieert Marvin
+		marvin.run(); 					//voert de onderstaande void uit
 	}
 }

@@ -11,6 +11,10 @@ public class DelayModule extends BehaviourModule {
 		this.delayMS = delayMS;
 	}
 
+	/**
+	 * Delay for certain amount of ms
+	 * @return true
+	 */
 	@Override
 	public boolean execute() {
 		Delay.msDelay(delayMS);
