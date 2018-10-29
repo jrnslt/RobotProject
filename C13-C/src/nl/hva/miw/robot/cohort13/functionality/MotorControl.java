@@ -13,17 +13,16 @@ public class MotorControl extends MarvinComponent {
 	
 	public MotorControl(Marvin marvin) {
 		super(marvin);
+		bigMotorLeft = Motor.A;
+		bigMotorRight = Motor.B;
+		smallMotor_ = Motor.C;
 	}
 
 	private RegulatedMotor bigMotorLeft; 
 	private RegulatedMotor bigMotorRight;
 	private RegulatedMotor smallMotor_;
 	
-	public void initMotors() {
-		bigMotorLeft = Motor.A;
-		bigMotorRight = Motor.B;
-		smallMotor_ = Motor.C;
-	}	
+
 	
 	public RegulatedMotor getBigMotorLeft() {
 		return bigMotorLeft;

@@ -75,6 +75,7 @@ public class MainModuleFactory extends ModuleFactory {
 							sequenceUntilFailModule_A.addModule(new WaitForEnterKeyModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
 								//Console Module
+							//ParcoursModuleRGB2					
 								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.consoleName));
 								////sequenceModule_Testing.addModule(new WaitForEnterKeyModule(marvin));
 								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.consoleName));
@@ -100,17 +101,17 @@ public class MainModuleFactory extends ModuleFactory {
 								//sequenceModule_Testing.addModule(new SystemSoundModule(marvin, 4));
 								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.soundName));
 								//Color Sensor
-								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
-								//sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
-								//		marvin.colorSensorA, TestingProcedureNames.colorSensorName + "_A"));
+//								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
+								sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
+										marvin.getColorSensorControlA().getColorSensor(), TestingProcedureNames.colorSensorName + "_A"));
 								
-								//sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
-								//		marvin.colorSensorB, TestingProcedureNames.colorSensorName + "_B"));
-								
+//								sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
+//								marvin.getColorSensorControlB().getColorSensor(), "_B"));
+								//marvin.colorSensorB, TestingProcedureNames.colorSensorName + "_B");
 								//sequenceModule_Testing.addModule(new ColorRecognizerTestModule(marvin, 
 								//		marvin.colorSensorB, TestingProcedureNames.colorSensorName));
-								sequenceModule_Testing.addModule(new CubeRecognizerTestModule(marvin, 
-										marvin.getColorSensorControlB(), TestingProcedureNames.colorSensorName));			
+							///	sequenceModule_Testing.addModule(new CubeRecognizerTestModule(marvin, 
+										//marvin.getColorSensorControlB(), TestingProcedureNames.colorSensorName));			
 								
 								
 								
@@ -135,7 +136,7 @@ public class MainModuleFactory extends ModuleFactory {
 						succeederModuleB.addModule(sequenceUntilFailModule_B);
 							sequenceUntilFailModule_B.addModule(new StateConditionModule(marvin, MarvinState.PARCOUR));
 							sequenceUntilFailModule_B.addModule(new WaitForEnterKeyModule(marvin));
-							sequenceUntilFailModule_B.addModule(new ParcoursModuleRGB2(marvin));
+							sequenceUntilFailModule_B.addModule(new ParcoursModuleRGB(marvin));
 							sequenceUntilFailModule_B.addModule(new BeepModule(marvin));
 							sequenceUntilFailModule_B.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_B.addModule(new ClearConsoleModule(marvin));

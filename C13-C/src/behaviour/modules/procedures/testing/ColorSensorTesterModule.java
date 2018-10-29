@@ -42,7 +42,7 @@ public class ColorSensorTesterModule extends BehaviourModule {
 	    float[] sampleRed = new float[sensorModeRed.sampleSize()];
 	    float[] sampleAmbient = new float[sensorModeAmbient.sampleSize()];
 
-	    while (true) {
+	    while (testMode == 0) {
 	        textLCD.setAutoRefresh(false);
 	        textLCD.refresh();
 	        textLCD.clear();
@@ -59,7 +59,7 @@ public class ColorSensorTesterModule extends BehaviourModule {
 		        float g = sampleRGB[1];
 		        float b = sampleRGB[2];
 		        
-		        String sR = String.format("R: %.2f", r * 10);
+		        String sR = String.format("R: %.2f", r *  10);
 		        String sG = String.format("G: %.2f", g * 10);
 		        String sB = String.format("B: %.2f ", b * 10);
 		        
@@ -113,12 +113,12 @@ public class ColorSensorTesterModule extends BehaviourModule {
         	
         	Delay.msDelay(250);
 	        
-	        if (testCount > 30) {
-	        	testCount = 0;
-	        	testMode++;
-	        	//Button.LEDPattern(4);    // flash green led and
-	        	Sound.beep();
-	        }
+//	        if (testCount > 30) {
+//	        	testCount = 0;
+//	        	testMode++;
+//	        	//Button.LEDPattern(4);    // flash green led and
+//	        	Sound.beep();
+//	        }
 	        
 	        if (testMode > 2) {
 	        	break;
