@@ -43,7 +43,7 @@ public class KeuzeOpdrachtModule extends BehaviourModule {
 		colors.add(Colors.GREEN);
 		motorControl.driveForward(150, 150);
 		
-		while(currentTime - startTime < 20000) {
+		while(currentTime - startTime < 30000) {
 			currentTime = System.currentTimeMillis();
 
 		    int distanceValue = getMarvin().getProximityManager().getDistance();
@@ -60,9 +60,14 @@ public class KeuzeOpdrachtModule extends BehaviourModule {
 	        textLCD.clear();
 	        textLCD.drawString("Distance:", 2, 1);
 	        textLCD.drawString("" + distanceValue, 1, 2);
+	        textLCD.drawString("" + closestColor.getColorName(), 2, 3);
 	        Delay.msDelay(500);	
 	       
+<<<<<<< HEAD
 	        if (distanceValue < 15 && closestColor == Colors.BLUE) {
+=======
+	        if (distanceValue < 25 && closestColor.getColorName().equals(Colors.BLUE.getColorName())) {
+>>>>>>> 72d981b843d9279014a4836fb9f6572fef8b0e96
 	        	motorControl.stop();
 	    		getMarvin().getMotorControl().driveBackwards(150, 150);
 	    		Delay.msDelay(500);
