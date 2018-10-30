@@ -12,7 +12,6 @@ import nl.hva.miw.robot.cohort13.MColor;
 import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.functionality.ClosestColorFinder;
 import nl.hva.miw.robot.cohort13.functionality.ColorSensorControl;
-import nl.hva.miw.robot.cohort13.functionality.CubeFinder;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
 public class CubeRecognizerTestModule extends BehaviourModule {

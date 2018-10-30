@@ -15,7 +15,7 @@ public class MotorControl extends MarvinComponent {
 		super(marvin);
 		bigMotorLeft = Motor.A;
 		bigMotorRight = Motor.B;
-		smallMotor_ = Motor.C;
+		smallMotor_ = Motor.D;
 	}
 
 	private RegulatedMotor bigMotorLeft; 
@@ -46,7 +46,7 @@ public class MotorControl extends MarvinComponent {
 			bigMotorLeft.setSpeed(speedLeft);
 		} else if (speedLeft < 0) {
 			bigMotorLeft.backward();
-			bigMotorLeft.setSpeed(speedLeft * -1);
+			bigMotorLeft.setSpeed(speedLeft);
 		}
 		
 		if (speedRight > 0) {
@@ -54,7 +54,7 @@ public class MotorControl extends MarvinComponent {
 			bigMotorRight.setSpeed(speedRight);
 		} else if (speedRight < 0) {
 			bigMotorRight.backward();
-			bigMotorRight.setSpeed(speedRight * -1);
+			bigMotorRight.setSpeed(speedRight);
 		}
 	}
 	
@@ -79,7 +79,10 @@ public class MotorControl extends MarvinComponent {
 		bigMotorRight.backward();
 		bigMotorLeft.setSpeed(speedLeft);
 		bigMotorRight.setSpeed(speedRight);
-		Delay.msDelay(delayMs);
+		
+		if (delayMs > 0) {
+			Delay.msDelay(delayMs);
+		}
 	}
 	
 	public void stop() {
@@ -90,7 +93,7 @@ public class MotorControl extends MarvinComponent {
 	 * The grabber
 	 */
 	public void grabIt() {
-		grabItForward(150, 1900);
+		grabItForward(200, 2200);
 	}
 	
 	public void grabItForward(int speed, int delayMs) {

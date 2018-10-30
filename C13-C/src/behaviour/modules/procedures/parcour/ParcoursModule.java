@@ -31,7 +31,7 @@ public class ParcoursModule extends BehaviourModule {
 	public boolean execute() {
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
-		EV3ColorSensor colorSensor = getMarvin().getColorSensorControlA().getColorSensor();
+		EV3ColorSensor colorSensor = getMarvin().getColorSensorControlDown().getColorSensor();
 		SensorMode sensorModeRgb = colorSensor.getRedMode();
 		colorSensor.setFloodlight(Color.RED);
 		colorSensor.setCurrentMode(sensorModeRgb.getName());

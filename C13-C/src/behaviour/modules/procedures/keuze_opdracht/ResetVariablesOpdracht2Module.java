@@ -9,8 +9,14 @@ public class ResetVariablesOpdracht2Module extends BehaviourModule {
 		super(marvin);
 	}
 
+	/**
+	 * 
+	 * reset de variabelen
+	 * 
+	 */
 	@Override
 	public boolean execute() {
-		return false;
+		getMarvin().getMemoryOpdracht2().reset();
+		return true;
 	}
 }

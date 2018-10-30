@@ -10,10 +10,15 @@ public class VictoryDanceOpdracht2Module extends BehaviourModule {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * 
+	 * do victory dance
+	 * 
+	 * 
+	 */
 	@Override
 	public boolean execute() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
-
 }

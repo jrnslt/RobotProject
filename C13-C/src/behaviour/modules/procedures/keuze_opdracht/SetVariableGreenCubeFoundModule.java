@@ -4,16 +4,16 @@ import behaviour.modules.BehaviourModule;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 public class SetVariableGreenCubeFoundModule extends BehaviourModule {
-
-	public SetVariableGreenCubeFoundModule(Marvin marvin) {
+	private boolean value;
+	
+	public SetVariableGreenCubeFoundModule(Marvin marvin, boolean value) {
 		super(marvin);
-		// TODO Auto-generated constructor stub
+		this.value = value;
 	}
 
 	@Override
 	public boolean execute() {
-		// TODO Auto-generated method stub
-		return false;
+		getMarvin().getMemoryOpdracht2().greenCubeFound = value;
+		return true;
 	}
-
 }

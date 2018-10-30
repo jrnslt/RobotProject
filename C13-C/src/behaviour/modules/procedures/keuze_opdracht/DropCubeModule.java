@@ -10,10 +10,15 @@ public class DropCubeModule extends BehaviourModule {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * 
+	 * draai om en drop de kubus
+	 * 
+	 * 
+	 */
 	@Override
 	public boolean execute() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
-
 }
