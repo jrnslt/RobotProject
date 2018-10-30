@@ -101,9 +101,9 @@ public class Marvin {
 		//Voert module(s) uit middels execute
 		//mainModule.execute();		
 		
-		//colorSensorControlDown.calibrateSensor();
-		//new RodeLijnTester(this).execute();
-		new KeuzeOpdrachtModule(this).execute();
+		colorSensorControlDown.calibrateSensor();
+		new RodeLijnTester(this).execute();
+//		new KeuzeOpdrachtModule(this).execute();
 		
 		//colorSensorControlDown.ColorTesterTest();
 		
