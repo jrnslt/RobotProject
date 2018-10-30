@@ -96,11 +96,6 @@ public class Marvin {
 	public void run() {						
 		//Voert module(s) uit middels execute
 		mainModule.execute();		
-		
-		//colorSensorControlDown.calibrateSensor();
-		//new RodeLijnTester(this).execute();
-		//new KeuzeOpdrachtModule(this).execute();
-		//colorSensorControlDown.ColorTesterTest();
 	}
 	
 	public boolean keyPressed(Key key) {
