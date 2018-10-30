@@ -47,6 +47,7 @@ public class ParcoursModuleRGB extends BehaviourModule {
 		while (lastTime - startTime < runTime) {
 			getMarvin().getMotorControl().getBigMotorLeft().forward();
 			getMarvin().getMotorControl().getBigMotorRight().forward();
+			int blauw = 0;
 			
 			lastTime = System.currentTimeMillis();
 			sensorModeRGB.fetchSample(sampleRGB, 0);
@@ -110,10 +111,25 @@ public class ParcoursModuleRGB extends BehaviourModule {
 //					return true;
 //				}
 //			}
+	        if (blauw == 4) {
+	        	Sound.buzz();
+	        	blauw = 0;
+	        }
 	        
-	        if (b2 > 0.3 && b2< 0.7) {
+	        
+	        if ((r2 < 0.7 && r2 > 0.3) &&  (b2 < 0.6 && b2 > 0.4))  { // blauwwaarden
 	        	getMarvin().getMotorControl().stop();
-	        	
+	    	//	Sound.beep();
+				Delay.msDelay(150);
+
+
+	        } else if ((r2 > 1.1 && r2 < 1.7) && (b2 > 0.19 && b2 < 0.3)) { //roodwaarden
+	        	getMarvin().getMotorControl().stop();
+	    		Sound.beep();
+				Delay.msDelay(150);
+				blauw++;
+
+
 	        }
  	        
 	         else if (r2 > 1.7) {

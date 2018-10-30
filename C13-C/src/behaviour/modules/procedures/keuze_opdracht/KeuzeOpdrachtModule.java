@@ -73,6 +73,7 @@ public class KeuzeOpdrachtModule extends BehaviourModule {
 	        	motorControl.stop();
 	        	motorControl.grabIt();
 		        motorControl.stop();
+		        Delay.msDelay(3000);
 		        motorControl.letLoose();
 	        }
 		}
