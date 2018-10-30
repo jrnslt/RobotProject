@@ -39,6 +39,33 @@ public class MotorControl extends MarvinComponent {
 	/*
 	 * The driving motors
 	 */
+	public void rotate360Backward () {
+		long startTime180 = System.currentTimeMillis();
+		long lastTime180 = System.currentTimeMillis();
+		
+		while (lastTime180 - startTime180 <60000) {
+			lastTime180 = System.currentTimeMillis();
+			bigMotorLeft.backward();
+			bigMotorLeft.setSpeed(600);
+			bigMotorRight.forward();
+			bigMotorRight.setSpeed(600);
+		}
+	}
+
+	
+	public void rotate360Forward () {
+		long startTime180 = System.currentTimeMillis();
+		long lastTime180 = System.currentTimeMillis();
+		
+		while (lastTime180 - startTime180 <60000) {
+			lastTime180 = System.currentTimeMillis();
+			bigMotorLeft.forward();
+			bigMotorLeft.setSpeed(600);
+			bigMotorRight.backward();
+			bigMotorRight.setSpeed(600);
+		}
+	}
+
 	
 	public void rotate180 () {
 		long startTime180 = System.currentTimeMillis();

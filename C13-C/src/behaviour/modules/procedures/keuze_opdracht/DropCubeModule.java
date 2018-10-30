@@ -18,7 +18,7 @@ public class DropCubeModule extends BehaviourModule {
 	 */
 	@Override
 	public boolean execute() {
-	
+
 		return true;
 	}
 }

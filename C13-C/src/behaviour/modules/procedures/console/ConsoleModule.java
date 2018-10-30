@@ -6,6 +6,7 @@ import lejos.hardware.lcd.TextLCD;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.MarvinState;
+import nl.hva.miw.robot.cohort13.functionality.KeyInputControl;
 
 public class ConsoleModule extends BehaviourModule {
 
@@ -17,18 +18,14 @@ public class ConsoleModule extends BehaviourModule {
 	public boolean execute() {
 		getMarvin().state = MarvinState.MENU;
 		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
+		KeyInputControl keyInputManager = getMarvin().getKeyInputManager();
 		
 		while (true) {
-			Delay.msDelay(500);
-			
-			if (Button.LEFT.isDown()) {
+			if (keyInputManager.getMarvin().keyPressed(Button.LEFT)) {
 				getMarvin().incrementState(-1);
-			}
-			if (Button.RIGHT.isDown()) {
+			} else if (keyInputManager.getMarvin().keyPressed(Button.RIGHT)) {
 				getMarvin().incrementState(1);
 			}
-			
-			
 			
 		    textLCD.refresh();
 	        textLCD.clear();
