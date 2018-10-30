@@ -1,6 +1,7 @@
 package nl.hva.miw.robot.cohort13.factories;
 
 import behaviour.modules.BehaviourModule;
+import behaviour.modules.CalibratieModule;
 import behaviour.modules.ClearConsoleModule;
 import behaviour.modules.DelayModule;
 import behaviour.modules.WaitForEnterKeyModule;
@@ -74,7 +75,7 @@ public class MainModuleFactory extends ModuleFactory {
 					sequenceModuleB.addModule(succeederModuleA);		
 						succeederModuleA.addModule(sequenceUntilFailModule_A);
 							sequenceUntilFailModule_A.addModule(new StateConditionModule(marvin, MarvinState.TESTING));
-							sequenceUntilFailModule_A.addModule(new WaitForEnterKeyModule(marvin));
+							sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
 								//Console Module
 							//ParcoursModuleRGB2					
@@ -157,7 +158,7 @@ public class MainModuleFactory extends ModuleFactory {
 					sequenceModuleB.addModule(succeederModuleB);	
 						succeederModuleB.addModule(sequenceUntilFailModule_B);
 							sequenceUntilFailModule_B.addModule(new StateConditionModule(marvin, MarvinState.PARCOUR));
-							sequenceUntilFailModule_B.addModule(new WaitForEnterKeyModule(marvin));
+							sequenceUntilFailModule_B.addModule(new CalibratieModule(marvin));
 							sequenceUntilFailModule_B.addModule(new ParcoursModuleRGB(marvin));
 							sequenceUntilFailModule_B.addModule(new BeepModule(marvin));
 							sequenceUntilFailModule_B.addModule(new DelayModule(marvin, 500));
@@ -166,8 +167,7 @@ public class MainModuleFactory extends ModuleFactory {
 					sequenceModuleB.addModule(succeederModuleC);	
 						succeederModuleC.addModule(sequenceUntilFailModule_C);
 							sequenceUntilFailModule_C.addModule(new StateConditionModule(marvin, MarvinState.KEUZE_OPDRACHT));
-							sequenceUntilFailModule_C.addModule(new WaitForEnterKeyModule(marvin));
-							//sequenceUntilFailModule_C.addModule(new KeuzeOpdrachtModule(marvin));
+							sequenceUntilFailModule_C.addModule(new CalibratieModule(marvin));
 							sequenceUntilFailModule_C.addModule(opdracht2Module);
 							sequenceUntilFailModule_C.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_C.addModule(new ClearConsoleModule(marvin));
@@ -175,7 +175,7 @@ public class MainModuleFactory extends ModuleFactory {
 					sequenceModuleB.addModule(succeederModuleD);
 						succeederModuleD.addModule(sequenceUntilFailModule_E);
 							sequenceUntilFailModule_E.addModule(new StateConditionModule(marvin, MarvinState.SHOW));
-							sequenceUntilFailModule_E.addModule(new WaitForEnterKeyModule(marvin));	
+							sequenceUntilFailModule_E.addModule(new CalibratieModule(marvin));	
 							sequenceUntilFailModule_E.addModule(new UitbreidingOpdrachtModule(marvin));				
 							sequenceUntilFailModule_E.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_E.addModule(new ClearConsoleModule(marvin));

@@ -1,12 +1,14 @@
 package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.BehaviourModule;
+import behaviour.modules.logic.LeafModule;
 import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
 import behaviour.modules.procedures.testing.ColorSensorTesterModule;
 import behaviour.modules.procedures.testing.RodeLijnTester;
 import lejos.ev3.tools.EV3Control;
 import lejos.hardware.Brick;
 import lejos.hardware.Button;
+import lejos.hardware.Key;
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
@@ -33,10 +35,8 @@ public class Marvin {
 	private ClosestColorFinder closestColorFinder;
 	
 	private MemoryOpdracht2 memoryOpdracht2;
-	private MemoryOpdracht3 memoryOpdracht3;
 	
 	public MarvinState state;
-
 	
 	public Marvin() {	
 		brick = LocalEV3.get(); 
@@ -51,7 +51,6 @@ public class Marvin {
 		this.closestColorFinder = new ClosestColorFinder();
 		
 		this.memoryOpdracht2 = new MemoryOpdracht2(this);
-		this.memoryOpdracht3 = new MemoryOpdracht3(this);
 	}
 	
 	public Brick getBrick() {
@@ -86,30 +85,30 @@ public class Marvin {
 		return memoryOpdracht2;
 	}
 	
-	public MemoryOpdracht3 getMemoryOpdracht3() {
-		return memoryOpdracht3;
-	}
-	
 	public void incrementState(int amount) {
 		// Hoeveel programma's er worden gedraaid.
 		int stateSize = MarvinState.getAmountOfStates();		
 		int stateNumber = (state.stateNumber + amount) % stateSize;	
+		//System.out.println("stateNumber: " + stateNumber);
 		state = MarvinState.getStateByNumber(stateNumber); 
 	}
 	
 	public void run() {						
 		//Voert module(s) uit middels execute
-		//mainModule.execute();		
+		mainModule.execute();		
 		
 		//colorSensorControlDown.calibrateSensor();
 		//new RodeLijnTester(this).execute();
-		new KeuzeOpdrachtModule(this).execute();
-		
+		//new KeuzeOpdrachtModule(this).execute();
 		//colorSensorControlDown.ColorTesterTest();
-		
-		
-		
-		keyInputManager.waitForKey(Button.ENTER);
+	}
+	
+	public boolean keyPressed(Key key) {
+		if (key.isDown()) {
+			while (key.isDown()) {}
+			return true;
+		}
+		return false;
 	}
 	
 	public static void main(String[] args) {

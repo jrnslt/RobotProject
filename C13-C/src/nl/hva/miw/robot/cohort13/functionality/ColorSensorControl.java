@@ -29,51 +29,31 @@ public class ColorSensorControl extends MarvinComponent {
         return colorSensor;
     }
     
-    public void calibrateSensor() {
-        
+    public void calibrateSensor() {   
         TextLCD textLCD = getMarvin().getBrick().getTextLCD();
         SensorMode sensorModeRGB = colorSensor.getRGBMode(); 
         float[] sampleRGB = new float[sensorModeRGB.sampleSize()];
         colorSensor.setFloodlight(Color.WHITE);
         colorSensor.setCurrentMode(sensorModeRGB.getName());
         
-        
-        textLCD.setAutoRefresh(false);
-        textLCD.refresh();
-        textLCD.clear();
-                
-        textLCD.drawString("R: %.2f" +  red, 1, 3);
-        textLCD.drawString("G: %.2f" +  green, 1, 4);
-        textLCD.drawString("B: %.2f" +  blue, 1, 5);
-        
-        KeyInputControl keyInputManager = getMarvin().getKeyInputManager();
-        
         while (colorSet == false) {
+        	sensorModeRGB.fetchSample(sampleRGB, 0);
+        	
+            textLCD.setAutoRefresh(false);
+            textLCD.refresh();
+            textLCD.clear();
+               
             textLCD.drawString("Calibrate white: ", 1, 1);
-            keyInputManager.waitForKey(Button.ENTER);
-            sensorModeRGB.fetchSample(sampleRGB, 0);
-            
-            red = sampleRGB[0];
-            green = sampleRGB[1];
-            blue = sampleRGB[2];
-            colorSet = true;
-            Delay.msDelay(2000);
-            
-            /*
-            textLCD.drawString("Calibrate red: ", 1, 1);
-            keyInputManager.waitForKey(Button.ENTER);
-            sensorModeRGB.fetchSample(sampleRGB, 0);
-            red = sampleRGB[0];
-            textLCD.drawString("Calibrate green: ", 1, 1);
-            keyInputManager.waitForKey(Button.ENTER);
-            sensorModeRGB.fetchSample(sampleRGB, 0);
-            green = sampleRGB[1];
-            textLCD.drawString("Calibrate blue: ", 1, 1);
-            keyInputManager.waitForKey(Button.ENTER);
-            sensorModeRGB.fetchSample(sampleRGB, 0);
-            blue = sampleRGB[2];
-            colorSet = true;
-            */
+            textLCD.drawString("R: " + sampleRGB[0], 1, 3);
+            textLCD.drawString("G: " + sampleRGB[1], 1, 4);
+            textLCD.drawString("B: " + sampleRGB[2], 1, 5);
+        	
+			if (Button.ENTER.isDown()) {
+	            red = sampleRGB[0];
+	            green = sampleRGB[1];
+	            blue = sampleRGB[2];
+	            colorSet = true;
+			}
         }
     }
     
