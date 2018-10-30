@@ -26,12 +26,13 @@ public class GrabCubeModule extends BehaviourModule {
         	getMarvin().getMotorControl().stop();
         	getMarvin().getMotorControl().rotate180();
         	getMarvin().getMotorControl().stop();
-        	getMarvin().getMotorControl().grabItForward(200,1800);
+        	getMarvin().getMotorControl().grabItForward(300,1900);
         	getMarvin().getMotorControl().stop();
         	
         	Delay.msDelay(300);
          	getMarvin().getMotorControl().rotate180();
-        	getMarvin().getMotorControl().letLoose(200, 1800);
+        	getMarvin().getMotorControl().stop();
+        	getMarvin().getMotorControl().letLoose(300, 1200);
 		
 		return true;
 	}

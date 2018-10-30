@@ -16,6 +16,7 @@ import behaviour.modules.procedures.console.ConsoleModule;
 import behaviour.modules.procedures.exit.GoodbyeModule;
 import behaviour.modules.procedures.keuze_opdracht.GrabCubeModule;
 import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
+import behaviour.modules.procedures.keuze_opdracht.VictoryDanceOpdracht2Module;
 import behaviour.modules.procedures.parcour.ParcoursModule;
 import behaviour.modules.procedures.parcour.ParcoursModuleRGB;
 import behaviour.modules.procedures.parcour.ParcoursModuleRGB2;
@@ -82,39 +83,10 @@ public class MainModuleFactory extends ModuleFactory {
 
 								//Console Module
 							//ParcoursModuleRGB2					
-								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.consoleName));
-								////sequenceModule_Testing.addModule(new WaitForEnterKeyModule(marvin));
-								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.consoleName));
-								//Proximity
-								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.proximityAndSoundTesterModule));
-								//sequenceModule_Testing.addModule(new PlaySampleModule(marvin, Sounds.woopwoop));
-								//sequenceModule_Testing.addModule(new DelayModule(marvin, 1000));
-								//sequenceModule_Testing.addModule(new PlaySampleModule(marvin, Sounds.weAreTheRobots));
-								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.proximityAndSoundTesterModule));
-								//Sound
-								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.soundName));
-								//sequenceModule_Testing.addModule(new SoundTesterModule(marvin, soundName));
-								//sequenceModule_Testing.addModule(new PlaySampleModule(marvin, "woopwoop.wav"));
-								//sequenceModule_Testing.addModule(new SinWaveModule(marvin));
-								//sequenceModule_Testing.addModule(new BeepModule(marvin));
-								//sequenceModule_Testing.addModule(new BeepSequenceModule(marvin));
-								//sequenceModule_Testing.addModule(new BeepSequenceUpModule(marvin));
-								//sequenceModule_Testing.addModule(new BuzzModule(marvin));
-								//sequenceModule_Testing.addModule(new SystemSoundModule(marvin, 0));
-								//sequenceModule_Testing.addModule(new SystemSoundModule(marvin, 1));
-								//sequenceModule_Testing.addModule(new SystemSoundModule(marvin, 2));
-								//sequenceModule_Testing.addModule(new SystemSoundModule(marvin, 3));
-								//sequenceModule_Testing.addModule(new SystemSoundModule(marvin, 4));
-								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.soundName));
-								//Color Sensor
 
-//								sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
-//								sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
-//										marvin.getColorSensorControlDown().getColorSensor(), TestingProcedureNames.colorSensorName + "_A"));
-							//	sequenceModule_Testing.addModule(new KeuzeOpdrachtModule(marvin));
 								
 							sequenceModule_Testing.addModule(new GrabCubeModule(marvin));
-
+							sequenceModule_Testing.addModule(new VictoryDanceOpdracht2Module(marvin));
 				
 								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
 								//sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 

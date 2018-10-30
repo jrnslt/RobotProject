@@ -43,12 +43,12 @@ public class MotorControl extends MarvinComponent {
 		long startTime180 = System.currentTimeMillis();
 		long lastTime180 = System.currentTimeMillis();
 		
-		while (lastTime180 - startTime180 <60000) {
+		while (lastTime180 - startTime180 <2000) {
 			lastTime180 = System.currentTimeMillis();
 			bigMotorLeft.backward();
-			bigMotorLeft.setSpeed(600);
+			bigMotorLeft.setSpeed(800);
 			bigMotorRight.forward();
-			bigMotorRight.setSpeed(600);
+			bigMotorRight.setSpeed(800);
 		}
 	}
 
@@ -57,12 +57,12 @@ public class MotorControl extends MarvinComponent {
 		long startTime180 = System.currentTimeMillis();
 		long lastTime180 = System.currentTimeMillis();
 		
-		while (lastTime180 - startTime180 <60000) {
+		while (lastTime180 - startTime180 <2500) {
 			lastTime180 = System.currentTimeMillis();
 			bigMotorLeft.forward();
-			bigMotorLeft.setSpeed(600);
+			bigMotorLeft.setSpeed(800);
 			bigMotorRight.backward();
-			bigMotorRight.setSpeed(600);
+			bigMotorRight.setSpeed(800);
 		}
 	}
 
@@ -71,12 +71,12 @@ public class MotorControl extends MarvinComponent {
 		long startTime180 = System.currentTimeMillis();
 		long lastTime180 = System.currentTimeMillis();
 		
-		while (lastTime180 - startTime180 <3000) {
+		while (lastTime180 - startTime180 <2000) {
 			lastTime180 = System.currentTimeMillis();
 			bigMotorLeft.forward();
-			bigMotorLeft.setSpeed(300);
+			bigMotorLeft.setSpeed(400);
 			bigMotorRight.backward();
-			bigMotorRight.setSpeed(300);
+			bigMotorRight.setSpeed(400);
 		}
 	}
 	
