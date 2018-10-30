@@ -46,7 +46,10 @@ public class RodeLijnTester extends BehaviourModule {
         colors.add(Colors.ORANGE);
         colors.add(Colors.WHITE);
         colors.add(Colors.BLACK);
-      
+        colors.add(Colors.GREY);
+
+        getMarvin().getColorSensorControlDown().calibrateSensor();
+        
 		while (lastTime - startTime < runTime) {
 			lastTime = System.currentTimeMillis();
 			sensorModeRGB.fetchSample(sampleRGB, 0);
@@ -74,18 +77,25 @@ public class RodeLijnTester extends BehaviourModule {
 	        
 	        if (closestColor == Colors.WHITE) {
 	        	textLCD.drawString("wit 123", 1, 5);
-	        	getMarvin().getMotorControl().drive(150, -150);
-	        	//Delay.msDelay(400);
-	        	//getMarvin().getMotorControl().drive(200, 200);		
+	        	getMarvin().getMotorControl().drive(150, -150); //rechts
+	        	Delay.msDelay(400);
+	        	getMarvin().getMotorControl().drive(200, 200);		
 				Delay.msDelay(400);
-	        } else if (closestColor == Colors.RED) {
-	        	textLCD.drawString("rood 123", 1, 5);
+	        } else if (closestColor == Colors.BLACK) {		//links
+	        	textLCD.drawString("black 123", 1, 5);
 	        	getMarvin().getMotorControl().drive(-150, 150);
 	        	Delay.msDelay(400);
 	        	getMarvin().getMotorControl().drive(200, 200);
 				Delay.msDelay(400);
-	        }  else {
-	        	textLCD.drawString("else 123", 1, 5);
+				
+	        }  else if (closestColor == Colors.GREY) {		//rechtdoor
+	        	getMarvin().getMotorControl().drive(200, 200);
+	        	Delay.msDelay(400);
+	        	
+//	        } else {
+//	        	textLCD.drawString("else 123", 1, 5);
+//	        	
+//	        	
 	        }
 		}
 		

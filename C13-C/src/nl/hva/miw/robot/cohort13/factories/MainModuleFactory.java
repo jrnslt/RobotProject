@@ -20,10 +20,13 @@ import behaviour.modules.procedures.parcour.ParcoursModuleRGB2;
 import behaviour.modules.procedures.parcour.ParcoursModuleRgbCalibrate;
 import behaviour.modules.procedures.testing.ColorSensorTesterModule;
 import behaviour.modules.procedures.testing.CubeRecognizerTestModule;
+
 import behaviour.modules.procedures.testing.ColorRecognizerTestModule;
 import behaviour.modules.procedures.testing.DriveForwardTesterModule;
 import behaviour.modules.procedures.testing.EndTestMessageModule;
+import behaviour.modules.procedures.testing.LijnenTester;
 import behaviour.modules.procedures.testing.ProximitySensorTesterModule;
+import behaviour.modules.procedures.testing.RodeLijnTester;
 import behaviour.modules.procedures.testing.StartTestMessageModule;
 import behaviour.modules.procedures.uitbreiding.UitbreidingOpdrachtModule;
 import behaviour.modules.procedures.welcome.WelcomeModule;
@@ -78,7 +81,10 @@ public class MainModuleFactory extends ModuleFactory {
 							sequenceUntilFailModule_A.addModule(new WaitForEnterKeyModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
 								//Console Module
-							//ParcoursModuleRGB2					
+							//ParcoursModuleRGB2	
+							
+							//	sequenceModule_Testing.addModule(new LijnenTester(marvin));
+							
 								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.consoleName));
 								////sequenceModule_Testing.addModule(new WaitForEnterKeyModule(marvin));
 								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.consoleName));
@@ -110,7 +116,7 @@ public class MainModuleFactory extends ModuleFactory {
 //										marvin.getColorSensorControlDown().getColorSensor(), TestingProcedureNames.colorSensorName + "_A"));
 							//	sequenceModule_Testing.addModule(new KeuzeOpdrachtModule(marvin));
 								
-							sequenceModule_Testing.addModule(new ParcoursModuleRgbCalibrate(marvin));
+						//	sequenceModule_Testing.addModule(new ParcoursModuleRgbCalibrate(marvin));
 				
 								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
 								//sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 
@@ -142,6 +148,7 @@ public class MainModuleFactory extends ModuleFactory {
 								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
 								
 								//Drive Forward Test
+//								sequenceModule_Testing.addModule(new ColorMeting(marvin));
 								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.drivingName));
 								//sequenceModule_Testing.addModule(new DriveForwardTesterModule(marvin, TestingProcedureNames.drivingName));
 								//sequenceModule_Testing.addModule(new EndTestMessageModule(marvin, TestingProcedureNames.drivingName));
@@ -156,11 +163,14 @@ public class MainModuleFactory extends ModuleFactory {
 							sequenceUntilFailModule_A.addModule(new DelayModule(marvin, 500));	
 							sequenceUntilFailModule_A.addModule(new ClearConsoleModule(marvin));
 					//Parcours
+							
+
+
 					sequenceModuleB.addModule(succeederModuleB);	
 						succeederModuleB.addModule(sequenceUntilFailModule_B);
 							sequenceUntilFailModule_B.addModule(new StateConditionModule(marvin, MarvinState.PARCOUR));
 							sequenceUntilFailModule_B.addModule(new WaitForEnterKeyModule(marvin));
-							sequenceUntilFailModule_B.addModule(new ParcoursModuleRgbCalibrate(marvin));
+							sequenceUntilFailModule_B.addModule(new LijnenTester(marvin));
 							sequenceUntilFailModule_B.addModule(new BeepModule(marvin));
 							sequenceUntilFailModule_B.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_B.addModule(new ClearConsoleModule(marvin));

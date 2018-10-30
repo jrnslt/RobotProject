@@ -77,9 +77,9 @@ public class ParcoursModuleRGB extends BehaviourModule {
 	        String sB = String.format("B: %.2f ", b2);
 	        
 	     
-	        float nr = colorSensorControl.getRed(r);
-			float ng = colorSensorControl.getGreen(g);
-			float nb = colorSensorControl.getBlue(b);
+	        float nr = colorSensorControl.getRed(r);			// roodwaarden binnenhalen
+			float ng = colorSensorControl.getGreen(g);			// groenwaarden binnenhalen
+			float nb = colorSensorControl.getBlue(b);			//blauwwaarden binnenhalen
 	        
 	        MColor closestColor = getMarvin().getClosestColorFinder().
 	        		getClosestColor(colors, new MColor("", nr, ng, nb));
@@ -92,7 +92,7 @@ public class ParcoursModuleRGB extends BehaviourModule {
 	   
 			
 
-	        if (closestColor == Colors.RED) { 
+	        if (closestColor == Colors.RED) {  // rood herkennen
 	    		Sound.beep();
 	        	textLCD.drawString("red 123", 1, 5);
 

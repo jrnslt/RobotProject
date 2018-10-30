@@ -46,6 +46,7 @@ public class ParcoursModuleRgbCalibrate extends BehaviourModule {
 	        colors.add(Colors.BLUE);
 	        colors.add(Colors.WHITE);
 	        colors.add(Colors.BLACK);
+	        colors.add(Colors.GREY);
 
 		while (lastTime - startTime < runTime) {
 			getMarvin().getMotorControl().getBigMotorLeft().forward();
@@ -92,40 +93,48 @@ public class ParcoursModuleRgbCalibrate extends BehaviourModule {
 
 	        } else if (closestColor == Colors.WHITE) {
 	        	textLCD.drawString(String.format("W %.3f / %.3f", r2, b2), 1, 5);
-				getMarvin().getMotorControl().drive(-150, 150); //Get More Left
+	        	getMarvin().getMotorControl().drive(300, -150); //Get More Right
 				Delay.msDelay(100);
 	        } 	else if (closestColor == Colors.BLACK) {
+				getMarvin().getMotorControl().drive(-150, 300); //Get More Left
+				Delay.msDelay(100);
+
 	        	
+	        } else if (closestColor == Colors.GREY) {
+				getMarvin().getMotorControl().drive(200, 200); //Drive forward
+				Delay.msDelay(100);
+
 	        }
-
-
- 	        
-	         else if (r2 > 1.7) {
-	        	textLCD.drawString(String.format("W %.3f / %.3f", r2, b2), 1, 5);
-				getMarvin().getMotorControl().drive(-150, 150); //Get More Left
-				Delay.msDelay(100);
-	        } else if (r2 > 1.4) {
-	        	getMarvin().getMotorControl().drive(1, 150);	//Go Left
-								Delay.msDelay(150);
-
-				textLCD.drawString(String.format("WWZ  %.3f / %.3f", r2, b2), 1, 5);
-	        	
-	        } else if (r2 > 0.9) {
-	        	textLCD.drawString(String.format("ZW  %.3f / %.3f", r2, b2), 1, 5);
-							//	Delay.msDelay(100);
-
-				getMarvin().getMotorControl().drive(150, 150); //Drive forward
-				Delay.msDelay(100);
-	        } else if (r2 > 0.5) {
-	        	textLCD.drawString(String.format("Z  %.3f / %.3f", r2, b2), 1, 5);
+//	        }
+//
+//
+// 	        
+//	         else if (r2 > 1.7) {
+//	        	textLCD.drawString(String.format("W %.3f / %.3f", r2, b2), 1, 5);
+//				getMarvin().getMotorControl().drive(-150, 150); //Get More Left
+//				Delay.msDelay(100);
+//	        } else if (r2 > 1.4) {
+//	        	getMarvin().getMotorControl().drive(1, 150);	//Go Left
+//								Delay.msDelay(150);
+//
+//				textLCD.drawString(String.format("WWZ  %.3f / %.3f", r2, b2), 1, 5);
+//	        	
+//	        } else if (r2 > 0.9) {
+//	        	textLCD.drawString(String.format("ZW  %.3f / %.3f", r2, b2), 1, 5);
+//							//	Delay.msDelay(100);
+//
+//				getMarvin().getMotorControl().drive(150, 150); //Drive forward
+//				Delay.msDelay(100);
+//	        } else if (r2 > 0.5) {
+//	        	textLCD.drawString(String.format("Z  %.3f / %.3f", r2, b2), 1, 5);
+////				
+//				getMarvin().getMotorControl().drive(150, 1); //Get More Right
+//				Delay.msDelay(100);
+//	        } else if (r2 < 0.5) {
+//	        	getMarvin().getMotorControl().drive(150, -150); //Get More Right
+//				Delay.msDelay(100);
 //				
-				getMarvin().getMotorControl().drive(150, 1); //Get More Right
-				Delay.msDelay(100);
-	        } else if (r2 < 0.5) {
-	        	getMarvin().getMotorControl().drive(150, -150); //Get More Right
-				Delay.msDelay(100);
-				
-	        }
+//	        }
 			
 		}
 		getMarvin().getMotorControl().stop();
