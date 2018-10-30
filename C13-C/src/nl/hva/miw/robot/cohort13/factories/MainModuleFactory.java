@@ -13,6 +13,7 @@ import behaviour.modules.logic.StateConditionModule;
 import behaviour.modules.logic.SucceederModule;
 import behaviour.modules.procedures.console.ConsoleModule;
 import behaviour.modules.procedures.exit.GoodbyeModule;
+import behaviour.modules.procedures.keuze_opdracht.GrabCubeModule;
 import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
 import behaviour.modules.procedures.parcour.ParcoursModule;
 import behaviour.modules.procedures.parcour.ParcoursModuleRGB;
@@ -110,7 +111,7 @@ public class MainModuleFactory extends ModuleFactory {
 //										marvin.getColorSensorControlDown().getColorSensor(), TestingProcedureNames.colorSensorName + "_A"));
 							//	sequenceModule_Testing.addModule(new KeuzeOpdrachtModule(marvin));
 								
-							sequenceModule_Testing.addModule(new ParcoursModuleRgbCalibrate(marvin));
+							sequenceModule_Testing.addModule(new GrabCubeModule(marvin));
 				
 								//sequenceModule_Testing.addModule(new StartTestMessageModule(marvin, TestingProcedureNames.colorSensorName));
 								//sequenceModule_Testing.addModule(new ColorSensorTesterModule(marvin, 

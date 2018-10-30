@@ -40,6 +40,19 @@ public class MotorControl extends MarvinComponent {
 	 * The driving motors
 	 */
 	
+	public void rotate180 () {
+		long startTime180 = System.currentTimeMillis();
+		long lastTime180 = System.currentTimeMillis();
+		
+		while (lastTime180 - startTime180 <3000) {
+			lastTime180 = System.currentTimeMillis();
+			bigMotorLeft.forward();
+			bigMotorLeft.setSpeed(300);
+			bigMotorRight.backward();
+			bigMotorRight.setSpeed(300);
+		}
+	}
+	
 	public void drive(int speedLeft, int speedRight) {
 		if (speedLeft > 0) {
 			bigMotorLeft.forward();
