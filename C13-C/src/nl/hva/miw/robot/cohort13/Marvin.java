@@ -1,24 +1,16 @@
 package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.BehaviourModule;
-import behaviour.modules.logic.LeafModule;
-import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
-import behaviour.modules.procedures.testing.ColorSensorTesterModule;
-import behaviour.modules.procedures.testing.RodeLijnTester;
-import lejos.ev3.tools.EV3Control;
 import lejos.hardware.Brick;
-import lejos.hardware.Button;
 import lejos.hardware.Key;
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.port.SensorPort;
-import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.EV3TouchSensor;
 import nl.hva.miw.robot.cohort13.factories.MainModuleFactory;
 import nl.hva.miw.robot.cohort13.functionality.ClosestColorFinder;
 import nl.hva.miw.robot.cohort13.functionality.ColorSensorControl;
 import nl.hva.miw.robot.cohort13.functionality.KeyInputControl;
 import nl.hva.miw.robot.cohort13.functionality.MemoryOpdracht2;
-import nl.hva.miw.robot.cohort13.functionality.MemoryOpdracht3;
 import nl.hva.miw.robot.cohort13.functionality.MotorControl;
 import nl.hva.miw.robot.cohort13.functionality.ProximityControl;
 
@@ -95,7 +87,7 @@ public class Marvin {
 	
 	public void run() {						
 		//Voert module(s) uit middels execute
-		mainModule.execute();		
+		mainModule.execute();	
 	}
 	
 	public boolean keyPressed(Key key) {

@@ -8,4 +8,11 @@ public class ColorNames {
 	public static final String GREEN = "green";
 	public static final String WHITE = "white";
 	public static final String BLACK = "black";
+	
+	public static final String YELLOW = "yellow";
+	public static final String CHARTREUSE = "chartreuse";
+	public static final String CYAN = "cyan";
+	public static final String PINK = "pink";
+	public static final String DARK_BLUE = "dark blue";
+	public static final String LIGHT_BLUE = "light blue";
 }

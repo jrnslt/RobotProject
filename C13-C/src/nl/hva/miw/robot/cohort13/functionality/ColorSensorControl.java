@@ -36,6 +36,8 @@ public class ColorSensorControl extends MarvinComponent {
         colorSensor.setFloodlight(Color.WHITE);
         colorSensor.setCurrentMode(sensorModeRGB.getName());
         
+        Delay.msDelay(2000);
+        
         while (colorSet == false) {
         	sensorModeRGB.fetchSample(sampleRGB, 0);
         	
