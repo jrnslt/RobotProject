@@ -82,6 +82,7 @@ public class MainModuleFactory extends ModuleFactory {
 							sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
 
+
 								sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
 							/*
 							sequenceModule_Testing.addModule(new GrabCubeModule(marvin));
@@ -92,6 +93,7 @@ public class MainModuleFactory extends ModuleFactory {
 
 //							marvin.getColorSensorControlDown().getColorSensor(), TestingProcedureNames.colorSensorName + "_A"));
 	
+
 							sequenceUntilFailModule_A.addModule(new DelayModule(marvin, 500));	
 							sequenceUntilFailModule_A.addModule(new ClearConsoleModule(marvin));
 							
