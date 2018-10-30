@@ -10,6 +10,7 @@ public class MemoryOpdracht2 extends MarvinComponent {
 	public boolean greenCubeDelivered;	
 	public boolean blueCubeFound;
 	public boolean blueCubeDelivered;
+	public boolean roaming;
 	
 	public MemoryOpdracht2(Marvin marvin) {
 		super(marvin);
@@ -23,5 +24,6 @@ public class MemoryOpdracht2 extends MarvinComponent {
 		greenCubeDelivered = false;
 		blueCubeFound = false;
 		blueCubeDelivered = false;
+		roaming = true;
 	}
 }

@@ -28,7 +28,7 @@ public class ParcoursModuleRGB2 extends BehaviourModule {
 	}
 
 	@Override
-	public boolean execute() {s
+	public boolean execute() {
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
 		EV3ColorSensor colorSensor = getMarvin().getColorSensorControlDown().getColorSensor();
