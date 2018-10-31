@@ -26,6 +26,7 @@ import behaviour.modules.procedures.keuze_opdracht.SetVariableRedCubeDroppedModu
 import behaviour.modules.procedures.keuze_opdracht.SetVariableRedCubeFoundModule;
 import behaviour.modules.procedures.keuze_opdracht.VictoryDanceOpdracht2Module;
 import nl.hva.miw.robot.cohort13.Marvin;
+import nl.hva.miw.robot.cohort13.resources.Colors;
 
 public class Opdracht2ModuleFactory extends ModuleFactory {
 
@@ -41,14 +42,14 @@ public class Opdracht2ModuleFactory extends ModuleFactory {
 							SucceederModule succeederModuleA1 = new SucceederModule(marvin);
 								SequenceUntilFailModule sequenceUntilFailModuleB1 = new SequenceUntilFailModule(marvin);
 									ConditionRedCubeFoundModule conditionRedCubeFoundModuleA1 = new ConditionRedCubeFoundModule(marvin, false);
-									FollowLineUntilCubeIsFoundModule followLineUntilDropSpotModuleA1 = new FollowLineUntilCubeIsFoundModule(marvin);
+									FollowLineUntilCubeIsFoundModule followLineUntilDropSpotModuleA1 = new FollowLineUntilCubeIsFoundModule(marvin, Colors.RED);
 									GrabCubeModule grabCubeModule1 = new GrabCubeModule(marvin);
 									SetVariableRedCubeFoundModule setVariableRedCubeFound1 = new SetVariableRedCubeFoundModule(marvin, true);		
 							SucceederModule succeederModuleB1 = new SucceederModule(marvin);
 								SequenceUntilFailModule sequenceUntilFailModuleC1 = new SequenceUntilFailModule(marvin);
 									ConditionRedCubeFoundModule conditionRedCubeFoundModuleB1 = new ConditionRedCubeFoundModule(marvin, true);
 									ConditionRedCubeDroppedModule conditionRedCubeDroppedModuleB1 = new ConditionRedCubeDroppedModule(marvin, false);
-									FollowLineUntilDropSpotModule followLineUntilDropSpot1 = new FollowLineUntilDropSpotModule(marvin);
+									FollowLineUntilDropSpotModule followLineUntilDropSpot1 = new FollowLineUntilDropSpotModule(marvin, Colors.RED);
 									DropCubeModule dropCubeModuleA1 = new DropCubeModule(marvin);
 									SetVariableRedCubeDroppedModule setVariableRedCubeDroppedModule1 = new SetVariableRedCubeDroppedModule(marvin, true);
 						
@@ -57,14 +58,14 @@ public class Opdracht2ModuleFactory extends ModuleFactory {
 							SucceederModule succeederModuleA2 = new SucceederModule(marvin);
 								SequenceUntilFailModule sequenceUntilFailModuleB2 = new SequenceUntilFailModule(marvin);
 									ConditionGreenCubeFoundModule conditionGreenCubeFoundModuleA2 = new ConditionGreenCubeFoundModule(marvin, false);
-									FollowLineUntilCubeIsFoundModule followLineUntilDropSpotModuleA2 = new FollowLineUntilCubeIsFoundModule(marvin);
+									FollowLineUntilCubeIsFoundModule followLineUntilDropSpotModuleA2 = new FollowLineUntilCubeIsFoundModule(marvin, Colors.GREEN);
 									GrabCubeModule grabCubeModule2 = new GrabCubeModule(marvin);
 									SetVariableGreenCubeFoundModule setVariableGreenCubeFound2 = new SetVariableGreenCubeFoundModule(marvin, true);			
 							SucceederModule succeederModuleB2 = new SucceederModule(marvin);
 								SequenceUntilFailModule sequenceUntilFailModuleC2 = new SequenceUntilFailModule(marvin);
 									ConditionGreenCubeFoundModule conditionGreenCubeFoundModuleB2 = new ConditionGreenCubeFoundModule(marvin, true);
 									ConditionGreenCubeDroppedModule conditionGreenCubeDroppedModuleB2 = new ConditionGreenCubeDroppedModule(marvin, false);
-									FollowLineUntilDropSpotModule followLineUntilDropSpot2 = new FollowLineUntilDropSpotModule(marvin);
+									FollowLineUntilDropSpotModule followLineUntilDropSpot2 = new FollowLineUntilDropSpotModule(marvin, Colors.GREEN);
 									DropCubeModule dropCubeModuleA2 = new DropCubeModule(marvin);
 									SetVariableGreenCubeDroppedModule setVariableGreenCubeDroppedModule2 = new SetVariableGreenCubeDroppedModule(marvin, true);
 					
@@ -73,14 +74,14 @@ public class Opdracht2ModuleFactory extends ModuleFactory {
 							SucceederModule succeederModuleA3 = new SucceederModule(marvin);
 								SequenceUntilFailModule sequenceUntilFailModuleB3 = new SequenceUntilFailModule(marvin);
 									ConditionBlueCubeFoundModule conditionBlueCubeFoundModuleA3 = new ConditionBlueCubeFoundModule(marvin, false);
-									FollowLineUntilCubeIsFoundModule followLineUntilDropSpotModuleA3 = new FollowLineUntilCubeIsFoundModule(marvin);
+									FollowLineUntilCubeIsFoundModule followLineUntilDropSpotModuleA3 = new FollowLineUntilCubeIsFoundModule(marvin, Colors.BLUE);
 									GrabCubeModule grabCubeModule3 = new GrabCubeModule(marvin);
 									SetVariableBlueCubeFoundModule setVariableBlueCubeFound3 = new SetVariableBlueCubeFoundModule(marvin, true);			
 							SucceederModule succeederModuleB3 = new SucceederModule(marvin);
 								SequenceUntilFailModule sequenceUntilFailModuleC3 = new SequenceUntilFailModule(marvin);
 									ConditionBlueCubeFoundModule conditionBlueCubeFoundModuleB3 = new ConditionBlueCubeFoundModule(marvin, true);
 									ConditionBlueCubeDroppedModule conditionBlueCubeDroppedModuleB3 = new ConditionBlueCubeDroppedModule(marvin, false);
-									FollowLineUntilDropSpotModule followLineUntilDropSpot3 = new FollowLineUntilDropSpotModule(marvin);
+									FollowLineUntilDropSpotModule followLineUntilDropSpot3 = new FollowLineUntilDropSpotModule(marvin, Colors.BLUE);
 									DropCubeModule dropCubeModuleA3 = new DropCubeModule(marvin);
 									SetVariableBlueCubeDroppedModule setVariableBlueCubeDroppedModule3 = new SetVariableBlueCubeDroppedModule(marvin, true);
 						
