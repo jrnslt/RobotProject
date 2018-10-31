@@ -95,6 +95,7 @@ public class Marvin {
 	public void run() {						
 		//Voert module(s) uit middels execute
 
+
 //		mainModule.execute();		
 		
 
@@ -111,6 +112,7 @@ public class Marvin {
 		//new LijnenTester(this).execute();
 		
 //		keyInputManager.waitForKey(Button.ENTER);
+
 
 		mainModule.execute();	
 	}

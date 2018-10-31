@@ -17,18 +17,19 @@ public class Colors {
 	
 	
 
+<<<<<<< HEAD
 
 	
 	//Uitbreiding kleuren
+=======
+>>>>>>> 0bbc4cf05cb3434abd6359aea0814d4358708ac5
 	public static final MColor YELLOW =  new MColor(ColorNames.YELLOW, 1.03f, 0.88f, 0.5f);
-	//public static final MColor CHARTREUSE = new MColor(ColorNames.CHARTREUSE, 195f/255f, 232f/255f, 89f/255f);
 	public static final MColor CHARTREUSE = new MColor(ColorNames.CHARTREUSE, 0.7f, 0.85f, 0.6f);
 	public static final MColor CYAN =  new MColor(ColorNames.CYAN, 0.73f, 1.10f, 0.98f);
 	public static final MColor PINK = new MColor(ColorNames.PINK, 0.82f, 0.22f, 0.31f);
 	public static final MColor DARK_BLUE = new MColor(ColorNames.DARK_BLUE, 0.09f, 0.15f, 0.76f);
 	public static final MColor LIGHT_BLUE = new MColor(ColorNames.LIGHT_BLUE, 0.2f, 0.63f, 0.76f);
 
+	public static final MColor LIGHT_PURPLE = new MColor(ColorNames.LIGHT_PURPLE, 0.67f, 0.57f, 0.71f);
+	public static final MColor BLUE_GREY = new MColor(ColorNames.BLUE_GREY, 0.13f, 0.27f, 0.54f);
 }
-
-
-//

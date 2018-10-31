@@ -16,6 +16,7 @@ import behaviour.modules.procedures.console.ConsoleModule;
 import behaviour.modules.procedures.exit.GoodbyeModule;
 import behaviour.modules.procedures.keuze_opdracht.GrabCubeModule;
 import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
+import behaviour.modules.procedures.keuze_opdracht.RoamingModule;
 import behaviour.modules.procedures.keuze_opdracht.VictoryDanceOpdracht2Module;
 import behaviour.modules.procedures.parcour.ParcoursModule;
 import behaviour.modules.procedures.parcour.ParcoursModuleRGB;
@@ -84,6 +85,7 @@ public class MainModuleFactory extends ModuleFactory {
 							sequenceUntilFailModule_A.addModule(new StateConditionModule(marvin, MarvinState.TESTING));
 							sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
+
 
 
 								sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
