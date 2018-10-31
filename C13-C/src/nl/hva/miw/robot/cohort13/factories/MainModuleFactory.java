@@ -30,6 +30,7 @@ import behaviour.modules.procedures.testing.ColorRecognizerTestModule;
 import behaviour.modules.procedures.testing.DriveForwardTesterModule;
 import behaviour.modules.procedures.testing.EndTestMessageModule;
 import behaviour.modules.procedures.testing.LijnenTester;
+import behaviour.modules.procedures.testing.LijnenTester2;
 import behaviour.modules.procedures.testing.ProximitySensorTesterModule;
 import behaviour.modules.procedures.testing.RodeLijnTester;
 import behaviour.modules.procedures.testing.StartTestMessageModule;
@@ -84,7 +85,7 @@ public class MainModuleFactory extends ModuleFactory {
 					sequenceModuleB.addModule(succeederModuleA);		
 						succeederModuleA.addModule(sequenceUntilFailModule_A);
 							sequenceUntilFailModule_A.addModule(new StateConditionModule(marvin, MarvinState.TESTING));
-						//	sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
+							sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
 							
 //							sequenceModule_Testing.addModule(new FindCubeDropOnSpotModule(marvin));
@@ -108,6 +109,8 @@ public class MainModuleFactory extends ModuleFactory {
 	
 
 
+								//sequenceModule_Testing.addModule(new LijnenTester2(marvin));
+							
 							sequenceUntilFailModule_A.addModule(new DelayModule(marvin, 500));	
 							sequenceUntilFailModule_A.addModule(new ClearConsoleModule(marvin));
 							

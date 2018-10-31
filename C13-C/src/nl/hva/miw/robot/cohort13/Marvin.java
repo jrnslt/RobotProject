@@ -1,6 +1,11 @@
 package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.BehaviourModule;
+import behaviour.modules.procedures.keuze_opdracht.DropCubeModule;
+import behaviour.modules.procedures.keuze_opdracht.FollowLineForAShortWhile;
+import behaviour.modules.procedures.keuze_opdracht.FollowLineUntilCubeIsFoundModule;
+import behaviour.modules.procedures.keuze_opdracht.FollowLineUntilDropSpotModule;
+import behaviour.modules.procedures.keuze_opdracht.GrabCubeModule;
 import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
 import behaviour.modules.procedures.parcour.ParcoursModuleRGB;
 import behaviour.modules.procedures.parcour.ParcoursModuleRgbCalibrate;
@@ -10,9 +15,11 @@ import behaviour.modules.procedures.testing.RodeLijnTester;
 import lejos.ev3.tools.EV3Control;
 import lejos.hardware.Brick;
 import lejos.hardware.Key;
+import lejos.hardware.Sound;
 import lejos.hardware.ev3.LocalEV3;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3TouchSensor;
+import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.factories.MainModuleFactory;
 import nl.hva.miw.robot.cohort13.functionality.ClosestColorFinder;
 import nl.hva.miw.robot.cohort13.functionality.ColorSensorControl;
@@ -20,6 +27,7 @@ import nl.hva.miw.robot.cohort13.functionality.KeyInputControl;
 import nl.hva.miw.robot.cohort13.functionality.MemoryOpdracht2;
 import nl.hva.miw.robot.cohort13.functionality.MotorControl;
 import nl.hva.miw.robot.cohort13.functionality.ProximityControl;
+import nl.hva.miw.robot.cohort13.resources.Colors;
 
 public class Marvin {
 	private Brick brick;
@@ -32,6 +40,11 @@ public class Marvin {
 	private KeyInputControl keyInputManager;
 	private ProximityControl proximityControl;
 	private ClosestColorFinder closestColorFinder;
+	private FollowLineUntilDropSpotModule followLineUntilDropSpotModule;
+	private FollowLineUntilCubeIsFoundModule followLineUntilCubeIsFoundModule;
+	private FollowLineForAShortWhile followLineForAShortWhile;
+	private GrabCubeModule grabCubeModule;
+	private DropCubeModule dropCubeModule;
 	
 	private MemoryOpdracht2 memoryOpdracht2;
 	
@@ -93,28 +106,10 @@ public class Marvin {
 	}
 	
 	public void run() {						
-		//Voert module(s) uit middels execute
-
-
-//		mainModule.execute();		
-		
-
-		//colorSensorControlDown.calibrateSensor();
-//		new RodeLijnTester(this).execute();
-
-		//colorSensorControlDown.calibrateSensor();
-		//new RodeLijnTester(this).execute();
-
-//		new KeuzeOpdrachtModule(this).execute();
-		
-		//colorSensorControlDown.ColorTesterTest();
-		
-		//new LijnenTester(this).execute();
-		
-//		keyInputManager.waitForKey(Button.ENTER);
-
-
-		mainModule.execute();	
+		colorSensorControlDown.calibrateSensor();	
+		Delay.msDelay(4000);
+		new FollowLineUntilCubeIsFoundModule(this, Colors.RED);
+		Sound.beep();
 	}
 	
 	public boolean keyPressed(Key key) {

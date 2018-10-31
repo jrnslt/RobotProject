@@ -1,7 +1,10 @@
 package behaviour.modules.procedures.keuze_opdracht;
 
-import java.util.ArrayList;
 
+import behaviour.modules.BehaviourModule;
+import nl.hva.miw.robot.cohort13.Marvin;
+
+import java.util.ArrayList;
 import behaviour.modules.BehaviourModule;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.TextLCD;
@@ -17,22 +20,14 @@ import nl.hva.miw.robot.cohort13.functionality.MotorControl;
 import nl.hva.miw.robot.cohort13.functionality.ProximityControl;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
-/**
- * volg gekleurde lijn totdat kubus is gevonden
- * 
- * 
- * 
- */
-
-public class FollowLineUntilCubeIsFoundModule extends BehaviourModule {
+public class FollowLineForAShortWhile extends BehaviourModule{
 	public MColor color;
 	
-	public FollowLineUntilCubeIsFoundModule(Marvin marvin, MColor color) {
+	public FollowLineForAShortWhile(Marvin marvin, MColor color) {
 		super(marvin);
 		this.color = color;
 	}
 
-	
 	@Override
 	public boolean execute() {
 		ColorSensorControl colorSensorControl = getMarvin().getColorSensorControlDown();
@@ -76,52 +71,27 @@ public class FollowLineUntilCubeIsFoundModule extends BehaviourModule {
 
 		MotorControl motorControl = getMarvin().getMotorControl();
 		MemoryOpdracht2 dropBlock = getMarvin().getMemoryOpdracht2();
-		ProximityControl proximitySensor = getMarvin().getProximityManager();
+		long startTime = System.currentTimeMillis();
+		long lastTime = System.currentTimeMillis();
 		
-			while (true) {
-				textLCD.setAutoRefresh(false);
-				textLCD.refresh();
-				textLCD.clear();
-				textLCD.drawString("distance: " + proximitySensor.getDistance(), 1, 2);
-				
-				if (proximitySensor.getDistance() < 10) {
-					textLCD.setAutoRefresh(false);
-					textLCD.refresh();
-					textLCD.clear();
-					textLCD.drawString("distance: " + proximitySensor.getDistance(), 1, 2);
-					//return true;
-
-					Sound.beep();
-//					return true;
-
-				} 
-				/*
-				if (closestColor == Colors.BLACK) {
-					// Draaien
-					motorControl.stop();
-					motorControl.drive(-250, 250);
-					Delay.msDelay(3700);
-					motorControl.stop();
-				} else {
-					if (closestColor == Colors.WHITE || closestColor == Colors.ORANGE) {
-						textLCD.drawString("Niet op de lijn", 1, 3);
-						getMarvin().getMotorControl().drive(150, -150); // rechts
-						Delay.msDelay(400);
-						getMarvin().getMotorControl().drive(200, 200);
-						Delay.msDelay(400);
-					} else if (closestColor == color) { // links
-						textLCD.drawString("Op de lijn", 1, 3);
-						getMarvin().getMotorControl().drive(-150, 170);
-						Delay.msDelay(400);
-						getMarvin().getMotorControl().drive(20, 1);
-						Delay.msDelay(400);
-						getMarvin().getMotorControl().drive(200, 200);
-						Delay.msDelay(400);
-					}
-				} 	
-				*/
-			}
+		while (lastTime - startTime < 4000) {	        
+	        lastTime = System.currentTimeMillis();
+			if (closestColor == Colors.WHITE || closestColor == Colors.ORANGE) {
+					textLCD.drawString("Niet op de lijn", 1, 3);
+					getMarvin().getMotorControl().drive(150, -150); // rechts
+					Delay.msDelay(400);
+					getMarvin().getMotorControl().drive(200, 200);
+					Delay.msDelay(400);
+				} else if (closestColor == color) { // links
+					textLCD.drawString("Op de lijn", 1, 3);
+					getMarvin().getMotorControl().drive(-150, 170);
+					Delay.msDelay(400);
+					getMarvin().getMotorControl().drive(20, 1);
+					Delay.msDelay(400);
+					getMarvin().getMotorControl().drive(200, 200);
+					Delay.msDelay(400);
+				}
 		}
+		return true;
 	}
-	
-
+}

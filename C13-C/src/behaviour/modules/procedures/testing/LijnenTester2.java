@@ -15,18 +15,16 @@ import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.functionality.ColorSensorControl;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
-public class LijnenTester extends BehaviourModule {
+public class LijnenTester2 extends BehaviourModule {
 	private final long runTime = 10000000;
 
-	public LijnenTester(Marvin marvin) {
+	public LijnenTester2(Marvin marvin) {
 		super(marvin);
 	}
 
 	@Override
 	public boolean execute() {
 		ColorSensorControl colorSensorControl = getMarvin().getColorSensorControlDown();
-		colorSensorControl.calibrateSensor();
-		
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
 		EV3ColorSensor colorSensor = colorSensorControl.getColorSensor();
@@ -86,44 +84,35 @@ public class LijnenTester extends BehaviourModule {
 				}
 				getMarvin().getMotorControl().drive(200, 200); // rechtdoor
 				Delay.msDelay(200);
-//	       
-//				Delay.msDelay(100);
-//
+
 				if (redLinesPassed >= 2) {
 					numberOfSeconds = stopWatch.elapsed() / 1000;
 					break;
 				}
-			} else if (closestColor == Colors.GREY) { // rechtdoor
-				textLCD.drawString("Grijs", 1, 5);
-//	        	getMarvin().getMotorControl().drive(-150, 200);
-//	        	Delay.msDelay(100);
-				getMarvin().getMotorControl().drive(200, 200);
-				Delay.msDelay(200);
-
+			} 
+			else if (closestColor == Colors.BLACK) {
+				textLCD.drawString("zwart", 1, 5);
+				getMarvin().getMotorControl().drive(1, -220);// rechts
+				Delay.msDelay(150);
+				getMarvin().getMotorControl().drive(100, 100);
+				Delay.msDelay(150);
 			} else if (closestColor == Colors.DARKGREY) { // rechtdoor
 				textLCD.drawString("Wit", 1, 5);
 				getMarvin().getMotorControl().drive(200, 200);
 				Delay.msDelay(200);
 
-//					getMarvin().getMotorControl().drive(1, -250);
-//					Delay.msDelay(100);
-//					getMarvin().getMotorControl().drive(150, 150);
-//					Delay.msDelay(100);
+			} else if (closestColor == Colors.GREY) { // rechtdoor
+				textLCD.drawString("Grijs", 1, 5);
 
+				getMarvin().getMotorControl().drive(200, 200);
+				Delay.msDelay(200);
 			} else if (closestColor == Colors.WHITE) {
-
 				textLCD.drawString("wit", 1, 5);
 				getMarvin().getMotorControl().drive(-220, 1);// links
 				Delay.msDelay(150);
-					getMarvin().getMotorControl().drive(150, 150);
-					Delay.msDelay(150);
-			} else if (closestColor == Colors.BLACK) {
-				textLCD.drawString("zwart", 1, 5);
-				getMarvin().getMotorControl().drive(1, -220);// rechts
+				getMarvin().getMotorControl().drive(100, 100);
 				Delay.msDelay(150);
-					getMarvin().getMotorControl().drive(150, 150);
-					Delay.msDelay(150);
-			}
+			} 
 		}
 		
 		getMarvin().getMotorControl().stop(); // Stop robot
@@ -135,3 +124,4 @@ public class LijnenTester extends BehaviourModule {
 	}
 
 }
+

@@ -19,7 +19,17 @@ public class ColorNames {
 	public static final String PINK = "pink";
 	public static final String DARK_BLUE = "dark blue";
 	public static final String LIGHT_BLUE = "light blue";
+<<<<<<< HEAD
 	public static final String LIGHT_PURPLE = "light purple";
 	public static final String BLUE_GREY = "blue grey";
 
+=======
+
+	public static final String LIGHT_PURPLE = "light purple";
+	public static final String BLUE_GREY = "blue grey";
+<<<<<<< HEAD
+
+=======
+>>>>>>> b8dc5e9c5e667daa3262907f61fa6baf22681efd
+>>>>>>> d47ef0dcac382bed42e8dc5047ed0f0347aed22d
 }

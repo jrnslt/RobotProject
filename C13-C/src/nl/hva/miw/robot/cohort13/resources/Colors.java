@@ -11,15 +11,13 @@ public class Colors {
 	public static final MColor WHITE =  new MColor(ColorNames.WHITE, 1.1f, 1.1f, 1.1f);
 	public static final MColor BLACK =  new MColor(ColorNames.BLACK, 0.1f, 0.1f, 0.1f);
 	public static final MColor GREY =  new MColor(ColorNames.GREY, 0.38f, 0.38f, 0.38f);
-	public static final MColor DARKGREY =  new MColor(ColorNames.DARKGREY, 0.6f, 0.6f, 0.6f);
-	
+
+	public static final MColor DARKGREY =  new MColor(ColorNames.DARKGREY, 0.3f, 0.3f, 0.3f);
+	public static final MColor LIGHTGREY =  new MColor(ColorNames.LIGHTGREY, 0.6f, 0.6f, 0.6f);
 //	public static final MColor LIGHTGREY =  new MColor(ColorNames.LIGHTGREY, 0.75f, 0.75f, 0.75f);
 
-	
-
-
-	
 	//Uitbreiding kleuren
+
 
 	public static final MColor YELLOW =  new MColor(ColorNames.YELLOW, 1.03f, 0.88f, 0.5f);
 	public static final MColor CHARTREUSE = new MColor(ColorNames.CHARTREUSE, 0.7f, 0.85f, 0.6f);
