@@ -3,6 +3,9 @@ package behaviour.modules.procedures.keuze_opdracht;
 import java.util.ArrayList;
 
 import behaviour.modules.BehaviourModule;
+import lejos.hardware.lcd.TextLCD;
+import lejos.utility.Delay;
+
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.TextLCD;
 import lejos.hardware.sensor.EV3ColorSensor;
@@ -10,6 +13,7 @@ import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.MColor;
+
 import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.functionality.ColorSensorControl;
 import nl.hva.miw.robot.cohort13.functionality.MemoryOpdracht2;
@@ -35,6 +39,7 @@ public class FollowLineUntilDropSpotModule extends BehaviourModule {
 
 	@Override
 	public boolean execute() {
+
 		ColorSensorControl colorSensorControl = getMarvin().getColorSensorControlDown();
 		EV3ColorSensor colorSensor = colorSensorControl.getColorSensor();
 

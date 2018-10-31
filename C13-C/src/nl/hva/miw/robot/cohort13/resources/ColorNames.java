@@ -23,5 +23,4 @@ public class ColorNames {
 
 	public static final String LIGHT_PURPLE = "light purple";
 	public static final String BLUE_GREY = "blue grey";
-
 }

@@ -67,7 +67,7 @@ public class Opdracht2ModuleFactory extends ModuleFactory {
 									FollowLineForAShortWhile followLineForAShortWhile1 = new FollowLineForAShortWhile(marvin);	
 									SetVariableRoaming setVariableRoaming1 = new SetVariableRoaming(marvin, true);
 						//Green
-<<<<<<< HEAD
+
 						SequenceModule sequenceModuleA2 = new SequenceModule(marvin);
 							SucceederModule succeederModuleA2 = new SucceederModule(marvin);
 								SequenceUntilFailModule sequenceUntilFailModuleB2 = new SequenceUntilFailModule(marvin);
@@ -99,43 +99,42 @@ public class Opdracht2ModuleFactory extends ModuleFactory {
 									DropCubeModule dropCubeModuleA3 = new DropCubeModule(marvin);
 									SetVariableBlueCubeDroppedModule setVariableBlueCubeDroppedModule3 = new SetVariableBlueCubeDroppedModule(marvin, true);
 						
-=======
-						SucceederModule succeederModuleSA2 = new SucceederModule(marvin);
-						SequenceUntilFailModule sequenceUntilFailModuleA2 = new SequenceUntilFailModule(marvin);
-							ConditionRoaming conditionRoaming2 = new ConditionRoaming(marvin, false);
-							SequenceUntilFailModule sequenceUntilFailModuleB2 = new SequenceUntilFailModule(marvin);
-								ConditionGreenCubeFoundModule conditionGreenCubeFoundModuleA2 = new ConditionGreenCubeFoundModule(marvin, false);
-								FollowLineUntilCubeIsFoundModule followLineUntilDropSpotModuleA2 = new FollowLineUntilCubeIsFoundModule(marvin);
-								GrabCubeModule grabCubeModule2 = new GrabCubeModule(marvin);
-								SetVariableGreenCubeFoundModule setVariableGreenCubeFound2 = new SetVariableGreenCubeFoundModule(marvin, true);		
-							SequenceUntilFailModule sequenceUntilFailModuleC2 = new SequenceUntilFailModule(marvin);
-								ConditionGreenCubeFoundModule conditionGreenCubeFoundModuleB2 = new ConditionGreenCubeFoundModule(marvin, true);
-								ConditionGreenCubeDroppedModule conditionGreenCubeDroppedModuleB2 = new ConditionGreenCubeDroppedModule(marvin, false);
-								FollowLineUntilDropSpotModule followLineUntilDropSpot2 = new FollowLineUntilDropSpotModule(marvin);
-								DropCubeModule dropCubeModuleA2 = new DropCubeModule(marvin);
-								SetVariableGreenCubeDroppedModule setVariableGreenCubeDroppedModule2 = new SetVariableGreenCubeDroppedModule(marvin, true);
-								FollowLineForAShortWhile followLineForAShortWhile2 = new FollowLineForAShortWhile(marvin);	
-								SetVariableRoaming setVariableRoaming2 = new SetVariableRoaming(marvin, true);
-								
+
+//						SucceederModule succeederModuleSA2 = new SucceederModule(marvin);
+//						SequenceUntilFailModule sequenceUntilFailModuleA2 = new SequenceUntilFailModule(marvin);
+//							ConditionRoaming conditionRoaming2 = new ConditionRoaming(marvin, false);
+//							SequenceUntilFailModule sequenceUntilFailModuleB2 = new SequenceUntilFailModule(marvin);
+//								ConditionGreenCubeFoundModule conditionGreenCubeFoundModuleA2 = new ConditionGreenCubeFoundModule(marvin, false);
+//								FollowLineUntilCubeIsFoundModule followLineUntilDropSpotModuleA2 = new FollowLineUntilCubeIsFoundModule(marvin);
+//								GrabCubeModule grabCubeModule2 = new GrabCubeModule(marvin);
+//								SetVariableGreenCubeFoundModule setVariableGreenCubeFound2 = new SetVariableGreenCubeFoundModule(marvin, true);		
+//							SequenceUntilFailModule sequenceUntilFailModuleC2 = new SequenceUntilFailModule(marvin);
+//								ConditionGreenCubeFoundModule conditionGreenCubeFoundModuleB2 = new ConditionGreenCubeFoundModule(marvin, true);
+//								ConditionGreenCubeDroppedModule conditionGreenCubeDroppedModuleB2 = new ConditionGreenCubeDroppedModule(marvin, false);
+//								FollowLineUntilDropSpotModule followLineUntilDropSpot2 = new FollowLineUntilDropSpotModule(marvin);
+//								DropCubeModule dropCubeModuleA2 = new DropCubeModule(marvin);
+//								SetVariableGreenCubeDroppedModule setVariableGreenCubeDroppedModule2 = new SetVariableGreenCubeDroppedModule(marvin, true);
+//								FollowLineForAShortWhile followLineForAShortWhile2 = new FollowLineForAShortWhile(marvin);	
+//								SetVariableRoaming setVariableRoaming2 = new SetVariableRoaming(marvin, true);
+//								
 						//Blue
-						SucceederModule succeederModuleSA3 = new SucceederModule(marvin);
-						SequenceUntilFailModule sequenceUntilFailModuleA3 = new SequenceUntilFailModule(marvin);
-							ConditionRoaming conditionRoaming3 = new ConditionRoaming(marvin, false);
-							SequenceUntilFailModule sequenceUntilFailModuleB3 = new SequenceUntilFailModule(marvin);
-								ConditionBlueCubeFoundModule conditionGreenCubeFoundModuleA3 = new ConditionBlueCubeFoundModule(marvin, false);
-								FollowLineUntilCubeIsFoundModule followLineUntilDropSpotModuleA3 = new FollowLineUntilCubeIsFoundModule(marvin);
-								GrabCubeModule grabCubeModule3 = new GrabCubeModule(marvin);
-								SetVariableBlueCubeFoundModule setVariableGreenCubeFound3 = new SetVariableBlueCubeFoundModule(marvin, true);		
-							SequenceUntilFailModule sequenceUntilFailModuleC3 = new SequenceUntilFailModule(marvin);
-								ConditionBlueCubeFoundModule conditionGreenCubeFoundModuleB3 = new ConditionBlueCubeFoundModule(marvin, true);
-								ConditionBlueCubeDroppedModule conditionGreenCubeDroppedModuleB3 = new ConditionBlueCubeDroppedModule(marvin, false);
-								FollowLineUntilDropSpotModule followLineUntilDropSpot3 = new FollowLineUntilDropSpotModule(marvin);
-								DropCubeModule dropCubeModuleA3 = new DropCubeModule(marvin);
-								SetVariableBlueCubeDroppedModule setVariableGreenCubeDroppedModule3 = new SetVariableBlueCubeDroppedModule(marvin, true);
-								FollowLineForAShortWhile followLineForAShortWhile3 = new FollowLineForAShortWhile(marvin);	
-								SetVariableRoaming setVariableRoaming3 = new SetVariableRoaming(marvin, true);
-								
->>>>>>> b8dc5e9c5e667daa3262907f61fa6baf22681efd
+//						SucceederModule succeederModuleSA3 = new SucceederModule(marvin);
+//						SequenceUntilFailModule sequenceUntilFailModuleA3 = new SequenceUntilFailModule(marvin);
+//							ConditionRoaming conditionRoaming3 = new ConditionRoaming(marvin, false);
+//							SequenceUntilFailModule sequenceUntilFailModuleB3 = new SequenceUntilFailModule(marvin);
+//								ConditionBlueCubeFoundModule conditionGreenCubeFoundModuleA3 = new ConditionBlueCubeFoundModule(marvin, false);
+//								FollowLineUntilCubeIsFoundModule followLineUntilDropSpotModuleA3 = new FollowLineUntilCubeIsFoundModule(marvin);
+//								GrabCubeModule grabCubeModule3 = new GrabCubeModule(marvin);
+//								SetVariableBlueCubeFoundModule setVariableGreenCubeFound3 = new SetVariableBlueCubeFoundModule(marvin, true);		
+//							SequenceUntilFailModule sequenceUntilFailModuleC3 = new SequenceUntilFailModule(marvin);
+//								ConditionBlueCubeFoundModule conditionGreenCubeFoundModuleB3 = new ConditionBlueCubeFoundModule(marvin, true);
+//								ConditionBlueCubeDroppedModule conditionGreenCubeDroppedModuleB3 = new ConditionBlueCubeDroppedModule(marvin, false);
+//								FollowLineUntilDropSpotModule followLineUntilDropSpot3 = new FollowLineUntilDropSpotModule(marvin);
+//								DropCubeModule dropCubeModuleA3 = new DropCubeModule(marvin);
+//								SetVariableBlueCubeDroppedModule setVariableGreenCubeDroppedModule3 = new SetVariableBlueCubeDroppedModule(marvin, true);
+//								FollowLineForAShortWhile followLineForAShortWhile3 = new FollowLineForAShortWhile(marvin);	
+//								SetVariableRoaming setVariableRoaming3 = new SetVariableRoaming(marvin, true);
+
 						//Check
 						InverterModule inverterModule4 = new InverterModule(marvin);	
 							SequenceUntilFailModule sequenceUntilFailModule4 = new SequenceUntilFailModule(marvin);
@@ -178,10 +177,10 @@ public class Opdracht2ModuleFactory extends ModuleFactory {
 								sequenceUntilFailModuleC1.addModule(followLineForAShortWhile1);	
 								sequenceUntilFailModuleC1.addModule(setVariableRoaming1);	
 					//Green
-					sequenceUntilFailModuleA.addModule(succeederModuleSA2);
-					succeederModuleSA2.addModule(sequenceUntilFailModuleA2);
-						sequenceUntilFailModuleA2.addModule(conditionRoaming2);
-						sequenceUntilFailModuleA2.addModule(sequenceUntilFailModuleB2);
+//					sequenceUntilFailModuleA.addModule(succeederModuleSA2);
+//					succeederModuleSA2.addModule(sequenceUntilFailModuleA2);
+//						sequenceUntilFailModuleA2.addModule(conditionRoaming2);
+//						sequenceUntilFailModuleA2.addModule(sequenceUntilFailModuleB2);
 							sequenceUntilFailModuleB2.addModule(conditionGreenCubeFoundModuleA2);
 							sequenceUntilFailModuleB2.addModule(followLineUntilDropSpotModuleA2);	
 							sequenceUntilFailModuleB2.addModule(grabCubeModule2);	
