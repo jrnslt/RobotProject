@@ -106,6 +106,7 @@ public class Marvin {
 	}
 	
 	public void run() {						
+<<<<<<< HEAD
 		colorSensorControlDown.calibrateSensor();	
 		Delay.msDelay(4000);
 		new FollowLineUntilCubeIsFoundModule(this, Colors.RED);
@@ -141,6 +142,9 @@ public class Marvin {
 
 
 //		mainModule.execute();	
+=======
+		mainModule.execute();	
+>>>>>>> b8dc5e9c5e667daa3262907f61fa6baf22681efd
 	}
 	
 	public boolean keyPressed(Key key) {
