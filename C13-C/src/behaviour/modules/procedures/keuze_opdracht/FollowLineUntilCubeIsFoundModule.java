@@ -48,80 +48,111 @@ public class FollowLineUntilCubeIsFoundModule extends BehaviourModule {
 		Sound.beep();
 
 		ArrayList<MColor> colors = new ArrayList<>();
-		colors.add(Colors.RED);
+		//colors.add(Colors.RED);
+		colors.add(Colors.RED_WHITE);
 		colors.add(Colors.GREEN);
 		colors.add(Colors.BLUE_GREY);
 		colors.add(Colors.ORANGE);
 		colors.add(Colors.WHITE);
 		colors.add(Colors.BLACK);
 
-		sensorModeRGB.fetchSample(sampleRGB, 0);
-
 		textLCD.setAutoRefresh(false);
 		textLCD.refresh();
 		textLCD.clear();
-
-		float r = sampleRGB[0]; // rood
-		float g = sampleRGB[1]; // groen
-		float b = sampleRGB[2]; // blauw
-
-		r = colorSensorControl.getRed(r);
-		g = colorSensorControl.getGreen(g);
-		b = colorSensorControl.getBlue(b);
-
-		MColor closestColor = getMarvin().getClosestColorFinder().getClosestColor(colors, new MColor("", r, g, b));
-		textLCD.drawString("" + closestColor.getColorName(), 1, 6);
-		textLCD.drawString("RGB mode", 1, 1);
-		textLCD.drawString(closestColor.getColorName(), 1, 2);
 
 		MotorControl motorControl = getMarvin().getMotorControl();
 		MemoryOpdracht2 dropBlock = getMarvin().getMemoryOpdracht2();
 		ProximityControl proximitySensor = getMarvin().getProximityManager();
 		
-			while (true) {
-				textLCD.setAutoRefresh(false);
-				textLCD.refresh();
-				textLCD.clear();
-				textLCD.drawString("distance: " + proximitySensor.getDistance(), 1, 2);
-				
-				if (proximitySensor.getDistance() < 10) {
-					textLCD.setAutoRefresh(false);
-					textLCD.refresh();
-					textLCD.clear();
-					textLCD.drawString("distance: " + proximitySensor.getDistance(), 1, 2);
-					//return true;
-
-					Sound.beep();
-//					return true;
-
-				} 
-				/*
-				if (closestColor == Colors.BLACK) {
-					// Draaien
-					motorControl.stop();
-					motorControl.drive(-250, 250);
-					Delay.msDelay(3700);
-					motorControl.stop();
-				} else {
-					if (closestColor == Colors.WHITE || closestColor == Colors.ORANGE) {
-						textLCD.drawString("Niet op de lijn", 1, 3);
-						getMarvin().getMotorControl().drive(150, -150); // rechts
-						Delay.msDelay(400);
-						getMarvin().getMotorControl().drive(200, 200);
-						Delay.msDelay(400);
-					} else if (closestColor == color) { // links
-						textLCD.drawString("Op de lijn", 1, 3);
-						getMarvin().getMotorControl().drive(-150, 170);
-						Delay.msDelay(400);
-						getMarvin().getMotorControl().drive(20, 1);
-						Delay.msDelay(400);
-						getMarvin().getMotorControl().drive(200, 200);
-						Delay.msDelay(400);
-					}
-				} 	
-				*/
+		MColor lastCheckedColor = null;
+		
+		while (true) {
+			sensorModeRGB.fetchSample(sampleRGB, 0);
+			
+			float r = sampleRGB[0]; // rood
+			float g = sampleRGB[1]; // groen
+			float b = sampleRGB[2]; // blauw
+			
+			r = colorSensorControl.getRed(r);
+			g = colorSensorControl.getGreen(g);
+			b = colorSensorControl.getBlue(b);
+			
+			MColor closestColor = getMarvin().getClosestColorFinder().getClosestColor(colors, new MColor("", r, g, b));
+			
+			if (lastCheckedColor == null) {
+				lastCheckedColor = closestColor;
 			}
+			
+		    textLCD.drawString("RGB mode", 1, 1);
+	        textLCD.drawString("" + r, 1, 2);
+	        textLCD.drawString("" + g, 1, 3);
+	        textLCD.drawString("" + b, 1, 4);  
+	        textLCD.drawString(closestColor.getColorName(), 1, 2);
+	        
+			textLCD.setAutoRefresh(false);
+			textLCD.refresh();
+			textLCD.clear();
+			textLCD.drawString("distance: " + proximitySensor.getDistance(), 1, 2);
+			
+			if (proximitySensor.getDistance() < 10) {
+				//textLCD.setAutoRefresh(false);
+				//textLCD.refresh();
+				//textLCD.clear();
+				//textLCD.drawString("distance: " + proximitySensor.getDistance(), 1, 2);
+				Sound.beep();
+				return true;
+			} 
+
+			if (closestColor == Colors.BLACK) {
+				// Draaien
+				motorControl.stop();
+				motorControl.drive(-250, 250);
+				Delay.msDelay(3700);
+				motorControl.stop();
+			} else {
+				//if (closestColor == Colors.WHITE || closestColor == Colors.ORANGE) {
+				if (closestColor == Colors.WHITE) {	
+					textLCD.drawString("Niet op de lijn", 1, 3);	
+					getMarvin().getMotorControl().drive(150, -150); // rechts
+					Delay.msDelay(150);
+					
+					//getMarvin().getMotorControl().drive(200, 200);
+					//Delay.msDelay(400);
+				} else if (closestColor == color) { // links
+					textLCD.drawString("Op de lijn", 1, 3);
+							
+					while (readColor(colors, sampleRGB) == color) {
+						getMarvin().getMotorControl().drive(-150, 150);
+						Delay.msDelay(400);		
+					}
+					
+					getMarvin().getMotorControl().drive(200, 200);
+					Delay.msDelay(400);
+				}
+			} 	
+			
+			lastCheckedColor = closestColor;
 		}
 	}
+
+	public MColor readColor(ArrayList<MColor> colors, float[] sampleRGB) {
+		ColorSensorControl colorSensorControl = getMarvin().getColorSensorControlDown();
+		EV3ColorSensor colorSensor = colorSensorControl.getColorSensor();
+		SensorMode sensorModeRGB = colorSensor.getRGBMode();
+		
+		sensorModeRGB.fetchSample(sampleRGB, 0);
+		
+		float r = sampleRGB[0]; // rood
+		float g = sampleRGB[1]; // groen
+		float b = sampleRGB[2]; // blauw
+		
+		r = colorSensorControl.getRed(r);
+		g = colorSensorControl.getGreen(g);
+		b = colorSensorControl.getBlue(b);
+		
+		return getMarvin().getClosestColorFinder().getClosestColor(colors, new MColor("", r, g, b));
+	}
+
+}
 	
 

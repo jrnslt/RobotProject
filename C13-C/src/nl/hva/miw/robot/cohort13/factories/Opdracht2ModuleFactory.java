@@ -37,6 +37,7 @@ public class Opdracht2ModuleFactory extends ModuleFactory {
 
 	@Override
 	public BehaviourModule createModule(Marvin marvin) {
+		/*
 		LeafModule leafModule = new LeafModule(marvin);
 			SequenceModule sequenceModule = new SequenceModule(marvin);
 				ResetVariablesOpdracht2Module resetVariablesOpdracht2Module = new ResetVariablesOpdracht2Module(marvin);
@@ -222,7 +223,10 @@ public class Opdracht2ModuleFactory extends ModuleFactory {
 			sequenceModule.addModule(rijdenNaarMiddenOpdracht2Module);		
 			sequenceModule.addModule(victoryDanceOpdracht2Module);			
 								
+								
 		return leafModule;
+		*/
+		return new LeafModule(marvin);
 	}
 
 }

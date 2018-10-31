@@ -5,6 +5,7 @@ public class ColorNames {
 	public static final String BLUE = "blue";
 	public static final String ORANGE = "orange";
 	public static final String RED =  "red";
+	public static final String RED_WHITE = "red white";
 	public static final String GREEN = "green";
 	public static final String WHITE = "white";
 	public static final String BLACK = "black";
@@ -22,8 +23,5 @@ public class ColorNames {
 
 	public static final String LIGHT_PURPLE = "light purple";
 	public static final String BLUE_GREY = "blue grey";
-<<<<<<< HEAD
 
-=======
->>>>>>> b8dc5e9c5e667daa3262907f61fa6baf22681efd
 }

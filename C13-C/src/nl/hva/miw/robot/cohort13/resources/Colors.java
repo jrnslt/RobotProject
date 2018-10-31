@@ -7,6 +7,7 @@ public class Colors {
 	public static final MColor BLUE = new MColor(ColorNames.BLUE, 0, 0, 1);
 	public static final MColor ORANGE = new MColor(ColorNames.ORANGE, 1, 0.55f, 0);
 	public static final MColor RED =  new MColor(ColorNames.RED, 1, 0, 0);
+	public static final MColor RED_WHITE = new MColor(ColorNames.RED_WHITE, 1, 0.3f, 0.3f); 
 	public static final MColor GREEN =  new MColor(ColorNames.GREEN, 0, 1, 0);
 	public static final MColor WHITE =  new MColor(ColorNames.WHITE, 1.1f, 1.1f, 1.1f);
 	public static final MColor BLACK =  new MColor(ColorNames.BLACK, 0.1f, 0.1f, 0.1f);
@@ -15,12 +16,9 @@ public class Colors {
 	public static final MColor LIGHTGREY =  new MColor(ColorNames.LIGHTGREY, 0.6f, 0.6f, 0.6f);
 //	public static final MColor LIGHTGREY =  new MColor(ColorNames.LIGHTGREY, 0.75f, 0.75f, 0.75f);
 
-<<<<<<< HEAD
 
 	//Uitbreiding kleuren
 
-=======
->>>>>>> b8dc5e9c5e667daa3262907f61fa6baf22681efd
 	public static final MColor YELLOW =  new MColor(ColorNames.YELLOW, 1.03f, 0.88f, 0.5f);
 	public static final MColor CHARTREUSE = new MColor(ColorNames.CHARTREUSE, 0.7f, 0.85f, 0.6f);
 	public static final MColor CYAN =  new MColor(ColorNames.CYAN, 0.73f, 1.10f, 0.98f);

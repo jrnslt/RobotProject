@@ -108,7 +108,11 @@ public class Marvin {
 	public void run() {						
 		colorSensorControlDown.calibrateSensor();	
 		Delay.msDelay(4000);
-		new FollowLineUntilCubeIsFoundModule(this, Colors.RED);
+		motorControl.grabIt();
+		motorControl.letLoose();
+		new FollowLineUntilCubeIsFoundModule(this, Colors.RED_WHITE).execute();
+		new GrabCubeModule(this).execute();
+		
 		Sound.beep();
 	}
 	
