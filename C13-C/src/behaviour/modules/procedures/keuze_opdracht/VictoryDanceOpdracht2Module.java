@@ -6,12 +6,9 @@ import behaviour.modules.BehaviourModule;
 import lejos.hardware.Sound;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
-<<<<<<< HEAD
 import nl.hva.miw.robot.cohort13.PlayLoopedSound;
-=======
 
 import nl.hva.miw.robot.cohort13.PlayWoopWoop;
->>>>>>> cf9b2785cf7f3c35e712d27e4ee08d1812083733
 import nl.hva.miw.robot.cohort13.resources.Sounds;
 
 public class VictoryDanceOpdracht2Module extends BehaviourModule {

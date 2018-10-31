@@ -16,6 +16,7 @@ import behaviour.modules.procedures.console.ConsoleModule;
 import behaviour.modules.procedures.exit.GoodbyeModule;
 import behaviour.modules.procedures.keuze_opdracht.GrabCubeModule;
 import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
+import behaviour.modules.procedures.keuze_opdracht.RoamingModule;
 import behaviour.modules.procedures.keuze_opdracht.VictoryDanceOpdracht2Module;
 import behaviour.modules.procedures.parcour.ParcoursModule;
 import behaviour.modules.procedures.parcour.ParcoursModuleRGB;
@@ -83,17 +84,9 @@ public class MainModuleFactory extends ModuleFactory {
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
 
 
-								sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
-							/*
-							sequenceModule_Testing.addModule(new GrabCubeModule(marvin));
-							sequenceModule_Testing.addModule(new DelayModule(marvin, 1000));
-							sequenceModule_Testing.addModule(new BeepModule(marvin));
-							sequenceModule_Testing.addModule(new VictoryDanceOpdracht2Module(marvin));;
-							*/
-
-//							marvin.getColorSensorControlDown().getColorSensor(), TestingProcedureNames.colorSensorName + "_A"));
-	
-
+							sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
+							//sequenceModule_Testing.addModule(new RoamingModule(marvin));
+							
 							sequenceUntilFailModule_A.addModule(new DelayModule(marvin, 500));	
 							sequenceUntilFailModule_A.addModule(new ClearConsoleModule(marvin));
 							

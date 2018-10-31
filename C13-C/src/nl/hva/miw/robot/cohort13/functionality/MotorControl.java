@@ -66,12 +66,24 @@ public class MotorControl extends MarvinComponent {
 		}
 	}
 
+	public void rotate (int delay) {
+		long startTime180 = System.currentTimeMillis();
+		long lastTime180 = System.currentTimeMillis();
+		
+		while (lastTime180 - startTime180 < delay) {
+			lastTime180 = System.currentTimeMillis();
+			bigMotorLeft.forward();
+			bigMotorLeft.setSpeed(400);
+			bigMotorRight.backward();
+			bigMotorRight.setSpeed(400);
+		}
+	}
 	
 	public void rotate180 () {
 		long startTime180 = System.currentTimeMillis();
 		long lastTime180 = System.currentTimeMillis();
 		
-		while (lastTime180 - startTime180 <2000) {
+		while (lastTime180 - startTime180 < 2000) {
 			lastTime180 = System.currentTimeMillis();
 			bigMotorLeft.forward();
 			bigMotorLeft.setSpeed(400);

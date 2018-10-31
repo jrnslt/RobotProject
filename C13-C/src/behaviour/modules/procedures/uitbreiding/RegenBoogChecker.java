@@ -45,7 +45,7 @@ public class RegenBoogChecker extends BehaviourModule {
         colors.add(Colors.GREEN);
         colors.add(Colors.CYAN);
         colors.add(Colors.LIGHT_BLUE);
-        colors.add(Colors.PURPLE);
+        colors.add(Colors.LIGHT_PURPLE);
         colors.add(Colors.PINK);
         colors.add(Colors.WHITE);
         colors.add(Colors.BLACK);
