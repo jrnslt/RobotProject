@@ -79,12 +79,21 @@ public class FollowLineUntilCubeIsFoundModule extends BehaviourModule {
 		ProximityControl proximitySensor = getMarvin().getProximityManager();
 		
 			while (true) {
+				textLCD.setAutoRefresh(false);
+				textLCD.refresh();
+				textLCD.clear();
+				textLCD.drawString("distance: " + proximitySensor.getDistance(), 1, 2);
+				
 				if (proximitySensor.getDistance() < 10) {
 					textLCD.setAutoRefresh(false);
 					textLCD.refresh();
 					textLCD.clear();
 					textLCD.drawString("distance: " + proximitySensor.getDistance(), 1, 2);
 					//return true;
+
+					Sound.beep();
+//					return true;
+
 				} 
 				/*
 				if (closestColor == Colors.BLACK) {
