@@ -1,6 +1,13 @@
 package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.BehaviourModule;
+import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
+import behaviour.modules.procedures.parcour.ParcoursModuleRGB;
+import behaviour.modules.procedures.parcour.ParcoursModuleRgbCalibrate;
+import behaviour.modules.procedures.testing.ColorSensorTesterModule;
+import behaviour.modules.procedures.testing.LijnenTester;
+import behaviour.modules.procedures.testing.RodeLijnTester;
+import lejos.ev3.tools.EV3Control;
 import lejos.hardware.Brick;
 import lejos.hardware.Key;
 import lejos.hardware.ev3.LocalEV3;
@@ -87,6 +94,8 @@ public class Marvin {
 	
 	public void run() {						
 		//Voert module(s) uit middels execute
+		colorSensorControlDown.calibrateSensor();
+
 		mainModule.execute();	
 	}
 	
@@ -96,6 +105,7 @@ public class Marvin {
 			return true;
 		}
 		return false;
+
 	}
 	
 	public static void main(String[] args) {
