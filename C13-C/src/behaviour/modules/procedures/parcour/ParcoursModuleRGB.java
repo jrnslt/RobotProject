@@ -54,6 +54,8 @@ public class ParcoursModuleRGB extends BehaviourModule {
 		Sound.beep();
 		getMarvin().getMotorControl().drive(200, 200);	//Start drive
 		int timesRed = 0;
+		
+		
 
 		while (lastTime - startTime < runTime) {
 //			getMarvin().getMotorControl().getBigMotorLeft().forward();
@@ -131,7 +133,8 @@ public class ParcoursModuleRGB extends BehaviourModule {
 	        	textLCD.drawString("red 123", 1, 5);
 				getMarvin().getMotorControl().stop();
 
-				Delay.msDelay(100);
+				Delay.msDelay(10000);
+				textLCD.drawString("tijd: " + stopWatch.elapsed() / 1000, 1, 5); ;
 				break;
         }
 	        }
@@ -216,6 +219,7 @@ public class ParcoursModuleRGB extends BehaviourModule {
 
 		}
 		getMarvin().getMotorControl().stop();
+		
 		return true;
 	}
 	
