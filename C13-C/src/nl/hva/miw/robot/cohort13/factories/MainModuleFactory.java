@@ -14,6 +14,7 @@ import behaviour.modules.logic.StateConditionModule;
 import behaviour.modules.logic.SucceederModule;
 import behaviour.modules.procedures.console.ConsoleModule;
 import behaviour.modules.procedures.exit.GoodbyeModule;
+import behaviour.modules.procedures.keuze_opdracht.FindCubeDropOnSpotModule;
 import behaviour.modules.procedures.keuze_opdracht.GrabCubeModule;
 import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
 import behaviour.modules.procedures.keuze_opdracht.RoamingModule;
@@ -83,12 +84,13 @@ public class MainModuleFactory extends ModuleFactory {
 					sequenceModuleB.addModule(succeederModuleA);		
 						succeederModuleA.addModule(sequenceUntilFailModule_A);
 							sequenceUntilFailModule_A.addModule(new StateConditionModule(marvin, MarvinState.TESTING));
-							sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
+						//	sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
+							
+							sequenceModule_Testing.addModule(new FindCubeDropOnSpotModule(marvin));
 
 
-
-								sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
+//								sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
 							/*
 							sequenceModule_Testing.addModule(new GrabCubeModule(marvin));
 							sequenceModule_Testing.addModule(new DelayModule(marvin, 1000));
