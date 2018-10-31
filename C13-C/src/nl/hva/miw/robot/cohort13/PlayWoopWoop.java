@@ -15,7 +15,7 @@ public class PlayWoopWoop extends Thread {
 	}
 	public void run() { // speelt een geluid af, event. gelijktijdig met een andere handeling
 			//Sound.playSample(new File(name), volume);
-		File testbestand = new File(Sounds.woopwoop); //bestand met deze naam is geupoad in het EV3 programma
+		File testbestand = new File(Sounds.woopwoop); //bestand met deze naam is geupload in het EV3 programma
 		Sound.playSample(testbestand, Sound.VOL_MAX); //Speelt een bestand af op max volume
 		Delay.msDelay(1000);
 	}

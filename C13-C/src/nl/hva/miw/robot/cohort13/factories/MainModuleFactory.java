@@ -80,13 +80,13 @@ public class MainModuleFactory extends ModuleFactory {
 					sequenceModuleB.addModule(succeederModuleA);		
 						succeederModuleA.addModule(sequenceUntilFailModule_A);
 							sequenceUntilFailModule_A.addModule(new StateConditionModule(marvin, MarvinState.TESTING));
-							sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
+						//	sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
 
 
-							sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
+						//	sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
 							//sequenceModule_Testing.addModule(new RoamingModule(marvin));
-							
+							sequenceModule_Testing.addModule(new UitbreidingOpdrachtModule(marvin));
 							sequenceUntilFailModule_A.addModule(new DelayModule(marvin, 500));	
 							sequenceUntilFailModule_A.addModule(new ClearConsoleModule(marvin));
 							
