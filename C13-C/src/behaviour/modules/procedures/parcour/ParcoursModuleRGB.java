@@ -52,8 +52,9 @@ public class ParcoursModuleRGB extends BehaviourModule {
 		textLCD.setAutoRefresh(false);
 		
 		Sound.beep();
-		//getMarvin().getMotorControl().drive(200, 200);	//Start drive
-		
+		getMarvin().getMotorControl().drive(200, 200);	//Start drive
+		int timesRed = 0;
+
 		while (lastTime - startTime < runTime) {
 //			getMarvin().getMotorControl().getBigMotorLeft().forward();
 //			getMarvin().getMotorControl().getBigMotorRight().forward();
@@ -123,40 +124,44 @@ public class ParcoursModuleRGB extends BehaviourModule {
 //	        	textLCD.drawString(String.format("Z  %.3f / %.3f", r2, b2), 1, 5);
 //=======
 	        if (closestColor == Colors.RED) { 
+	        	timesRed++;
 	    		Sound.beep();
+	    		
+	    		if (timesRed > 1) {
 	        	textLCD.drawString("red 123", 1, 5);
+				getMarvin().getMotorControl().stop();
 
 				Delay.msDelay(100);
-
+				break;
         }
+	        }
 
-	         else if (r2 > 1.7) {
+	         else if (r2 > 1.5) {
 	        	textLCD.drawString(String.format("W %.3f / %.3f", r2, b2), 1, 5);
-				getMarvin().getMotorControl().drive(-150, 150); //Get More Left
-				Delay.msDelay(150);
-	        } else if (r2 > 1.4) {
-	        	getMarvin().getMotorControl().drive(1, 150);	//Go Left
+				getMarvin().getMotorControl().drive(-100, 250); //Get More Left
+				Delay.msDelay(250);
+	        } else if (r2 > 1.2) {
+	        	getMarvin().getMotorControl().drive(1, 200);	//Go Left
 								Delay.msDelay(150);
 
 				textLCD.drawString(String.format("WWZ  %.3f / %.3f", r2, b2), 1, 5);
 	        	
-	        } else if (r2 > 0.9) {
+	        } else if (r2 > 1.0) {
 	        	textLCD.drawString(String.format("ZW  %.3f / %.3f", r2, b2), 1, 5);
 							//	Delay.msDelay(100);
 
-				getMarvin().getMotorControl().drive(150, 150); //Drive forward
+				getMarvin().getMotorControl().drive(300, 300); //Drive forward
 				Delay.msDelay(150);
-	        } else if (r2 > 0.5) {
+	        } else if (r2 > 0.6) {
 	        	textLCD.drawString(String.format("Z  %.3f / %.3f", r2, b2), 1, 5);
 //				
-				getMarvin().getMotorControl().drive(150, 1); //Get More Right
+				getMarvin().getMotorControl().drive(200, 1); //Get More Right
 				Delay.msDelay(150);
-	        } else if (r2 < 0.5) {
-	        	getMarvin().getMotorControl().drive(150, -150); //Get More Right
-				Delay.msDelay(150);
-//				
-	        }	
-	        
+	        } else if (r2 < 0.6) {
+	        	getMarvin().getMotorControl().drive(250, -100); //Get More Right
+				Delay.msDelay(250);
+//			
+	        }
 	        
 	        
 	        

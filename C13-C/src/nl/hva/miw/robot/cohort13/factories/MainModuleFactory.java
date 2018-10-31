@@ -87,14 +87,14 @@ public class MainModuleFactory extends ModuleFactory {
 						//	sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
 							
-							sequenceModule_Testing.addModule(new FindCubeDropOnSpotModule(marvin));
+//							sequenceModule_Testing.addModule(new FindCubeDropOnSpotModule(marvin));
 
 
 
 						//	sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
 							//sequenceModule_Testing.addModule(new RoamingModule(marvin));
-							sequenceModule_Testing.addModule(new UitbreidingOpdrachtModule(marvin));
-
+						//	sequenceModule_Testing.addModule(new UitbreidingOpdrachtModule(marvin));
+							sequenceModule_Testing.addModule(new ParcoursModuleRGB(marvin));
 
 		//						sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
 							/*
@@ -120,7 +120,7 @@ public class MainModuleFactory extends ModuleFactory {
 						succeederModuleB.addModule(sequenceUntilFailModule_B);
 							sequenceUntilFailModule_B.addModule(new StateConditionModule(marvin, MarvinState.PARCOUR));
 							sequenceUntilFailModule_B.addModule(new WaitForEnterKeyModule(marvin));
-							sequenceUntilFailModule_B.addModule(new LijnenTester(marvin));
+							sequenceUntilFailModule_B.addModule(new ParcoursModuleRGB(marvin));
 
 							sequenceUntilFailModule_B.addModule(new BeepModule(marvin));
 							sequenceUntilFailModule_B.addModule(new DelayModule(marvin, 500));
