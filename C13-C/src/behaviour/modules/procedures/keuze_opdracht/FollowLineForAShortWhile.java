@@ -1,5 +1,19 @@
 package behaviour.modules.procedures.keuze_opdracht;
 
-public class FollowLineForAShortWhile {
+import behaviour.modules.BehaviourModule;
+import nl.hva.miw.robot.cohort13.Marvin;
+
+public class FollowLineForAShortWhile extends BehaviourModule {
+
+	public FollowLineForAShortWhile(Marvin marvin) {
+		super(marvin);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public boolean execute() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }
