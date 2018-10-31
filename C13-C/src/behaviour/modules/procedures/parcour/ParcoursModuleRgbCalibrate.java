@@ -49,8 +49,8 @@ public class ParcoursModuleRgbCalibrate extends BehaviourModule {
 	        colors.add(Colors.GREY);
 
 		while (lastTime - startTime < runTime) {
-			getMarvin().getMotorControl().getBigMotorLeft().forward();
-			getMarvin().getMotorControl().getBigMotorRight().forward();
+//			getMarvin().getMotorControl().getBigMotorLeft().forward();
+//			getMarvin().getMotorControl().getBigMotorRight().forward();
 			
 			lastTime = System.currentTimeMillis();
 			sensorModeRGB.fetchSample(sampleRGB, 0);

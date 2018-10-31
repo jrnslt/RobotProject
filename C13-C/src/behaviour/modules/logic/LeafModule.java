@@ -24,6 +24,7 @@ public class LeafModule extends BehaviourModule {
 
 	@Override
 	public boolean execute() {
-		return subModule.execute();
+		boolean value = subModule.execute();
+		return value;
 	}
 }

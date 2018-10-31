@@ -17,7 +17,7 @@ public class PlaySampleModule extends BehaviourModule {
 
 	@Override
 	public boolean execute() {
-		File testbestand=new File(fileName); //bestand met deze naam is geupoad in het EV3 programma
+		File testbestand = new File(fileName); //bestand met deze naam is geupoad in het EV3 programma
 		Sound.playSample(testbestand, Sound.VOL_MAX); //Speelt een bestand af op max volume
 		Delay.msDelay(1000);	
 	
