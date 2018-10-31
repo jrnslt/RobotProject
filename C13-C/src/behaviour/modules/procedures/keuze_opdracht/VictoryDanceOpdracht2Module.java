@@ -1,14 +1,8 @@
 package behaviour.modules.procedures.keuze_opdracht;
 
-import java.io.File;
-
 import behaviour.modules.BehaviourModule;
-import lejos.hardware.Sound;
-import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
-import nl.hva.miw.robot.cohort13.PlayLoopedSound;
 import nl.hva.miw.robot.cohort13.PlayWoopWoop;
-import nl.hva.miw.robot.cohort13.resources.Sounds;
 
 public class VictoryDanceOpdracht2Module extends BehaviourModule {
 
@@ -18,59 +12,35 @@ public class VictoryDanceOpdracht2Module extends BehaviourModule {
 	}
 
 	/**
-	 * 
 	 * do victory dance
-	 * 
-	 * 
 	 */
+	
 	@Override
 	public boolean execute() {
 		
-		PlayLoopedSound p = new PlayLoopedSound(10);
+		PlayWoopWoop p = new PlayWoopWoop(10);
 		p.start();
 		
-//		PlayWoopWoop p = new PlayWoopWoop(10);
-//		p.start();
-
-
 		getMarvin().getMotorControl().stop();
     	getMarvin().getMotorControl().rotate360Forward();
-  //  	getMarvin().getMotorControl().stop();
-    	
+   // 	getMarvin().getMotorControl().stop();
     	for (int i = 0; i < 5; i ++) {
-	    	getMarvin().getMotorControl().grabItForward(500,500);
+	    	getMarvin().getMotorControl().grabItForward(500,700);
 	    	getMarvin().getMotorControl().stop();
-	    	getMarvin().getMotorControl().letLoose(500, 500);
+	    	getMarvin().getMotorControl().letLoose(500,700);
 	      	getMarvin().getMotorControl().stop();
     	}
-    	
     	getMarvin().getMotorControl().rotate360Backward();
     	getMarvin().getMotorControl().stop();
-    	getMarvin().getMotorControl().rotate360Forward();
+ //   	getMarvin().getMotorControl().rotate360Forward();
     	
-    	for (int i = 0; i < 5; i ++) {
-	    	getMarvin().getMotorControl().grabItForward(500,500);
-	    	getMarvin().getMotorControl().stop();
-	    	getMarvin().getMotorControl().letLoose(500, 500);
-	      	getMarvin().getMotorControl().stop();
+    	try {
+   		p.join();
+    	} catch (InterruptedException e) {
+    		e.printStackTrace();
     	}
     	
-		try {
-			p.join();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-
-//    	try {
-//    		p.join();
-//    	} catch (InterruptedException e) {
-//    		e.printStackTrace();
-//    	}
-    	
     	getMarvin().getMotorControl().stop();
-
 		return true;
 	}
 }

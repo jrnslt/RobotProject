@@ -24,10 +24,13 @@ import behaviour.modules.procedures.parcour.ParcoursModuleRGB2;
 import behaviour.modules.procedures.parcour.ParcoursModuleRgbCalibrate;
 import behaviour.modules.procedures.testing.ColorSensorTesterModule;
 import behaviour.modules.procedures.testing.CubeRecognizerTestModule;
+
 import behaviour.modules.procedures.testing.ColorRecognizerTestModule;
 import behaviour.modules.procedures.testing.DriveForwardTesterModule;
 import behaviour.modules.procedures.testing.EndTestMessageModule;
+import behaviour.modules.procedures.testing.LijnenTester;
 import behaviour.modules.procedures.testing.ProximitySensorTesterModule;
+import behaviour.modules.procedures.testing.RodeLijnTester;
 import behaviour.modules.procedures.testing.StartTestMessageModule;
 import behaviour.modules.procedures.uitbreiding.RegenBoogChecker;
 import behaviour.modules.procedures.uitbreiding.UitbreidingOpdrachtModule;
@@ -80,23 +83,41 @@ public class MainModuleFactory extends ModuleFactory {
 					sequenceModuleB.addModule(succeederModuleA);		
 						succeederModuleA.addModule(sequenceUntilFailModule_A);
 							sequenceUntilFailModule_A.addModule(new StateConditionModule(marvin, MarvinState.TESTING));
-							sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
+						//	sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
 
 
-							sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
+						//	sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
 							//sequenceModule_Testing.addModule(new RoamingModule(marvin));
-							
+							sequenceModule_Testing.addModule(new UitbreidingOpdrachtModule(marvin));
+
+
+		//						sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
+							/*
+							sequenceModule_Testing.addModule(new GrabCubeModule(marvin));
+							sequenceModule_Testing.addModule(new DelayModule(marvin, 1000));
+							sequenceModule_Testing.addModule(new BeepModule(marvin));
+							sequenceModule_Testing.addModule(new VictoryDanceOpdracht2Module(marvin));;
+							*/
+
+//							marvin.getColorSensorControlDown().getColorSensor(), TestingProcedureNames.colorSensorName + "_A"));
+	
+
+
 							sequenceUntilFailModule_A.addModule(new DelayModule(marvin, 500));	
 							sequenceUntilFailModule_A.addModule(new ClearConsoleModule(marvin));
 							
 					
 					//Parcours
+							
+
+
 					sequenceModuleB.addModule(succeederModuleB);	
 						succeederModuleB.addModule(sequenceUntilFailModule_B);
 							sequenceUntilFailModule_B.addModule(new StateConditionModule(marvin, MarvinState.PARCOUR));
-							sequenceUntilFailModule_B.addModule(new CalibratieModule(marvin));
-							sequenceUntilFailModule_B.addModule(new ParcoursModuleRgbCalibrate(marvin));
+							sequenceUntilFailModule_B.addModule(new WaitForEnterKeyModule(marvin));
+							sequenceUntilFailModule_B.addModule(new LijnenTester(marvin));
+
 							sequenceUntilFailModule_B.addModule(new BeepModule(marvin));
 							sequenceUntilFailModule_B.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_B.addModule(new ClearConsoleModule(marvin));

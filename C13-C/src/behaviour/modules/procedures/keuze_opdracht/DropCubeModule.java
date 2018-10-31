@@ -12,10 +12,7 @@ public class DropCubeModule extends BehaviourModule {
 	}
 
 	/**
-	 * 
 	 * draai om en drop de kubus
-	 * 
-	 * 
 	 */
 	@Override
 	public boolean execute() {
@@ -23,7 +20,7 @@ public class DropCubeModule extends BehaviourModule {
 		getMarvin().getMotorControl().stop();
      	getMarvin().getMotorControl().rotate180();
      	getMarvin().getMotorControl().stop();
-    	getMarvin().getMotorControl().letLoose(300, 1500);
+    	getMarvin().getMotorControl().letLoose(200, 1700);
     	getMarvin().getMotorControl().stop();
 		
 		return true;
