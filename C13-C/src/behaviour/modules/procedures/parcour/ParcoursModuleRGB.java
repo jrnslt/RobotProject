@@ -72,6 +72,7 @@ public class ParcoursModuleRGB extends BehaviourModule {
 			float b = sampleRGB[2]; // blauw
 			float b2 = b * 10;
 
+
 			float nr = colorSensorControl.getRed(r);
 			float ng = colorSensorControl.getGreen(g);
 			float nb = colorSensorControl.getBlue(b);
@@ -94,7 +95,7 @@ public class ParcoursModuleRGB extends BehaviourModule {
 	   
 			
 
-//	        if (closestColor == Colors.RED) { 
+//	        if (closestColor == Colors.RED) {  // rood herkennen
 //	    		Sound.beep();
 //	        	textLCD.drawString("red 123", 1, 5);
 //
@@ -120,14 +121,41 @@ public class ParcoursModuleRGB extends BehaviourModule {
 //				Delay.msDelay(150);
 //	        } else if (r2 > 0.5) {
 //	        	textLCD.drawString(String.format("Z  %.3f / %.3f", r2, b2), 1, 5);
-////				
-//				getMarvin().getMotorControl().drive(150, 1); //Get More Right
-//				Delay.msDelay(150);
-//	        } else if (r2 < 0.5) {
-//	        	getMarvin().getMotorControl().drive(150, -150); //Get More Right
-//				Delay.msDelay(150);
+//=======
+	        if (closestColor == Colors.RED) { 
+	    		Sound.beep();
+	        	textLCD.drawString("red 123", 1, 5);
+
+				Delay.msDelay(100);
+
+        }
+
+	         else if (r2 > 1.7) {
+	        	textLCD.drawString(String.format("W %.3f / %.3f", r2, b2), 1, 5);
+				getMarvin().getMotorControl().drive(-150, 150); //Get More Left
+				Delay.msDelay(150);
+	        } else if (r2 > 1.4) {
+	        	getMarvin().getMotorControl().drive(1, 150);	//Go Left
+								Delay.msDelay(150);
+
+				textLCD.drawString(String.format("WWZ  %.3f / %.3f", r2, b2), 1, 5);
+	        	
+	        } else if (r2 > 0.9) {
+	        	textLCD.drawString(String.format("ZW  %.3f / %.3f", r2, b2), 1, 5);
+							//	Delay.msDelay(100);
+
+				getMarvin().getMotorControl().drive(150, 150); //Drive forward
+				Delay.msDelay(150);
+	        } else if (r2 > 0.5) {
+	        	textLCD.drawString(String.format("Z  %.3f / %.3f", r2, b2), 1, 5);
 //				
-//	        }	
+				getMarvin().getMotorControl().drive(150, 1); //Get More Right
+				Delay.msDelay(150);
+	        } else if (r2 < 0.5) {
+	        	getMarvin().getMotorControl().drive(150, -150); //Get More Right
+				Delay.msDelay(150);
+//				
+	        }	
 	        
 	        
 	        
