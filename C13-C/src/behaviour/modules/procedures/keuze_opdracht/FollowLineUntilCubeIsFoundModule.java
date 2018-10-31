@@ -80,9 +80,13 @@ public class FollowLineUntilCubeIsFoundModule extends BehaviourModule {
 		
 			while (true) {
 				if (proximitySensor.getDistance() < 10) {
-					Sound.beep();
-					return true;
+					textLCD.setAutoRefresh(false);
+					textLCD.refresh();
+					textLCD.clear();
+					textLCD.drawString("distance: " + proximitySensor.getDistance(), 1, 2);
+					//return true;
 				} 
+				/*
 				if (closestColor == Colors.BLACK) {
 					// Draaien
 					motorControl.stop();
@@ -106,6 +110,7 @@ public class FollowLineUntilCubeIsFoundModule extends BehaviourModule {
 						Delay.msDelay(400);
 					}
 				} 	
+				*/
 			}
 		}
 	}
