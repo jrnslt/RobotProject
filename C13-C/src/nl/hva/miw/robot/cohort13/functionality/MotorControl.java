@@ -66,24 +66,12 @@ public class MotorControl extends MarvinComponent {
 		}
 	}
 
-	public void rotate (int delay) {
-		long startTime180 = System.currentTimeMillis();
-		long lastTime180 = System.currentTimeMillis();
-		
-		while (lastTime180 - startTime180 < delay) {
-			lastTime180 = System.currentTimeMillis();
-			bigMotorLeft.forward();
-			bigMotorLeft.setSpeed(400);
-			bigMotorRight.backward();
-			bigMotorRight.setSpeed(400);
-		}
-	}
 	
 	public void rotate180 () {
 		long startTime180 = System.currentTimeMillis();
 		long lastTime180 = System.currentTimeMillis();
 		
-		while (lastTime180 - startTime180 < 2000) {
+		while (lastTime180 - startTime180 <2200) {
 			lastTime180 = System.currentTimeMillis();
 			bigMotorLeft.forward();
 			bigMotorLeft.setSpeed(400);
@@ -92,6 +80,31 @@ public class MotorControl extends MarvinComponent {
 		}
 	}
 	
+	public void rotate90Right () {
+		long startTime180 = System.currentTimeMillis();
+		long lastTime180 = System.currentTimeMillis();
+		
+		while (lastTime180 - startTime180 <1000) {
+			lastTime180 = System.currentTimeMillis();
+			bigMotorLeft.forward();
+			bigMotorLeft.setSpeed(400);
+			bigMotorRight.backward();
+			bigMotorRight.setSpeed(400);
+		}
+	}
+	
+	public void rotate90Left () {
+		long startTime180 = System.currentTimeMillis();
+		long lastTime180 = System.currentTimeMillis();
+		
+		while (lastTime180 - startTime180 <1000) {
+			lastTime180 = System.currentTimeMillis();
+			bigMotorLeft.backward();
+			bigMotorLeft.setSpeed(400);
+			bigMotorRight.forward();
+			bigMotorRight.setSpeed(400);
+		}
+	}
 	public void drive(int speedLeft, int speedRight) {
 		if (speedLeft > 0) {
 			bigMotorLeft.forward();
@@ -145,7 +158,8 @@ public class MotorControl extends MarvinComponent {
 	 * The grabber
 	 */
 	public void grabIt() {
-		grabItForward(200, 2200);
+	//	grabItForward(200, 2200);
+		
 	}
 	
 	public void grabItForward(int speed, int delayMs) {

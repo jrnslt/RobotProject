@@ -90,7 +90,13 @@ public class MainModuleFactory extends ModuleFactory {
 							sequenceModule_Testing.addModule(new FindCubeDropOnSpotModule(marvin));
 
 
-//								sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
+
+						//	sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
+							//sequenceModule_Testing.addModule(new RoamingModule(marvin));
+							sequenceModule_Testing.addModule(new UitbreidingOpdrachtModule(marvin));
+
+
+		//						sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
 							/*
 							sequenceModule_Testing.addModule(new GrabCubeModule(marvin));
 							sequenceModule_Testing.addModule(new DelayModule(marvin, 1000));

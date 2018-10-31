@@ -44,6 +44,7 @@ public class RoamingModule extends BehaviourModule {
         colors.add(Colors.ORANGE);
         colors.add(Colors.WHITE);
         colors.add(Colors.BLACK);
+        colors.add(Colors.DARK_BLUE);
       
 		while (true) {
 			sensorModeRGB.fetchSample(sampleRGB, 0);

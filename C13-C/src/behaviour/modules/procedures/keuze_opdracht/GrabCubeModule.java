@@ -13,26 +13,18 @@ public class GrabCubeModule extends BehaviourModule {
 	}
 
 	/**
-	 * 
 	 * draai om en grijp cubus
-	 * 
-	 * 
 	 */
 	@Override
 	public boolean execute() {
 	
         	getMarvin().getMotorControl().stop();
-        	getMarvin().getMotorControl().driveBackwards(300, 300, 100); 
-        	getMarvin().getMotorControl().stop();
         	getMarvin().getMotorControl().rotate180();
         	getMarvin().getMotorControl().stop();
-        	getMarvin().getMotorControl().grabItForward(300,1900);
+        	getMarvin().getMotorControl().driveBackwards(300, 300, 150); 
         	getMarvin().getMotorControl().stop();
-        	
-        	Delay.msDelay(300);
-         	getMarvin().getMotorControl().rotate180();
+        	getMarvin().getMotorControl().grabItForward(200,1700);
         	getMarvin().getMotorControl().stop();
-        	getMarvin().getMotorControl().letLoose(300, 1200);
 		
 		return true;
 	}
