@@ -2,6 +2,7 @@ package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.BehaviourModule;
 import behaviour.modules.procedures.keuze_opdracht.DropCubeModule;
+import behaviour.modules.procedures.keuze_opdracht.FindCubeDropOnSpotModule;
 import behaviour.modules.procedures.keuze_opdracht.FollowLineForAShortWhile;
 import behaviour.modules.procedures.keuze_opdracht.FollowLineUntilCubeIsFoundModule;
 import behaviour.modules.procedures.keuze_opdracht.FollowLineUntilDropSpotModule;
@@ -108,11 +109,13 @@ public class Marvin {
 	public void run() {						
 		colorSensorControlDown.calibrateSensor();	
 		Delay.msDelay(4000);
-		motorControl.grabIt();
-		motorControl.letLoose();
-		new FollowLineUntilCubeIsFoundModule(this, Colors.RED_WHITE).execute();
-		new GrabCubeModule(this).execute();
+//		motorControl.grabIt();
+//		motorControl.letLoose();
+//		new FollowLineUntilCubeIsFoundModule(this, Colors.RED_WHITE).execute();
 		
+//		new GrabCubeModule(this).execute();
+		
+		new FindCubeDropOnSpotModule(this).execute();
 		Sound.beep();
 	}
 	

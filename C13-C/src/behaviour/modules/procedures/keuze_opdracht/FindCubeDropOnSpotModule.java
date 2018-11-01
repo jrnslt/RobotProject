@@ -16,7 +16,7 @@ import nl.hva.miw.robot.cohort13.functionality.MotorControl;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
 public class FindCubeDropOnSpotModule extends BehaviourModule {
-	ColorSensorControl colorSensorControlDown = getMarvin().getColorSensorControlDown();
+	ColorSensorControl colorSensorControlDown;
 	EV3ColorSensor colorSensorDown = colorSensorControlDown.getColorSensor();
 	ColorSensorControl colorSensorControlFront = getMarvin().getColorSensorControlFront();
 	EV3ColorSensor colorSensorFront = colorSensorControlFront.getColorSensor();
@@ -28,7 +28,8 @@ public class FindCubeDropOnSpotModule extends BehaviourModule {
 	
 	public FindCubeDropOnSpotModule(Marvin marvin) {
 		super(marvin);
-
+		this.colorSensorControlDown = getMarvin().getColorSensorControlDown();
+		this.colorSensorDown = colorSensorControlDown.getColorSensor();
 	}
 
 	@Override
@@ -39,6 +40,8 @@ public class FindCubeDropOnSpotModule extends BehaviourModule {
 	//	EV3ColorSensor colorSensorFront = colorSensorControlFront.getColorSensor();
 		colorSensorControlDown.calibrateSensor();
 		colorSensorControlFront.calibrateSensor();
+		Delay.msDelay(5000);
+
 
 		// benedensensor
 		SensorMode sensorModeRGBdown = colorSensorDown.getRGBMode();
@@ -59,8 +62,11 @@ public class FindCubeDropOnSpotModule extends BehaviourModule {
 		textLCD.setAutoRefresh(false);
 		Sound.beep(); // dat is gebeurt
 
-		float distance = measureDistance();
+		//float distance = measureDistance();
 
+		
+		//de kleuren die hij kan herkennen
+		
 		ArrayList<MColor> colors = new ArrayList<>();
 		colors.add(Colors.RED);
 		colors.add(Colors.GREEN);
@@ -70,23 +76,33 @@ public class FindCubeDropOnSpotModule extends BehaviourModule {
 		colors.add(Colors.BLACK);
 		colors.add(Colors.DARK_BLUE);
 
-		//hij moet ook kunnen grijpen
+		//hij moet ook kunnen grijpen en loslatn
 		grabCube = new GrabCubeModule(getMarvin());
 		dropCube = new DropCubeModule(getMarvin());
 		
+		//kleur van kubus moet worden gemeten
+		
+		MColor cubeColor = getColorofCube();
+		
+		
+		//een boolean voor has cube
 		boolean hasCube = false;
+		//grijpertje openen
 		getMarvin().getMotorControl().letLoose(200, 1500);
 		Delay.msDelay(300);
+		//motortje stoppen
 		getMarvin().getMotorControl().stop();
 		Delay.msDelay(500);
+		//blokje grijpen
     	getMarvin().getMotorControl().grabItForward(200,1700);
     	getMarvin().getMotorControl().stop();
     	hasCube = true;
 		
+    	//hij heeft een kubus, dus kan hij gaan rijden
 		
 		while (hasCube) {
 			sensorModeRGBdown.fetchSample(sampleRGB, 0);
-			sensorModeRGBfront.fetchSample(sampleRGBfront, 0);
+		//	sensorModeRGBfront.fetchSample(sampleRGBfront, 0);
 
 			textLCD.setAutoRefresh(false);
 			textLCD.refresh();
@@ -141,7 +157,8 @@ public class FindCubeDropOnSpotModule extends BehaviourModule {
 //			else {
 //	        	getMarvin().getMotorControl().drive(150, 150);
 //	        	Delay.msDelay(400);
-			MColor cubeColor = getColorofCube();
+			//MColor cubeColor = getColorofCube();
+			//checken of hij al de 
 			sameColor = findColorField(cubeColor);
 				
 				while (!sameColor) {
@@ -261,10 +278,11 @@ public class FindCubeDropOnSpotModule extends BehaviourModule {
 		ArrayList<MColor> colors = new ArrayList<>();
 		colors.add(Colors.RED);
 		colors.add(Colors.GREEN);
-		colors.add(Colors.BLUE_GREY);
-		colors.add(Colors.ORANGE);
-		colors.add(Colors.WHITE);
-		colors.add(Colors.BLACK);
+		colors.add(Colors.BLUE);
+//		colors.add(Colors.BLUE_GREY);
+//		colors.add(Colors.ORANGE);
+//		colors.add(Colors.WHITE);
+//		colors.add(Colors.BLACK);
 
 		MColor closestColorDown = getMarvin().getClosestColorFinder().getClosestColor(colors, new MColor("", r, g, b));
 
