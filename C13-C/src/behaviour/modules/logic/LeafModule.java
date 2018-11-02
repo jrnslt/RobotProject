@@ -4,11 +4,9 @@ import behaviour.modules.BehaviourModule;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 
-
 /**
  * simple module that has 1 submodule
  * returns the value of the submodule
- *
  */
 public class LeafModule extends BehaviourModule {
 	private BehaviourModule subModule;

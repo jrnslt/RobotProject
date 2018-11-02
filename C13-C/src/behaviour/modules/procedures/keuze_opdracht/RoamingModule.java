@@ -16,61 +16,19 @@ import nl.hva.miw.robot.cohort13.functionality.MemoryOpdracht2;
 import nl.hva.miw.robot.cohort13.functionality.MotorControl;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
-public class RoamingModule extends BehaviourModule {
+public class RoamingModule extends GroundColorReaderModule {
 
 	public RoamingModule(Marvin marvin) {
-		super(marvin);
+		super(marvin, "roaming", null, "");
 	}
 
 	@Override
 	public boolean execute() {	
-		ColorSensorControl colorSensorControl = getMarvin().getColorSensorControlDown();
-
-		EV3ColorSensor colorSensor = colorSensorControl.getColorSensor();
-
-		SensorMode sensorModeRGB = colorSensor.getRGBMode();
-		colorSensor.setFloodlight(Color.WHITE);
-		colorSensor.setCurrentMode(sensorModeRGB.getName());
-
-		float[] sampleRGB = new float[sensorModeRGB.sampleSize()];
-		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
-		textLCD.setAutoRefresh(false);
-		Sound.beep();
-	
-        ArrayList<MColor> colors = new ArrayList<>();
-        colors.add(Colors.RED);
-        colors.add(Colors.GREEN);
-        colors.add(Colors.BLUE_GREY);
-        colors.add(Colors.ORANGE);
-        colors.add(Colors.WHITE);
-        colors.add(Colors.BLACK);
-        colors.add(Colors.DARK_BLUE);
-      
+        ArrayList<MColor> colors = getColors();
+        
 		while (true) {
-			sensorModeRGB.fetchSample(sampleRGB, 0);
-			
-	        textLCD.setAutoRefresh(false);
-	        textLCD.refresh();
-	        textLCD.clear();
-
-			float r = sampleRGB[0]; // rood
-			float g = sampleRGB[1]; // groen
-			float b = sampleRGB[2]; // blauw
-			
-			r = colorSensorControl.getRed(r);
-			g = colorSensorControl.getGreen(g);
-			b = colorSensorControl.getBlue(b);
-			
-	        MColor closestColor = getMarvin().getClosestColorFinder().
-	        		getClosestColor(colors, new MColor("", r, g, b));
-	        textLCD.drawString("" +  closestColor.getColorName(), 1, 6);
-			
-		    textLCD.drawString("RGB mode", 1, 1);
-	        textLCD.drawString("" + r, 1, 2);
-	        textLCD.drawString("" + g, 1, 3);
-	        textLCD.drawString("" + b, 1, 4);  
-	        textLCD.drawString(closestColor.getColorName(), 1, 5);  
-	        
+	        MColor closestColor = readColor(colors);
+	        int count = 0;
 	        MotorControl motorControl = getMarvin().getMotorControl();
 	        MemoryOpdracht2 memory = getMarvin().getMemoryOpdracht2();
 	        
@@ -78,27 +36,40 @@ public class RoamingModule extends BehaviourModule {
 	        	//Draaien
 	        	motorControl.stop();
 	        	motorControl.drive(-250, 250);
-	        	Delay.msDelay(3700);
+	        	Delay.msDelay(3000);
 	        	motorControl.stop();
 	        } else {
-	        	//kleur checken
-	        	if (!memory.redCubeFound && closestColor == Colors.RED) {
-	        		motorControl.stop();
-	        		//Delay.msDelay(2000);
-	        		Sound.beep();
-	        		//return true;
-	        	} else if (!memory.greenCubeFound && closestColor == Colors.GREEN) {
-	        		motorControl.stop();
-	        		
-	        		//return true;
-	        	} else if (!memory.blueCubeFound && closestColor == Colors.BLUE_GREY) {
-	        		motorControl.stop();
-	        		//Delay.msDelay(2000);
-	        		//return true;
-	        	} else {
 	        	
-		        	motorControl.drive(200, 200);
-					Delay.msDelay(200);
+	        	//kleur checken
+	        	if (!memory.redCubeDelivered && closestColor == Colors.TAPE_RED) {
+	        		getMarvin().getMemoryOpdracht2().currentColor = Colors.TAPE_RED;
+		        	motorControl.drive(150, 150);
+					Delay.msDelay(400);
+	        		motorControl.stop();
+	        		return true;
+	        	} else if (!memory.greenCubeDelivered && closestColor == Colors.TAPE_GREEN) {
+	        		getMarvin().getMemoryOpdracht2().currentColor = Colors.TAPE_GREEN;
+		        	motorControl.drive(150, 150);
+					Delay.msDelay(400);
+	        		motorControl.stop();
+	        		return true;
+	        	} else if (!memory.blueCubeDelivered && closestColor == Colors.TAPE_BLUE) {
+	        		getMarvin().getMemoryOpdracht2().currentColor = Colors.TAPE_BLUE;
+		        	motorControl.drive(150, 150);
+					Delay.msDelay(400);
+	        		motorControl.stop();
+	        		return true;
+	        	} else {
+	        		if (readColor(colors) == Colors.WHITE) {
+		        		while (readColor(colors) == Colors.WHITE) {
+				        	motorControl.drive(150, 150);
+							Delay.msDelay(100);
+		        		}
+	        		} else {  			
+			        	motorControl.drive(150, 150);
+						Delay.msDelay(100);
+	        		}
+	        		
 	        	}
 	        }
 		}

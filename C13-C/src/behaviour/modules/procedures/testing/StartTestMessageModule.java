@@ -8,7 +8,7 @@ import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 /**
- * @author daniel
+ * 
  *
  * Print bericht dat testen begint voor een bepaalde module
  *

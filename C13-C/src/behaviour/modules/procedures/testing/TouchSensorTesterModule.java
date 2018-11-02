@@ -10,9 +10,9 @@ import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 /**
- * @author daniel
+ *\
  * 
- * Test module die de functionaliteit van de toch sensor test
+ * Test module die de functionaliteit van de touch sensor test
  *
  */
 public class TouchSensorTesterModule extends BehaviourModule {

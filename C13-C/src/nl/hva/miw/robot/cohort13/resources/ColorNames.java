@@ -4,8 +4,8 @@ public class ColorNames {
 	public static final String PURPLE = "purple";
 	public static final String BLUE = "blue";
 	public static final String ORANGE = "orange";
+	public static final String BRIGHT_ORANGE = "bright orange";
 	public static final String RED =  "red";
-	public static final String RED_WHITE = "red white";
 	public static final String GREEN = "green";
 	public static final String WHITE = "white";
 	public static final String BLACK = "black";
@@ -22,5 +22,10 @@ public class ColorNames {
 	public static final String LIGHT_BLUE = "light blue";
 
 	public static final String LIGHT_PURPLE = "light purple";
-	public static final String BLUE_GREY = "blue grey";
+	public static final String MEDIUM_PURPLE = "medium purple";
+	public static final String MID_GREY = "mid grey";
+	
+	public static final String TAPE_BLUE = "tape blue";	
+	public static final String TAPE_GREEN = "tape green";
+	public static final String TAPE_RED = "tape red";
 }

@@ -48,7 +48,7 @@ public class CubeRecognizerTestModule extends BehaviourModule {
 	        textLCD.refresh();
 	        textLCD.clear();
 	        
-		    int distanceValue = getMarvin().getProximityManager().getDistance();
+		    int distanceValue = getMarvin().getProximityControl().getDistance();
 			  
         	sensorModeRGB.fetchSample(sampleRGB, 0);
 	        float r = sampleRGB[0];

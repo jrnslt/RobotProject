@@ -3,7 +3,7 @@ package behaviour.modules.logic;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 /**
- * always return true
+ * calls execute for child module and always returns true
  *
  */
 public class SucceederModule extends LeafModule {

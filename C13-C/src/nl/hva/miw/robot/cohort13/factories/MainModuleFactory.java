@@ -14,15 +14,16 @@ import behaviour.modules.logic.StateConditionModule;
 import behaviour.modules.logic.SucceederModule;
 import behaviour.modules.procedures.console.ConsoleModule;
 import behaviour.modules.procedures.exit.GoodbyeModule;
-import behaviour.modules.procedures.keuze_opdracht.FindCubeDropOnSpotModule;
 import behaviour.modules.procedures.keuze_opdracht.GrabCubeModule;
 import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
 import behaviour.modules.procedures.keuze_opdracht.RoamingModule;
 import behaviour.modules.procedures.keuze_opdracht.VictoryDanceOpdracht2Module;
+import behaviour.modules.procedures.parcour.ParcourFinal;
 import behaviour.modules.procedures.parcour.ParcoursModule;
 import behaviour.modules.procedures.parcour.ParcoursModuleRGB;
 import behaviour.modules.procedures.parcour.ParcoursModuleRGB2;
 import behaviour.modules.procedures.parcour.ParcoursModuleRgbCalibrate;
+import behaviour.modules.procedures.parcour.ParkourZwart;
 import behaviour.modules.procedures.testing.ColorSensorTesterModule;
 import behaviour.modules.procedures.testing.CubeRecognizerTestModule;
 
@@ -30,10 +31,12 @@ import behaviour.modules.procedures.testing.ColorRecognizerTestModule;
 import behaviour.modules.procedures.testing.DriveForwardTesterModule;
 import behaviour.modules.procedures.testing.EndTestMessageModule;
 import behaviour.modules.procedures.testing.LijnenTester;
-import behaviour.modules.procedures.testing.LijnenTester2;
+import behaviour.modules.procedures.testing.LijnenTester;
 import behaviour.modules.procedures.testing.ProximitySensorTesterModule;
 import behaviour.modules.procedures.testing.RodeLijnTester;
 import behaviour.modules.procedures.testing.StartTestMessageModule;
+import behaviour.modules.procedures.uitbreiding.FindCubeDropOnSpotModule;
+import behaviour.modules.procedures.uitbreiding.KeuzeOpdracht3IAJ;
 import behaviour.modules.procedures.uitbreiding.RegenBoogChecker;
 import behaviour.modules.procedures.uitbreiding.UitbreidingOpdrachtModule;
 import behaviour.modules.procedures.welcome.WelcomeModule;
@@ -86,45 +89,21 @@ public class MainModuleFactory extends ModuleFactory {
 						succeederModuleA.addModule(sequenceUntilFailModule_A);
 							sequenceUntilFailModule_A.addModule(new StateConditionModule(marvin, MarvinState.TESTING));
 							sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
-							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);
-							
-//							sequenceModule_Testing.addModule(new FindCubeDropOnSpotModule(marvin));
-
-
-
-						//	sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
-							//sequenceModule_Testing.addModule(new RoamingModule(marvin));
-						//	sequenceModule_Testing.addModule(new UitbreidingOpdrachtModule(marvin));
-							sequenceModule_Testing.addModule(new ParcoursModuleRGB(marvin));
-
-		//						sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
-							/*
-							sequenceModule_Testing.addModule(new GrabCubeModule(marvin));
-							sequenceModule_Testing.addModule(new DelayModule(marvin, 1000));
-							sequenceModule_Testing.addModule(new BeepModule(marvin));
-							sequenceModule_Testing.addModule(new VictoryDanceOpdracht2Module(marvin));;
-							*/
-
-//							marvin.getColorSensorControlDown().getColorSensor(), TestingProcedureNames.colorSensorName + "_A"));
-	
-
-
-								//sequenceModule_Testing.addModule(new LijnenTester2(marvin));
-							
+							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);	
+								//sequenceModule_Testing.addModule(new RegenBoogChecker(marvin));
+								sequenceModule_Testing.addModule(new ColorSensorTesterModule(
+										marvin, marvin.getColorSensorControlDown().getColorSensor(), ""));
 							sequenceUntilFailModule_A.addModule(new DelayModule(marvin, 500));	
 							sequenceUntilFailModule_A.addModule(new ClearConsoleModule(marvin));
 							
 					
 					//Parcours
-							
-
-
 					sequenceModuleB.addModule(succeederModuleB);	
 						succeederModuleB.addModule(sequenceUntilFailModule_B);
 							sequenceUntilFailModule_B.addModule(new StateConditionModule(marvin, MarvinState.PARCOUR));
 							sequenceUntilFailModule_B.addModule(new WaitForEnterKeyModule(marvin));
-							sequenceUntilFailModule_B.addModule(new ParcoursModuleRGB(marvin));
-
+							//sequenceUntilFailModule_B.addModule(new ParcourFinal(marvin));
+							sequenceUntilFailModule_B.addModule(new ParkourZwart(marvin));
 							sequenceUntilFailModule_B.addModule(new BeepModule(marvin));
 							sequenceUntilFailModule_B.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_B.addModule(new ClearConsoleModule(marvin));
@@ -141,7 +120,7 @@ public class MainModuleFactory extends ModuleFactory {
 						succeederModuleD.addModule(sequenceUntilFailModule_E);
 							sequenceUntilFailModule_E.addModule(new StateConditionModule(marvin, MarvinState.SHOW));
 							sequenceUntilFailModule_E.addModule(new CalibratieModule(marvin));	
-							sequenceUntilFailModule_E.addModule(new UitbreidingOpdrachtModule(marvin));				
+							sequenceUntilFailModule_E.addModule(new KeuzeOpdracht3IAJ(marvin));				
 							sequenceUntilFailModule_E.addModule(new DelayModule(marvin, 500));
 							sequenceUntilFailModule_E.addModule(new ClearConsoleModule(marvin));
 					//Exit

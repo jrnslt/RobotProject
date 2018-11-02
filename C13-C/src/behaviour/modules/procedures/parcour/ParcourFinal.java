@@ -1,5 +1,7 @@
 package behaviour.modules.procedures.parcour;
 
+import behaviour.modules.BehaviourModule;
+
 import java.util.ArrayList;
 
 import behaviour.modules.BehaviourModule;
@@ -15,7 +17,7 @@ import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.functionality.ColorSensorControl;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
-public class ParcoursModuleRGB extends BehaviourModule {
+public class ParcourFinal extends BehaviourModule {
 
 	private final long runTime = 1000000;
 	private final double fairlyBlack = 0.4;
@@ -25,7 +27,7 @@ public class ParcoursModuleRGB extends BehaviourModule {
 	private final double extremeWhite = 1.77;
 	private final double reallyBlue = 2.5;
 
-	public ParcoursModuleRGB(Marvin marvin) {
+	public ParcourFinal(Marvin marvin) {
 		super(marvin);
 	}
 
@@ -35,7 +37,6 @@ public class ParcoursModuleRGB extends BehaviourModule {
 		long lastTime = System.currentTimeMillis();
 		EV3ColorSensor colorSensor = getMarvin().getColorSensorControlDown().getColorSensor();
 		Stopwatch stopWatch = null;
-	
 		ColorSensorControl colorSensorControl = getMarvin().getColorSensorControlDown();
 		colorSensorControl.calibrateSensor();
 		 ArrayList<MColor> colors = new ArrayList<>();
@@ -146,7 +147,9 @@ public class ParcoursModuleRGB extends BehaviourModule {
 	    		}
 	        }
 
-	         else if (r2 > 1.5) {
+	        
+
+	         else if (r2 > 1.4) {
 	        	textLCD.drawString(String.format("W %.3f / %.3f", r2, b2), 1, 5);
 				getMarvin().getMotorControl().drive(-100, 250); //Get More Left
 				Delay.msDelay(250);
@@ -229,7 +232,4 @@ public class ParcoursModuleRGB extends BehaviourModule {
 		
 		return true;
 	}
-	
-
-	}
-
+}

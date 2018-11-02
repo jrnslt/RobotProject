@@ -1,17 +1,23 @@
 package nl.hva.miw.robot.cohort13;
 
 import behaviour.modules.BehaviourModule;
+import behaviour.modules.general.Rotate45DegreesCounterClockwiseModule;
+import behaviour.modules.procedures.keuze_opdracht.DriveBackwardsModule;
+import behaviour.modules.procedures.keuze_opdracht.DriveForwardModule;
 import behaviour.modules.procedures.keuze_opdracht.DropCubeModule;
 import behaviour.modules.procedures.keuze_opdracht.FollowLineForAShortWhile;
 import behaviour.modules.procedures.keuze_opdracht.FollowLineUntilCubeIsFoundModule;
 import behaviour.modules.procedures.keuze_opdracht.FollowLineUntilDropSpotModule;
 import behaviour.modules.procedures.keuze_opdracht.GrabCubeModule;
 import behaviour.modules.procedures.keuze_opdracht.KeuzeOpdrachtModule;
+import behaviour.modules.procedures.keuze_opdracht.RoamingModule;
 import behaviour.modules.procedures.parcour.ParcoursModuleRGB;
 import behaviour.modules.procedures.parcour.ParcoursModuleRgbCalibrate;
+import behaviour.modules.procedures.testing.ColorRecognizerTestModule;
 import behaviour.modules.procedures.testing.ColorSensorTesterModule;
 import behaviour.modules.procedures.testing.LijnenTester;
 import behaviour.modules.procedures.testing.RodeLijnTester;
+import behaviour.modules.procedures.uitbreiding.RegenBoogChecker;
 import lejos.ev3.tools.EV3Control;
 import lejos.hardware.Brick;
 import lejos.hardware.Key;
@@ -40,11 +46,6 @@ public class Marvin {
 	private KeyInputControl keyInputManager;
 	private ProximityControl proximityControl;
 	private ClosestColorFinder closestColorFinder;
-	private FollowLineUntilDropSpotModule followLineUntilDropSpotModule;
-	private FollowLineUntilCubeIsFoundModule followLineUntilCubeIsFoundModule;
-	private FollowLineForAShortWhile followLineForAShortWhile;
-	private GrabCubeModule grabCubeModule;
-	private DropCubeModule dropCubeModule;
 	
 	private MemoryOpdracht2 memoryOpdracht2;
 	
@@ -85,7 +86,7 @@ public class Marvin {
 		return keyInputManager;
 	}
 	
-	public ProximityControl getProximityManager() {
+	public ProximityControl getProximityControl() {
 		return proximityControl;
 	}
 	
@@ -105,15 +106,8 @@ public class Marvin {
 		state = MarvinState.getStateByNumber(stateNumber); 
 	}
 	
-	public void run() {						
-		colorSensorControlDown.calibrateSensor();	
-		Delay.msDelay(4000);
-		motorControl.grabIt();
-		motorControl.letLoose();
-		new FollowLineUntilCubeIsFoundModule(this, Colors.RED_WHITE).execute();
-		new GrabCubeModule(this).execute();
-		
-		Sound.beep();
+	public void run() {		
+		mainModule.execute();
 	}
 	
 	public boolean keyPressed(Key key) {

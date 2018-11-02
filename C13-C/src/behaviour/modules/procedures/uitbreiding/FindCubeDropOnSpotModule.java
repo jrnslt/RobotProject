@@ -1,4 +1,4 @@
-package behaviour.modules.procedures.keuze_opdracht;
+package behaviour.modules.procedures.uitbreiding;
 
 import java.util.ArrayList;
 
@@ -44,7 +44,7 @@ public class FindCubeDropOnSpotModule extends BehaviourModule {
 		  ArrayList<MColor> colors = new ArrayList<>();
 	        colors.add(Colors.RED);
 	        colors.add(Colors.GREEN);
-	        colors.add(Colors.BLUE_GREY);
+	        colors.add(Colors.TAPE_BLUE);
 	        colors.add(Colors.ORANGE);
 	        colors.add(Colors.WHITE);
 	        colors.add(Colors.BLACK);
@@ -169,7 +169,7 @@ public class FindCubeDropOnSpotModule extends BehaviourModule {
 //	while(currentTime - startTime < 10000) {
 //		currentTime = System.currentTimeMillis();
 
-		int distanceValue = getMarvin().getProximityManager().getDistance();
+		int distanceValue = getMarvin().getProximityControl().getDistance();
 
 		textLCD.refresh();
 		textLCD.clear();

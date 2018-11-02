@@ -17,11 +17,17 @@ public class DropCubeModule extends BehaviourModule {
 	@Override
 	public boolean execute() {
 
+		Delay.msDelay(500);
 		getMarvin().getMotorControl().stop();
-     	getMarvin().getMotorControl().rotate180();
+     	getMarvin().getMotorControl().rotateClockwise(200, 3000);
      	getMarvin().getMotorControl().stop();
-    	getMarvin().getMotorControl().letLoose(200, 1700);
+     	Delay.msDelay(500);
+     	getMarvin().getMotorControl().driveBackwards(200, 200, 250);
+     	Delay.msDelay(500);
+     	getMarvin().getMotorControl().stop();
+    	getMarvin().getMotorControl().letLoose(150, 2300);
     	getMarvin().getMotorControl().stop();
+    	Delay.msDelay(500);
 		
 		return true;
 	}

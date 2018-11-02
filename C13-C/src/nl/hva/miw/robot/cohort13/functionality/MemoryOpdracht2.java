@@ -1,5 +1,6 @@
 package nl.hva.miw.robot.cohort13.functionality;
 
+import nl.hva.miw.robot.cohort13.MColor;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 public class MemoryOpdracht2 extends MarvinComponent {
@@ -11,6 +12,7 @@ public class MemoryOpdracht2 extends MarvinComponent {
 	public boolean blueCubeFound;
 	public boolean blueCubeDelivered;
 	public boolean roaming;
+	public MColor currentColor;
 	
 	public MemoryOpdracht2(Marvin marvin) {
 		super(marvin);
@@ -25,5 +27,6 @@ public class MemoryOpdracht2 extends MarvinComponent {
 		blueCubeFound = false;
 		blueCubeDelivered = false;
 		roaming = true;
+		currentColor = null;
 	}
 }
