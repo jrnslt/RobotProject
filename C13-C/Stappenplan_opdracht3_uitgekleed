@@ -1,0 +1,7 @@
+De robot moet beginnen op een wit vlak aan de zijkant
+wit moet worden gecalibreerd, zowel voor als onder
+robot herkent kleur, slaat die kleur op
+gaat rijden tot hij de blauwe lijn ziet
+als hij blauw ziet, draait hij naar links richting kleurvlakken
+rijdt door tot hij de kleur herkent
+dropt het blokje

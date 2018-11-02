@@ -5,6 +5,7 @@ import behaviour.modules.general.Rotate45DegreesCounterClockwiseModule;
 import behaviour.modules.procedures.keuze_opdracht.DriveBackwardsModule;
 import behaviour.modules.procedures.keuze_opdracht.DriveForwardModule;
 import behaviour.modules.procedures.keuze_opdracht.DropCubeModule;
+import behaviour.modules.procedures.keuze_opdracht.FindCubeDropOnSpotModule;
 import behaviour.modules.procedures.keuze_opdracht.FollowLineForAShortWhile;
 import behaviour.modules.procedures.keuze_opdracht.FollowLineUntilCubeIsFoundModule;
 import behaviour.modules.procedures.keuze_opdracht.FollowLineUntilDropSpotModule;

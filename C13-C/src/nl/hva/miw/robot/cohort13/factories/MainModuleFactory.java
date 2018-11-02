@@ -90,6 +90,7 @@ public class MainModuleFactory extends ModuleFactory {
 						succeederModuleA.addModule(sequenceUntilFailModule_A);
 							sequenceUntilFailModule_A.addModule(new StateConditionModule(marvin, MarvinState.TESTING));
 							sequenceUntilFailModule_A.addModule(new CalibratieModule(marvin));
+
 							sequenceUntilFailModule_A.addModule(sequenceModule_Testing);	
 								sequenceModule_Testing.addModule(new ColorRecognizerTestModule(marvin, marvin.getColorSensorControlDown().getColorSensor()));
 								sequenceModule_Testing.addModule(new WaitForEnterKeyModule(marvin));
@@ -114,7 +115,7 @@ public class MainModuleFactory extends ModuleFactory {
 								sequenceModule_Testing.addModule(new SoundTesterModule(marvin));	
 								sequenceModule_Testing.addModule(new WaitForEnterKeyModule(marvin));
 								sequenceModule_Testing.addModule(new TouchSensorTesterModule(marvin));	
-								
+							
 							sequenceUntilFailModule_A.addModule(new DelayModule(marvin, 500));	
 							sequenceUntilFailModule_A.addModule(new ClearConsoleModule(marvin));
 							
