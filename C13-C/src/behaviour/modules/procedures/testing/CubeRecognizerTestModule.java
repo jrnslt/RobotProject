@@ -17,7 +17,7 @@ import nl.hva.miw.robot.cohort13.resources.Colors;
 public class CubeRecognizerTestModule extends BehaviourModule {
 	private ColorSensorControl colorSensorControl;
 	
-	public CubeRecognizerTestModule(Marvin marvin, ColorSensorControl colorSensorControl, String testModuleName) {
+	public CubeRecognizerTestModule(Marvin marvin, ColorSensorControl colorSensorControl) {
 		super(marvin);
 		this.colorSensorControl = colorSensorControl;
 	}
@@ -48,7 +48,7 @@ public class CubeRecognizerTestModule extends BehaviourModule {
 	        textLCD.refresh();
 	        textLCD.clear();
 	        
-		    int distanceValue = getMarvin().getProximityManager().getDistance();
+		    int distanceValue = getMarvin().getProximityControl().getDistance();
 			  
         	sensorModeRGB.fetchSample(sampleRGB, 0);
 	        float r = sampleRGB[0];

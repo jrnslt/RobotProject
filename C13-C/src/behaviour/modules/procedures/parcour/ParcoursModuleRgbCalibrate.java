@@ -9,135 +9,136 @@ import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
 import lejos.utility.Delay;
+import lejos.utility.Stopwatch;
 import nl.hva.miw.robot.cohort13.MColor;
 import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.functionality.ColorSensorControl;
+import nl.hva.miw.robot.cohort13.functionality.MotorControl;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
 public class ParcoursModuleRgbCalibrate extends BehaviourModule {
+	//klassen die nodig zijn
 	private final long runTime = 30000;
-
+	Stopwatch stopWatch;
+	ColorSensorControl colorSensorControl;
+	EV3ColorSensor colorSensor;
+	TextLCD textLCD;
+	MotorControl motorcontrol;
 
 	public ParcoursModuleRgbCalibrate(Marvin marvin) {
 		super(marvin);
-		// TODO Auto-generated constructor stub
+		this.colorSensorControl = getMarvin().getColorSensorControlDown();
+		this.colorSensor = colorSensorControl.getColorSensor();
+		this.textLCD = getMarvin().getBrick().getTextLCD();
+		this.motorcontrol = getMarvin().getMotorControl();
+
 	}
 
 	@Override
 	public boolean execute() {
-		ColorSensorControl colorSensorControl = getMarvin().getColorSensorControlDown();
+		//calibrate sensor
 		colorSensorControl.calibrateSensor();
-		
+		Delay.msDelay(3000);
 
 		long startTime = System.currentTimeMillis();
 		long lastTime = System.currentTimeMillis();
-		EV3ColorSensor colorSensor = colorSensorControl.getColorSensor();
 
 		SensorMode sensorModeRGB = colorSensor.getRGBMode();
 		colorSensor.setFloodlight(Color.WHITE);
 		colorSensor.setCurrentMode(sensorModeRGB.getName());
 
 		float[] sampleRGB = new float[sensorModeRGB.sampleSize()];
-		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
 		textLCD.setAutoRefresh(false);
-	
-		  ArrayList<MColor> colors = new ArrayList<>();
-	        colors.add(Colors.RED);
-	        colors.add(Colors.BLUE);
-	        colors.add(Colors.WHITE);
-	        colors.add(Colors.BLACK);
-	        colors.add(Colors.GREY);
+
+		
+		ArrayList<MColor> colors = new ArrayList<>();
+		colors.add(Colors.RED);
+		colors.add(Colors.BLUE);
+		colors.add(Colors.WHITE);
+		colors.add(Colors.BLACK);
+		colors.add(Colors.GREY);
+
+		//number of passed red lines
+		int timesRed = 0;
 
 		while (lastTime - startTime < runTime) {
-//			getMarvin().getMotorControl().getBigMotorLeft().forward();
-//			getMarvin().getMotorControl().getBigMotorRight().forward();
-			
+			// start drive
+			motorcontrol.driveForward(100, 100);
+
 			lastTime = System.currentTimeMillis();
 			sensorModeRGB.fetchSample(sampleRGB, 0);
-			
-	        textLCD.setAutoRefresh(false);
-	        textLCD.refresh();
-	        textLCD.clear();
+
+			textLCD.setAutoRefresh(false);
+			textLCD.refresh();
+			textLCD.clear();
 
 			float r = sampleRGB[0]; // rood
-			float r2 = r * 10;
 			float g = sampleRGB[1]; // groen
-			float g2 = g * 10;
 			float b = sampleRGB[2]; // blauw
-			float b2 = b * 10;
 
-			String sR = String.format("R: %.2f", r2);
-	        String sG = String.format("G: %.2f", g2);
-	        String sB = String.format("B: %.2f ", b2);
-	        
-	        
-	        float nr = colorSensorControl.getRed(r);
+			String sR = String.format("R: %.2f", r);
+			String sG = String.format("G: %.2f", g);
+			String sB = String.format("B: %.2f ", b);
+
+			float nr = colorSensorControl.getRed(r);
 			float ng = colorSensorControl.getGreen(g);
 			float nb = colorSensorControl.getBlue(b);
-	        
-	        MColor closestColor = getMarvin().getClosestColorFinder().
-	        		getClosestColor(colors, new MColor("", nr, ng, nb));
-	        
-		    textLCD.drawString("RGB mode", 1, 1);
-	        textLCD.drawString(sR, 1, 2);
-	        textLCD.drawString(sG, 1, 3);
-	        textLCD.drawString(sB, 1, 4);  
-	        
-	        
-	        if (closestColor == Colors.RED) { 
-		    		Sound.beep();
-		        	textLCD.drawString("red 123", 1, 5);
-					Delay.msDelay(100);
-					getMarvin().getMotorControl().drive(150, 150); //Drive forward
-					Delay.msDelay(100);
 
-	        } else if (closestColor == Colors.WHITE) {
-	        	textLCD.drawString(String.format("W %.3f / %.3f", r2, b2), 1, 5);
-	        	getMarvin().getMotorControl().drive(300, -150); //Get More Right
-				Delay.msDelay(100);
-	        } 	else if (closestColor == Colors.BLACK) {
-				getMarvin().getMotorControl().drive(-150, 300); //Get More Left
-				Delay.msDelay(100);
+			MColor closestColor = getMarvin().getClosestColorFinder().getClosestColor(colors,
+					new MColor("", nr, ng, nb));
 
-	        	
-	        } else if (closestColor == Colors.GREY) {
-				getMarvin().getMotorControl().drive(200, 200); //Drive forward
-				Delay.msDelay(100);
+			textLCD.drawString("RGB mode", 1, 1);
+			textLCD.drawString(sR, 1, 2);
+			textLCD.drawString(sG, 1, 3);
+			textLCD.drawString(sB, 1, 4);
 
-	        }
-//	        }
-//
-//
-// 	        
-//	         else if (r2 > 1.7) {
-//	        	textLCD.drawString(String.format("W %.3f / %.3f", r2, b2), 1, 5);
-//				getMarvin().getMotorControl().drive(-150, 150); //Get More Left
-//				Delay.msDelay(100);
-//	        } else if (r2 > 1.4) {
-//	        	getMarvin().getMotorControl().drive(1, 150);	//Go Left
-//								Delay.msDelay(150);
-//
-//				textLCD.drawString(String.format("WWZ  %.3f / %.3f", r2, b2), 1, 5);
-//	        	
-//	        } else if (r2 > 0.9) {
-//	        	textLCD.drawString(String.format("ZW  %.3f / %.3f", r2, b2), 1, 5);
-//							//	Delay.msDelay(100);
-//
-//				getMarvin().getMotorControl().drive(150, 150); //Drive forward
-//				Delay.msDelay(100);
-//	        } else if (r2 > 0.5) {
-//	        	textLCD.drawString(String.format("Z  %.3f / %.3f", r2, b2), 1, 5);
-////				
-//				getMarvin().getMotorControl().drive(150, 1); //Get More Right
-//				Delay.msDelay(100);
-//	        } else if (r2 < 0.5) {
-//	        	getMarvin().getMotorControl().drive(150, -150); //Get More Right
-//				Delay.msDelay(100);
-//				
-//	        }
-			
+			if (closestColor == Colors.RED) {
+				
+				timesRed++;
+				Sound.beep();
+
+				// if number redlines passed > 1 the robot has to stop, else start the stopwatch
+				if (timesRed > 1) {
+					textLCD.drawString("red line", 1, 5);
+					motorcontrol.stop();
+					textLCD.drawString("tijd: " + stopWatch.elapsed() / 1000.0f, 1, 5);
+					Delay.msDelay(10000);
+					break;
+
+				
+				} else {
+					stopWatch = new Stopwatch();
+					Delay.msDelay(1000);
+				}
+				
+				//drive and respond to colorvalues
+			} else if (closestColor == Colors.BLACK) {
+				textLCD.drawString("zwart", 1, 5);
+				motorcontrol.drive(1, -220);
+				Delay.msDelay(150);
+				motorcontrol.drive(100, 100);
+				Delay.msDelay(150);
+			} else if (closestColor == Colors.DARKGREY) { // rechtdoor
+				textLCD.drawString("donkergrijs", 1, 5);
+				motorcontrol.drive(200, 200);
+				Delay.msDelay(200);
+
+			} else if (closestColor == Colors.GREY) { // rechtdoor
+				textLCD.drawString("Grijs", 1, 5);
+				motorcontrol.drive(200, 200);
+				Delay.msDelay(200);
+			} else if (closestColor == Colors.WHITE) {
+				textLCD.drawString("wit", 1, 5);
+				motorcontrol.drive(-220, 1);
+				Delay.msDelay(150);
+				motorcontrol.drive(100, 100);
+				Delay.msDelay(150);
+			}
 		}
-		getMarvin().getMotorControl().stop();
+
+		//motors have to stop
+		motorcontrol.stop();
+
 		return false;
 	}
 

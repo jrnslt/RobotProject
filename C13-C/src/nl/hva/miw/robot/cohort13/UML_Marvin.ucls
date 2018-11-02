@@ -3,7 +3,7 @@
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="nl.hva.miw.robot.cohort13.Marvin" project="C13-C" 
     file="/C13-C/src/nl/hva/miw/robot/cohort13/Marvin.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="393" y="225"/>    
+    <position height="-1" width="-1" x="590" y="198"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <enumeration id="2" language="java" name="nl.hva.miw.robot.cohort13.MarvinState" project="C13-C" 
     file="/C13-C/src/nl/hva/miw/robot/cohort13/MarvinState.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="268" width="230" x="865" y="196"/>    
+    <position height="-1" width="-1" x="384" y="-394"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -28,352 +28,431 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="nl.hva.miw.robot.cohort13.PlayLoopedSound" project="C13-C" 
-    file="/C13-C/src/nl/hva/miw/robot/cohort13/PlayLoopedSound.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="160" width="153" x="28" y="273"/>    
+  <class id="4" language="java" name="nl.hva.miw.robot.cohort13.sound.PlayLoopedSound" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/sound/PlayLoopedSound.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-64" y="298"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="nl.hva.miw.robot.cohort13.functionality.ClosestColorFinder" project="C13-C" 
-    file="/C13-C/src/nl/hva/miw/robot/cohort13/functionality/ClosestColorFinder.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="81" y="786"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="6" language="java" name="nl.hva.miw.robot.cohort13.functionality.ColorSensorControl" project="C13-C" 
-    file="/C13-C/src/nl/hva/miw/robot/cohort13/functionality/ColorSensorControl.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="382" y="1139"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="nl.hva.miw.robot.cohort13.functionality.KeyInputControl" project="C13-C" 
-    file="/C13-C/src/nl/hva/miw/robot/cohort13/functionality/KeyInputControl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="635" y="1047"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="8" language="java" name="nl.hva.miw.robot.cohort13.functionality.MarvinComponent" project="C13-C" 
+  <class id="5" language="java" name="nl.hva.miw.robot.cohort13.functionality.MarvinComponent" project="C13-C" 
     file="/C13-C/src/nl/hva/miw/robot/cohort13/functionality/MarvinComponent.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="700" y="704"/>    
+    <position height="-1" width="-1" x="772" y="726"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="nl.hva.miw.robot.cohort13.functionality.MotorControl" project="C13-C" 
-    file="/C13-C/src/nl/hva/miw/robot/cohort13/functionality/MotorControl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="887" y="1218"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="10" language="java" name="nl.hva.miw.robot.cohort13.functionality.ProximityControl" project="C13-C" 
-    file="/C13-C/src/nl/hva/miw/robot/cohort13/functionality/ProximityControl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1148" y="1071"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="11" language="java" name="behaviour.modules.BehaviourModule" project="C13-C" 
+  <class id="6" language="java" name="behaviour.modules.BehaviourModule" project="C13-C" 
     file="/C13-C/src/behaviour/modules/BehaviourModule.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1528" y="1041"/>    
+    <position height="-1" width="-1" x="1278" y="1140"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="behaviour.modules.logic.CounterModule" project="C13-C" 
+  <class id="7" language="java" name="behaviour.modules.logic.CounterModule" project="C13-C" 
     file="/C13-C/src/behaviour/modules/logic/CounterModule.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1441" y="1371"/>    
+    <position height="-1" width="-1" x="1833" y="817"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="behaviour.modules.logic.InverterModule" project="C13-C" 
+  <class id="8" language="java" name="behaviour.modules.logic.InverterModule" project="C13-C" 
     file="/C13-C/src/behaviour/modules/logic/InverterModule.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1648" y="1541"/>    
+    <position height="-1" width="-1" x="2262" y="1021"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="behaviour.modules.logic.LeafModule" project="C13-C" 
+  <class id="9" language="java" name="behaviour.modules.logic.LeafModule" project="C13-C" 
     file="/C13-C/src/behaviour/modules/logic/LeafModule.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1711" y="1364"/>    
+    <position height="-1" width="-1" x="1874" y="966"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="behaviour.modules.logic.LoopModule" project="C13-C" 
+  <class id="10" language="java" name="behaviour.modules.logic.LoopModule" project="C13-C" 
     file="/C13-C/src/behaviour/modules/logic/LoopModule.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2008" y="1365"/>    
+    <position height="-1" width="-1" x="1880" y="1113"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="behaviour.modules.logic.SequenceModule" project="C13-C" 
+  <class id="11" language="java" name="behaviour.modules.logic.SequenceModule" project="C13-C" 
     file="/C13-C/src/behaviour/modules/logic/SequenceModule.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2336" y="1363"/>    
+    <position height="-1" width="-1" x="1886" y="1258"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="behaviour.modules.logic.SequenceUntilFailModule" project="C13-C" 
+  <class id="12" language="java" name="behaviour.modules.logic.SequenceUntilFailModule" project="C13-C" 
     file="/C13-C/src/behaviour/modules/logic/SequenceUntilFailModule.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="124" width="347" x="2190" y="1139"/>    
+    <position height="124" width="347" x="1735" y="1356"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="behaviour.modules.logic.StateConditionModule" project="C13-C" 
-    file="/C13-C/src/behaviour/modules/logic/StateConditionModule.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2322" y="1061"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="19" language="java" name="behaviour.modules.logic.SucceederModule" project="C13-C" 
+  <class id="13" language="java" name="behaviour.modules.logic.SucceederModule" project="C13-C" 
     file="/C13-C/src/behaviour/modules/logic/SucceederModule.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1823" y="1542"/>    
+    <position height="-1" width="-1" x="2258" y="885"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="nl.hva.miw.robot.cohort13.factories.MainModuleFactory" project="C13-C" 
+  <class id="14" language="java" name="nl.hva.miw.robot.cohort13.factories.MainModuleFactory" project="C13-C" 
     file="/C13-C/src/nl/hva/miw/robot/cohort13/factories/MainModuleFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1465" y="593"/>    
+    <position height="-1" width="-1" x="1344" y="553"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="nl.hva.miw.robot.cohort13.factories.ModuleFactory" project="C13-C" 
+  <class id="15" language="java" name="nl.hva.miw.robot.cohort13.factories.ModuleFactory" project="C13-C" 
     file="/C13-C/src/nl/hva/miw/robot/cohort13/factories/ModuleFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1624" y="423"/>    
+    <position height="-1" width="-1" x="1537" y="351"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="nl.hva.miw.robot.cohort13.factories.Opdracht2ModuleFactory" project="C13-C" 
+  <class id="16" language="java" name="nl.hva.miw.robot.cohort13.factories.Opdracht2ModuleFactory" project="C13-C" 
     file="/C13-C/src/nl/hva/miw/robot/cohort13/factories/Opdracht2ModuleFactory.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1745" y="592"/>    
+    <position height="-1" width="-1" x="1721" y="564"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="23">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="8"/>  
+  <class id="17" language="java" name="nl.hva.miw.robot.cohort13.functionality.ClosestColorFinder" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/functionality/ClosestColorFinder.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-38" y="714"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="nl.hva.miw.robot.cohort13.functionality.KeyInputControl" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/functionality/KeyInputControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="31" y="864"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="nl.hva.miw.robot.cohort13.functionality.MemoryOpdracht2" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/functionality/MemoryOpdracht2.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="47" y="1068"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="nl.hva.miw.robot.cohort13.functionality.MotorControl" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/functionality/MotorControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="31" y="1515"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="nl.hva.miw.robot.cohort13.functionality.ProximityControl" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/functionality/ProximityControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="51" y="1919"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="nl.hva.miw.robot.cohort13.resources.ColorNames" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/resources/ColorNames.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="895" y="-283"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="nl.hva.miw.robot.cohort13.resources.Colors" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/resources/Colors.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="647" y="-290"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="nl.hva.miw.robot.cohort13.resources.Sounds" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/resources/Sounds.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1130" y="-470"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="nl.hva.miw.robot.cohort13.resources.TestingProcedureNames" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/resources/TestingProcedureNames.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1396" y="-408"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="nl.hva.miw.robot.cohort13.Utils" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/Utils.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="971" y="82"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="nl.hva.miw.robot.cohort13.sound.PlaySound" project="C13-C" 
+    file="/C13-C/src/nl/hva/miw/robot/cohort13/sound/PlaySound.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-66" y="100"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="5"/>  
   </generalization>  
-  <association id="24">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="25" name="proximityControl"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="27">    
+  <generalization id="29">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="30">    
     <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="11"/>  
+    <end type="TARGET" refId="6"/>  
   </generalization>  
-  <association id="28">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="29" name="subModule"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <association id="31">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="32" name="requiredState"/>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="32" name="state">        
+        <position height="0" width="0" x="-596" y="-724"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-596" y="-724"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="34">    
-    <end type="SOURCE" refId="22"/>    
-    <end type="TARGET" refId="21"/>  
+  <association id="34">    
+    <bendpoint x="1242" y="185"/>    
+    <bendpoint x="1945" y="220"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="35" name="PURPLE"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="37">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="38" name="subModule">        
+        <position height="0" width="0" x="-250" y="99"/>      
+      </attribute>      
+      <multiplicity id="39" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-250" y="99"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="41" name="closestColorFinder"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="43">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="15"/>  
   </generalization>  
-  <association id="35">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="36" name="marvin"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
+  <association id="44">    
+    <bendpoint x="621" y="1917"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="45" name="proximityControl"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="47">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="48" name="mainModule">        
+        <position height="0" width="0" x="-250" y="99"/>      
+      </attribute>      
+      <multiplicity id="49" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-250" y="99"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="50">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="51" name="modules">        
+        <position height="0" width="0" x="-250" y="99"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-250" y="99"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="53">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <generalization id="54">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <generalization id="55">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <association id="56">    
+    <bendpoint x="540" y="1065"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="57" name="memoryOpdracht2"/>      
+      <multiplicity id="58" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="59">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <association id="60">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="61" name="marvin">        
+        <position height="0" width="0" x="197" y="-27"/>      
+      </attribute>      
+      <multiplicity id="62" minimum="0" maximum="1">        
+        <position height="0" width="0" x="197" y="-27"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="38">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="39" name="modules"/>      
-      <multiplicity id="40" minimum="0" maximum="2147483647"/>    
+  <association id="63">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="64" name="modules">        
+        <position height="0" width="0" x="-250" y="99"/>      
+      </attribute>      
+      <multiplicity id="65" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="-250" y="99"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="41">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="11"/>  
+  <generalization id="66">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="5"/>  
   </generalization>  
-  <association id="42">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="43" name="subModule"/>      
-      <multiplicity id="44" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="45">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <generalization id="46">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <generalization id="47">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <generalization id="48">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <association id="49">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="50" name="closestColorFinder"/>      
-      <multiplicity id="51" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="52">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <generalization id="53">    
+  <generalization id="67">    
     <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="14"/>  
+    <end type="TARGET" refId="5"/>  
   </generalization>  
-  <generalization id="54">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="11"/>  
-  </generalization>  
-  <association id="55">    
+  <association id="68">    
+    <bendpoint x="498" y="852"/>    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="56" name="motorControl"/>      
-      <multiplicity id="57" minimum="0" maximum="1"/>    
+      <attribute id="69" name="keyInputManager"/>      
+      <multiplicity id="70" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="58">    
+  <generalization id="71">    
     <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="21"/>  
+    <end type="TARGET" refId="5"/>  
   </generalization>  
-  <association id="59">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="60" name="state"/>      
-      <multiplicity id="61" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="62">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="63" name="mainModule"/>      
-      <multiplicity id="64" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="65">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="14"/>  
-  </generalization>  
-  <association id="66">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="67" name="keyInputManager"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="69">    
-    <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="70" name="modules"/>      
-      <multiplicity id="71" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <generalization id="72">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="11"/>  
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
   </generalization>  
-  <generalization id="73">    
+  <association id="73">    
+    <bendpoint x="568" y="1515"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="74" name="motorControl"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="77">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="78">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="79" name="currentColor"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="81">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="82" name="subModule">        
+        <position height="0" width="0" x="-250" y="99"/>      
+      </attribute>      
+      <multiplicity id="83" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-250" y="99"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="84">    
     <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="8"/>  
+    <end type="TARGET" refId="6"/>  
   </generalization>  
-  <association id="74">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="75" name="colorSensorControlFront"/>      
-      <multiplicity id="76" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="77">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="78" name="colorSensorControlDown"/>      
-      <multiplicity id="79" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

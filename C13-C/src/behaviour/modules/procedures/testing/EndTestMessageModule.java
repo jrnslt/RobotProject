@@ -16,7 +16,7 @@ import nl.hva.miw.robot.cohort13.Marvin;
 public class EndTestMessageModule extends BehaviourModule {
 	private String testModuleName;
 	
-	public EndTestMessageModule(Marvin marvin, String testModuleName) {
+	public EndTestMessageModule(Marvin marvin) {
 		super(marvin);
 		this.testModuleName = testModuleName;
 	}

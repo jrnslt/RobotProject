@@ -6,14 +6,14 @@ import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 /**
- * @author daniel
+ * 
  * 
  * Test module voor testen van de proximity sensor
  *
  */
 public class ProximitySensorTesterModule extends BehaviourModule {
 
-	public ProximitySensorTesterModule(Marvin marvin, String testModuleName) {
+	public ProximitySensorTesterModule(Marvin marvin) {
 		super(marvin);
 	}
 
@@ -28,7 +28,7 @@ public class ProximitySensorTesterModule extends BehaviourModule {
 		while(currentTime - startTime < 10000) {
 			currentTime = System.currentTimeMillis();
 
-		    int distanceValue = getMarvin().getProximityManager().getDistance();
+		    int distanceValue = getMarvin().getProximityControl().getDistance();
 		    
 		    textLCD.refresh();
 	        textLCD.clear();

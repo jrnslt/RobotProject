@@ -2,7 +2,7 @@ package behaviour.modules.procedures.parcour;
 
 import behaviour.modules.BehaviourModule;
 import nl.hva.miw.robot.cohort13.Marvin;
-import nl.hva.miw.robot.cohort13.PlayLoopedSound;
+import nl.hva.miw.robot.cohort13.sound.PlayLoopedSound;
 
 public class ParcourSoundModule_End extends BehaviourModule {
 	private PlayLoopedSound p;

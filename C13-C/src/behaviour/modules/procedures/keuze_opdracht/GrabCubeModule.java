@@ -18,22 +18,19 @@ public class GrabCubeModule extends BehaviourModule {
 	@Override
 	public boolean execute() {
 	
-        	getMarvin().getMotorControl().stop();
-			Delay.msDelay(500);
-        	getMarvin().getMotorControl().driveBackwards(200, 200);
-			Delay.msDelay(1000);
-//			getMarvin().getMotorControl().driveForward(-300, 300);
-//			Delay.msDelay(2000);
-        	getMarvin().getMotorControl().rotate180_2();
-        	getMarvin().getMotorControl().stop();
-			Delay.msDelay(500);
-        	getMarvin().getMotorControl().driveBackwards(200, 200); 
-			Delay.msDelay(1000);
-        	getMarvin().getMotorControl().stop();
-			Delay.msDelay(500);
-        	getMarvin().getMotorControl().grabItForward(200,1700);
-        	getMarvin().getMotorControl().stop();
-		
+		getMarvin().getMotorControl().stop();
+		Delay.msDelay(500);
+		getMarvin().getMotorControl().stop();
+        getMarvin().getMotorControl().rotate180DegreesClockwise();
+        getMarvin().getMotorControl().stop();
+        Delay.msDelay(500);
+        getMarvin().getMotorControl().driveBackwards(150, 150, 500);
+        Delay.msDelay(500);
+        getMarvin().getMotorControl().stop();
+        getMarvin().getMotorControl().grabItForward(150, 2900);
+        getMarvin().getMotorControl().stop();
+        Delay.msDelay(500);
+        
 		return true;
 	}
 

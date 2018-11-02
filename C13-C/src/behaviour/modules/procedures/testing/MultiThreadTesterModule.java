@@ -5,7 +5,7 @@ import nl.hva.miw.robot.cohort13.Marvin;
 
 public class MultiThreadTesterModule extends BehaviourModule {
 	
-	public MultiThreadTesterModule(Marvin marvin, String testModuleName) {
+	public MultiThreadTesterModule(Marvin marvin) {
 		super(marvin);
 	}
 

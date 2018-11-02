@@ -11,7 +11,7 @@ import nl.hva.miw.robot.cohort13.Marvin;
  */
 public class DriveForwardTesterModule extends BehaviourModule {
 
-	public DriveForwardTesterModule(Marvin marvin, String testModuleName) {
+	public DriveForwardTesterModule(Marvin marvin) {
 		super(marvin);
 	}
 

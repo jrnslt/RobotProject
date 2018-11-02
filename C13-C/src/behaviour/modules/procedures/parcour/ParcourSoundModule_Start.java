@@ -1,14 +1,14 @@
 package behaviour.modules.procedures.parcour;
 
 import behaviour.modules.BehaviourModule;
-import behaviour.modules.DelayModule;
+import behaviour.modules.general.DelayModule;
 import behaviour.modules.logic.SequenceModule;
 import behaviour.modules.sound.BeepModule;
 import behaviour.modules.sound.PlaySampleModule;
 import lejos.hardware.Sound;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
-import nl.hva.miw.robot.cohort13.PlayLoopedSound;
+import nl.hva.miw.robot.cohort13.sound.PlayLoopedSound;
 
 public class ParcourSoundModule_Start extends BehaviourModule {
 	private PlayLoopedSound p;

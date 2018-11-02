@@ -7,7 +7,7 @@ import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.Color;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
-import nl.hva.miw.robot.cohort13.PlayLoopedSound;
+import nl.hva.miw.robot.cohort13.sound.PlayLoopedSound;
 
 /**
  * @author JeroenS Er wordt een parcours aangemaakt die runt voor een bepaalde

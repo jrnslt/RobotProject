@@ -13,6 +13,10 @@ import nl.hva.miw.robot.cohort13.MColor;
 import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
+/*
+* Initialiseert de kleurensensor en calibreert deze.
+* De sensor gebruikt de RGB modus (white)
+*/
 public class ColorSensorControl extends MarvinComponent {
     private EV3ColorSensor colorSensor;
     private float red =1;

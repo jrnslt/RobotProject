@@ -65,7 +65,7 @@ public class UitbreidingOpdrachtModule extends BehaviourModule {
 		textLCD.setAutoRefresh(false);
 		Sound.beep();
 
-		ProximityControl afstandTester = getMarvin().getProximityManager(); // AfstandsSensor
+		ProximityControl afstandTester = getMarvin().getProximityControl(); // AfstandsSensor
 
 		ArrayList<MColor> colors = new ArrayList<>();
 		colors.add(Colors.RED);
@@ -175,7 +175,7 @@ public class UitbreidingOpdrachtModule extends BehaviourModule {
 				else if (closestColorDown == Colors.DARK_BLUE) {
 					motorControl.driveForward(200, 200);
 					Delay.msDelay(250);
-					motorControl.rotate90Left();
+					motorControl.rotate90DegreesCounterClockwise();
 					motorControl.stop();
 					motorControl.drive(250, 250);
 					

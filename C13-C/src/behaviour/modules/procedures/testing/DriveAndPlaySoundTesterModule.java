@@ -6,7 +6,7 @@ import nl.hva.miw.robot.cohort13.Marvin;
 
 public class DriveAndPlaySoundTesterModule extends BehaviourModule {
 
-	public DriveAndPlaySoundTesterModule(Marvin marvin, String testModuleName) {
+	public DriveAndPlaySoundTesterModule(Marvin marvin) {
 		super(marvin);
 	}
 

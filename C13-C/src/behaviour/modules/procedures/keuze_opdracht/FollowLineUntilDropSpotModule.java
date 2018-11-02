@@ -24,87 +24,71 @@ import nl.hva.miw.robot.cohort13.resources.Colors;
 /**
  * volg gekleurde lijn totdat gele vlak is gevonden. Dan wordt deze gedropt.
  * 
- * 
- * 
  */
 
-public class FollowLineUntilDropSpotModule extends BehaviourModule {
-
-	private MColor color;
+public class FollowLineUntilDropSpotModule extends GroundColorReaderModule {
 
 	public FollowLineUntilDropSpotModule(Marvin marvin, MColor color) {
-		super(marvin);
-		this.color = color;
+		super(marvin, "follow and drop cube", color, "");
 	}
 
 	@Override
 	public boolean execute() {
-
 		ColorSensorControl colorSensorControl = getMarvin().getColorSensorControlDown();
 		EV3ColorSensor colorSensor = colorSensorControl.getColorSensor();
-
-		SensorMode sensorModeRGB = colorSensor.getRGBMode();
-		colorSensor.setFloodlight(Color.WHITE);
-		colorSensor.setCurrentMode(sensorModeRGB.getName());
-
-		float[] sampleRGB = new float[sensorModeRGB.sampleSize()];
-		TextLCD textLCD = getMarvin().getBrick().getTextLCD();
-		textLCD.setAutoRefresh(false);
-		Sound.beep();
-
-		ArrayList<MColor> colors = new ArrayList<>();
-		colors.add(Colors.RED);
-		colors.add(Colors.GREEN);
-		colors.add(Colors.BLUE_GREY);
-		colors.add(Colors.ORANGE);
-		colors.add(Colors.WHITE);
-		colors.add(Colors.BLACK);
-
-		sensorModeRGB.fetchSample(sampleRGB, 0);
-
-		textLCD.setAutoRefresh(false);
-		textLCD.refresh();
-		textLCD.clear();
-
-		float r = sampleRGB[0]; // rood
-		float g = sampleRGB[1]; // groen
-		float b = sampleRGB[2]; // blauw
-
-		r = colorSensorControl.getRed(r);
-		g = colorSensorControl.getGreen(g);
-		b = colorSensorControl.getBlue(b);
-
-		MColor closestColor = getMarvin().getClosestColorFinder().getClosestColor(colors, new MColor("", r, g, b));
-		textLCD.drawString("" + closestColor.getColorName(), 1, 6);
-		textLCD.drawString("RGB mode", 1, 1);
-		textLCD.drawString(closestColor.getColorName(), 1, 2);
+		
+		ArrayList<MColor> colors = getColors();
 
 		MotorControl motorControl = getMarvin().getMotorControl();
 		MemoryOpdracht2 dropBlock = getMarvin().getMemoryOpdracht2();
-		ProximityControl proximitySensor = getMarvin().getProximityManager();
-
-		while (true) {
-			if (closestColor == Colors.ORANGE) {
-				motorControl.stop();
-				return true;
-			} else {
-				if (closestColor == color) { // links
-					textLCD.drawString("Op de lijn", 1, 3);
-					getMarvin().getMotorControl().drive(-150, 170);
-					Delay.msDelay(400);
-					getMarvin().getMotorControl().drive(20, 1);
-					Delay.msDelay(400);
-					getMarvin().getMotorControl().drive(200, 200);
-					Delay.msDelay(400);
-				}else {
-					textLCD.drawString("Niet op de lijn", 1, 3);
-					getMarvin().getMotorControl().drive(150, -150); // rechts
-					Delay.msDelay(400);
-					getMarvin().getMotorControl().drive(200, 200);
-					Delay.msDelay(400);	
-				} 
+		ProximityControl proximitySensor = getMarvin().getProximityControl();
+		
+        long maxStuckTime = 12000;
+        long timeStart = System.currentTimeMillis();
+		
+		while (true) {	
+			MColor closestColor = readColor(colors);
+			
+			if (closestColor != color) {	
+				
+				while (readColor(colors) != color) {
+					if (readColor(colors) == Colors.BLACK) {
+						
+						getMarvin().getMotorControl().drive(50, 50); 
+						Delay.msDelay(100);	
+						
+						motorControl.stop();
+						return true;
+					} else {		
+						getMarvin().getMotorControl().drive(150, -150); 
+						Delay.msDelay(100);
+						/*
+						if (readColor(colors) == Colors.WHITE) {
+							getMarvin().getMotorControl().drive(150, -150); 
+							Delay.msDelay(100);		
+						} else {
+							Delay.msDelay(400);
+							getMarvin().getMotorControl().drive(150, -150); 
+						}
+						*/
+					}
+					if (System.currentTimeMillis() - timeStart > maxStuckTime) {
+						getMarvin().getMemoryOpdracht2().roaming = true;
+						return false;
+					}
+				}
+			} else if (closestColor == color) { // links
+				timeStart = System.currentTimeMillis();
+				
+				while (readColor(colors) == color) {
+					timeStart = System.currentTimeMillis();
+					getMarvin().getMotorControl().drive(-150, 150);
+					Delay.msDelay(400);		
+				}
+				
+				getMarvin().getMotorControl().drive(250, 250);
+				Delay.msDelay(400);
 			}
-			return true;
 		}
 	}
 }

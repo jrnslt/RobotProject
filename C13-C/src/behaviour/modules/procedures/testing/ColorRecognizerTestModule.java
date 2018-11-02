@@ -16,7 +16,7 @@ public class ColorRecognizerTestModule extends BehaviourModule {
 
 	private EV3ColorSensor colorSensor;
 	
-	public ColorRecognizerTestModule(Marvin marvin, EV3ColorSensor colorSensor, String testModuleName) {
+	public ColorRecognizerTestModule(Marvin marvin, EV3ColorSensor colorSensor) {
 		super(marvin);
 		this.colorSensor = colorSensor;
 	}

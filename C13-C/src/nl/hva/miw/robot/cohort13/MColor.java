@@ -40,6 +40,10 @@ public class MColor {
 		return b;
 	}
 	
+	/**
+	 * @param f
+	 * @return normalised color
+	 */
 	public MColor normalize(float f) {	
 		float rA = this.getRed();
 		float gA = this.getGreen();
@@ -54,6 +58,10 @@ public class MColor {
 		return new MColor(getColorName(), rA, gA, bA);
 	}
 	
+	
+	/**
+	 * @return normalised color
+	 */
 	public MColor normalize() {	
 		float rA = this.getRed();
 		float gA = this.getGreen();

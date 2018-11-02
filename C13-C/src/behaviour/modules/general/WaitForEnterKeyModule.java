@@ -1,5 +1,6 @@
-package behaviour.modules;
+package behaviour.modules.general;
 
+import behaviour.modules.BehaviourModule;
 import lejos.hardware.Button;
 import lejos.hardware.lcd.TextLCD;
 import nl.hva.miw.robot.cohort13.Marvin;

@@ -1,5 +1,6 @@
-package behaviour.modules;
+package behaviour.modules.general;
 
+import behaviour.modules.BehaviourModule;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 public class CalibratieModule extends BehaviourModule {

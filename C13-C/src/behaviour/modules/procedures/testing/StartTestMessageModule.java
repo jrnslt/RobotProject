@@ -8,7 +8,7 @@ import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
 /**
- * @author daniel
+ * 
  *
  * Print bericht dat testen begint voor een bepaalde module
  *
@@ -16,7 +16,7 @@ import nl.hva.miw.robot.cohort13.Marvin;
 public class StartTestMessageModule extends BehaviourModule {
 	private String testModuleName;
 	
-	public StartTestMessageModule(Marvin marvin, String testModuleName) {
+	public StartTestMessageModule(Marvin marvin) {
 		super(marvin);
 		this.testModuleName = testModuleName;
 	}

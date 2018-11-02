@@ -1,9 +1,15 @@
-package behaviour.modules.logic;
+package behaviour.modules.procedures.console;
 
 import behaviour.modules.BehaviourModule;
 import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.MarvinState;
 
+/**
+ * 
+ * returns true if marvinstate matches given state
+ * else returns false
+ *
+ */
 public class StateConditionModule extends BehaviourModule {
 	private MarvinState requiredState;
 	

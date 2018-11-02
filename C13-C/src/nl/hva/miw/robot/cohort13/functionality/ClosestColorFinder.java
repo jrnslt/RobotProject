@@ -3,11 +3,17 @@ package nl.hva.miw.robot.cohort13.functionality;
 import java.util.ArrayList;
 
 import nl.hva.miw.robot.cohort13.MColor;
+import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.Utils;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
-public final class ClosestColorFinder {
+public final class ClosestColorFinder extends MarvinComponent {
 		
+	public ClosestColorFinder(Marvin marvin) {
+		super(marvin);
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * @param 
 	 * @param 
@@ -34,8 +40,8 @@ public final class ClosestColorFinder {
 				closestColor = color;
 			}
 			
-			double distanceCurrent = Utils.EuclidianDistance(color.getRed(), color.getGreen(), color.getBlue(), r, g, b);
-			double distanceShortest = Utils.EuclidianDistance(closestColor.getRed(), closestColor.getGreen(), closestColor.getBlue(), r, g, b);
+			double distanceCurrent = Utils.euclidianDistance(color.getRed(), color.getGreen(), color.getBlue(), r, g, b);
+			double distanceShortest = Utils.euclidianDistance(closestColor.getRed(), closestColor.getGreen(), closestColor.getBlue(), r, g, b);
 			
 			if (distanceCurrent < distanceShortest) {
 				closestColor = color;

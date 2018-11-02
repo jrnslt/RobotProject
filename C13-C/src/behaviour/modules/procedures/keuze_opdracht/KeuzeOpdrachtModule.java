@@ -46,7 +46,7 @@ public class KeuzeOpdrachtModule extends BehaviourModule {
 		while(currentTime - startTime < 30000) {
 			currentTime = System.currentTimeMillis();
 
-		    int distanceValue = getMarvin().getProximityManager().getDistance();
+		    int distanceValue = getMarvin().getProximityControl().getDistance();
 		  
         	sensorModeRGB.fetchSample(sampleRGB, 0);
 	        float r = sampleRGB[0];

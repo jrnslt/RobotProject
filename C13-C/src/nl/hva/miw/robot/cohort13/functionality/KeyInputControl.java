@@ -4,6 +4,11 @@ import lejos.hardware.Key;
 import lejos.utility.Delay;
 import nl.hva.miw.robot.cohort13.Marvin;
 
+/*
+ *
+ * Deze klasse regelt de knoppen. Wacht op input van gebruiker
+ *
+ */
 public class KeyInputControl extends MarvinComponent {
 
 	public KeyInputControl(Marvin marvin) {

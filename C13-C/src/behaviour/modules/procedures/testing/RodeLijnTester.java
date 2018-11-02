@@ -15,6 +15,10 @@ import nl.hva.miw.robot.cohort13.Marvin;
 import nl.hva.miw.robot.cohort13.functionality.ColorSensorControl;
 import nl.hva.miw.robot.cohort13.resources.Colors;
 
+/**
+ * volg een gekleurde lijn
+ *
+ */
 public class RodeLijnTester extends BehaviourModule {
 	private final long runTime = 10000000;
 	
@@ -90,12 +94,7 @@ public class RodeLijnTester extends BehaviourModule {
 				
 	        }  else if (closestColor == Colors.GREY) {		//rechtdoor
 	        	getMarvin().getMotorControl().drive(200, 200);
-	        	Delay.msDelay(400);
-	        	
-//	        } else {
-//	        	textLCD.drawString("else 123", 1, 5);
-//	        	
-//	        	
+	        	Delay.msDelay(400);       	
 	        }
 		}
 		
